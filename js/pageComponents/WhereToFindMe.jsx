@@ -6,7 +6,6 @@ import ToolTips from '../reusableComponents/ToolTips'
 import Icon from '../reusableComponents/Icon'
 import { PersonPin, Github } from '../svg'
 import settings from '../settings'
-import { pxToRemDims } from '../utils'
 
 const { email, grey } = settings
 
