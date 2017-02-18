@@ -1,0 +1,17 @@
+{
+  "use": ["rucksack-css", "postcss-pxtorem", "css-mqpacker"],
+  "input": "public/css/pre-bundle.css",
+  "output": "public/css/bundle.css",
+  "watch": true,
+  "local-plugins": true,
+  "postcss-pxtorem": {
+    "rootValue": 16,
+    "unitPrecision": 5,
+    "propWhiteList": [],
+    "mediaQuery": true,
+    "replace": true
+  },
+  "css-mqpacker": {
+    "sort": true
+  }
+}

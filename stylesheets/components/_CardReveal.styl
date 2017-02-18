@@ -1,0 +1,84 @@
+// **********
+// REACT COMPONENT
+// **********
+
+
+.CardReveal
+  position: relative
+  overflow: hidden
+  font-size: $text-lg
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+    0 2px 10px 0 rgba(0, 0, 0, 0.12)
+  border-radius: 2Px
+  &-content
+    background: $primary-color
+    color: $white
+    padding: $spacer-regular
+  &-title
+    text-transform: uppercase
+    color: $white
+  &-subTitle
+    font-style: italic
+  &-footer
+    overflow: hidden
+    padding: 24px 16px
+    border-top: 1px solid rgba($grey-darken-1, 0.5)
+  &-footerText
+    float: left
+    width: 90%
+    font-size: $text-regular
+    color: $secondary-text
+  &-iconContainer
+    display: flex
+    float: right
+    width: 10%
+    flex-wrap: wrap
+    justify-content: space-around
+    align-items: center
+    > div
+      cursor: pointer
+  /* hidden content */
+  &-reveal
+    position: absolute
+    top: 100%
+    right: 0px
+    left: 0px
+    height: 100%
+    padding: 16px
+    overflow-y: auto
+    background-color: #fff
+    border-radius: 2px
+    color: $primary-text
+
+
+/* Alt version
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.CardReveal[data-cat='jobs']
+  .CardReveal-content
+    background: tint($accent-color, 50%)
+
+
+/* Inside the card => <Reveal/>
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.Reveal
+  color: $primary-text
+  &-header
+    display: inline-block
+    color: $accent-color
+    border-bottom: 1Px solid $accent-color
+  &-list
+    margin-bottom: $spacer-regular
+    padding-left: $spacer-md
+    list-style-type: circle
+  &-footer
+    margin-top: $spacer-regular
+    padding-top: $spacer-regular
+    font-size: $text-md
+    font-style: italic
+    color: $secondary-text
+    border-top: 1Px solid $greyLighten
+  &-iconContainer
+    float: right
+    cursor: pointer
