@@ -6,7 +6,8 @@
 .Collapsible
   overflow: hidden
   border-radius: 2px
-  box-shadow: rgba(#000, 0.117647) 0px 1px 6px, rgba(#000, 0.117647) 0px 1px 4px
+  box-shadow: rgba(#000, 0.117647) 0px 1px 6px,
+    rgba(#000, 0.117647) 0px 1px 4px
   &.popOut
     margin: 0px 24px
     transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -17,11 +18,11 @@
     &.is-close
       margin: 0 24px
   &-title
+    position: relative
     display: flex
     flex-wrap: wrap
     justify-content: center
     align-items: center
-    position: relative
     padding: 16px
     cursor: pointer
     &:focus,
@@ -33,15 +34,15 @@
     flex: 1 0 80%
   &-titleIcon
     display: inline-block
-    vertical-align: middle
     margin-right: 16px
+    vertical-align: middle
   &-titleText
+    color: $greyDarken
     vertical-align: middle
     font-size: $text-lg
-    color: $greyDarken
   &-titleRight
-    flex: 0 0 20%
     display: flex
+    flex: 0 0 20%
     flex-wrap: wrap
     justify-content: flex-end
   &-expandIcon
@@ -50,19 +51,19 @@
     &.is-open
       transform: scaleY(-1)
     &:after
-      display: block
       position: absolute 0 // from the Rucksack plugin
-      content: ''
+      display: block
       border-radius: 50%
       background: rgba(224, 224, 224, 0.4)
+      content: ''
       transform: scale(0)
       transition: transform 0.35s ease-out-back
   /* inside */ 
   &-hr
     position: absolute
-    left: 16px
     right: 24px
     bottom: -8px
+    left: 16px
     border-top: none
     border-bottom: 1px solid $accent-color
   &-list
@@ -75,7 +76,7 @@
       padding-bottom: 0px
   &-text
     padding-left: $spacer-sm
-    font-size: $text-md
     color: $secondary-text
+    font-size: $text-md
   &-text:first-letter
     font-size: 1.2em

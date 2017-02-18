@@ -6,14 +6,14 @@
 .CardReveal
   position: relative
   overflow: hidden
-  font-size: $text-lg
+  border-radius: 2Px
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12)
-  border-radius: 2Px
+  font-size: $text-lg
   &-content
+    padding: $spacer-regular
     background: $primary-color
     color: $white
-    padding: $spacer-regular
   &-title
     text-transform: uppercase
     color: $white
@@ -26,15 +26,15 @@
   &-footerText
     float: left
     width: 90%
-    font-size: $text-regular
     color: $secondary-text
+    font-size: $text-regular
   &-iconContainer
     display: flex
+    flex-wrap: wrap
+    align-items: center
     float: right
     width: 10%
-    flex-wrap: wrap
     justify-content: space-around
-    align-items: center
     > div
       cursor: pointer
   /* hidden content */
@@ -43,11 +43,11 @@
     top: 100%
     right: 0px
     left: 0px
-    height: 100%
-    padding: 16px
     overflow-y: auto
-    background-color: #fff
+    padding: 16px
+    height: 100%
     border-radius: 2px
+    background-color: #fff
     color: $primary-text
 
 
@@ -66,8 +66,8 @@
   color: $primary-text
   &-header
     display: inline-block
-    color: $accent-color
     border-bottom: 1Px solid $accent-color
+    color: $accent-color
   &-list
     margin-bottom: $spacer-regular
     padding-left: $spacer-md
@@ -75,10 +75,10 @@
   &-footer
     margin-top: $spacer-regular
     padding-top: $spacer-regular
-    font-size: $text-md
-    font-style: italic
-    color: $secondary-text
     border-top: 1Px solid $greyLighten
+    color: $secondary-text
+    font-style: italic
+    font-size: $text-md
   &-iconContainer
     float: right
     cursor: pointer

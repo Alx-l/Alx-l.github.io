@@ -25,9 +25,9 @@ btn($background = $primary-color, $color = $primary-text, $box-shadow = false)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 btn-hollow($color = $primary-color, $background = transparent)
-  color: $color
-  background: $background
   border: 1.5px solid $color
+  background: $background
+  color: $color
   &:hover,
   &:focus
     background: $color
@@ -40,19 +40,19 @@ btn-hollow($color = $primary-color, $background = transparent)
 btn-sliding-bg($color = $primary-color, $background = transparent)
   position: relative
   z-index: 2
-  color: $color
-  background: $background
   border: 1.5px solid $color
+  background: $background
+  color: $color
   &:after
-    content: ''
+    position: absolute
+    top: 0
+    left: 0
     z-index: -1
     display: block
-    background: $color
-    position: absolute
     width: 100%
     height: 0%
-    left: 0
-    top: 0
+    background: $color
+    content: ''
     transition: all 0.1s linear
   &:hover,
   &:focus

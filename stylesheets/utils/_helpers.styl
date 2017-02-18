@@ -31,17 +31,17 @@ u-linkSweep()
   transition: none
   transform: translateZ(0) // trick to smooth out the animation
   &:before
-    display: block
     position: absolute 0 // from rucksack css
     z-index: -1
+    display: block
+    background: $accent-color
     content: ''
     transform: scaleY(0)
     transform-origin: center bottom
-    background: $accent-color
   &:hover
     color: $white
-    transition: all 0.2s ease-out-quint
     text-shadow: 1px 1px 0px $accent-color // to prevent the text from being invisible in certain cases on iOS devices
+    transition: all 0.2s ease-out-quint
     &:before
       transform: scaleY(1)
       transition: all 0.2s ease-out-quint
@@ -54,8 +54,8 @@ u-linkSweep()
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 u-highlight()
-  font-weight: 700
   color: $accent-color
+  font-weight: 700
 
 .u-highlight
   u-highlight()
@@ -65,5 +65,5 @@ u-highlight()
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .u-noscroll
-  overflow-y: scroll
   position: fixed 0
+  overflow-y: scroll

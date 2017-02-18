@@ -17,25 +17,25 @@
     &:after
       centerY(absolute)
       display: inline-block
-      content: ''
       width: 100%
       height: 5px
       background: $grey
+      content: ''
   &-icon
     position: relative
     z-index: 3 // EDGE hack, to hide the :after content from the h2, 1/3
     max-width: 15%
     background-color: inherit
     &:after
-      centerXY()
       display: block
-      content: ''
+      centerXY()
+      padding: 18px
       border: 5px solid $grey
       border-radius: 50%
-      padding: 18px
+      content: ''
   &-text
-    max-width: 85%
-    padding: 0 $spacer-md
     position: relative // EDGE hack, 2/3
     z-index: 2 // EDGE hack, 3/3
+    padding: 0 $spacer-md
+    max-width: 85%
     background-color: inherit

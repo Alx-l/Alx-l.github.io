@@ -5,44 +5,44 @@
 
 .OffCanvas
   &-overlay
-    z-index: 10
     position: fixed
     top: 0px
     left: -100%
+    z-index: 10
     width: 100%
     height: 100%
-    opacity: 0
     background-color: rgba(#000, 0.54)
+    opacity: 0
     transform: translateZ(0) // trick to smooth out the animation
     transition: opacity ease-out-quint 0.45s
     .is-open &
       left: 0px
       opacity: 1
   &-content
-    z-index: 11
     position: fixed
     top: 0px
     left: 0px
+    z-index: 11
+    overflow: auto
     width: 240px
     height: 100%
     background-color: $white
-    transition: transform ease-out-quint 0.45s
     box-shadow: rgba(#000, 0.16) 0px 3px 10px, rgba(#000, 0.23) 0px 3px 10px
+    transition: transform ease-out-quint 0.45s
     transform: translate3d(-240px, 0px, 0px)
-    overflow: auto
     .is-open &
       transform: translate3d(0px, 0px, 0px)
   /* links */
   &-item
-    font-size: 20px
     font-weight: 300
+    font-size: 20px
     cursor: pointer
     transition: background-color ease-out-quint 0.45s
     &:hover
       background: $greyLighten
     &.is-active
-      transition: none
       background-color: $grey
+      transition: none
   &-link
     display: block
     padding: 24px 16px
