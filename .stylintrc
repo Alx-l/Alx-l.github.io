@@ -1,0 +1,23 @@
+{
+  "brackets": {
+    "expect": "never",
+    "error": true
+  },
+  "colons": {
+    "expect": "always",
+    "error": true
+  },
+  "sortOrder": "grouped",
+  "prefixVarsWithDollar": {
+    "expect": "always",
+    "error": true
+  },
+  "semicolons": {
+    "expect": "never",
+    "error": true
+  },
+  "trailingWhitespace": {
+    "expect": "never",
+    "error": true
+  }
+}
