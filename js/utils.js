@@ -27,7 +27,7 @@ export const addTabIndex = item => item.tabIndex = 0
 export const removeTabIndex = item => item.tabIndex = -1
 
 export const handleLink = (e, dest) => {
-  // usually, this function would not be needed...except for IE11
+  // ideally, this function would not be needed...except we live in a IE11 world
   e.preventDefault()
   router.transitionTo(dest)
 }
