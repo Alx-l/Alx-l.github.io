@@ -5,12 +5,18 @@ import React from 'react'
 const CardList = (props) => {
 
   const renderAll = () => {
-    const { collectionToRender } = props
-    const CardCollection = Object.keys(collectionToRender).map(el => collectionToRender[el])
-
-    return CardCollection.map((el, i) => {
-      return <div className='CardList-item' key={ i }>{ el }</div>
-    })
+    const { collectionToRender, sortBy: sortKey } = props
+    return collectionToRender
+      .sort((a, b) => {
+        if (sortKey) {
+          return a.props[sortKey] > b.props[sortKey] ? 1 :
+            a.props[sortKey] < b.props[sortKey] ? -1 : 0
+        }
+        return
+      })
+      .map((el, i) => {
+        return <div className="CardList-item" key={ i }>{ el }</div>
+      })
   }
 
   const renderFilteredCollection = () => {
@@ -28,15 +34,16 @@ const CardList = (props) => {
   }
 
   return (
-    <div className='CardList'>
+    <div className="CardList">
       { renderFilteredCollection() }
     </div>
   )
 }
 
 CardList.propTypes = {
-  collectionToRender: React.PropTypes.objectOf(React.PropTypes.node).isRequired,
-  filters: React.PropTypes.objectOf(React.PropTypes.bool)
+  collectionToRender: React.PropTypes.arrayOf(React.PropTypes.node).isRequired,
+  filters: React.PropTypes.objectOf(React.PropTypes.bool),
+  sortKey: React.PropTypes.string
 }
 
 

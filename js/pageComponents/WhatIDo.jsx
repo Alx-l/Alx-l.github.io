@@ -7,7 +7,7 @@ import Likes from '../subComponents/Likes'
 
 const WhatIDo = () => {
   return (
-    <div className='WhatIDo'>
+    <div className="WhatIDo">
       <Skillz/>
       <Likes/>
     </div>

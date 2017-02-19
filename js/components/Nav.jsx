@@ -40,7 +40,7 @@ export default class Nav extends Component {
 
   renderMenuIcon() {
     return (
-      <div className='Nav-icon' onClick={ this.handleOpen }>
+      <div className="Nav-icon" onClick={ this.handleOpen }>
         <Icon svg={ Hamburger } size={ 40 } color="#fff"/>
       </div>
     )
@@ -50,11 +50,11 @@ export default class Nav extends Component {
     const { backgroundColor, heading, subHeading, route } = this.props
 
     return (
-        <nav style={{ backgroundColor }} className='Nav'>
-          <div className='Nav-avatar'><img src='images/avatarpic.jpg' alt='avatar pic'/></div>
-          <h1 className='Nav-heading'>{ heading }</h1>
-          <div className='Nav-subHeading'>{ subHeading }</div>
-          <ul className='Nav-list'>
+        <nav style={{ backgroundColor }} className="Nav">
+          <div className="Nav-avatar"><img src="images/avatarpic.jpg" alt="avatar pic"/></div>
+          <h1 className="Nav-heading">{ heading }</h1>
+          <div className="Nav-subHeading">{ subHeading }</div>
+          <ul className="Nav-list">
             { this.renderNavItems() }
           </ul>
           { this.renderMenuIcon() }

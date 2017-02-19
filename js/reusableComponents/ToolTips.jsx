@@ -40,7 +40,7 @@ export default class ToolTips extends Component {
   render() {
     return (
       <span onClick={ this.handleClick } onMouseEnter={ this.handleHoverIn } onMouseLeave={ this.handleHoverOut } onKeyDown={ this.handleKeyDown } className="ToolTips" tabIndex="0">
-        <span className='ToolTips-text'>
+        <span className="ToolTips-text">
         { this.props.children }
         </span>
         { this.renderToolTips() }

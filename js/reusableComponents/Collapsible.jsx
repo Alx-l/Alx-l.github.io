@@ -98,7 +98,7 @@ export default class Collapsible extends Component {
     })
 
     const renderIcon = titleIcon && (
-      <Icon svg={ titleIcon } color={ iconColor } className='Collapsible-titleIcon' size={ titleIconSize } />
+      <Icon svg={ titleIcon } color={ iconColor } className="Collapsible-titleIcon" size={ titleIconSize } />
     )
 
     return (
@@ -106,17 +106,17 @@ export default class Collapsible extends Component {
         aria-expanded={ open }
         className={ Collapsible_cn }
       >
-        <div onKeyDown={ this.handleKeyDown } className='Collapsible-title' onClick={ this.handleClick } tabIndex="0">
-          <div className='Collapsible-titleLeft'>
+        <div onKeyDown={ this.handleKeyDown } className="Collapsible-title" onClick={ this.handleClick } tabIndex="0">
+          <div className="Collapsible-titleLeft">
             { renderIcon }
-            <span className='Collapsible-titleText'>{ title }</span>
+            <span className="Collapsible-titleText">{ title }</span>
           </div>
-          <div className='Collapsible-titleRight'>
+          <div className="Collapsible-titleRight">
             <div className={ Collapsible_expandIcon_cn }>
               <Icon svg={ Expand } size={ iconSize } color={ iconColor } customStyle={{ display: 'block' }}/>
             </div>
           </div>
-          <hr ref={ hr => this.hr = hr } style={{ transform: `translateX(${this.hrOffsetValue})` }} className='Collapsible-hr'/>
+          <hr ref={ hr => this.hr = hr } style={{ transform: `translateX(${this.hrOffsetValue})` }} className="Collapsible-hr"/>
         </div>
         <div ref={ collapse => this.collapse = collapse } style={{ height: '0px' }}>
           <div style={{ padding: '16px' }}>

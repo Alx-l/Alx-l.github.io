@@ -7,18 +7,6 @@ import { More, Close, Blink } from '../svg'
 import { addTabIndex, removeTabIndex } from '../utils'
 
 
-// inner component that will be rendered inside CardReveal
-export const Reveal = props => (<div className='Reveal' style={{ overflow: 'hidden' }}>{ props.children }</div>)
-
-// usage :
-//   <CardReveal>
-//     I'm visible
-//     <Reveal>
-//       I'm hidden until you change the state
-//     </Reveal>
-//   </CardReveal>
-
-
 export default class CardReveal extends Component {
 
   state = {
@@ -41,14 +29,6 @@ export default class CardReveal extends Component {
     prevState.open !== open && this.animateReveal()
   }
 
-  renderContent(innerComponent) {
-    const { children } = this.props
-    const filteredContent = innerComponent ? children.filter(child => typeof child.type === 'function') :
-      children.filter(child => typeof child.type !== 'function')
-
-    return filteredContent
-  }
-
   handleClick = () => this.setState({ open: !this.state.open })
 
   handleKeyDown = (e) => {
@@ -69,46 +49,50 @@ export default class CardReveal extends Component {
     }
   }
 
-  renderReveal() {
+  renderInside() {
     const { open } = this.state
+    const { iconColor, children } = this.props
 
     return (
-      <div ref={ reveal => this.reveal = reveal } className='CardReveal-reveal' aria-hidden={ !open }>
-        <div className='Reveal-iconContainer' onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex={ open ? 0 : -1 }>
-          <Icon svg={ Close } color={ this.props.iconColor } size={ 24 }/>
+      <div ref={ reveal => this.reveal = reveal } className="CardReveal-reveal" aria-hidden={ !open }>
+        <div className="Reveal-iconContainer" onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex={ open ? 0 : -1 }>
+          <Icon svg={ Close } color={ iconColor } size={ 24 }/>
         </div>
-        { this.renderContent(Reveal) }
+        <div className="Reveal" style={{ overflow: 'hidden' }}>
+          { children }
+        </div>
       </div>
     )
   }
 
   render() {
-    const { cat, href, footerText, iconColor, blinkIcon } = this.props
+    const { cat, href, title, subTitle, footerText, iconColor, blinkIcon } = this.props
 
     const renderBlinkIcon = blinkIcon &&
     <div>
-      <a href={ href } target='_blank' tabIndex={ this.state.open ? -1 : 0 } style={{ display: 'block' }}>
+      <a href={ href } target="_blank" tabIndex={ this.state.open ? -1 : 0 } style={{ display: 'block' }}>
         <Icon svg={ Blink } color={ iconColor } size={ 24 }/>
       </a>
     </div>
 
     return (
-      <div className='CardReveal' data-cat={ cat }>
-        <div className='CardReveal-content'>
-          { this.renderContent() }
+      <div className="CardReveal" data-cat={ cat }>
+        <div className="CardReveal-content">
+          <h3 className="CardReveal-title">{ title }</h3>
+          { subTitle && <span className="CardReveal-subTitle">{ subTitle }</span> }
         </div>
-        <div className='CardReveal-footer'>
-          <div className='CardReveal-footerText'>
+        <div className="CardReveal-footer">
+          <div className="CardReveal-footerText">
             { footerText }
           </div>
-          <div className='CardReveal-iconContainer'>
+          <div className="CardReveal-iconContainer">
             <div onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
               <Icon svg={ More } size={ 24 } color={ iconColor } />
             </div>
             { renderBlinkIcon }
           </div>
         </div>
-        { this.renderReveal() }
+        { this.renderInside() }
       </div>
     )
   }
@@ -117,6 +101,8 @@ export default class CardReveal extends Component {
     iconColor: React.PropTypes.string,
     blinkIcon: React.PropTypes.bool,
     href: React.PropTypes.string,
+    title: React.PropTypes.string,
+    subTitle: React.PropTypes.string,
     footerText: React.PropTypes.node,
     cat: React.PropTypes.string
   }
@@ -124,6 +110,7 @@ export default class CardReveal extends Component {
   static defaultProps = {
     iconColor: '#fff',
     blinkIcon: false,
+    title: 'title',
     href: '',
     footerText: '',
     cat: ''

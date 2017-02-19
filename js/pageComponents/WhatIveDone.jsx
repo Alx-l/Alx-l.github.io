@@ -12,6 +12,7 @@ import * as Cards from '../collections/CardCollection'
 import settings from '../settings'
 
 const { accentColor, grey } = settings
+const CardCollection = Object.keys(Cards).map(el => Cards[el])
 
 
 const WhatIveDone = (props) => {
@@ -20,7 +21,7 @@ const WhatIveDone = (props) => {
     const { filters } = props
 
     return (
-      <button className='FilterBtn'
+      <button className="FilterBtn"
         onClick={ () => setFilter(dataAttr, !filters[dataAttr]) }
         data-props={ dataAttr }
         style={ filters[dataAttr] ? styles.btn.active : styles.btn.inactive }
@@ -32,9 +33,9 @@ const WhatIveDone = (props) => {
   }
 
   return (
-    <div className='WhatIveDone'>
-      <IconHeader icon={ History } size={ 20 } color={ grey } text='My work'/>
-      <div className='Main-textBlock'>
+    <div className="WhatIveDone">
+      <IconHeader icon={ History } size={ 20 } color={ grey } text="My work"/>
+      <div className="Main-textBlock">
         <p>Here is what I've done so far :</p>
       </div>
       <div className="WhatIveDone-filters">
@@ -43,7 +44,7 @@ const WhatIveDone = (props) => {
         { renderFilterBtn('jobs', 'jobs') }
       </div>
       <div>
-        <CardList collectionToRender={ Cards } filters={ props.filters }/>
+        <CardList sortBy="title" collectionToRender={ CardCollection } filters={ props.filters }/>
       </div>
     </div>
   )
