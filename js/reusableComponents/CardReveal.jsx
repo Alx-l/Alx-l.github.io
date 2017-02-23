@@ -48,12 +48,12 @@ export default class CardReveal extends Component {
         customClassName="CardReveal-reveal"
       >
         <div>
-        <div className="Reveal-iconContainer" onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
-          <Icon svg={ Close } color={ iconColor } size={ 24 }/>
-        </div>
-        <div className="Reveal" style={{ overflow: 'hidden' }}>
-          { children }
-        </div>
+          <div className="Reveal-iconContainer" onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
+            <Icon svg={ Close } color={ iconColor } size={ 24 }/>
+          </div>
+          <div className="Reveal" style={{ overflow: 'hidden' }}>
+            { children }
+          </div>
         </div>
       </Animate>
     )
