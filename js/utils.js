@@ -22,9 +22,6 @@ export const pxToRemDims = (val) => {
   }
 }
 
-export const addTabIndex = item => item.tabIndex = 0
-
-export const removeTabIndex = item => item.tabIndex = -1
 
 export const handleLink = (e, dest) => {
   // ideally, this function would not be needed...except we live in a IE11 world
