@@ -3,30 +3,14 @@ import React, { Component } from 'react'
 import anime from 'animejs'
 
 import Icon from '../reusableComponents/Icon'
+import Animate from '../reusableComponents/Animate'
 import { More, Close, Blink } from '../svg'
-import { addTabIndex, removeTabIndex } from '../utils'
 
 
 export default class CardReveal extends Component {
 
   state = {
     open: false
-  }
-
-  componentDidMount() {
-    const { reveal } = this
-    const links = Array.from(reveal.querySelectorAll('a'))
-    links.map(removeTabIndex)
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { state: { open }, reveal } = this
-    const links = Array.from(reveal.querySelectorAll('a'))
-
-    if (prevState.open) links.map(removeTabIndex)
-    else links.map(addTabIndex)
-
-    prevState.open !== open && this.animateReveal()
   }
 
   handleClick = () => this.setState({ open: !this.state.open })
@@ -36,17 +20,20 @@ export default class CardReveal extends Component {
     if (keycode === 13) this.setState({ open: !this.state.open })
   }
 
-  animateReveal = () => {
-    const { state: { open }, reveal } = this
-    const settings = { duration: 225 , easing: 'easeInOutQuad' }
+  onEnter = ({ root, cb }) => {
+    anime({
+      targets: root,
+      translateY: { ...animeSettings, value: '-100%' },
+      complete: cb
+    })
+  }
 
-    if (open) {
-      anime({ targets: reveal, translateY: { ...settings, value: '-100%' }
-      })
-    } else {
-      anime({ targets: reveal, translateY: { ...settings, value: '0%' }
-      })
-    }
+  onLeave = ({ root, cb }) => {
+    anime({
+      targets: root,
+      translateY: { ...animeSettings, value: '100%' },
+      complete: cb
+    })
   }
 
   renderInside() {
@@ -54,14 +41,21 @@ export default class CardReveal extends Component {
     const { iconColor, children } = this.props
 
     return (
-      <div ref={ reveal => this.reveal = reveal } className="CardReveal-reveal" aria-hidden={ !open }>
-        <div className="Reveal-iconContainer" onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex={ open ? 0 : -1 }>
+      <Animate
+        trigger={ open }
+        onEnter={ this.onEnter }
+        onLeave={ this.onLeave }
+        customClassName="CardReveal-reveal"
+      >
+        <div>
+        <div className="Reveal-iconContainer" onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
           <Icon svg={ Close } color={ iconColor } size={ 24 }/>
         </div>
         <div className="Reveal" style={{ overflow: 'hidden' }}>
           { children }
         </div>
-      </div>
+        </div>
+      </Animate>
     )
   }
 
@@ -70,7 +64,7 @@ export default class CardReveal extends Component {
 
     const renderBlinkIcon = blinkIcon &&
     <div>
-      <a href={ href } target="_blank" tabIndex={ this.state.open ? -1 : 0 } style={{ display: 'block' }}>
+      <a href={ href } target="_blank" style={{ display: 'block' }}>
         <Icon svg={ Blink } color={ iconColor } size={ 24 }/>
       </a>
     </div>
@@ -116,3 +110,5 @@ export default class CardReveal extends Component {
     cat: ''
   }
 }
+
+const animeSettings = { duration: 225 , easing: 'easeInOutQuad' }

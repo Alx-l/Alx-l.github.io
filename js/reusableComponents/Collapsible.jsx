@@ -4,41 +4,14 @@ import classNames from 'classnames'
 import anime from 'animejs'
 
 import Icon from '../reusableComponents/Icon'
+import Animate from '../reusableComponents/Animate'
 import { Expand } from '../svg'
-import { addTabIndex, removeTabIndex } from '../utils'
 
 
 export default class Collapsible extends Component {
 
   state = {
     open: false
-  }
-
-  componentDidMount() {
-    const { collapse } = this
-    const InnerInstances = Array.from(collapse.querySelectorAll('.Collapsible-title'))
-    const links = Array.from(collapse.querySelectorAll('a'))
-
-    InnerInstances.map(removeTabIndex)
-    links.map(removeTabIndex)
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { open } = this.state
-    const { collapse } = this
-    const InnerInstances = Array.from(collapse.querySelectorAll('.Collapsible-title'))
-    const links = Array.from(collapse.querySelectorAll('a'))
-
-    if (prevState.open) {
-      links.map(removeTabIndex)
-      InnerInstances.map(removeTabIndex)
-    }
-    else {
-      links.map(addTabIndex)
-      InnerInstances.map(addTabIndex)
-    }
-
-    prevState.open !== open && this.animateCollapsible()
   }
 
   handleClick = () => this.setState({ open: !this.state.open })
@@ -48,42 +21,39 @@ export default class Collapsible extends Component {
     if (keycode === 13) this.setState({ open: !this.state.open })
   }
 
-  animateCollapsible = () => {
-    const { state: { open }, collapse } = this
-    const height = collapse && collapse.scrollHeight
-    const settings = { duration: 225 , easing: 'easeInOutQuad' }
+  animateHr = () => {
+    const { state: { open }, hr } = this
 
     if (open) {
-      anime({
-        targets: collapse,
-        height: { ...settings, value: height },
-        complete: () => {
-          collapse.style.height = 'auto'
-          this.animateHr()
-        },
+      anime({ targets: hr, translateX: { ...animeSettings, value: '0%' }
       })
     } else {
-      anime({
-        begin: this.animateHr(),
-        targets: collapse,
-        height: { ...settings, value: 0 }
+      anime({ targets: hr, translateX: { ...animeSettings, value: `${hrOffsetValue}` }
       })
     }
   }
 
-  hrOffsetValue = '-120%'
+  onEnter = ({ el, cb }) => {
+    const height = el.scrollHeight
+    el.style.height = 0
+    anime({
+      targets: el,
+      height: { ...animeSettings, value: height },
+      complete: () => {
+        el.style.height = 'auto'
+        this.animateHr()
+        cb()
+      },
+    })
+  }
 
-  animateHr = () => {
-    const { state: {  open }, hr } = this
-    const settings = { duration: 225 , easing: 'easeInOutQuad' }
-
-    if (open) {
-      anime({ targets: hr, translateX: { ...settings, value: '0%' }
-      })
-    } else {
-      anime({ targets: hr, translateX: { ...settings, value: `${this.hrOffsetValue}` }
-      })
-    }
+  onLeave = ({ el, cb }) => {
+    anime({
+      targets: el,
+      begin: this.animateHr,
+      height: { ...animeSettings, value: 0 },
+      complete: cb
+    })
   }
 
   render() {
@@ -116,13 +86,17 @@ export default class Collapsible extends Component {
               <Icon svg={ Expand } size={ iconSize } color={ iconColor } customStyle={{ display: 'block' }}/>
             </div>
           </div>
-          <hr ref={ hr => this.hr = hr } style={{ transform: `translateX(${this.hrOffsetValue})` }} className="Collapsible-hr"/>
+          <hr ref={ hr => this.hr = hr } style={{ transform: `translateX(${hrOffsetValue})` }} className="Collapsible-hr"/>
         </div>
-        <div ref={ collapse => this.collapse = collapse } style={{ height: '0px' }}>
+        <Animate
+          trigger={ open }
+          onEnter={ this.onEnter }
+          onLeave={ this.onLeave }
+        >
           <div style={{ padding: '16px' }}>
             { children }
           </div>
-        </div>
+        </Animate>
       </div>
     )
   }
@@ -143,3 +117,6 @@ export default class Collapsible extends Component {
     titleIconSize: 24
   }
 }
+
+const animeSettings = { duration: 225 , easing: 'easeInOutQuad' }
+const hrOffsetValue = '-120%'
