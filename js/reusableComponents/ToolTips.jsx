@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react'
-import classNames from 'classnames'
+import anime from 'animejs'
+
+import Animate from '../reusableComponents/Animate'
 
 
 export default class ToolTips extends Component {
@@ -21,19 +23,40 @@ export default class ToolTips extends Component {
     if (keycode === 13) this.setState({ visible: !this.state.visible })
   }
 
-  renderToolTips() {
-    const { hiddenText } = this
-    const marginLeft = () => hiddenText.style.marginLeft = `-${hiddenText.clientWidth / 2}px`
-
-    hiddenText && hiddenText.addEventListener('animationstart', marginLeft)
-    const ToolTips_hiddenText_cn = classNames('ToolTips-hiddenText', {
-      'is-visible': this.state.visible
+  onEnter = (el, cb) => {
+    anime({
+      begin: () => {
+        el.style.marginLeft = `-${el.clientWidth / 2}px`
+      },
+      targets: el,
+      scale: { ...animeSettings, value: 1 },
+      complete: cb
     })
+  }
+
+  onLeave = (el, cb) => {
+    anime({
+      targets: el,
+      scale: { ...animeSettings, value: 0 },
+      complete: cb
+    })
+  }
+
+  renderToolTips() {
+    const { onEnter, onLeave, state: { visible } } = this
 
     return (
-      <span ref={ hiddenText => this.hiddenText = hiddenText } className={ ToolTips_hiddenText_cn }>
-        { this.props.hiddenText }
-      </span>
+      <Animate
+        trigger={ visible }
+        onEnter={ onEnter }
+        onLeave={ onLeave }
+        customClassName="ToolTips-hiddenText"
+        customStyle={{ transform: 'scale(0)' }}
+      >
+        <span>
+          { this.props.hiddenText }
+        </span>
+      </Animate>
     )
   }
 
@@ -41,7 +64,7 @@ export default class ToolTips extends Component {
     return (
       <span onClick={ this.handleClick } onMouseEnter={ this.handleHoverIn } onMouseLeave={ this.handleHoverOut } onKeyDown={ this.handleKeyDown } className="ToolTips" tabIndex="0">
         <span className="ToolTips-text">
-        { this.props.children }
+          { this.props.children }
         </span>
         { this.renderToolTips() }
       </span>
@@ -56,3 +79,5 @@ export default class ToolTips extends Component {
     hiddenText: 'add some text'
   }
 }
+
+const animeSettings = { duration: 225 , easing: 'easeInOutQuad' }
