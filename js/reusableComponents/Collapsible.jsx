@@ -33,7 +33,7 @@ export default class Collapsible extends Component {
     }
   }
 
-  onEnter = ({ el, cb }) => {
+  onEnter = (el, cb) => {
     const height = el.scrollHeight
     el.style.height = 0
     anime({
@@ -47,7 +47,7 @@ export default class Collapsible extends Component {
     })
   }
 
-  onLeave = ({ el, cb }) => {
+  onLeave = (el, cb) => {
     anime({
       targets: el,
       begin: this.animateHr,

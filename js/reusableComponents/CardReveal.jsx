@@ -20,17 +20,17 @@ export default class CardReveal extends Component {
     if (keycode === 13) this.setState({ open: !this.state.open })
   }
 
-  onEnter = ({ root, cb }) => {
+  onEnter = (el, cb) => {
     anime({
-      targets: root,
+      targets: el,
       translateY: { ...animeSettings, value: '-100%' },
       complete: cb
     })
   }
 
-  onLeave = ({ root, cb }) => {
+  onLeave = (el, cb) => {
     anime({
-      targets: root,
+      targets: el,
       translateY: { ...animeSettings, value: '100%' },
       complete: cb
     })
