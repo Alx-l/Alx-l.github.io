@@ -35,7 +35,6 @@ export default class Collapsible extends Component {
 
   onEnter = (el, cb) => {
     const height = el.scrollHeight
-    el.style.height = 0
     anime({
       targets: el,
       height: { ...animeSettings, value: height },
@@ -92,6 +91,7 @@ export default class Collapsible extends Component {
           trigger={ open }
           onEnter={ this.onEnter }
           onLeave={ this.onLeave }
+          customStyle={{ height: '0px' }}
         >
           <div style={{ padding: '16px' }}>
             { children }
