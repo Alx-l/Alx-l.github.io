@@ -44,7 +44,7 @@ export default class OffCanvas extends Component {
 
       return (
         <li onClick={ this.handleClose } className={ isActive ? 'OffCanvas-item is-active' : 'OffCanvas-item' } key={ i }>
-          <a data-nav="ignore" onClick={ e => handleLink(e, item.dest) } className="OffCanvas-link" href={ item.dest } >{ item.text }</a>
+          <a data-nav="ignore" onClick={ e => handleLink(e, item.dest) } tabIndex="-1" className="OffCanvas-link" href={ item.dest } >{ item.text }</a>
         </li>
       )
     })
