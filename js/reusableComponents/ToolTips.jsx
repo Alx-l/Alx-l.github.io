@@ -29,7 +29,7 @@ export default class ToolTips extends Component {
         el.style.marginLeft = `-${el.clientWidth / 2}px`
       },
       targets: el,
-      scale: { ...animeSettings, value: 1 },
+      scale: { ...animeSettings, easing: [0.175, 0.885, 0.32, 1.275], value: 1 },
       complete: cb
     })
   }
@@ -37,7 +37,7 @@ export default class ToolTips extends Component {
   onLeave = (el, cb) => {
     anime({
       targets: el,
-      scale: { ...animeSettings, value: 0 },
+      scale: { ...animeSettings, easing: 'easeInOutQuad', value: 0 },
       complete: cb
     })
   }
@@ -80,4 +80,4 @@ export default class ToolTips extends Component {
   }
 }
 
-const animeSettings = { duration: 225 , easing: 'easeInOutQuad' }
+const animeSettings = { duration: 225 }
