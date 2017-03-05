@@ -10,15 +10,6 @@
 }
 
 
-/* Font stacks
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-:root {
-  --headings-font-family: "Tofino", "Helvetica Neue", sans-serif;
-  --body-font-family: "Roboto", "Helvetica Neue", sans-serif;
-}
-
-
 /* Ratios
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -54,17 +45,6 @@
 }
 
 
-/* Font sizes (Rucksack plugin)
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-:root {
-  --text-sm: responsive 12px 14px;
-  --text-regular: responsive 14px 16px;
-  --text-md: responsive 16px 18px;
-  --text-lg: responsive 18px 20px;
-  --text-xl: responsive 23px 25px;
-}
-
-
 /* Body
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -81,7 +61,6 @@ body {
 
 /* Headings
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 h1,
 h2,
