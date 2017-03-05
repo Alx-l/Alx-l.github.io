@@ -1,0 +1,30 @@
+
+/* Spacings
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+:root {
+  --spacer: 16px;
+  --spacer-xs: 4px;
+  --spacer-sm: 8px;
+  --spacer-md: 24px;
+  --spacer-lg: 32px;
+  --spacer-xl: 40px;
+}
+
+
+/* Transitions
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+a {
+  transition: all 0.3s ease-in;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+input,
+textarea,
+select {
+  transition: all 0.3s ease;
+}

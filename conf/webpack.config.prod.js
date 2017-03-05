@@ -7,7 +7,7 @@ const DedupePlugin = webpack.optimize.DedupePlugin
 
 
 module.exports = {
-  entry: ['babel-polyfill', './js/app.js'],
+  entry: ['babel-polyfill', './scripts/app.js'],
   output: {
     path: path.resolve(__dirname, '../public'),
     filename: 'js/bundle.js',

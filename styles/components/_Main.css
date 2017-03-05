@@ -1,0 +1,39 @@
+
+:root {
+  --text-block: {
+    position: relative;
+    margin: var(--spacer-sm) 0 0 var(--spacer-sm);
+    max-width: 700px;
+    font-size: var(--text-lg);
+  };
+}
+
+.Main {
+  flex: 1 0 auto;
+  margin: 0 auto;
+  padding: 0 var(--spacer);
+  max-width: 1024px;
+  width: 100%;
+  @media (--above-mobile) {
+    padding: 0 var(--spacer-lg);
+  }
+  &-textBlock {
+    /* default */
+    @apply --text-block;
+    &--extended {
+      /* modifier */
+      @apply --text-block;
+      @media (--above-tablet) {
+        padding-right: 1.5em;
+        &:after {
+          position: absolute 0 null 0 100%;
+          display: block;
+          width: 72px;
+          background: svg-load("images/arrow.svg") 10px center/contain no-repeat;
+          content: "";
+          animation: landing 1.4s ease-out-back 0.7s both;
+        }
+      }
+    }
+  }
+}

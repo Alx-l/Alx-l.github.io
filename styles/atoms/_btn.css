@@ -1,0 +1,41 @@
+
+/* Button mixin
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@define-mixin btn $bg: var(--accent-color), $text: var(--primary-text) {
+  background-color: $bg;
+  color: $text;
+  box-shadow:
+    0 2px 5px 0 rgba(0, 0, 0, 0.16),
+    0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  &:hover,
+  &:focus {
+    background-color: color($bg shade(10%));
+    box-shadow:
+      0 5px 11px 0 rgba(0, 0, 0, 0.18),
+      0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+.FilterBtn {
+  margin-right: var(--spacer);
+  padding: var(--spacer-xs) var(--spacer-sm);
+  border: 1Px solid var(--accent-color);
+  border-radius: 2px;
+  color: var(--grey-darken);
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+.IconBtn {
+  display: inline-block;
+  margin: var(--spacer) 0;
+  padding: var(--spacer-sm) var(--spacer-xl);
+  border-radius: 2px;
+  @mixin btn;
+  &-icon {
+    width: 32px;
+  }
+}

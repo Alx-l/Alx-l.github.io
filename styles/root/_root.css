@@ -1,0 +1,12 @@
+
+#app,
+.root,
+[data-reactroot] {
+  height: 100%;
+}
+
+.root,
+[data-reactroot] {
+  display: flex;
+  flex-direction: column;
+}
