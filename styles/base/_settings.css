@@ -16,8 +16,8 @@
   --grey-darken: #757575;
 
   /* font stacks */
-  --headings-font-family: "Tofino", "Helvetica Neue", sans-serif;
   --body-font-family: "Roboto", "Helvetica Neue", sans-serif;
+  --headings-font-family: "Tofino", "Helvetica Neue", sans-serif;
 
   /* font-sizes (Rucksack) */
   --text-sm: responsive 12px 14px;
