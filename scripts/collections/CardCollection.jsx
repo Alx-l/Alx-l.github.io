@@ -55,7 +55,7 @@ export const Portfolio = (
     <ul className="Reveal-list">
       <li>React / Fluxx</li>
       <li>ES6</li>
-      <li>Stylus / PostCSS</li>
+      <li>PostCSS (cssnext)</li>
     </ul>
   </CardReveal>
 )
@@ -127,7 +127,7 @@ export const Zengularity = (
       <li>TypeScript</li>
       <li>React</li>
       <li><a href="https://github.com/AlexGalays/fluxx" target="_blank" className="u-linkSweep">Fluxx</a></li>
-      <li>Stylus / SCSS</li>
+      <li>CSS Modules / Stylus</li>
     </ul>
   </CardReveal>
 )
