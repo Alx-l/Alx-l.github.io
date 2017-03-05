@@ -4,6 +4,9 @@ module.exports = {
   'output': 'public/css/bundle.css',
   'watch': false,
   'local-plugins': true,
+  'postcss-cssnext': {
+    'browsers': 'last 2 versions'
+  },
   'postcss-inline-svg': {
     path: 'public/'
   },
