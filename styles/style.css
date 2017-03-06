@@ -2,7 +2,7 @@
 @import "utils";
 @import "atoms";
 @import "ui";
-@import "layouts/_CollapsibleContainer.css";
-@import "components";
-@import "pages";
 @import "root/_root.css";
+@import "components";
+@import "layouts/_CollapsibleContainer.css";
+@import "pages";
