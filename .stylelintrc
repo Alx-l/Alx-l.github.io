@@ -97,8 +97,7 @@
     "property-case": "lower",
      "property-no-unknown": [ true, {
       "ignoreProperties": [
-        "box",
-        "c-link"
+        "box"
       ],
     }],
     "rule-empty-line-before": [ "always-multi-line", {
