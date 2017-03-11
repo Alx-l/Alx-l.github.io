@@ -20,7 +20,7 @@ const Footer = (props) => {
         </div>
         <div className="Footer-icon">
           <div>While enjoying some
-            <Icon svg={ Music } size={ 35 } className="Footer-Music" color={ black } customStyle={{ display: 'inline-block', position: 'relative', top: '10px' }} />
+            <Icon svg={ Music } size={ 35 } className="Footer-Music" color={ black } customStyle={{ display: 'inline-block' }} />
           </div>
         </div>
       </div>

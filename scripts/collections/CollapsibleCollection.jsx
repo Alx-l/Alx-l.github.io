@@ -13,8 +13,7 @@ export const clFrontEnd = (
       <li>HTML5</li>
       <li>Jade</li>
       <li>CSS3 / Flexbox</li>
-      <li>Stylus</li>
-      <li>Sass</li>
+      <li>Stylus / Sass / Less</li>
       <li>PostCSS</li>
     </ul>
     <p className="Collapsible-text">
@@ -75,8 +74,8 @@ export const clMusic = (
       <ul className="Collapsible-list">
         <li>Evidence (Westside rider)</li>
         <li>TDE</li>
-        <li>Lil Wayne</li>
         <li>Bun B</li>
+        <li>Chamillionaire</li>
         <li>ASAP Mob (not all of 'em...)</li>
         <li>Cam'ron (Dipset b*tch)</li>
         <li>The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)</li>
@@ -92,7 +91,7 @@ export const clMusic = (
         <li>Frank Ocean</li>
         <li>Jhené Aiko</li>
         <li>Raphael Saadiq</li>
-        <li>Yuna</li>
+        <li>A-Trak</li>
         <li>...</li>
       </ul>
     </Collapsible>
@@ -136,12 +135,12 @@ export const clTVMovies = (
 export const clPeople = (
   <Collapsible titleIcon={ People } iconColor={ greyDarken } titleIconSize={ 35 } title="Following..." popOut={ true }>
     <p className="Collapsible-text">
-      Some devs / designers I follow, look up to, and/or like :
+      Some devs I follow, look up to, and/or like :
     </p>
     <ul className="Collapsible-list">
-      <li><a href="https://www.youtube.com/user/wesbos" target="_blank" className="u-linkSweep">Wes Bos</a></li>
       <li><a href="http://kosamari.com/notes" target="_blank" className="u-linkSweep">Mariko Kosaka</a></li>
-      <li><a href="http://csswizardry.com/" target="_blank" className="u-linkSweep">Harry Roberts</a></li>
+      <li><a href="https://github.com/getify" target="_blank" className="u-linkSweep">Kyle Simpson</a></li>
+      <li><a href="http://bradfrost.com/" target="_blank" className="u-linkSweep">Brad Frost</a></li>
       <li><a href="https://bitsofco.de/" target="_blank" className="u-linkSweep">Ire Aderinokun</a></li>
       <li><a href="https://pawelgrzybek.com/" target="_blank" className="u-linkSweep">Pawel Grzybek</a></li>
       <li><a href="https://una.im/" target="_blank" className="u-linkSweep">Una Kravets</a></li>
