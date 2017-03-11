@@ -33,4 +33,10 @@
       animation: beatingHeartStronger 0.95s cubic-bezier(0.9, -5.9, 0.9, 5.9) infinite;
     }
   }
+  &-icon {
+    margin-top: var(--spacer);
+  }
+  &-Music {
+    vertical-align: middle;
+  }
 }
