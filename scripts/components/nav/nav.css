@@ -1,0 +1,97 @@
+@import "../../../styles/base/_settings.css";
+@import "../../../styles/utils/_helpers.css";
+
+
+.root {
+  flex: none;
+  margin-bottom: var(--spacer);
+  padding: var(--spacer-md) var(--spacer) 0;
+  color: #fff;
+  text-align: center;
+  @apply --box-shadow;
+}
+
+.avatar {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+
+.heading {
+  margin: var(--spacer) 0 0;
+  color: #fff;
+  letter-spacing: 5px;
+  font-size: var(--text-xl);
+}
+
+.subHeading {
+  display: inline-block;
+  padding: var(--spacer-xs) var(--spacer-sm);
+  border-radius: 2px;
+  background: var(--accent-color);
+  font-style: italic;
+  font-family: var(--headings-font-family);
+}
+
+
+.list {
+  display: none;
+  @media (--above-mobile) {
+    box: horizontal-left wrap;
+    position: relative;
+    margin: var(--spacer-md) auto;
+    max-width: 1280px;
+    text-transform: uppercase;
+    &:global {
+      animation: slideUp 0.7s ease-in-out-quad;
+    }
+  }
+  & li {
+    box: horizontal-middle center wrap;
+    flex: 0 1 auto;
+    transition: all 0.3s ease-in-out;
+    @media (--above-mobile) {
+      width: 50%;
+    }
+    @media (--above-tablet) {
+      width: 25%;
+    }
+    &:global {
+      &:hover,
+      &.is-active {
+        background: color(var(--primary-color) shade(10%));
+      }
+    }
+  }
+}
+
+
+.link {
+  display: block;
+  padding: var(--spacer-md) var(--spacer-md);
+  width: 100%;
+  font-weight: 300;
+  font-size: responsive 20px 25px;
+  color: #fff;
+}
+
+
+/* Menu Icon
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.icon {
+  position: relative;
+  margin: var(--spacer-md) 0;
+  text-align: left;
+  cursor: pointer;
+  &:global {
+    animation: slideLeft 0.35s ease-out-back;
+  }
+  @media (--above-mobile) {
+    display: none;
+  }
+}

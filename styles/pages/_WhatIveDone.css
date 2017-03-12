@@ -1,5 +1,5 @@
 
-.WhatIveDone {
+:global .p-whativedone {
   &-filters {
     box: horizontal-middle left wrap;
     margin: 0 0 var(--spacer-xl) var(--spacer-sm);

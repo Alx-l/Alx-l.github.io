@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/IconHeader'
-import ToolTips from '../reusableComponents/ToolTips'
-import Icon from '../reusableComponents/Icon'
+import IconHeader from '../reusableComponents/icon-header'
+import ToolTip from '../reusableComponents/tooltip'
+import Icon from '../reusableComponents/icon'
 import { PersonPin, Github } from '../svg'
 import settings from '../settings'
 
@@ -12,19 +12,19 @@ const { email, grey } = settings
 
 const WhereToFindMe = () => {
   return (
-    <div className="WhereToFindMe">
+    <div className="p-wheretofindme">
       <IconHeader icon={ PersonPin } size={ 20 } color={ grey } text="Finding me" />
-      <div className="Main-textBlock--extended">
+      <div className="l-textBlock--extended">
         <p>You can find me wandering in the streets of
-        <ToolTips hiddenText="FR, not TX :)"> Paris.</ToolTips>
+        <ToolTip hiddenText="FR, not TX :)"> Paris.</ToolTip>
         </p>
         <p>But since that could take a while before you randomly bump into me, feel free to send me an email :
           <br/>
-          <a className="WhereToFindMe-email" href={ `mailto:${email}` }>{ email }</a>
+          <a className="p-wheretofindme-email" href={ `mailto:${email}` }>{ email }</a>
         </p>
         <span>Wanna take a peek at my repos ?</span>
         <br/>
-        <a href="https://github.com/Alx-l" target="_blank" className="IconBtn">
+        <a href="https://github.com/Alx-l" target="_blank" className="btn-icon">
           <Icon svg={ Github } color="#fff" size={ 35 } customStyle={{ display: 'block' }}/>
         </a>
         <p>My

@@ -19,6 +19,12 @@
     }
   }
 
+  --underline: {
+    display: inline-block;
+    border-bottom: 1px solid var(--accent-color);
+    color: var(--accent-color);
+  }
+
   --no-scroll: {
     position: fixed 0;
     overflow-y: scroll;
@@ -38,24 +44,4 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-}
-
-
-/* Matching classes
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.u-boxShadow {
-  @apply --box-shadow;
-}
-
-.u-highlight {
-  @apply --highlight;
-}
-
-.u-link {
-  @apply --link;
-}
-
-.u-noscroll {
-  @apply --no-scroll;
 }

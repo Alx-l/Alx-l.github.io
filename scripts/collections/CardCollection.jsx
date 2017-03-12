@@ -1,8 +1,10 @@
 
 import React from 'react'
 
-import CardReveal from '../reusableComponents/CardReveal'
+import CardReveal from '../reusableComponents/card-reveal'
 import settings from '../settings'
+
+import styles from '../reusableComponents/card-reveal/card-reveal.css'
 
 const { git } = settings
 
@@ -13,15 +15,15 @@ export const BubblyBoilerplate = (
     subTitle="homemade starter kit"
     footerText="there's more inside"
   >
-    <p className="Reveal-header">Recipe :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Recipe :</p>
+    <ul>
       <li>React / Fluxx</li>
       <li>ES6</li>
       <li>Jade</li>
-      <li>Stylus</li>
-      <li>PostCSS</li>
+      <li>PostCSS (cssnext)</li>
+      <li>CSS Modules</li>
     </ul>
-    <p className="Reveal-footer">I made this boilerplate to help me getting started with new projects easily.
+    <p className={ styles.insideFooter }>I made this boilerplate to help me getting started with new projects easily.
     </p>
   </CardReveal>
 )
@@ -33,12 +35,12 @@ export const BubblyGrid = (
     subTitle="homemade grid system"
     footerText={ <span>available on <a className="u-link u-highlight" href="https://www.npmjs.com/package/bubbly-grid-stylus" target="_blank">npm</a></span> }
   >
-    <p className="Reveal-header">Recipe :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Recipe :</p>
+    <ul>
       <li>Stylus</li>
       <li>SCSS</li>
     </ul>
-    <p className="Reveal-footer">This grid system is built with calc() and is inspired by
+    <p className={ styles.insideFooter }>This grid system is built with calc() and is inspired by
     <a href="https://github.com/peterramsing/lost" target="_blank" className="u-highlight u-linkSweep"> LostGrid.</a>
     </p>
   </CardReveal>
@@ -51,11 +53,11 @@ export const Portfolio = (
     subTitle="myself and I"
     footerText="there's more inside"
   >
-    <p className="Reveal-header">Recipe :</p>
-    <ul className="Reveal-list">
-      <li>React / Fluxx</li>
-      <li>ES6</li>
-      <li>PostCSS (cssnext)</li>
+    <p className="u-underline">Recipe :</p>
+    <ul>
+      <li>
+        <a className="u-linkSweep" target="_blank" href="https://github.com/alx-l/bubbly-boilerplate">Bubbly Boilerplate</a>
+      </li>
     </ul>
   </CardReveal>
 )
@@ -67,14 +69,14 @@ export const VinylMinded = (
     subTitle="fake e-commerce site"
     footerText="there's more inside"
   >
-    <p className="Reveal-header">Recipe :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Recipe :</p>
+    <ul>
       <li>Foundation Framework</li>
       <li>SCSS</li>
       <li>jQuery</li>
       <li>PHP / MySQL</li>
     </ul>
-    <p className="Reveal-footer">This site was made to obtain my certification as a web developer from IFOCOP.</p>
+    <p className={ styles.insideFooter }>This site was made to obtain my certification as a web developer from IFOCOP.</p>
   </CardReveal>
 )
 
@@ -85,14 +87,14 @@ export const PokemonYo = (
     subTitle="simple pokedex"
     footerText="there's more inside"
   >
-    <p className="Reveal-header">Recipe :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Recipe :</p>
+    <ul>
       <li>React / Fluxx</li>
       <li><a href="http://pokeapi.co/docsv2/" target="_blank" className="u-linkSweep">Pokeapi V2</a></li>
       <li>ES6</li>
       <li>Stylus / PostCSS</li>
     </ul>
-    <p className="Reveal-footer">Wanna see the <a href="https://github.com/Alx-l/pokemonyo" target="_blank" className="u-linkSweep">repo</a>?</p>
+    <p className={ styles.insideFooter }>Wanna see the <a href="https://github.com/Alx-l/pokemonyo" target="_blank" className="u-linkSweep">repo</a>?</p>
   </CardReveal>
 )
 
@@ -103,8 +105,8 @@ export const NRJMobile = (
     subTitle="4 months during 2015"
     footerText="there's more inside"
   >
-    <p className="Reveal-header">Tasks :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Tasks :</p>
+    <ul>
       <li>Develop landing pages</li>
       <li>Code email newsletters</li>
     </ul>
@@ -118,12 +120,12 @@ export const Zengularity = (
     subTitle="Since October 2016"
     footerText="there's more inside"
   >
-    <p className="Reveal-header">Tasks :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Tasks :</p>
+    <ul>
       <li>Build UI's</li>
     </ul>
-    <p className="Reveal-header">Stack :</p>
-    <ul className="Reveal-list">
+    <p className="u-underline">Stack :</p>
+    <ul>
       <li>TypeScript</li>
       <li>React</li>
       <li><a href="https://github.com/AlexGalays/fluxx" target="_blank" className="u-linkSweep">Fluxx</a></li>

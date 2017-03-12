@@ -3,6 +3,5 @@
 @import "atoms";
 @import "ui";
 @import "root/_root.css";
-@import "components";
-@import "layouts/_CollapsibleContainer.css";
+@import "layouts";
 @import "pages";

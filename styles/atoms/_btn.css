@@ -21,7 +21,7 @@
 }
 
 
-.FilterBtn {
+:global .btn-filter {
   margin-right: var(--spacer);
   padding: var(--spacer-xs) var(--spacer-sm);
   border: 1Px solid var(--accent-color);
@@ -32,7 +32,7 @@
   }
 }
 
-.IconBtn {
+:global .btn-icon {
   display: inline-block;
   margin: var(--spacer) 0;
   padding: var(--spacer-sm) var(--spacer-xl);

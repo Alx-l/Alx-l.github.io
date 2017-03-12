@@ -28,11 +28,11 @@
 
   /* spacings */
   --spacer: 16px;
-  --spacer-xs: 4px;
-  --spacer-sm: 8px;
-  --spacer-md: 24px;
-  --spacer-lg: 32px;
-  --spacer-xl: 40px;
+  --spacer-xs: calc(var(--spacer) / 4);
+  --spacer-sm: calc(var(--spacer) / 2);
+  --spacer-md: calc(var(--spacer) * 1.5);
+  --spacer-lg: calc(var(--spacer) * 2);
+  --spacer-xl: calc(var(--spacer) * 2.5);
 }
 
 

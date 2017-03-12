@@ -2,7 +2,7 @@
 /* Collapsible Container
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.l-CollapsibleContainer {
+:global .l-collapsibleContainer {
   position: relative;
   margin-bottom: var(--spacer);
   @media (--above-tablet) {
@@ -32,8 +32,8 @@
 /* inside 'CollapsibleContainer'
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.l-CollapsibleContainer-left,
-.l-CollapsibleContainer-right {
+:global .l-collapsibleContainer-left,
+:global .l-collapsibleContainer-right {
   @media (--above-tablet) {
     float: left;
     width: 50%;
@@ -41,7 +41,7 @@
 }
 
 
-.l-CollapsibleContainer {
+:global .l-collapsibleContainer {
   &-left {
     @media (--above-tablet) {
       padding-right: var(--spacer-md);
@@ -58,7 +58,7 @@
 /* dividers between each 'item'
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.Collapsible-item[data-divider="true"] {
+:global .collapsible-item[data-divider="true"] {
   position: relative;
   margin-bottom: var(--spacer-xl);
   &:before {

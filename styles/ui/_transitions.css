@@ -55,6 +55,6 @@
 /* Matching classes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.u-linkSweep {
+:global .u-linkSweep {
   @apply --link-sweep;
 }
