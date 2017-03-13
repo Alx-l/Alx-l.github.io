@@ -11,6 +11,7 @@
   @apply --box-shadow;
 }
 
+
 .avatar {
   overflow: hidden;
   margin: 0 auto;
@@ -27,6 +28,7 @@
   letter-spacing: 5px;
   font-size: var(--text-xl);
 }
+
 
 .subHeading {
   display: inline-block;

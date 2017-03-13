@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/icon-header'
+import IconHeader from '../reusableComponents/iconHeader'
 import { Warning } from '../svg'
 import settings from '../settings'
 

@@ -6,7 +6,7 @@ import Icon from '../../reusableComponents/icon'
 import Animate from '../../reusableComponents/Animate'
 import { More, Close, Blink } from '../../svg'
 
-import styles from './card-reveal.css'
+import styles from './cardReveal.css'
 
 
 export default class CardReveal extends Component {
@@ -50,7 +50,7 @@ export default class CardReveal extends Component {
         customClassName={ styles.container }
       >
         <div>
-          <div className={ styles.insideIconContainer } onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
+          <div className={ styles.insideIcon } onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
             <Icon svg={ Close } color={ iconColor } size={ 24 }/>
           </div>
           <div className={ styles.insideRoot } style={{ overflow: 'hidden' }}>

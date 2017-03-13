@@ -68,7 +68,7 @@ export default class Collapsible extends Component {
     })
 
     const renderIcon = titleIcon && (
-      <Icon svg={ titleIcon } color={ iconColor } className={ styles.titleIcon } size={ titleIconSize } />
+      <Icon svg={ titleIcon } color={ iconColor } className="icon" size={ titleIconSize } />
     )
 
     return (
@@ -79,7 +79,7 @@ export default class Collapsible extends Component {
         <div onKeyDown={ this.handleKeyDown } className={ styles.title } onClick={ this.handleClick } tabIndex="0">
           <div className={ styles.titleLeft }>
             { renderIcon }
-            <span className={ styles.titleText }>{ title }</span>
+            <span className="text">{ title }</span>
           </div>
           <div className={ styles.titleRight }>
             <div className={ expandIcon_cn }>

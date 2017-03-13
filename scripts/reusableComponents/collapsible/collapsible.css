@@ -29,10 +29,11 @@
   }
 }
 
+
 .title {
   box: horizontal-middle center wrap;
   position: relative;
-  padding: 16px;
+  padding: var(--spacer);
   cursor: pointer;
   &:focus,
   &:hover {
@@ -46,20 +47,17 @@
 
 .titleLeft {
   flex: 1 0 80%;
-}
-
-
-.titleIcon {
-  display: inline-block;
-  margin-right: 16px;
-  vertical-align: middle;
-}
-
-
-.titleText {
-  color: var(--grey-darken);
-  vertical-align: middle;
-  font-size: var(--text-lg);
+  & :global {
+    & .icon {
+      margin-right: var(--spacer);
+      vertical-align: middle;
+    }
+    & .text {
+      color: var(--grey-darken);
+      vertical-align: middle;
+      font-size: var(--text-lg);
+    }
+  }
 }
 
 
@@ -67,6 +65,7 @@
   box: horizontal-right wrap;
   flex: 0 0 20%;
 }
+
 
 .expandIcon {
   position: relative;
@@ -94,13 +93,14 @@
   border-bottom: 1px solid var(--accent-color);
 }
 
+
 .body {
   & ul {
     padding: 0 0 var(--spacer-md) var(--spacer-md);
     list-style-type: circle;
-    & li {
-      padding-bottom: var(--spacer-sm);
-    }
+  }
+  & li {
+    padding-bottom: var(--spacer-sm);
   }
   & p {
     padding-left: var(--spacer-sm);

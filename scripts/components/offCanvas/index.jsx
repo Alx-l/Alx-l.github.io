@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import { handleLink } from '../../utils'
 
-import styles from './off-canvas.css'
+import styles from './offCanvas.css'
 
 export default class OffCanvas extends Component {
 

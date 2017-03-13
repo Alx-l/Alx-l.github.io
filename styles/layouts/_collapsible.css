@@ -2,7 +2,7 @@
 /* Collapsible Container
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-:global .l-collapsibleContainer {
+:global .l-collapsible {
   position: relative;
   margin-bottom: var(--spacer);
   @media (--above-tablet) {
@@ -32,8 +32,8 @@
 /* inside 'CollapsibleContainer'
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-:global .l-collapsibleContainer-left,
-:global .l-collapsibleContainer-right {
+:global .l-collapsible-left,
+:global .l-collapsible-right {
   @media (--above-tablet) {
     float: left;
     width: 50%;
@@ -41,7 +41,7 @@
 }
 
 
-:global .l-collapsibleContainer {
+:global .l-collapsible {
   &-left {
     @media (--above-tablet) {
       padding-right: var(--spacer-md);
@@ -58,33 +58,35 @@
 /* dividers between each 'item'
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-:global .collapsible-item[data-divider="true"] {
-  position: relative;
-  margin-bottom: var(--spacer-xl);
-  &:before {
-    position: absolute null 0 -22px 0;
-    margin: 0 10em;
-    height: 1px;
-    background-color: var(--grey-lighten);
-    content: "";
-  }
-  &:after {
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    border: 1px solid var(--grey-lighten);
-    border-radius: 50%;
-    background: #fff;
-    content: "";
-    transform: translateX(-50%);
-  }
-  @media (--above-tablet) {
-    margin-bottom: 0;
-    &:before,
+:global .l-collapsible {
+  &-item[data-divider="true"] {
+    position: relative;
+    margin-bottom: var(--spacer-xl);
+    &:before {
+      position: absolute null 0 -22px 0;
+      margin: 0 10em;
+      height: 1px;
+      background-color: var(--grey-lighten);
+      content: "";
+    }
     &:after {
-      content: none;
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--grey-lighten);
+      border-radius: 50%;
+      background: #fff;
+      content: "";
+      transform: translateX(-50%);
+    }
+    @media (--above-tablet) {
+      margin-bottom: 0;
+      &:before,
+      &:after {
+        content: none;
+      }
     }
   }
 }

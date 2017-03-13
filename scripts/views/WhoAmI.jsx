@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/icon-header'
+import IconHeader from '../reusableComponents/iconHeader'
 import { Face } from '../svg'
 import settings from '../settings'
 
@@ -11,7 +11,7 @@ const WhoAmI = () => {
   return (
     <div className="WhoAmI">
       <IconHeader icon={ Face } size={ 20 } color={ grey } text="Hello World"/>
-      <div className="l-textBlock--extended">
+      <div className="l-textBlock--sm">
         <p>
           Let me introduce myself, I am <span className="u-highlight">Alex</span>, a junior <span className="u-highlight">front-end web dev</span>.
         </p>

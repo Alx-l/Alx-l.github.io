@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-import OffCanvas from '../off-canvas'
+import OffCanvas from '../offCanvas'
 import Icon from '../../reusableComponents/icon'
 import { Hamburger } from '../../svg'
 import { handleLink } from '../../utils'

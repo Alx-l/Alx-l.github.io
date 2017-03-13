@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/icon-header'
+import IconHeader from '../reusableComponents/iconHeader'
 import { Heart } from '../svg'
 import { clMusic, clTVMovies, clMisc, clPeople } from '../collections/CollapsibleCollection'
 import settings from '../settings'
@@ -15,20 +15,20 @@ const Likes = () => {
       <div className="l-textBlock">
         <p>While we're at it, why not get a glance about some stuff I heart...</p>
       </div>
-      <div className="l-collapsibleContainer">
-        <div className="l-collapsibleContainer-left">
-          <div className="collapsible-item" data-divider={ true }>
+      <div className="l-collapsible">
+        <div className="l-collapsible-left">
+          <div className="l-collapsible-item" data-divider={ true }>
             { clMusic }
           </div>
-          <div className="collapsible-item" data-divider={ true }>
+          <div className="l-collapsible-item" data-divider={ true }>
             { clTVMovies }
           </div>
         </div>
-        <div className="l-collapsibleContainer-right">
-          <div className="collapsible-item" data-divider={ true }>
+        <div className="l-collapsible-right">
+          <div className="l-collapsible-item" data-divider={ true }>
             { clPeople }
           </div>
-          <div className="collapsible-item">
+          <div className="l-collapsible-item">
             { clMisc }
           </div>
         </div>

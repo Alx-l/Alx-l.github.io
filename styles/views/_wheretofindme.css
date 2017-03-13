@@ -1,5 +1,5 @@
 
-:global .p-wheretofindme {
+:global .v-wheretofindme {
   &-email {
     margin: var(--spacer) 0;
     font-size: var(--text-xl);

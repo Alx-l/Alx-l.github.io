@@ -3,7 +3,7 @@ import React from 'react'
 
 import Icon from '../../reusableComponents/icon'
 
-import styles from './icon-header.css'
+import styles from './iconHeader.css'
 
 const IconHeader = (props) => {
   const { icon, size, bg, color, text } = props

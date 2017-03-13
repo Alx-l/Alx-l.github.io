@@ -5,6 +5,7 @@
   height: 100%;
 }
 
+
 :global .root,
 :global [data-reactroot] {
   display: flex;

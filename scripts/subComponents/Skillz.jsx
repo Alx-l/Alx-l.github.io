@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/icon-header'
+import IconHeader from '../reusableComponents/iconHeader'
 import { Tool } from '../svg'
 import { clFrontEnd, clBackEnd, clTools } from '../collections/CollapsibleCollection'
 import settings from '../settings'
@@ -15,17 +15,17 @@ const Skillz = () => {
       <div className="l-textBlock">
         <p>Let's find out what I can do, shall we?</p>
       </div>
-      <div className="l-collapsibleContainer">
-        <div className="l-collapsibleContainer-left">
-          <div className="collapsible-item" data-divider={ true }>
+      <div className="l-collapsible">
+        <div className="l-collapsible-left">
+          <div className="l-collapsible-item" data-divider={ true }>
             { clFrontEnd }
           </div>
-          <div className="collapsible-item" data-divider={ true }>
+          <div className="l-collapsible-item" data-divider={ true }>
             { clBackEnd }
           </div>
         </div>
-        <div className="l-collapsibleContainer-right">
-          <div className="collapsible-item">
+        <div className="l-collapsible-right">
+          <div className="l-collapsible-item">
             { clTools }
           </div>
         </div>

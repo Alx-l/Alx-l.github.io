@@ -5,7 +5,7 @@ import connect from 'fluxx/lib/ReactConnector'
 import { mainStore } from '../store'
 import { setFilter } from '../data'
 
-import IconHeader from '../reusableComponents/icon-header'
+import IconHeader from '../reusableComponents/iconHeader'
 import { History } from '../svg'
 import CardList from '../components/cardlist'
 import * as Cards from '../collections/CardCollection'
@@ -33,12 +33,12 @@ const WhatIveDone = (props) => {
   }
 
   return (
-    <div className="p-whativedone">
+    <div className="v-whativedone">
       <IconHeader icon={ History } size={ 20 } color={ grey } text="My work"/>
       <div className="l-textBlock">
         <p>Here is what I've done so far :</p>
       </div>
-      <div className="p-whativedone-filters">
+      <div className="v-whativedone-filters">
         <span>show :</span>
         { renderFilterBtn('side projects', 'sideprojects') }
         { renderFilterBtn('jobs', 'jobs') }

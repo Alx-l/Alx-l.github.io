@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/icon-header'
+import IconHeader from '../reusableComponents/iconHeader'
 import ToolTip from '../reusableComponents/tooltip'
 import Icon from '../reusableComponents/icon'
 import { PersonPin, Github } from '../svg'
@@ -12,15 +12,15 @@ const { email, grey } = settings
 
 const WhereToFindMe = () => {
   return (
-    <div className="p-wheretofindme">
+    <div className="v-wheretofindme">
       <IconHeader icon={ PersonPin } size={ 20 } color={ grey } text="Finding me" />
-      <div className="l-textBlock--extended">
+      <div className="l-textBlock--sm">
         <p>You can find me wandering in the streets of
         <ToolTip hiddenText="FR, not TX :)"> Paris.</ToolTip>
         </p>
         <p>But since that could take a while before you randomly bump into me, feel free to send me an email :
           <br/>
-          <a className="p-wheretofindme-email" href={ `mailto:${email}` }>{ email }</a>
+          <a className="v-wheretofindme-email" href={ `mailto:${email}` }>{ email }</a>
         </p>
         <span>Wanna take a peek at my repos ?</span>
         <br/>

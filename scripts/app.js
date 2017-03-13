@@ -3,11 +3,12 @@ import { Router } from 'abyssa'
 import ReactState from './ReactState' // to use abyssa with React
 
 import Main from './components/main'
-import WhoAmI from './pageComponents/WhoAmI'
-import WhatIDo from './pageComponents/WhatIDo'
-import WhatIveDone from './pageComponents/WhatIveDone'
-import WhereToFindMe from './pageComponents/WhereToFindMe'
-import ErrorPage_404 from './pageComponents/ErrorPage'
+
+import WhoAmI from './views/WhoAmI'
+import WhatIDo from './views/WhatIDo'
+import WhatIveDone from './views/WhatIveDone'
+import WhereToFindMe from './views/WhereToFindMe'
+import ErrorPage_404 from './views/ErrorPage'
 
 import './global.css'
 

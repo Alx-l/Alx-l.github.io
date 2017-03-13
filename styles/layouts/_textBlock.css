@@ -13,7 +13,8 @@
   @apply --text-block;
 }
 
-:global .l-textBlock--extended {
+
+:global .l-textBlock--sm {
   /* modifier */
   @apply --text-block;
   @media (--above-tablet) {

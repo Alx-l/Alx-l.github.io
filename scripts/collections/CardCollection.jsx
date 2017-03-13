@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-import CardReveal from '../reusableComponents/card-reveal'
+import CardReveal from '../reusableComponents/cardReveal'
 import settings from '../settings'
 
-import styles from '../reusableComponents/card-reveal/card-reveal.css'
+import styles from '../reusableComponents/cardReveal/cardReveal.css'
 
 const { git } = settings
 
