@@ -11,7 +11,6 @@
     "build-ftp": "npm-run-all html-build webpack-prod",
     "move-files": "cp -r ./fonts ./images ./public",
     "html-build": "jade jade/views/*.jade --out public",
-    "styles-prod": "postcss --config ./build/prod/postcss.config.js",
     "webpack-dev": "webpack-dev-server -w --progress --colors --config build/dev/webpack.config.dev.js",
     "webpack-prod": "NODE_ENV=production webpack --config build/prod/webpack.config.prod.js"
   },
