@@ -34,11 +34,12 @@
 
 
 :global .btn-icon {
+  @mixin btn;
+
   display: inline-block;
   margin: var(--spacer) 0;
   padding: var(--spacer-sm) var(--spacer-xl);
   border-radius: 2px;
-  @mixin btn;
   &-icon {
     width: 32px;
   }

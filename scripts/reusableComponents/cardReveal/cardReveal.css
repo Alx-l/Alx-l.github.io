@@ -35,7 +35,7 @@
 
 .footer {
   overflow: hidden;
-  padding: 24px 16px;
+  padding: var(--spacer-md) var(--spacer);
   border-top: 1px solid rgba(var(--grey-darken), 0.5);
 }
 
