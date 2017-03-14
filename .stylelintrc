@@ -24,6 +24,9 @@
       "opacity",
       "font",
       "line-height",
+      "text-align",
+      "text-shadow",
+      "letter-spacing",
       "transform",
       "transition",
       "animation"
