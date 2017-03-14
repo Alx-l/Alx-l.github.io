@@ -57,13 +57,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'css/bundle.css', allChunks: true }),
-    new OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': '"production"'
       }
     }),
+    new ExtractTextPlugin({ filename: 'css/bundle.css', allChunks: true }),
+    new OccurrenceOrderPlugin(),
     new UglifyJsPlugin({
       minimize: true,
       compressor: {
