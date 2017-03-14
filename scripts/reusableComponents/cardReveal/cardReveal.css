@@ -62,11 +62,11 @@
 .container {
   position: absolute 100% 0 null 0;
   overflow-y: auto;
-  padding: var(--spacer);
   height: 100%;
-  border-radius: 2px;
+  padding: var(--spacer);
   background-color: #fff;
   color: var(--primary-text);
+  border-radius: 2px;
 }
 
 
@@ -102,8 +102,8 @@
 .insideFooter {
   margin-top: var(--spacer);
   padding-top: var(--spacer);
-  border-top: 1Px solid var(--grey-lighten);
   color: var(--secondary-text);
+  border-top: 1Px solid var(--grey-lighten);
   font-style: italic;
   font-size: var(--text-md);
 }

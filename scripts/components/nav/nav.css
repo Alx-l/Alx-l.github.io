@@ -14,11 +14,11 @@
 
 .avatar {
   overflow: hidden;
-  margin: 0 auto;
   width: 160px;
   height: 160px;
-  border-radius: 50%;
+  margin: 0 auto;
   background: #fff;
+  border-radius: 50%;
 }
 
 
@@ -33,8 +33,8 @@
 .subHeading {
   display: inline-block;
   padding: var(--spacer-xs) var(--spacer-sm);
-  border-radius: 2px;
   background: var(--accent-color);
+  border-radius: 2px;
   font-style: italic;
   font-family: var(--headings-font-family);
 }
@@ -45,8 +45,8 @@
   @media (--above-mobile) {
     box: horizontal-left wrap;
     position: relative;
-    margin: var(--spacer-md) auto;
     max-width: 1280px;
+    margin: var(--spacer-md) auto;
     text-transform: uppercase;
     &:global {
       animation: slideUp 0.7s ease-in-out-quad;
@@ -74,11 +74,11 @@
 
 .link {
   display: block;
-  padding: var(--spacer-md) var(--spacer-md);
   width: 100%;
+  padding: var(--spacer-md) var(--spacer-md);
+  color: #fff;
   font-weight: 300;
   font-size: responsive 20px 25px;
-  color: #fff;
 }
 
 
