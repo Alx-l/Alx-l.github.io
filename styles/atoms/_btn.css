@@ -24,9 +24,9 @@
 :global .btn-filter {
   margin-right: var(--spacer);
   padding: var(--spacer-xs) var(--spacer-sm);
+  color: var(--grey-darken);
   border: 1Px solid var(--accent-color);
   border-radius: 2px;
-  color: var(--grey-darken);
   &:focus {
     color: var(--accent-color);
   }

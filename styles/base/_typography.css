@@ -50,12 +50,12 @@
 
 body {
   color: var(--primary-text);
-  font-weight: 400;
-  font-size: var(--text-regular);
   font-family: var(--body-font-family);
-  line-height: var(--base-line-height);
+  font-size: var(--text-regular);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: var(--base-line-height);
 }
 
 
@@ -69,8 +69,8 @@ h4,
 h5,
 h6 {
   color: var(--headings);
-  font-weight: 400;
   font-family: var(--headings-font-family);
+  font-weight: 400;
   line-height: var(--headings-line-height);
 }
 

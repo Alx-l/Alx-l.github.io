@@ -30,8 +30,8 @@ a {
 
 
 button {
-  border: none;
   background: #bdbdbd;
+  border: none;
   &:focus {
     outline: none;
   }

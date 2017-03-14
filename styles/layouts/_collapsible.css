@@ -9,20 +9,20 @@
     overflow: hidden;
     padding: var(--spacer) var(--spacer-sm);
     &:before {
-      position: absolute 0 null 0 50%;
-      margin: var(--spacer) 0;
-      width: 1px;
-      background: var(--grey-lighten);
       content: "";
+      position: absolute 0 null 0 50%;
+      width: 1px;
+      margin: var(--spacer) 0;
+      background: var(--grey-lighten);
       transform: translateX(-50%);
     }
     &:after {
+      content: "";
       width: 12px;
       height: 12px;
+      background: #fff;
       border: 1px solid var(--grey-lighten);
       border-radius: 50%;
-      background: #fff;
-      content: "";
       @apply --center-xy;
     }
   }
@@ -63,22 +63,22 @@
     position: relative;
     margin-bottom: var(--spacer-xl);
     &:before {
-      position: absolute null 0 -22px 0;
-      margin: 0 10em;
-      height: 1px;
-      background-color: var(--grey-lighten);
       content: "";
+      position: absolute null 0 -22px 0;
+      height: 1px;
+      margin: 0 10em;
+      background-color: var(--grey-lighten);
     }
     &:after {
+      content: "";
       position: absolute;
       bottom: -28px;
       left: 50%;
       width: 12px;
       height: 12px;
+      background: #fff;
       border: 1px solid var(--grey-lighten);
       border-radius: 50%;
-      background: #fff;
-      content: "";
       transform: translateX(-50%);
     }
     @media (--above-tablet) {
