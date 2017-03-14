@@ -17,8 +17,8 @@ export const BubblyBoilerplate = (
   >
     <p className="u-underline">Recipe :</p>
     <ul>
-      <li>React / Fluxx</li>
       <li>ES6</li>
+      <li>React / Fluxx</li>
       <li>Jade</li>
       <li>PostCSS (cssnext)</li>
       <li>CSS Modules</li>
@@ -129,7 +129,8 @@ export const Zengularity = (
       <li>TypeScript</li>
       <li>React</li>
       <li><a href="https://github.com/AlexGalays/fluxx" target="_blank" className="u-linkSweep">Fluxx</a></li>
-      <li>CSS Modules / Stylus</li>
+      <li>CSS Modules</li>
+      <li>Stylus / Less</li>
     </ul>
   </CardReveal>
 )

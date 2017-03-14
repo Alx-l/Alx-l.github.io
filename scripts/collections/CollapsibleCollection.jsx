@@ -53,7 +53,7 @@ export const clTools = (
       <li>npm / yarn</li>
       <li>Webpack</li>
       <li>CSS Modules</li>
-      <li>ESLint</li>
+      <li>ESLint / Stylelint</li>
       <li>Heroku</li>
     </ul>
     <p>
@@ -74,7 +74,7 @@ export const clMusic = (
       </p>
       <ul>
         <li>Evidence (Westside rider)</li>
-        <li>TDE</li>
+        <li>Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)</li>
         <li>Bun B</li>
         <li>Chamillionaire</li>
         <li>ASAP Mob (not all of 'em...)</li>
@@ -139,8 +139,8 @@ export const clPeople = (
       Some devs I follow, look up to, and/or like :
     </p>
     <ul>
+      <li><a href="http://bit.ly/1KcNPaY" target="_blank" className="u-linkSweep">Mattias Petter Johansson</a></li>
       <li><a href="http://kosamari.com/notes" target="_blank" className="u-linkSweep">Mariko Kosaka</a></li>
-      <li><a href="https://github.com/getify" target="_blank" className="u-linkSweep">Kyle Simpson</a></li>
       <li><a href="http://bradfrost.com/" target="_blank" className="u-linkSweep">Brad Frost</a></li>
       <li><a href="https://bitsofco.de/" target="_blank" className="u-linkSweep">Ire Aderinokun</a></li>
       <li><a href="https://pawelgrzybek.com/" target="_blank" className="u-linkSweep">Pawel Grzybek</a></li>
