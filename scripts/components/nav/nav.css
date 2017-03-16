@@ -25,8 +25,8 @@
 .heading {
   margin: var(--spacer) 0 0;
   color: #fff;
-  letter-spacing: 5px;
   font-size: var(--text-xl);
+  letter-spacing: 5px;
 }
 
 

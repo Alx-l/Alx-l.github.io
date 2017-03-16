@@ -1,43 +1,39 @@
 
 import React from 'react'
 
+import { isObjEmpty, isObjFalsy } from '../../utils'
+
 import styles from './cardlist.css'
 
 
 const CardList = (props) => {
 
-  const renderAll = () => {
-    const { collectionToRender, sortBy: sortKey } = props
-    return collectionToRender
-      .sort((a, b) => {
-        if (sortKey) {
-          return a.props[sortKey] > b.props[sortKey] ? 1 :
-            a.props[sortKey] < b.props[sortKey] ? -1 : 0
-        }
-        return
-      })
-      .map((el, i) => {
-        return <div className={ styles.item } key={ i }>{ el }</div>
-      })
-  }
+  const renderCollection = () => {
+    const { collectionToRender, filters, sortBy: sortKey } = props
 
-  const renderFilteredCollection = () => {
-    const { filters } = props
+    const render = (collection) => {
+      return collection
+        .sort((a, b) => {
+          if (sortKey) {
+            return a.props[sortKey] > b.props[sortKey] ? 1 :
+              a.props[sortKey] < b.props[sortKey] ? -1 : 0
+          }
+          return
+        })
+        .map((item, i) => {
+          return <div className={ styles.item } key={ i }>{ item }</div>
+        })
+    }
 
-    const filterCollection = Object.keys(filters).map(filter => filters[filter])
-    const allFiltersUnset = filterCollection.every(el => el === false)
-
-    if (allFiltersUnset) return renderAll()
-
-    return renderAll().filter((item) => {
-      const { cat } = item.props.children.props
-      return filters[cat]
-    })
+    if (isObjEmpty(filters) || isObjFalsy(filters)) {
+      return render(collectionToRender)
+    }
+    return render(collectionToRender.filter(item => filters[item.props.cat]))
   }
 
   return (
     <div className={ styles.root }>
-      { renderFilteredCollection() }
+      { renderCollection() }
     </div>
   )
 }
