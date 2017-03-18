@@ -16,7 +16,7 @@ const CardList = (props) => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
 
-    const isEmpty = _every(item => item === false, _values(filters))
+    const filtersUnset = _every(item => item === false, _values(filters))
     const content = _partial(_map, (item, i) => <div className={ styles.item } key={ i }>{ item }</div>)
     const filter = _partial(_filter, item => filters[item.props.cat])
     const sort = _partial((collection) => {
@@ -26,7 +26,7 @@ const CardList = (props) => {
       })
     })
 
-    return _pipeAll(isEmpty ? [sort, content] :
+    return _pipeAll(filtersUnset ? [sort, content] :
       [filter, sort, content])(collectionToRender)
   }
 
