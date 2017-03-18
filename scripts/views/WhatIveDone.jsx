@@ -1,6 +1,8 @@
 
 import React from 'react'
 import connect from 'fluxx/lib/ReactConnector'
+import _values from '1-liners/values'
+
 
 import { mainStore } from '../store'
 import { setFilter } from '../data'
@@ -12,7 +14,7 @@ import * as Cards from '../collections/CardCollection'
 import settings from '../settings'
 
 const { accentColor, grey } = settings
-const CardCollection = Object.keys(Cards).map(el => Cards[el])
+const CardCollection = _values(Cards)
 
 
 const WhatIveDone = (props) => {
