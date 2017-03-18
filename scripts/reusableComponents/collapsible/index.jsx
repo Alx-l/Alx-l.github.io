@@ -25,13 +25,8 @@ export default class Collapsible extends Component {
   animateHr = () => {
     const { state: { open }, hr } = this
 
-    if (open) {
-      anime({ targets: hr, translateX: { ...animeSettings, value: '0%' }
-      })
-    } else {
-      anime({ targets: hr, translateX: { ...animeSettings, value: `${hrOffsetValue}` }
-      })
-    }
+    if (open) anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
+    else anime({ targets: hr, translateX: { ...animeSettings, value: `${hrOffsetValue}` } })
   }
 
   onEnter = (el, cb) => {

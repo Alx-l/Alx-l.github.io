@@ -55,7 +55,7 @@
   & li {
     box: horizontal-middle center wrap;
     flex: 0 1 auto;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
     @media (--above-mobile) {
       width: 50%;
     }
