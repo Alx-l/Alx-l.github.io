@@ -26,8 +26,8 @@ const CardList = (props) => {
       })
     })
 
-    return _pipeAll(isEmpty ? [content, sort] :
-      [filter, content, sort])(collectionToRender)
+    return _pipeAll(isEmpty ? [sort, content] :
+      [filter, sort, content])(collectionToRender)
   }
 
   return (
