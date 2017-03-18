@@ -17,18 +17,8 @@ export const pxToRemDims = (val) => {
 }
 
 
-export const isObjEmpty = (obj) => {
-  return !Object.keys(obj).length
-}
-
-
-export const isObjFalsy = (obj) => {
-  return !Object.keys(obj).find(item => obj[item])
-}
-
-
 export const handleLink = (e, dest) => {
-  // ideally, this function would not be needed...except we live in a IE world
+  // ideally, this function would not be needed...but we do live in a IE world
   e.preventDefault()
   router.transitionTo(dest)
 }
