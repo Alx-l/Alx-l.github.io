@@ -1,7 +1,6 @@
 
 import React from 'react'
 
-import _every from '1-liners/every'
 import _filter from '1-liners/filter'
 import _map from '1-liners/map'
 import _partial from '1-liners/partial'
@@ -16,18 +15,18 @@ const CardList = (props) => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
 
-    const filtersUnset = _every(item => item === false, _values(filters))
-    const content = _partial(_map, (item, i) => <div className={ styles.item } key={ i }>{ item }</div>)
-    const filter = _partial(_filter, item => filters[item.props.cat])
+    const filtersAreSet = _values(filters).find(item => item)
     const sort = _partial((collection) => {
       return collection.sort((a, b) => {
         return a.props[sortKey] > b.props[sortKey] ? 1 :
           a.props[sortKey] < b.props[sortKey] ? -1 : 0
       })
     })
+    const filter = filtersAreSet && _partial(_filter, item => filters[item.props.cat])
+    const content = _partial(_map, (item, i) => <div className={ styles.item } key={ i }>{ item }</div>)
+    const funcArr = _filter(item => item, [filter, sort, content])
 
-    return _pipeAll(filtersUnset ? [sort, content] :
-      [filter, sort, content])(collectionToRender)
+    return _pipeAll(funcArr)(collectionToRender)
   }
 
   return (
