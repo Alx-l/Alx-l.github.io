@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import ReactTransitionGroup from 'react-addons-transition-group'
 
 
@@ -23,20 +22,18 @@ export default class Animate extends Component {
 
 class InnerComponent extends Component {
   componentWillEnter(cb) {
-    const innerEl = ReactDOM.findDOMNode(this)
-    const el = innerEl.parentNode
+    const el = this.self.parentNode
     this.props.onEnter(el, cb)
   }
 
   componentWillLeave(cb) {
-    const innerEl = ReactDOM.findDOMNode(this)
-    const el = innerEl.parentNode
+    const el = this.self.parentNode
     this.props.onLeave(el, cb)
   }
 
   render() {
     return (
-      <span style={{ display: 'block' }}>
+      <span ref={ self => this.self = self } style={{ display: 'block' }}>
         { this.props.content }
       </span>
     )
