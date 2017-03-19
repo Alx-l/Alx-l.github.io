@@ -16,11 +16,12 @@ const CardList = (props) => {
     const { collectionToRender, filters, sortBy: sortKey } = props
 
     const filtersAreSet = _values(filters).find(item => item)
-    const sort = _partial(collection => collection.sort((a, b) =>
+    const filter = filtersAreSet && _partial(_filter, item => filters[item.props.cat])
+
+    const sort = collection => collection.sort((a, b) =>
       a.props[sortKey] > b.props[sortKey] ? 1 :
       a.props[sortKey] < b.props[sortKey] ? -1 : 0)
-    )
-    const filter = filtersAreSet && _partial(_filter, item => filters[item.props.cat])
+
     const content = _partial(_map, (item, i) => <div className={ styles.item } key={ i }>{ item }</div>)
     const funcArr = _filter(item => item, [filter, sort, content])
 
