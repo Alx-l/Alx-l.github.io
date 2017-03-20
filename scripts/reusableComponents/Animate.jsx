@@ -8,7 +8,7 @@ export default class Animate extends Component {
     const { trigger, children, onEnter, onLeave, customClassName, customStyle } = this.props
     return (
       <ReactTransitionGroup style={{ display: 'block', ...customStyle }} className={ customClassName }>
-        { trigger ? <InnerComponent onEnter={ onEnter } onLeave={ onLeave } content={ children }/> : null }
+        { trigger && <InnerComponent onEnter={ onEnter } onLeave={ onLeave } content={ children }/> }
       </ReactTransitionGroup>
     )
   }
