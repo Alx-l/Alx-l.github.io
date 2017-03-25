@@ -11,8 +11,8 @@
 
 .body {
   padding: var(--spacer-lg) 0;
-  letter-spacing: 2px;
   font-size: var(--text-md);
+  letter-spacing: 2px;
   &:hover {
     & .heart {
       &:global {
