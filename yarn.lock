@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"1-liners@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/1-liners/-/1-liners-0.4.0.tgz#b0bfbbeee45a07b86abffab2cb9220b6b12a8e2a"
-
 JSONStream@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-0.8.4.tgz#91657dfe6ff857483066132b4618b62e8f4887bd"
@@ -2782,7 +2778,7 @@ ignore@^3.2.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.4.tgz#4055e03596729a8fabe45a43c100ad5ed815c4e8"
 
-immupdate@^1.0.0:
+immupdate@1.0.1, immupdate@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/immupdate/-/immupdate-1.0.1.tgz#0d172cbd6659343a1919f74163c3b3077009d368"
 
@@ -3804,6 +3800,10 @@ optimist@~0.3.5:
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.3.7.tgz#c90941ad59e4273328923074d2cf2e7cbc6ec0d9"
   dependencies:
     wordwrap "~0.0.2"
+
+option.ts@0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/option.ts/-/option.ts-0.1.6.tgz#d3da6c0421cd13da01424beee8e9d77a2d9e98e0"
 
 optionator@^0.8.2:
   version "0.8.2"
@@ -5297,6 +5297,13 @@ source-map@~0.1.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.1.43.tgz#c24bc146ca517c1471f5dacbe2571b2b7f9e3346"
   dependencies:
     amdefine ">=0.0.4"
+
+space-lift@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/space-lift/-/space-lift-0.0.5.tgz#e22d05679922b8aec001112683362ce30c08d7f5"
+  dependencies:
+    immupdate "1.0.1"
+    option.ts "0.1.6"
 
 sparkles@^1.0.0:
   version "1.0.0"

@@ -1,6 +1,7 @@
 
 import { Router } from 'abyssa'
 import ReactState from './ReactState' // to use abyssa with React
+import 'space-lift/all'
 
 import Main from './components/main'
 
