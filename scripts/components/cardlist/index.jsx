@@ -10,7 +10,7 @@ const CardList = (props) => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
 
-    const filtersAreSet = Object.keys(filters).find(item => filters[item])
+    const filtersAreSet = !!Object.keys(filters).find(item => filters[item])
     const filterByCat = item => filtersAreSet ? filters[item.props.cat] : item
     const content = (item, i) => <div className={ styles.item } key={ i }>{ item }</div>
 
