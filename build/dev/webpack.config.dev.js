@@ -4,6 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const output = path.resolve(__dirname, '../../public/')
 
+const resolve = require('../commons/resolve')
+
 module.exports = {
   entry: ['babel-polyfill', './scripts/app.js'],
   output: {
@@ -16,9 +18,7 @@ module.exports = {
     port: 9000
   },
   devtool: 'inline-source-map',
-  resolve: {
-    extensions: ['.js', '.jsx', '.css']
-  },
+  resolve,
   module: {
     rules: [
       {

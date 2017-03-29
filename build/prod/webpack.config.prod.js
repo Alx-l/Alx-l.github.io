@@ -7,6 +7,8 @@ const OccurrenceOrderPlugin = webpack.optimize.OccurrenceOrderPlugin
 
 const output = path.resolve(__dirname, '../../public/')
 
+const resolve = require('../commons/resolve')
+
 
 module.exports = {
   entry: ['babel-polyfill', './scripts/app.js'],
@@ -16,9 +18,7 @@ module.exports = {
     publicPath: '/'
   },
   devtool: false,
-  resolve: {
-    extensions: ['.js', '.jsx', '.css']
-  },
+  resolve,
   module: {
     rules: [
       {
