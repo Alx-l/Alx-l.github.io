@@ -1,11 +1,11 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/iconHeader'
-import ToolTip from '../reusableComponents/tooltip'
-import Icon from '../reusableComponents/icon'
-import { PersonPin, Github } from '../svg'
-import settings from '../settings'
+import IconHeader from 'reusableComponents/iconHeader'
+import ToolTip from 'reusableComponents/tooltip'
+import Icon from 'reusableComponents/icon'
+import { PersonPin, Github } from 'svg'
+import settings from 'settings'
 
 const { email, grey } = settings
 

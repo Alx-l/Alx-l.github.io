@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 
-import { handleLink } from '../../utils'
+import { handleLink } from 'utils/misc'
 
 import styles from './offCanvas.css'
 

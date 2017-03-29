@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-import { Heart, Laptop, Music, Add } from '../../svg'
-import Icon from '../../reusableComponents/icon'
-import settings from '../../settings'
+import { Heart, Laptop, Music, Add } from 'svg'
+import Icon from 'reusableComponents/icon'
+import settings from 'settings'
 
 import styles from './footer.css'
 

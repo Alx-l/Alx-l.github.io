@@ -2,19 +2,19 @@
 import React from 'react'
 import connect from 'fluxx/lib/ReactConnector'
 
-import { values }  from '../utils'
+import _ from 'space-lift'
 
 import { mainStore } from '../store'
 import { setFilter } from '../data'
 
-import IconHeader from '../reusableComponents/iconHeader'
-import { History } from '../svg'
+import IconHeader from 'reusableComponents/iconHeader'
+import { History } from 'svg'
 import CardList from '../components/cardlist'
 import * as Cards from '../collections/CardCollection'
-import settings from '../settings'
+import settings from 'settings'
 
 const { accentColor, grey } = settings
-const CardCollection = values(Cards)
+const CardCollection = _(Cards).values().value()
 
 const WhatIveDone = (props) => {
 

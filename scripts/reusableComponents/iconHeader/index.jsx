@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import Icon from '../../reusableComponents/icon'
+import Icon from 'reusableComponents/icon'
 
 import styles from './iconHeader.css'
 

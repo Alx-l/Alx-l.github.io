@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import anime from 'animejs'
 
-import Icon from '../../reusableComponents/icon'
-import Animate from '../../reusableComponents/Animate'
-import { More, Close, Blink } from '../../svg'
+import Icon from 'reusableComponents/icon'
+import Animate from 'reusableComponents/Animate'
+import { More, Close, Blink } from 'svg'
 
 import styles from './cardReveal.css'
 

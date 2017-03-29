@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import { pxToRemDims } from '../../utils'
+import { pxToRemDims } from 'utils/misc'
 
 const Icon = (props) => {
   const { color, className, svg, size, customStyle } = props

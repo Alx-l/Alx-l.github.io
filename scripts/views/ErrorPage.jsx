@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/iconHeader'
-import { Warning } from '../svg'
-import settings from '../settings'
+import IconHeader from 'reusableComponents/iconHeader'
+import { Warning } from 'svg'
+import settings from 'settings'
 
 const { grey } = settings
 

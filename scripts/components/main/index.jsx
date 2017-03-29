@@ -3,7 +3,7 @@ import React from 'react'
 
 import Nav from '../nav'
 import Footer from '../footer'
-import settings from '../../settings'
+import settings from 'settings'
 
 const { primaryColor } = settings
 

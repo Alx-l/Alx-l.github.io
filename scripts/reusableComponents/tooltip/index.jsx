@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import anime from 'animejs'
 
-import Animate from '../../reusableComponents/Animate'
+import Animate from 'reusableComponents/Animate'
 
 import styles from './tooltip.css'
 

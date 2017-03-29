@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import anime from 'animejs'
 
-import Icon from '../../reusableComponents/icon'
-import Animate from '../../reusableComponents/Animate'
-import { Expand } from '../../svg'
+import Icon from 'reusableComponents/icon'
+import Animate from 'reusableComponents/Animate'
+import { Expand } from 'svg'
 
 import styles from './collapsible.css'
 

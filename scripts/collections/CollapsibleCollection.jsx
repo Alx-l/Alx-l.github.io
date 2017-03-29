@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Collapsible from '../reusableComponents/collapsible'
-import { BackEnd, Code, FrontEnd, Movie, Music, Pencil, People, SupaHappy, ThumbUp, TV } from '../svg'
-import settings from '../settings'
+import Collapsible from 'reusableComponents/collapsible'
+import { BackEnd, Code, FrontEnd, Movie, Music, Pencil, People, SupaHappy, ThumbUp, TV } from 'svg'
+import settings from 'settings'
 
 const { greyDarken } = settings
 

@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-import IconHeader from '../reusableComponents/iconHeader'
-import { Tool } from '../svg'
+import IconHeader from 'reusableComponents/iconHeader'
+import { Tool } from 'svg'
 import { clFrontEnd, clBackEnd, clTools } from '../collections/CollapsibleCollection'
-import settings from '../settings'
+import settings from 'settings'
 
 const { grey } = settings
 

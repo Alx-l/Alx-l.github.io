@@ -5,11 +5,11 @@ import 'space-lift/all'
 
 import Main from './components/main'
 
-import WhoAmI from './views/WhoAmI'
-import WhatIDo from './views/WhatIDo'
-import WhatIveDone from './views/WhatIveDone'
-import WhereToFindMe from './views/WhereToFindMe'
-import ErrorPage_404 from './views/ErrorPage'
+import WhoAmI from 'views/WhoAmI'
+import WhatIDo from 'views/WhatIDo'
+import WhatIveDone from 'views/WhatIveDone'
+import WhereToFindMe from 'views/WhereToFindMe'
+import ErrorPage_404 from 'views/ErrorPage'
 
 import './global.css'
 
