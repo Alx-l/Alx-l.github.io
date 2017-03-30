@@ -7,7 +7,7 @@ const output = path.resolve(__dirname, '../../public/')
 const resolve = require('../commons/resolve')
 
 module.exports = {
-  entry: ['babel-polyfill', './scripts/app.js'],
+  entry: ['babel-polyfill', './src/app.js'],
   output: {
     path: output,
     filename: 'js/bundle.js',

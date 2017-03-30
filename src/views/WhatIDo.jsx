@@ -1,8 +1,8 @@
 
 import React from 'react'
 
-import Skillz from '../subComponents/Skillz'
-import Likes from '../subComponents/Likes'
+import Skillz from 'subComponents/Skillz'
+import Likes from 'subComponents/Likes'
 
 
 const WhatIDo = () => {

@@ -3,7 +3,7 @@ import React from 'react'
 
 import IconHeader from 'reusableComponents/iconHeader'
 import { Heart } from 'svg'
-import { clMusic, clTVMovies, clMisc, clPeople } from '../collections/CollapsibleCollection'
+import { clMusic, clTVMovies, clMisc, clPeople } from 'collections/CollapsibleCollection'
 import settings from 'settings'
 
 const { grey } = settings

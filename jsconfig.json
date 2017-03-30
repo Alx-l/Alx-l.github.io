@@ -2,13 +2,13 @@
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
-    "paths": { "*": [ "scripts/*" ] }
+    "paths": { "*": [ "src/*" ] }
   },
   "exclude": [ "node_modules" ],
   "include": [
-    "./scripts/**/*"
+    "./src/**/*"
   ],
   "files": [
-    "scripts/app.js"
+    "src/app.js"
   ]
 }
