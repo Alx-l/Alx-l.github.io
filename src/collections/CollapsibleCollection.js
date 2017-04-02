@@ -68,16 +68,16 @@ export const clTools = (
 
 export const clMusic = (
   h(Collapsible, { titleIcon: Music, iconColor: greyDarken, titleIconSize: 35, title: 'Music', popOut: true },
-    h('p', {}, 'Music is so many things, it can soothe you, move you, make you move, annoy you or even make you fall asleep, it\'s just fundamental :)'),
+    h('p', {}, `Music is so many things, it can soothe you, move you, make you move, annoy you or even make you fall asleep, it's just fundamental :)`),
     h(Collapsible, { iconColor: greyDarken, title: 'Rap' },
       h('p', {}, 'Of course this is not an exhaustive list :'),
       h('ul', {},
         h('li', {}, 'Evidence (Westside rider)'),
-        h('li', {}, 'Chance the Rapper (he\'s like Kanye West before Kanye became a Kardashian)'),
+        h('li', {}, `Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
         h('li', {}, 'Bun B'),
         h('li', {}, 'Chamillionaire'),
-        h('li', {}, 'ASAP Mob (not all of \'em...)'),
-        h('li', {}, 'Cam\'ron (Dipset b*tch)'),
+        h('li', {}, `ASAP Mob (not all of 'em...)`),
+        h('li', {}, `Cam'ron (Dipset b*tch)`),
         h('li', {}, 'The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)')
       )
     ),
@@ -85,7 +85,7 @@ export const clMusic = (
       h('p', {}, 'All right, now get ready for the dummy mix, no rules, just me, my taste and no filter :'),
       h('ul', {},
         h('li', {}, 'Mélat'),
-        h('li', {}, 'Blink-182 (didn\'t even listen to them as a teen, but man they\'re good)'),
+        h('li', {}, `Blink-182 (didn't even listen to them as a teen, but man they're good)`),
         h('li', {}, 'Frank Ocean'),
         h('li', {}, 'Jhené Aiko'),
         h('li', {}, 'Raphael Saadiq'),
@@ -111,12 +111,12 @@ export const clTVMovies = (
       h('li', {}, '...'),
     ),
     h(Collapsible, { titleIcon: Movie, iconColor: greyDarken, titleIconSize: 35, title: 'Movies' },
-      h('p', {}, 'Maybe not my favorites of all time, but the ones that pop into my head as I\'m writing this.'),
+      h('p', {}, `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`),
       h('ul', {},
         h('li', {}, 'Pitch Perfect (nerd alert!)'),
         h('li', {}, 'Kick-ass'),
         h('li', {}, '50/50'),
-        h('li', {}, 'Carlito\'s Way'),
+        h('li', {}, `Carlito's Way`),
         h('li', {}, 'End of watch'),
         h('li', {}, '22 Jump Street'),
         h('li', {}, '...')
@@ -156,8 +156,8 @@ export const clMisc = (
       h('span', { className: 'u-highlight' }, '5 vegetables '), 'a day (I mean, it feels good when I do...which is like once a month).'
     ),
     h('p', {}, 'And last but not least, I like people (again, ',
-      h('span', { className: 'u-highlight' }, 'not every single one of them, '), 'my heart is not that big), I mean music, tv series, your opinion about what\'s happening on the other side of the world and stuff is great...'
+      h('span', { className: 'u-highlight' }, 'not every single one of them, '), `my heart is not that big), I mean music, tv series, your opinion about what's happening on the other side of the world and stuff is great...`
     ),
-    h('p', {}, 'But what\'s greater is when you get to share (and disagree with) all that with someone else, otherwise, what\'s the point, right?')
+    h('p', {}, `But what's greater is when you get to share (and disagree with) all that with someone else, otherwise, what's the point, right?`)
   )
 )

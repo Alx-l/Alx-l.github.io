@@ -16,14 +16,14 @@ const WhoAmI = () => {
           h('span', { className: 'u-highlight' }, 'Alex '), 'a junior ',
           h('span', { className: 'u-highlight' }, 'front-end web dev')
         ),
-        h('p', {}, 'I used to handle stock, and also customer complaints at an electronics store, but after a few years I just wasn\'t happy with this job of mine.'),
+        h('p', {}, `I used to handle stock, and also customer complaints at an electronics store, but after a few years I just wasn't happy with this job of mine.`),
         h('p', {}, 'I wanted to do something that allowed me to let my ',
           h('span', { className: 'u-highlight' }, 'creativity '),
           'speak, I wanted to build things, leave a mark (little as an ink stain will do) on this world.'
         ),
         h('p', {}, 'And I discovered that ',
           h('span', { className: 'u-highlight' }, 'web development '),
-          'give me all that. Being able to code things that potentially the whole world can see and interact with, it\'s just a really nice feeling, isn\'t it ?'
+          `give me all that. Being able to code things that potentially the whole world can see and interact with, it's just a really nice feeling, isn't it ?`
         ),
         h('p', {}, 'So, hello world, and welcome to my world ',
           h('span', { className: 'u-highlight' }, 'O_O')

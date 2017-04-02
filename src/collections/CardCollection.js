@@ -14,7 +14,7 @@ export const BubblyBoilerplate = (
     cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'bubbly-boilerplate',
     title: 'Bubbly Boilerplate',
     subTitle: 'homemade starter kit',
-    footerText: 'there\'s more inside'
+    footerText: `there's more inside`
   },
     h('p', { className: 'u-underline' }, 'Recipe :'),
     h('ul', {},
@@ -54,7 +54,7 @@ export const Portefolio = (
     cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'portefolio',
     title: 'Me',
     subTitle: 'myself and I',
-    footerText: 'there\'s more inside'
+    footerText: `there's more inside`
   },
     h('p', { className: 'u-underline' }, 'Recipe :'),
     h('ul', {},
@@ -71,7 +71,7 @@ export const VinylMinded = (
     cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: 'http://alex-l.com/vinylminded/',
     title: 'Vinyl Minded',
     subTitle: 'fake e-commerce site',
-    footerText: 'there\'s more inside'
+    footerText: `there's more inside`
   },
     h('p', { className: 'u-underline' }, 'Recipe :'),
     h('ul', {},
@@ -90,7 +90,7 @@ export const PokemonYo = (
     cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: 'http://pokemonyoisthename.herokuapp.com/',
     title: 'Pokemon Yo',
     subTitle: 'simple pokedex',
-    footerText: 'there\'s more inside'
+    footerText: `there's more inside`
   },
     h('p', { className: 'u-underline' }, 'Recipe :'),
     h('ul', {},
@@ -113,7 +113,7 @@ export const NrjMobile = (
     cat: 'jobs', blinkIcon: true, iconColor: '#000', href: 'https://www.nrjmobile.fr/',
     title: 'NRJ Mobile',
     subTitle: '4 months during 2015',
-    footerText: 'there\'s more inside'
+    footerText: `there's more inside`
   },
     h('p', { className: 'u-underline' }, 'Tasks :'),
     h('ul', {},
@@ -129,11 +129,11 @@ export const Zengularity = (
     cat: 'jobs', blinkIcon: true, iconColor: '#000', href: 'https://zengularity.com',
     title: 'Zengularity',
     subTitle: 'Since October 2016',
-    footerText: 'there\'s more inside'
+    footerText: `there's more inside`
   },
     h('p', { className: 'u-underline' }, 'Tasks :'),
     h('ul', {},
-      h('li', {}, 'Build UI\'s'),
+      h('li', {}, `Build UI's`),
       h('li', {}, 'Code email newsletters')
     ),
     h('p', { className: 'u-underline' }, 'Stack :'),
