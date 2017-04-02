@@ -1,7 +1,6 @@
 
 import React from 'react'
-
-import { h, pxToRemDims } from 'utils/misc'
+import h from 'react-hyperscript'
 
 import Icon from 'reusableComponents/icon'
 
@@ -11,10 +10,10 @@ const IconHeader = (props) => {
   const { icon, size, bg, color, text } = props
   return (
     h('div', { style: { backgroundColor: bg }, className: styles.root },
-      h('h2', { className: styles.heading },
+      h('h2', { className: styles.heading }, [
         h(Icon, { svg: icon, color, size, className: styles.icon }),
         h('span', { className: styles.text }, text)
-      )
+      ])
     )
   )
 }

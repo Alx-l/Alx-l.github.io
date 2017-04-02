@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react'
+import h from 'react-hyperscript'
 import classNames from 'classnames'
 
-import { h, handleLink } from 'utils/misc'
+import { handleLink } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
@@ -61,12 +62,10 @@ export default class OffCanvas extends Component {
     })
 
     return (
-      h('div', { className, style: { textTransform: 'uppercase' } },
+      h('div', { className, style: { textTransform: 'uppercase' } }, [
         h('div', { className: styles.overlay, onClick: this.handleClose }),
-        h('div', { className: styles.content },
-          h('ul', {}, this.renderItems())
-        )
-      )
+        h('div', { className: styles.content }, h('ul', {}, this.renderItems()))
+      ])
     )
   }
 

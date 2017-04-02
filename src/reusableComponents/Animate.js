@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import ReactTransitionGroup from 'react-addons-transition-group'
 
-import { h } from 'utils/misc'
+import h from 'react-hyperscript'
 
 
 class InnerComponent extends Component {

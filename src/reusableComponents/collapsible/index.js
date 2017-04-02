@@ -1,9 +1,8 @@
 
 import React, { Component } from 'react'
+import h from 'react-hyperscript'
 import classNames from 'classnames'
 import anime from 'animejs'
-
-import { h } from 'utils/misc'
 
 import Icon from 'reusableComponents/icon'
 import Animate from 'reusableComponents/Animate'
@@ -69,25 +68,24 @@ export default class Collapsible extends Component {
     )
 
     return (
-      h('div', { 'aria-expanded': open, className: Collapsible_cn },
-        h('div', { onKeyDown: this.handleKeyDown, className: styles.title, onClick: this.handleClick, tabIndex: '0' },
-          h('div', { className: styles.titleLeft }, renderIcon,
-            h('span', { className: 'text' }, title)
-          ),
-          h('div', { className: styles.titleRight },
+      h('div', { 'aria-expanded': open, className: Collapsible_cn }, [
+        h('div', { onKeyDown: this.handleKeyDown, className: styles.title, onClick: this.handleClick, tabIndex: '0' }, [
+          h('div', { className: styles.titleLeft }, [
+            renderIcon, h('span', { className: 'text' }, title)
+          ]),
+          h('div', { className: styles.titleRight }, [
             h('div', { className: expandIcon_cn },
               h(Icon, { svg: Expand, size: iconSize, color: iconColor, customStyle: { display: 'block' } })
             )
-          ),
-          h('hr', {
-            ref: hr => this.hr = hr,
+          ]),
+          h('hr', { ref: hr => this.hr = hr,
             style: { transform: `translateX(${hrOffsetValue})` }, className: styles.hr }
           )
-        ),
+        ]),
         h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customStyle: { height: '0px' } },
           h('div', { className: styles.body, style: { padding: '16px' } }, children)
         )
-      )
+      ])
     )
   }
 

@@ -53,6 +53,7 @@
     "react": "^15.4.2",
     "react-addons-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-hyperscript": "^3.0.0",
     "rucksack-css": "^0.9.1",
     "space-lift": "^0.0.5",
     "style-loader": "0.13.2",

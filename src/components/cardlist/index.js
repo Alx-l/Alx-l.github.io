@@ -2,7 +2,7 @@
 import React from 'react'
 import _ from 'space-lift'
 
-import { h } from 'utils/misc'
+import h from 'react-hyperscript'
 
 import styles from './cardlist.css'
 

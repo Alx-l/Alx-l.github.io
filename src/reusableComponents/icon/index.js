@@ -1,7 +1,8 @@
 
 import React from 'react'
+import h from 'react-hyperscript'
 
-import { h, pxToRemDims } from 'utils/misc'
+import { pxToRemDims } from 'utils/misc'
 
 const Icon = (props) => {
   const { color, className, svg, size, customStyle } = props

@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
+import h from 'react-hyperscript'
 
-import { h, handleLink } from 'utils/misc'
+import { handleLink } from 'utils/misc'
 
 import OffCanvas from '../offCanvas'
 import Icon from 'reusableComponents/icon'
@@ -53,16 +54,13 @@ export default class Nav extends Component {
     const { backgroundColor, heading, subHeading, route } = this.props
 
     return (
-      h('nav', { style: { backgroundColor }, className: styles.root },
-        h('div', { className: styles.avatar },
-          h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
-        ),
+      h('nav', { style: { backgroundColor }, className: styles.root }, [
+        h('div', { className: styles.avatar }, h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })),
         h('h1', { className: styles.heading }, heading),
         h('div', { className: styles.subHeading }, subHeading),
-        h('ul', { className: styles.list }, this.renderNavItems()),
-        this.renderMenuIcon(),
+        h('ul', { className: styles.list }, this.renderNavItems()), this.renderMenuIcon(),
         h('div', { onClick: this.handleClick }, h(OffCanvas, { route, open: this.state.open, items: links }))
-      )
+      ])
     )
   }
 

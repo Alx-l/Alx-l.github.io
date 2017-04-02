@@ -1,5 +1,5 @@
 
-import { h } from 'utils/misc'
+import h from 'react-hyperscript'
 
 import IconHeader from 'reusableComponents/iconHeader'
 import { Tool } from 'svg'
@@ -10,21 +10,19 @@ const { grey } = settings
 
 const Skillz = () => {
   return (
-    h('div', {},
+    h('div', {}, [
       h(IconHeader, { icon: Tool, size: 20, color: grey, text: 'My skillz' }),
-      h('div', { className: 'l-textBlock' },
-        h('p', {}, `Let's find out what I can do, shall we?`)
-      ),
-      h('div', { className: 'l-collapsible' },
-        h('div', { className: 'l-collapsible-left' },
-          h('div', { className: 'l-collapsible-item', 'data-divider': true }, clFrontEnd),
-          h('div', { className: 'l-collapsible-item', 'data-divider': true }, clBackEnd)
-        ),
-        h('div', { className: 'l-collapsible-right' },
-          h('div', { className: 'l-collapsible-item' }, clTools)
-        )
-      )
-    )
+      h('.l-textBlock', {}, h('p', {}, `Let's find out what I can do, shall we?`)),
+      h('.l-collapsible', {}, [
+        h('.l-collapsible-left', {}, [
+          h('.l-collapsible-item', { 'data-divider': true }, clFrontEnd),
+          h('.l-collapsible-item', { 'data-divider': true }, clBackEnd)
+        ]),
+        h('.l-collapsible-right', {}, [
+          h('.l-collapsible-item', {}, clTools)
+        ])
+      ])
+    ])
   )
 }
 

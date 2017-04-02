@@ -1,8 +1,7 @@
 
 import React, { Component } from 'react'
+import h from 'react-hyperscript'
 import anime from 'animejs'
-
-import { h } from 'utils/misc'
 
 import Icon from 'reusableComponents/icon'
 import Animate from 'reusableComponents/Animate'
@@ -45,14 +44,12 @@ export default class CardReveal extends Component {
     const { iconColor, children } = this.props
 
     return (
-      h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customClassName: styles.container },
-        h('div', {},
-          h('div', { className: styles.insideIcon, onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
-            h(Icon, { svg: Close, color: iconColor, size: 24 })
-          ),
+      h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customClassName: styles.container }, [
+        h('div', {}, [
+          h('div', { className: styles.insideIcon, onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' }, h(Icon, { svg: Close, color: iconColor, size: 24 })),
           h('div', { className: styles.insideRoot, style: { overflow: 'hidden' } }, children)
-        )
-      )
+        ])
+      ])
     )
   }
 
@@ -67,22 +64,22 @@ export default class CardReveal extends Component {
       )
 
     return (
-      h('div', { className: styles.root, 'data-cat': cat },
-        h('div', { className: styles.content },
+      h('div', { className: styles.root, 'data-cat': cat }, [
+        h('div', { className: styles.content }, [
           h('h3', { className: styles.title }, title),
           subTitle && h('span', { className: styles.subTitle }, subTitle)
-        ),
-        h('div', { className: styles.footer },
+        ]),
+        h('div', { className: styles.footer }, [
           h('div', { className: styles.footerText }, footerText),
-          h('div', { className: styles.iconContainer },
+          h('div', { className: styles.iconContainer }, [
             h('div', { onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
               h(Icon, { svg: More, size: 24, color: iconColor })
             ),
             renderBlinkIcon
-          )
-        ),
+          ])
+        ]),
         this.renderInside()
-      )
+      ])
     )
   }
 
