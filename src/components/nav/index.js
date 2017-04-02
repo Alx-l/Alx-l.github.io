@@ -1,10 +1,11 @@
 
 import React, { Component } from 'react'
 
+import { h, handleLink } from 'utils/misc'
+
 import OffCanvas from '../offCanvas'
 import Icon from 'reusableComponents/icon'
 import { Hamburger } from 'svg'
-import { handleLink } from 'utils/misc'
 
 import styles from './nav.css'
 
@@ -33,18 +34,18 @@ export default class Nav extends Component {
       const isActive = route === dest && true || route === 'index' && isIndex
 
       return (
-        <li key={ i } className={ isActive && 'is-active' }>
-          <a data-nav="ignore" onClick={ e => handleLink(e, dest) } href={ dest } className={ styles.link }>{ text }</a>
-        </li>
+        h('li', { key: i , className: isActive && 'is-active'},
+          h('a', { 'data-nav': 'ignore', onClick: e => handleLink(e, dest), href: dest, className: styles.link }, text)
+        )
       )
     })
   }
 
   renderMenuIcon() {
     return (
-      <div className={ styles.icon } onClick={ this.handleOpen }>
-        <Icon svg={ Hamburger } size={ 40 } color="#fff"/>
-      </div>
+      h('div', { className: styles.icon , onClick: this.handleOpen },
+        h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
+      )
     )
   }
 
@@ -52,18 +53,16 @@ export default class Nav extends Component {
     const { backgroundColor, heading, subHeading, route } = this.props
 
     return (
-        <nav style={{ backgroundColor }} className={ styles.root }>
-          <div className={ styles.avatar }><img src="images/avatarpic.jpg" alt="avatar pic"/></div>
-          <h1 className={ styles.heading }>{ heading }</h1>
-          <div className={ styles.subHeading }>{ subHeading }</div>
-          <ul className={ styles.list }>
-            { this.renderNavItems() }
-          </ul>
-          { this.renderMenuIcon() }
-          <div onClick={ this.handleClick }>
-            <OffCanvas route={ route } open={ this.state.open } items={ links }/>
-          </div>
-        </nav>
+      h('nav', { style: { backgroundColor }, className: styles.root },
+        h('div', { className: styles.avatar },
+          h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
+        ),
+        h('h1', { className: styles.heading }, heading),
+        h('div', { className: styles.subHeading }, subHeading),
+        h('ul', { className: styles.list }, this.renderNavItems()),
+        this.renderMenuIcon(),
+        h('div', { onClick: this.handleClick }, h(OffCanvas, { route, open: this.state.open, items: links }))
+      )
     )
   }
 

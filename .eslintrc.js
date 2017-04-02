@@ -1,7 +1,6 @@
 module.exports = {
   "env": {
     "browser": true,
-    "meteor": true,
     "node": true,
     "mocha": true,
     "commonjs": true,
@@ -11,20 +10,11 @@ module.exports = {
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
+      "experimentalObjectRestSpread": true
     },
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
   "rules": {
-    "react/jsx-uses-vars": 1,
-    "react/jsx-uses-react": 1,
-    "react/jsx-curly-spacing": [1, "always", {"spacing": {
-      "objectLiterals": "never"
-    }}],
     "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
     "arrow-spacing": [1, { "before": true, "after": true }],
     "indent": [1, 2,
@@ -33,7 +23,6 @@ module.exports = {
         "VariableDeclarator": { "var": 2, "let": 2, "const": 3 }
       }
     ],
-    "jsx-quotes": [1, "prefer-double"],
     "keyword-spacing": [1, { "before": true, "after": true }],
     "key-spacing": [1, { "afterColon": true }],
     "linebreak-style": 0,

@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import anime from 'animejs'
 
+import { h } from 'utils/misc'
+
 import Animate from 'reusableComponents/Animate'
 
 import styles from './tooltip.css'
@@ -45,31 +47,23 @@ export default class ToolTip extends Component {
   }
 
   renderToolTips() {
-    const { onEnter, onLeave, state: { visible } } = this
+    const { onEnter, onLeave, state: { visible }, props } = this
 
     return (
-      <Animate
-        trigger={ visible }
-        onEnter={ onEnter }
-        onLeave={ onLeave }
-        customClassName={ styles.hiddenText }
-        customStyle={{ transform: 'scale(0)' }}
-      >
-        <span>
-          { this.props.hiddenText }
-        </span>
-      </Animate>
+      h(Animate, { trigger: visible, onEnter, onLeave,
+        customClassName: styles.hiddenText, customStyle: { transform: 'scale(0)' }
+      },
+        h('span', {}, props.hiddenText)
+      )
     )
   }
 
   render() {
     return (
-      <span onClick={ this.handleClick } onMouseEnter={ this.handleHoverIn } onMouseLeave={ this.handleHoverOut } onKeyDown={ this.handleKeyDown } className={ styles.root } tabIndex="0">
-        <span className={ styles.text }>
-          { this.props.children }
-        </span>
-        { this.renderToolTips() }
-      </span>
+      h('span', { onClick: this.handleClick, onMouseEnter: this.handleHoverIn , onMouseLeave: this.handleHoverOut, onKeyDown: this.handleKeyDown, className: styles.root, tabIndex: '0' },
+        h('span', { className: styles.text }, this.props.children),
+        this.renderToolTips()
+      )
     )
   }
 

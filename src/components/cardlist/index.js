@@ -2,6 +2,8 @@
 import React from 'react'
 import _ from 'space-lift'
 
+import { h } from 'utils/misc'
+
 import styles from './cardlist.css'
 
 
@@ -12,7 +14,7 @@ const CardList = (props) => {
 
     const filtersAreSet = !!Object.keys(filters).find(item => filters[item])
     const filterByCat = item => filtersAreSet ? filters[item.props.cat] : item
-    const content = (item, i) => <div className={ styles.item } key={ i }>{ item }</div>
+    const content = (item, i) => h('div', { className: styles.item, key: i }, item)
 
     return _(collectionToRender)
       .filter(filterByCat)
@@ -21,11 +23,7 @@ const CardList = (props) => {
       .value()
   }
 
-  return (
-    <div className={ styles.root }>
-      { renderCollection() }
-    </div>
-  )
+  return h('div', { className: styles.root }, renderCollection())
 }
 
 CardList.propTypes = {

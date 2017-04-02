@@ -1,5 +1,5 @@
 
-import React from 'react'
+import { h } from 'utils/misc'
 
 import Skillz from 'subComponents/Skillz'
 import Likes from 'subComponents/Likes'
@@ -7,10 +7,10 @@ import Likes from 'subComponents/Likes'
 
 const WhatIDo = () => {
   return (
-    <div className="WhatIDo">
-      <Skillz/>
-      <Likes/>
-    </div>
+    h('div', { className: 'WhatIDo' },
+      h(Skillz),
+      h(Likes)
+    )
   )
 }
 

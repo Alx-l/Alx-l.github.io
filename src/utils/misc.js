@@ -1,4 +1,8 @@
+import React from 'react'
 import { api as router } from 'abyssa'
+
+
+export const h = React.createElement
 
 
 export const pxToRem = (val) => {

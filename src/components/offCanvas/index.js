@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 
-import { handleLink } from 'utils/misc'
+import { h, handleLink } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
@@ -48,9 +48,9 @@ export default class OffCanvas extends Component {
       })
 
       return (
-        <li onClick={ this.handleClose } className={ className } key={ i }>
-          <a data-nav="ignore" onClick={ e => handleLink(e, item.dest) } tabIndex="-1" className={ styles.link } href={ item.dest } >{ item.text }</a>
-        </li>
+        h('li', { onClick: this.handleClose, className, key: i },
+          h('a', { 'data-nav': 'ignore', onClick: e => handleLink(e, item.dest), tabIndex: '-1', className: styles.link, href: item.dest }, item.text)
+        )
       )
     })
   }
@@ -61,14 +61,12 @@ export default class OffCanvas extends Component {
     })
 
     return (
-      <div className={ className } style={{ textTransform: 'uppercase' }}>
-        <div className={ styles.overlay } onClick={ this.handleClose }></div>
-        <div className={ styles.content }>
-          <ul>
-            { this.renderItems() }
-          </ul>
-        </div>
-      </div>
+      h('div', { className, style: { textTransform: 'uppercase' } },
+        h('div', { className: styles.overlay, onClick: this.handleClose }),
+        h('div', { className: styles.content },
+          h('ul', {}, this.renderItems())
+        )
+      )
     )
   }
 

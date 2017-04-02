@@ -1,6 +1,8 @@
 
 import React from 'react'
 
+import { h, pxToRemDims } from 'utils/misc'
+
 import Icon from 'reusableComponents/icon'
 
 import styles from './iconHeader.css'
@@ -8,12 +10,12 @@ import styles from './iconHeader.css'
 const IconHeader = (props) => {
   const { icon, size, bg, color, text } = props
   return (
-    <div style={{ backgroundColor: bg }} className={ styles.root }>
-      <h2 className={ styles.heading }>
-        <Icon svg={ icon } size={ size } className={ styles.icon } color={ color } />
-        <span className={ styles.text }>{ text }</span>
-      </h2>
-    </div>
+    h('div', { style: { backgroundColor: bg }, className: styles.root },
+      h('h2', { className: styles.heading },
+        h(Icon, { svg: icon, color, size, className: styles.icon }),
+        h('span', { className: styles.text }, text)
+      )
+    )
   )
 }
 

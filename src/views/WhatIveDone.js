@@ -1,8 +1,8 @@
 
-import React from 'react'
 import connect from 'fluxx/lib/ReactConnector'
-
 import _ from 'space-lift'
+
+import { h } from 'utils/misc'
 
 import { mainStore } from '../store'
 import { setFilter } from '../data'
@@ -22,32 +22,28 @@ const WhatIveDone = (props) => {
     const { filters } = props
 
     return (
-      <button className="btn-filter"
-        onClick={ () => setFilter(dataAttr, !filters[dataAttr]) }
-        data-props={ dataAttr }
-        style={ filters[dataAttr] ? styles.btn.active : styles.btn.inactive }
-        tabIndex="0"
-      >
-        { text }
-      </button>
+      h('button', {
+        className: 'btn-filter', onClick: () => setFilter(dataAttr, !filters[dataAttr]),
+        'data-props': dataAttr,
+        style: filters[dataAttr] ? styles.btn.active : styles.btn.inactive,
+        tabIndex: '0'
+      }, text)
     )
   }
 
   return (
-    <div className="v-whativedone">
-      <IconHeader icon={ History } size={ 20 } color={ grey } text="My work"/>
-      <div className="l-textBlock">
-        <p>Here is what I've done so far :</p>
-      </div>
-      <div className="v-whativedone-filters">
-        <span>show :</span>
-        { renderFilterBtn('side projects', 'sideprojects') }
-        { renderFilterBtn('jobs', 'jobs') }
-      </div>
-      <div>
-        <CardList sortBy="title" collectionToRender={ CardCollection } filters={ props.filters }/>
-      </div>
-    </div>
+    h('div', { className: 'v-whativedone' },
+      h(IconHeader, { icon: History, size: 20, color: grey, text: 'My work' }),
+      h('div', { className: 'l-textBlock' },
+        h('p', {}, 'Here is what I\'ve done so far :')
+      ),
+      h('div', { className: 'v-whativedone-filters' },
+        h('span', {}, 'show :'),
+        renderFilterBtn('side projects', 'sideprojects'),
+        renderFilterBtn('jobs', 'jobs')
+      ),
+      h(CardList, { sortBy: 'title', collectionToRender: CardCollection, filters: props.filters })
+    )
   )
 }
 

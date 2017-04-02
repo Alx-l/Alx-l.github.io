@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import anime from 'animejs'
 
+import { h } from 'utils/misc'
+
 import Icon from 'reusableComponents/icon'
 import Animate from 'reusableComponents/Animate'
 import { More, Close, Blink } from 'svg'
@@ -43,21 +45,14 @@ export default class CardReveal extends Component {
     const { iconColor, children } = this.props
 
     return (
-      <Animate
-        trigger={ open }
-        onEnter={ this.onEnter }
-        onLeave={ this.onLeave }
-        customClassName={ styles.container }
-      >
-        <div>
-          <div className={ styles.insideIcon } onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
-            <Icon svg={ Close } color={ iconColor } size={ 24 }/>
-          </div>
-          <div className={ styles.insideRoot } style={{ overflow: 'hidden' }}>
-            { children }
-          </div>
-        </div>
-      </Animate>
+      h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customClassName: styles.container },
+        h('div', {},
+          h('div', { className: styles.insideIcon, onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
+            h(Icon, { svg: Close, color: iconColor, size: 24 })
+          ),
+          h('div', { className: styles.insideRoot, style: { overflow: 'hidden' } }, children)
+        )
+      )
     )
   }
 
@@ -65,31 +60,29 @@ export default class CardReveal extends Component {
     const { cat, href, title, subTitle, footerText, iconColor, blinkIcon } = this.props
 
     const renderBlinkIcon = blinkIcon &&
-    <div>
-      <a href={ href } target="_blank" style={{ display: 'block' }}>
-        <Icon svg={ Blink } color={ iconColor } size={ 24 }/>
-      </a>
-    </div>
+      h('div', {},
+        h('a', { href, target: '_blank', style: { display: 'block' } },
+          h(Icon, { svg: Blink, color: iconColor, size: 24 })
+        )
+      )
 
     return (
-      <div className={ styles.root } data-cat={ cat }>
-        <div className={ styles.content }>
-          <h3 className={ styles.title }>{ title }</h3>
-          { subTitle && <span className={ styles.subTitle }>{ subTitle }</span> }
-        </div>
-        <div className={ styles.footer }>
-          <div className={ styles.footerText }>
-            { footerText }
-          </div>
-          <div className={ styles.iconContainer }>
-            <div onClick={ this.handleClick } onKeyDown={ this.handleKeyDown } tabIndex="0">
-              <Icon svg={ More } size={ 24 } color={ iconColor } />
-            </div>
-            { renderBlinkIcon }
-          </div>
-        </div>
-        { this.renderInside() }
-      </div>
+      h('div', { className: styles.root, 'data-cat': cat },
+        h('div', { className: styles.content },
+          h('h3', { className: styles.title }, title),
+          subTitle && h('span', { className: styles.subTitle }, subTitle)
+        ),
+        h('div', { className: styles.footer },
+          h('div', { className: styles.footerText }, footerText),
+          h('div', { className: styles.iconContainer },
+            h('div', { onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
+              h(Icon, { svg: More, size: 24, color: iconColor })
+            ),
+            renderBlinkIcon
+          )
+        ),
+        this.renderInside()
+      )
     )
   }
 

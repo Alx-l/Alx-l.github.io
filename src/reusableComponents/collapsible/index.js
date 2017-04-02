@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import anime from 'animejs'
 
+import { h } from 'utils/misc'
+
 import Icon from 'reusableComponents/icon'
 import Animate from 'reusableComponents/Animate'
 import { Expand } from 'svg'
@@ -63,37 +65,29 @@ export default class Collapsible extends Component {
     })
 
     const renderIcon = titleIcon && (
-      <Icon svg={ titleIcon } color={ iconColor } className="icon" size={ titleIconSize } />
+      h(Icon, { svg: titleIcon, color: iconColor, className: 'icon', size: titleIconSize })
     )
 
     return (
-      <div
-        aria-expanded={ open }
-        className={ Collapsible_cn }
-      >
-        <div onKeyDown={ this.handleKeyDown } className={ styles.title } onClick={ this.handleClick } tabIndex="0">
-          <div className={ styles.titleLeft }>
-            { renderIcon }
-            <span className="text">{ title }</span>
-          </div>
-          <div className={ styles.titleRight }>
-            <div className={ expandIcon_cn }>
-              <Icon svg={ Expand } size={ iconSize } color={ iconColor } customStyle={{ display: 'block' }}/>
-            </div>
-          </div>
-          <hr ref={ hr => this.hr = hr } style={{ transform: `translateX(${hrOffsetValue})` }} className={ styles.hr }/>
-        </div>
-        <Animate
-          trigger={ open }
-          onEnter={ this.onEnter }
-          onLeave={ this.onLeave }
-          customStyle={{ height: '0px' }}
-        >
-          <div className={ styles.body } style={{ padding: '16px' }}>
-            { children }
-          </div>
-        </Animate>
-      </div>
+      h('div', { 'aria-expanded': open, className: Collapsible_cn },
+        h('div', { onKeyDown: this.handleKeyDown, className: styles.title, onClick: this.handleClick, tabIndex: '0' },
+          h('div', { className: styles.titleLeft }, renderIcon,
+            h('span', { className: 'text' }, title)
+          ),
+          h('div', { className: styles.titleRight },
+            h('div', { className: expandIcon_cn },
+              h(Icon, { svg: Expand, size: iconSize, color: iconColor, customStyle: { display: 'block' } })
+            )
+          ),
+          h('hr', {
+            ref: hr => this.hr = hr,
+            style: { transform: `translateX(${hrOffsetValue})` }, className: styles.hr }
+          )
+        ),
+        h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customStyle: { height: '0px' } },
+          h('div', { className: styles.body, style: { padding: '16px' } }, children)
+        )
+      )
     )
   }
 

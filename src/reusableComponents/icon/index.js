@@ -1,18 +1,16 @@
 
 import React from 'react'
 
-import { pxToRemDims } from 'utils/misc'
+import { h, pxToRemDims } from 'utils/misc'
 
 const Icon = (props) => {
   const { color, className, svg, size, customStyle } = props
 
   return (
-    <div
-      className={ className }
-      style={{ display: 'inline-block', ...pxToRemDims(size), ...customStyle }}
-    >
-      { svg(color) }
-    </div>
+    h('div', {
+      className,
+      style: { display: 'inline-block', ...pxToRemDims(size), ...customStyle }
+    }, svg(color))
   )
 }
 
