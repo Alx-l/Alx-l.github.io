@@ -13,7 +13,7 @@ const Skillz = () => {
     h('div', {},
       h(IconHeader, { icon: Tool, size: 20, color: grey, text: 'My skillz' }),
       h('div', { className: 'l-textBlock' },
-        h('p', {}, 'Let\'s find out what I can do, shall we?')
+        h('p', {}, `Let's find out what I can do, shall we?`)
       ),
       h('div', { className: 'l-collapsible' },
         h('div', { className: 'l-collapsible-left' },

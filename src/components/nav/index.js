@@ -86,6 +86,6 @@ export default class Nav extends Component {
 const links = [
   { text: 'who am i', dest: '/', isIndex: true },
   { text: 'what i do', dest: 'whatido' },
-  { text: 'what i\'ve done', dest: 'whativedone' },
+  { text: `what i've done`, dest: 'whativedone' },
   { text: 'where to find me', dest: 'wheretofindme' }
 ]

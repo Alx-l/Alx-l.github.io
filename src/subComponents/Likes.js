@@ -13,7 +13,7 @@ const Likes = () => {
     h('div', {},
       h(IconHeader, { icon: Heart, size: 20, color: grey, text: 'My Likes' }),
       h('div', { className: 'l-textBlock' },
-        h('p', {}, 'While we\'re at it, why not get a glance about some stuff I heart...')
+        h('p', {}, `While we're at it, why not get a glance about some stuff I heart...`)
       ),
       h('div', { className: 'l-collapsible' },
         h('div', { className: 'l-collapsible-left' },

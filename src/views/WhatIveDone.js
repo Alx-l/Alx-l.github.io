@@ -35,7 +35,7 @@ const WhatIveDone = (props) => {
     h('div', { className: 'v-whativedone' },
       h(IconHeader, { icon: History, size: 20, color: grey, text: 'My work' }),
       h('div', { className: 'l-textBlock' },
-        h('p', {}, 'Here is what I\'ve done so far :')
+        h('p', {}, `Here is what I've done so far :`)
       ),
       h('div', { className: 'v-whativedone-filters' },
         h('span', {}, 'show :'),
