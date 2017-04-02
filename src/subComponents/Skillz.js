@@ -17,11 +17,11 @@ const Skillz = () => {
       ),
       h('div', { className: 'l-collapsible' },
         h('div', { className: 'l-collapsible-left' },
-          h('div', { className:'l-collapsible-item', 'data-divider': true }, clFrontEnd),
-          h('div', { className:'l-collapsible-item', 'data-divider': true }, clBackEnd)
+          h('div', { className: 'l-collapsible-item', 'data-divider': true }, clFrontEnd),
+          h('div', { className: 'l-collapsible-item', 'data-divider': true }, clBackEnd)
         ),
         h('div', { className: 'l-collapsible-right' },
-          h('div', { className:'l-collapsible-item' }, clTools)
+          h('div', { className: 'l-collapsible-item' }, clTools)
         )
       )
     )

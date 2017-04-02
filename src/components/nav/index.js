@@ -34,7 +34,7 @@ export default class Nav extends Component {
       const isActive = route === dest && true || route === 'index' && isIndex
 
       return (
-        h('li', { key: i , className: isActive && 'is-active'},
+        h('li', { key: i , className: isActive && 'is-active' },
           h('a', { 'data-nav': 'ignore', onClick: e => handleLink(e, dest), href: dest, className: styles.link }, text)
         )
       )
