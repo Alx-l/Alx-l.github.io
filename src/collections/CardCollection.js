@@ -18,8 +18,8 @@ export const BubblyBoilerplate = (
     subTitle: 'homemade starter kit',
     footerText: `there's more inside`
   }, [
-    h('p.u-underline', {}, 'Recipe :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Recipe :'),
+    h('ul', [
       li('ES6'),
       li('React / Fluxx'),
       li('Jade'),
@@ -35,13 +35,13 @@ export const BubblyGrid = (
     cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'bubbly-grid',
     title: 'Bubbly Grid',
     subTitle: 'homemade grid system',
-    footerText: h('span', {}, [
+    footerText: h('span', [
       'available on ',
       h('a.u-link.u-highlight', { href: 'https://www.npmjs.com/package/bubbly-grid-stylus' }, 'npm')
     ])
   }, [
-    h('p.u-underline', {}, 'Recipe :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Recipe :'),
+    h('ul', [
       li('Stylus'),
       li('SCSS')
     ]),
@@ -60,11 +60,11 @@ export const Portefolio = (
     subTitle: 'myself and I',
     footerText: `there's more inside`
   }, [
-    h('p.u-underline', {}, 'Recipe :'),
-    h('ul', {}, [
-      h('li', {},
+    h('p.u-underline', 'Recipe :'),
+    h('ul', [
+      h('li', [
         h('a.u-linkSweep', { target: '_blank', href: 'https://github.com/alx-l/bubbly-boilerplate' }, 'Bubbly Boilerplate')
-      )
+      ])
     ])
   ])
 )
@@ -77,8 +77,8 @@ export const VinylMinded = (
     subTitle: 'fake e-commerce site',
     footerText: `there's more inside`
   }, [
-    h('p.u-underline', {}, 'Recipe :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Recipe :'),
+    h('ul', [
       li('Foundation Framework'),
       li('SCSS'),
       li('jQuery'),
@@ -96,12 +96,12 @@ export const PokemonYo = (
     subTitle: 'simple pokedex',
     footerText: `there's more inside`
   }, [
-    h('p.u-underline', {}, 'Recipe :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Recipe :'),
+    h('ul', [
       li('React / Fluxx'),
-      h('li', {},
+      h('li', [
         h('a', { href: 'http://pokeapi.co/docsv2/', target: '_blank', className: 'u-linkSweep' }, 'Pokeapi V2')
-      ),
+      ]),
       li('ES6'),
       li('Stylus / PostCSS'),
     ]),
@@ -120,8 +120,8 @@ export const NrjMobile = (
     subTitle: '4 months during 2015',
     footerText: `there's more inside`
   }, [
-    h('p.u-underline', {}, 'Tasks :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Tasks :'),
+    h('ul', [
       li('Develop landing pages'),
       li('Code email newsletters')
     ])
@@ -136,18 +136,18 @@ export const Zengularity = (
     subTitle: 'Since October 2016',
     footerText: `there's more inside`
   }, [
-    h('p.u-underline', {}, 'Tasks :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Tasks :'),
+    h('ul', [
       li(`Build UI's`),
       li('Code email newsletters')
     ]),
-    h('p.u-underline', {}, 'Stack :'),
-    h('ul', {}, [
+    h('p.u-underline', 'Stack :'),
+    h('ul', [
       li('TypeScript'),
       li('React'),
-      h('li', {},
+      h('li', [
         h('a.u-linkSweep', { href: 'https://github.com/AlexGalays/fluxx', target: '_blank' }, 'Fluxx')
-      ),
+      ]),
       li('CSS Modules'),
       li('Stylus / Less')
     ]),

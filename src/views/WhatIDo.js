@@ -7,7 +7,7 @@ import Likes from 'subComponents/Likes'
 
 const WhatIDo = () => {
   return (
-    h('.WhatIDo', {}, [
+    h('.WhatIDo', [
       h(Skillz),
       h(Likes)
     ])

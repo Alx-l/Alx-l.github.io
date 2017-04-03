@@ -13,7 +13,7 @@ import styles from './main.css'
 const Main = (props) => {
   const { name } = props.route
   return (
-    h('.root', {}, [
+    h('.root', [
       h(Nav, { route: name, heading: 'Alex L', subHeading: 'front-end dev', backgroundColor: primaryColor }),
       h('div', { className: styles.root }, props.children),
       h(Footer, { backgroundColor: primaryColor })

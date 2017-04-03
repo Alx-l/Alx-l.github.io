@@ -51,7 +51,7 @@ export default class ToolTip extends Component {
     return (
       h(Animate, { trigger: visible, onEnter, onLeave,
         customClassName: styles.hiddenText, customStyle: { transform: 'scale(0)' }
-      }, h('span', {}, props.hiddenText)
+      }, h('span', props.hiddenText)
       )
     )
   }

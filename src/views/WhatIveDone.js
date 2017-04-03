@@ -31,11 +31,11 @@ const WhatIveDone = (props) => {
   }
 
   return (
-    h('.v-whativedone', {}, [
+    h('.v-whativedone', [
       h(IconHeader, { icon: History, size: 20, color: grey, text: 'My work' }),
-      h('.l-textBlock', {}, h('p', {}, `Here is what I've done so far :`)),
-      h('.v-whativedone-filters', {}, [
-        h('span', {}, 'show :'),
+      h('.l-textBlock', [ h('p', `Here is what I've done so far :`) ]),
+      h('.v-whativedone-filters', [
+        h('span', 'show :'),
         renderFilterBtn('side projects', 'sideprojects'),
         renderFilterBtn('jobs', 'jobs')
       ]),

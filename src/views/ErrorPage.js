@@ -10,9 +10,9 @@ const { grey } = settings
 
 const ErrorPage = () => {
   return (
-    h('div', {}, [
+    h('div', [
       h(IconHeader, { icon: Warning, size: 20, color: grey, text: 'Oops' }),
-      h('.l-textBlock', {}, h('p', {}, 'You lost homie?'))
+      h('.l-textBlock', [ h('p', {}, 'You lost homie?') ])
     ])
   )
 }

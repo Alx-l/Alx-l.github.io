@@ -45,7 +45,7 @@ export default class CardReveal extends Component {
 
     return (
       h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customClassName: styles.container }, [
-        h('div', {}, [
+        h('div', [
           h('div', { className: styles.insideIcon, onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' }, h(Icon, { svg: Close, color: iconColor, size: 24 })),
           h('div', { className: styles.insideRoot, style: { overflow: 'hidden' } }, children)
         ])
@@ -57,11 +57,11 @@ export default class CardReveal extends Component {
     const { cat, href, title, subTitle, footerText, iconColor, blinkIcon } = this.props
 
     const renderBlinkIcon = blinkIcon &&
-      h('div', {},
+      h('div', [
         h('a', { href, target: '_blank', style: { display: 'block' } },
           h(Icon, { svg: Blink, color: iconColor, size: 24 })
         )
-      )
+      ])
 
     return (
       h('div', { className: styles.root, 'data-cat': cat }, [

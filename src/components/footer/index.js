@@ -23,12 +23,13 @@ const Footer = (props) => {
           h(Icon, { svg: Laptop, color: black, size: 45 }),
         ]),
         h('div', { className: styles.text }, [
-          h('div', {}, 'While enjoying some',
+          h('div', [
+            'While enjoying some',
             h(Icon, { svg: Music, size: 35, className: styles.music, color: black, customStyle: { display: 'inline-block' } })
-          )
+          ])
         ])
       ]),
-      h('div', { className: styles.overlay }, h('span', {}, `© ${ year } Alex L the developer`))
+      h('div', { className: styles.overlay }, h('span', `© ${ year } Alex L the developer`))
     ])
   )
 }
