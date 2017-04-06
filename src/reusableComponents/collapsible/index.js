@@ -33,27 +33,35 @@ export default class Collapsible extends Component {
   onEnter = (el, cb) => {
     const height = el.scrollHeight
     anime({
+      begin: () => el.style.willChange = 'height',
       targets: el,
       height: { ...animeSettings, value: height },
       complete: () => {
         el.style.height = 'auto'
+        el.style.willChange = ''
         this.animateHr()
-        cb()
+        return cb()
       },
     })
   }
 
   onLeave = (el, cb) => {
     anime({
+      begin: () => {
+        el.style.willChange = 'height'
+        return this.animateHr()
+      },
       targets: el,
-      begin: this.animateHr,
       height: { ...animeSettings, value: 0 },
-      complete: cb
+      complete: () => {
+        el.style.willChange = ''
+        return cb()
+      }
     })
   }
 
   render() {
-    const { state: { open }, props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children } } = this
+    const { state: { open }, props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children }, onEnter, onLeave } = this
     const Collapsible_cn = classNames(styles.root, {
       'popOut': popOut,
       'is-open': open,
@@ -82,7 +90,7 @@ export default class Collapsible extends Component {
             style: { transform: `translateX(${hrOffsetValue})` }, className: styles.hr }
           )
         ]),
-        h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customStyle: { height: '0px' } },
+        h(Animate, { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },
           h('div', { className: styles.body, style: { padding: '16px' } }, children)
         )
       ])
