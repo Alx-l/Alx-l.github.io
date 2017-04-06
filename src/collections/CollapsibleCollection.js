@@ -79,7 +79,7 @@ export const clMusic = (
         li('Evidence (Westside rider)'),
         li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
         li('Bun B'),
-        li('Chamillionaire'),
+        li('Lil Wayne'),
         li(`ASAP Mob (not all of 'em...)`),
         li(`Cam'ron (Dipset b*tch)`),
         li('The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)')
@@ -142,7 +142,7 @@ export const clPeople = (
         h('a.u-linkSweep', { href: 'http://kosamari.com/notes', target: '_blank' }, 'Mariko Kosaka')
       ]),
       h('li', [
-        h('a.u-linkSweep', { href: 'https://medium.com/@_ericelliott', target: '_blank' }, 'Eric Elliott')
+        h('a.u-linkSweep', { href: 'https://medium.com/@_ericelliott/latest', target: '_blank' }, 'Eric Elliott')
       ]),
       h('li', [
         h('a.u-linkSweep', { href: 'https://bitsofco.de/', target: '_blank' }, 'Ire Aderinokun')
