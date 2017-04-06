@@ -2679,7 +2679,7 @@ ignore@^3.2.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.4.tgz#4055e03596729a8fabe45a43c100ad5ed815c4e8"
 
-immupdate@1.0.1, immupdate@^1.0.0:
+immupdate@1.0.1, immupdate@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/immupdate/-/immupdate-1.0.1.tgz#0d172cbd6659343a1919f74163c3b3077009d368"
 
