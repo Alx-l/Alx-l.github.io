@@ -55,7 +55,7 @@ export const BubblyGrid = (
 
 export const Portefolio = (
   h(CardReveal, {
-    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'portefolio',
+    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'portfolio',
     title: 'Me',
     subTitle: 'myself and I',
     footerText: `there's more inside`
