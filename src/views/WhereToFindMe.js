@@ -30,10 +30,9 @@ const WhereToFindMe = () => {
         ),
         h('p', [
           'My ',
-          h('a', { href: 'https://gist.github.com/Alx-l', target: '_blank' }, [
-            h('span.u-highlight.u-linkSweep', 'Gists '),
-            'maybe?'
-          ])
+          h('a', { href: 'https://gist.github.com/Alx-l', target: '_blank' },
+            h('span.u-highlight.u-linkSweep', 'Gists ')),
+          'maybe?'
         ])
       ])
     ])

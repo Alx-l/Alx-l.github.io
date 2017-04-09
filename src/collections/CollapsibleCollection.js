@@ -112,14 +112,14 @@ export const clTVMovies = (
       li('Mr. Robot'),
       li('Atlanta'),
       li('Orange is the new black'),
-      li('American Dad'),
+      li('Unbreakable Kimmy Schmidt'),
       li('...'),
     ]),
     h(Collapsible, { titleIcon: Movie, iconColor: greyDarken, titleIconSize: 35, title: 'Movies' }, [
       h('p', `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`),
       h('ul', [
         li('Pitch Perfect (nerd alert!)'),
-        li('Kick-ass'),
+        li('American Gangster'),
         li('50/50'),
         li(`Carlito's Way`),
         li('End of watch'),
