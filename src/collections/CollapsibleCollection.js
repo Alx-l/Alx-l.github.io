@@ -142,13 +142,16 @@ export const clPeople = (
         h('a.u-linkSweep', { href: 'http://kosamari.com/notes', target: '_blank' }, 'Mariko Kosaka')
       ]),
       h('li', [
-        h('a.u-linkSweep', { href: 'https://medium.com/@_ericelliott/latest', target: '_blank' }, 'Eric Elliott')
+        h('a.u-linkSweep', { href: 'https://una.im/', target: '_blank' }, 'Una Kravets')
       ]),
       h('li', [
         h('a.u-linkSweep', { href: 'https://bitsofco.de/', target: '_blank' }, 'Ire Aderinokun')
       ]),
       h('li', [
         h('a.u-linkSweep', { href: 'https://pawelgrzybek.com/', target: '_blank' }, 'Pawel Grzybek')
+      ]),
+      h('li', [
+        h('a.u-linkSweep', { href: 'https://medium.com/@_ericelliott/latest', target: '_blank' }, 'Eric Elliott')
       ]),
     ])
   ])
