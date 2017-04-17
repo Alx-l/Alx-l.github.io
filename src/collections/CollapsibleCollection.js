@@ -76,9 +76,9 @@ export const clMusic = (
     h(Collapsible, { iconColor: greyDarken, title: 'Rap' }, [
       h('p', 'Of course this is not an exhaustive list :'),
       h('ul', [
-        li('Evidence (Westside rider)'),
+        li('Dave East'),
         li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
-        li('Bun B'),
+        li('Evidence'),
         li('Lil Wayne'),
         li(`ASAP Mob (not all of 'em...)`),
         li(`Cam'ron (Dipset b*tch)`),
@@ -89,11 +89,11 @@ export const clMusic = (
     h(Collapsible, { iconColor: greyDarken, title: 'B-Side' }, [
       h('p', 'All right, now get ready for the dummy mix, no rules, just me, my taste and no filter :'),
       h('ul', [
+        li('Jhené Aiko'),
+        li('Frank Ocean'),
         li('Mélat'),
         li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
-        li('Frank Ocean'),
-        li('Jhené Aiko'),
-        li('Raphael Saadiq'),
+        li('Yuna'),
         li('A-Trak'),
         li('...')
       ])
