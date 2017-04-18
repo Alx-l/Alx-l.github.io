@@ -1,10 +1,13 @@
 
 import h from 'react-hyperscript'
 
+import TextBlock from 'layouts/textBlock'
 import IconHeader from 'reusableComponents/iconHeader'
 import { Heart } from 'svg'
 import { clMusic, clTVMovies, clMisc, clPeople } from 'collections/CollapsibleCollection'
 import settings from 'settings'
+
+import styles from './subComponents.css'
 
 const { grey } = settings
 
@@ -12,17 +15,17 @@ const Likes = () => {
   return (
     h('div', [
       h(IconHeader, { icon: Heart, size: 20, color: grey, text: 'My Likes' }),
-      h('.l-textBlock', [
+      h(TextBlock, [
         h('p', `While we're at it, why not get a glance about some stuff I heart...`)
       ]),
-      h('.l-collapsible', [
-        h('.l-collapsible-left', [
-          h('.l-collapsible-item', { 'data-divider': true }, clMusic),
-          h('.l-collapsible-item', { 'data-divider': true }, clTVMovies),
+      h('div', { className: styles.container }, [
+        h('div', { className: styles.left }, [
+          h('div', { 'data-divider': true }, clMusic),
+          h('div', { 'data-divider': true }, clTVMovies),
         ]),
-        h('.l-collapsible-right', [
-          h('.l-collapsible-item', { 'data-divider': true }, clPeople),
-          h('.l-collapsible-item', {}, clMisc),
+        h('div', { className: styles.right } ,[
+          h('div', { 'data-divider': true }, clPeople),
+          h('div', {}, clMisc),
         ])
       ])
     ])
