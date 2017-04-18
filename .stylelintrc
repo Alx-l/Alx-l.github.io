@@ -28,6 +28,7 @@
       "text-shadow",
       "letter-spacing",
       "transform",
+      "backface-visibility",
       "transition",
       "animation"
     ],
