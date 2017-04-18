@@ -1,6 +1,7 @@
 
 import h from 'react-hyperscript'
 
+import TextBlock from 'layouts/textBlock'
 import IconHeader from 'reusableComponents/iconHeader'
 import { Face } from 'svg'
 import settings from 'settings'
@@ -11,7 +12,7 @@ const WhoAmI = () => {
   return (
     h('.WhoAmI', [
       h(IconHeader, { icon: Face, size: 20, color: grey, text: 'Hello World' }),
-      h('.l-textBlock--sm', [
+      h(TextBlock, { background: true }, [
         h('p', [
           'Let me introduce myself, I am ',
           h('span.u-highlight', 'Alex '), 'a junior ',

@@ -1,27 +1,34 @@
 
 import h from 'react-hyperscript'
+import classNames from 'classnames'
 
+import TextBlock from 'layouts/textBlock'
 import IconHeader from 'reusableComponents/iconHeader'
 import ToolTip from 'reusableComponents/tooltip'
 import Icon from 'reusableComponents/icon'
 import { PersonPin, Github } from 'svg'
 import settings from 'settings'
 
+import styles from './WhereToFindMe.css'
+
 const { email, grey } = settings
 
 
 const WhereToFindMe = () => {
+
+  const email_cn = classNames(styles.email, 'u-underlineLeft')
+
   return (
-    h('.v-wheretofindme', [
+    h('div', [
       h(IconHeader, { icon: PersonPin, size: 20, color: grey, text: 'Finding me' }),
-      h('.l-textBlock--sm', [
+      h(TextBlock, { background: true }, [
         h('p', [ 'You can find me wandering in the streets of ',
           h(ToolTip, { hiddenText: 'FR, not TX :)' }, 'Paris.')
         ]),
         h('p', [
           'But since that could take a while before you randomly bump into me, feel free to send me an email :',
           h('br'),
-          h('a', { className: 'v-wheretofindme-email', href: `mailto:${email}` }, email)
+          h('a', { className: email_cn, href: `mailto:${email}` }, email)
         ]),
         h('span', 'Wanna take a peek at my repos?'),
         h('br'),
