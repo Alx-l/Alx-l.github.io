@@ -30,6 +30,14 @@
   &:focus {
     color: var(--accent-color);
   }
+  &.active {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: transparent;
+  }
+  &.inactive {
+    background: transparent;
+  }
 }
 
 
