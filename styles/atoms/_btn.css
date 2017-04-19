@@ -24,6 +24,7 @@
 :global .btn-filter {
   margin-right: var(--spacer);
   padding: var(--spacer-xs) var(--spacer-sm);
+  background: transparent;
   color: var(--grey-darken);
   border: 1Px solid var(--accent-color);
   border-radius: 2px;
@@ -34,9 +35,6 @@
     background: var(--accent-color);
     color: #fff;
     border-color: transparent;
-  }
-  &.inactive {
-    background: transparent;
   }
 }
 

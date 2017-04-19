@@ -28,7 +28,7 @@ const WhatIveDone = (props) => {
       h('button.btn-filter', {
         onClick: () => setFilter(dataAttr, !filters[dataAttr]),
         'data-props': dataAttr,
-        className: classNames(filters[dataAttr] ? 'active' : 'inactive'),
+        className: classNames(filters[dataAttr] && 'active'),
         tabIndex: '0'
       }, text)
     )
