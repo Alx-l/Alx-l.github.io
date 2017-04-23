@@ -77,12 +77,12 @@ export const clMusic = (
       h('p', 'Of course this is not an exhaustive list :'),
       h('ul', [
         li('Dave East'),
+        li('TDE'),
         li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
         li('Evidence'),
         li('Lil Wayne'),
         li(`ASAP Mob (not all of 'em...)`),
-        li(`Cam'ron (Dipset b*tch)`),
-        li('The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)')
+        li(`Cam'ron, The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)`)
       ])
     ]
     ),
