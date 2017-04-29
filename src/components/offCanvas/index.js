@@ -22,9 +22,8 @@ export default class OffCanvas extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const body = document.querySelector('body')
-    const bodyAlias = document.documentElement
     const html = document.querySelector('html')
+    const body = document.body
     const { top } = body.getBoundingClientRect()
 
     if (!prevState.open) {
@@ -32,8 +31,7 @@ export default class OffCanvas extends Component {
       html.style.top = `${top}px`
     } else {
       html.classList.remove('u-noscroll')
-      body.scrollTop = top * -1
-      bodyAlias.scrollTop = top * -1
+      window.scroll(0, top * -1)
     }
   }
 
