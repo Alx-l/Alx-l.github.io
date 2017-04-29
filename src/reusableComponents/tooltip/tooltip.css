@@ -15,9 +15,9 @@
   background: color(var(--grey-darken) shade(20%) a(0.9));
   color: #fff;
   border-radius: 2px;
+  font-weight: 400;
   text-align: center;
   white-space: nowrap;
-  font-weight: 400;
   transform-origin: center bottom 0;
 }
 
