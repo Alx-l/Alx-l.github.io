@@ -133,7 +133,7 @@ export const clTVMovies = (
 
 export const clPeople = (
   h(Collapsible, { titleIcon: People, iconColor: greyDarken, titleIconSize: 35, title: 'Following', popOut: true }, [
-    h('p', 'Some devs I follow, look up to, and/or like :'),
+    h('p', 'Some devs I follow, look up to, and/or simply like :'),
     h('ul', [
       h('li', [
         h('a.u-linkSweep', { href: 'http://bit.ly/1KcNPaY', target: '_blank' }, 'Mattias Petter Johansson')
