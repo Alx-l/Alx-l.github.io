@@ -139,7 +139,7 @@ export const clPeople = (
         h('a.u-linkSweep', { href: 'http://bit.ly/1KcNPaY', target: '_blank' }, 'Mattias Petter Johansson')
       ]),
       h('li', [
-        h('a.u-linkSweep', { href: 'http://kosamari.com/notes', target: '_blank' }, 'Mariko Kosaka')
+        h('a.u-linkSweep', { href: 'http://sidebar.io/', target: '_blank' }, 'Sacha Greif')
       ]),
       h('li', [
         h('a.u-linkSweep', { href: 'https://una.im/', target: '_blank' }, 'Una Kravets')
