@@ -37,8 +37,8 @@ const WhereToFindMe = () => {
         ),
         h('p', [
           'My ',
-          h('a', { href: 'https://gist.github.com/Alx-l', target: '_blank' },
-            h('span.u-highlight.u-linkSweep', 'Gists ')),
+          h('a', { href: 'https://codepen.io/AlxL', target: '_blank' },
+            h('span.u-highlight.u-linkSweep', 'pens ')),
           'maybe?'
         ])
       ])
