@@ -79,7 +79,7 @@ export const clMusic = (
         li('Dave East'),
         li('TDE'),
         li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
-        li('Evidence'),
+        li('Joey Bada$$'),
         li('Lil Wayne'),
         li(`ASAP Mob (not all of 'em...)`),
         li(`Cam'ron, The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)`)
@@ -92,8 +92,8 @@ export const clMusic = (
         li('Jhené Aiko'),
         li('Frank Ocean'),
         li('Mélat'),
+        li('The Weeknd'),
         li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
-        li('Yuna'),
         li('A-Trak'),
         li('...')
       ])
