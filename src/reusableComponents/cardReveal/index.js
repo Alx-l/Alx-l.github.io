@@ -16,11 +16,9 @@ export default class CardReveal extends Component {
     open: false
   }
 
-  anime = {
-    settings: {
-      duration: 225,
-      easing: 'easeInOutQuad'
-    }
+  animeSettings = {
+    duration: 225,
+    easing: 'easeInOutQuad'
   }
 
   handleClick = () => this.setState({ open: !this.state.open })
@@ -33,7 +31,7 @@ export default class CardReveal extends Component {
   onEnter = (el, cb) => {
     anime({
       targets: el,
-      translateY: { ...this.anime.settings, value: '-100%' },
+      translateY: { ...this.animeSettings, value: '-100%' },
       complete: cb
     })
   }
@@ -41,7 +39,7 @@ export default class CardReveal extends Component {
   onLeave = (el, cb) => {
     anime({
       targets: el,
-      translateY: { ...this.anime.settings, value: '100%' },
+      translateY: { ...this.animeSettings, value: '100%' },
       complete: cb
     })
   }
