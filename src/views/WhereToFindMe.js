@@ -9,7 +9,7 @@ import Icon from 'reusableComponents/icon'
 import { PersonPin, Github } from 'svg'
 import settings from 'settings'
 
-import styles from './WhereToFindMe.css'
+import styles from './whereToFindMe.css'
 
 const { email, grey } = settings
 

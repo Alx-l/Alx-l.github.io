@@ -14,7 +14,7 @@ import CardList from '../components/cardlist'
 import * as Cards from '../collections/CardCollection'
 import settings from 'settings'
 
-import styles from './WhatIveDone.css'
+import styles from './whatIveDone.css'
 
 const { grey } = settings
 const CardCollection = _(Cards).values().value()
