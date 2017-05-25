@@ -14,9 +14,9 @@ export const clFrontEnd = (
   h(Collapsible, { titleIcon: FrontEnd, iconColor: greyDarken, titleIconSize: 35, title: 'Front-end', popOut: true }, [
     h('ul', [
       li('HTML5'),
-      li('Jade'),
+      li('Jade (I mean Pug...)'),
       li('CSS3 / Flexbox'),
-      li('Stylus / Sass / Less'),
+      li('SCSS / Less / Stylus'),
       li('PostCSS')
     ]),
     h('p', [
@@ -27,6 +27,7 @@ export const clFrontEnd = (
     h(Collapsible, { titleIcon: Code, iconColor: greyDarken, titleIconSize: 35, title: 'JS' },
       h('ul', [
         li('ES5 / ES6'),
+        li('TypeScript'),
         li('React / Flux architecture')
       ])
     ),
@@ -43,9 +44,8 @@ export const clFrontEnd = (
 export const clBackEnd = (
   h(Collapsible, { titleIcon: BackEnd, iconColor: greyDarken, titleIconSize: 35, title: 'Back-end', popOut: true }, [
     h('ul', [
-      li('Node.js / Express (wip)'),
-      li('PHP'),
-      li('mySQL')
+      li('Node.js / Express'),
+      li('MongoDB')
     ])
   ])
 )
@@ -59,7 +59,7 @@ export const clTools = (
       li('Webpack'),
       li('CSS Modules'),
       li('ESLint / Stylelint'),
-      li('Heroku')
+      li('Homebrew')
     ]),
     h('p', [
       'And if you must know, I work on a ',
@@ -90,9 +90,9 @@ export const clMusic = (
       h('p', 'All right, now get ready for the dummy mix, no rules, just me, my taste and no filter :'),
       h('ul', [
         li('Jhené Aiko'),
+        li('Paramore'),
         li('Frank Ocean'),
         li('Mélat'),
-        li('The Weeknd'),
         li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
         li('A-Trak'),
         li('...')

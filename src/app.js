@@ -6,7 +6,7 @@ import 'space-lift/all'
 import Main from './components/main'
 
 import WhoAmI from 'views/WhoAmI'
-import WhatIDo from 'views/whatido'
+import WhatIDo from 'views/whatIDo'
 import WhatIveDone from 'views/WhatIveDone'
 import WhereToFindMe from 'views/WhereToFindMe'
 import ErrorPage_404 from 'views/ErrorPage'
