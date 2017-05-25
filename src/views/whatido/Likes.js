@@ -7,7 +7,7 @@ import { Heart } from 'svg'
 import { clMusic, clTVMovies, clMisc, clPeople } from 'collections/CollapsibleCollection'
 import settings from 'settings'
 
-import styles from './subComponents.css'
+import styles from './whatIDo.css'
 
 const { grey } = settings
 

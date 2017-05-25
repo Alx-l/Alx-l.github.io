@@ -1,13 +1,13 @@
 
 import h from 'react-hyperscript'
 
-import Skillz from 'subComponents/Skillz'
-import Likes from 'subComponents/Likes'
+import Skillz from './Skillz'
+import Likes from './Likes'
 
 
 const WhatIDo = () => {
   return (
-    h('.WhatIDo', [
+    h('div', [
       h(Skillz),
       h(Likes)
     ])

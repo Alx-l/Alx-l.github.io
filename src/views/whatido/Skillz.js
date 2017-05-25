@@ -7,7 +7,7 @@ import { Tool } from 'svg'
 import { clFrontEnd, clBackEnd, clTools } from 'collections/CollapsibleCollection'
 import settings from 'settings'
 
-import styles from './subComponents.css'
+import styles from './whatIDo.css'
 
 const { grey } = settings
 
