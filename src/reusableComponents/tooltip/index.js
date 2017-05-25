@@ -14,6 +14,12 @@ export default class ToolTip extends Component {
     visible: false
   }
 
+  anime = {
+    settings: {
+      duration: 225,
+    }
+  }
+
   handleHoverIn = () => this.setState({ visible: true })
 
   handleHoverOut = () => this.setState({ visible: false })
@@ -32,7 +38,7 @@ export default class ToolTip extends Component {
         el.style.marginLeft = `-${el.clientWidth / 2}px`
       },
       targets: el,
-      scale: { ...animeSettings, easing: [0.175, 0.885, 0.32, 1.275], value: 1 },
+      scale: { ...this.anime.settings, easing: [0.175, 0.885, 0.32, 1.275], value: 1 },
       complete: cb
     })
   }
@@ -40,7 +46,7 @@ export default class ToolTip extends Component {
   onLeave = (el, cb) => {
     anime({
       targets: el,
-      scale: { ...animeSettings, easing: 'easeInOutQuad', value: 0 },
+      scale: { ...this.anime.settings, easing: 'easeInOutQuad', value: 0 },
       complete: cb
     })
   }
@@ -73,5 +79,3 @@ export default class ToolTip extends Component {
     hiddenText: 'add some text'
   }
 }
-
-const animeSettings = { duration: 225 }

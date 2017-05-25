@@ -16,6 +16,14 @@ export default class Collapsible extends Component {
     open: false
   }
 
+  anime = {
+    settings: {
+      duration: 225,
+      easing: 'easeInOutQuad'
+    },
+    hrOffsetValue: '-120%'
+  }
+
   handleClick = () => this.setState({ open: !this.state.open })
 
   handleKeyDown = (e) => {
@@ -24,10 +32,10 @@ export default class Collapsible extends Component {
   }
 
   animateHr = () => {
-    const { state: { open }, hr } = this
+    const { state: { open }, hr, anime: { settings, hrOffsetValue } } = this
 
-    if (open) anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
-    else anime({ targets: hr, translateX: { ...animeSettings, value: `${hrOffsetValue}` } })
+    if (open) anime({ targets: hr, translateX: { ...settings, value: '0%' } })
+    else anime({ targets: hr, translateX: { ...settings, value: `${hrOffsetValue}` } })
   }
 
   onEnter = (el, cb) => {
@@ -35,7 +43,7 @@ export default class Collapsible extends Component {
     anime({
       begin: () => el.style.willChange = 'height',
       targets: el,
-      height: { ...animeSettings, value: height },
+      height: { ...this.anime.settings, value: height },
       complete: () => {
         el.style.height = 'auto'
         el.style.willChange = ''
@@ -52,7 +60,7 @@ export default class Collapsible extends Component {
         return this.animateHr()
       },
       targets: el,
-      height: { ...animeSettings, value: 0 },
+      height: { ...this.anime.settings, value: 0 },
       complete: () => {
         el.style.willChange = ''
         return cb()
@@ -61,7 +69,7 @@ export default class Collapsible extends Component {
   }
 
   render() {
-    const { state: { open }, props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children }, onEnter, onLeave } = this
+    const { state: { open }, props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children }, onEnter, onLeave, anime: { hrOffsetValue } } = this
     const Collapsible_cn = classNames(styles.root, {
       'popOut': popOut,
       'is-open': open,
@@ -113,6 +121,3 @@ export default class Collapsible extends Component {
     titleIconSize: 24
   }
 }
-
-const animeSettings = { duration: 225 , easing: 'easeInOutQuad' }
-const hrOffsetValue = '-120%'
