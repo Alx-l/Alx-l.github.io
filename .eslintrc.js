@@ -45,5 +45,6 @@ module.exports = {
     "space-before-blocks": [1, "always"],
     "space-before-function-paren": [1, { "anonymous": "never", "named": "never", "asyncArrow": "always" }],
     "space-infix-ops": 1,
+    "template-curly-spacing": [1, "always"]
   }
 };
