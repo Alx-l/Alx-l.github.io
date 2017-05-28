@@ -33,7 +33,7 @@ export default class ToolTip extends Component {
   onEnter = (el, cb) => {
     anime({
       begin: () => {
-        el.style.marginLeft = `-${el.clientWidth / 2}px`
+        el.style.marginLeft = `-${ el.clientWidth / 2 }px`
       },
       targets: el,
       scale: { ...this.animeSettings, easing: [0.175, 0.885, 0.32, 1.275], value: 1 },

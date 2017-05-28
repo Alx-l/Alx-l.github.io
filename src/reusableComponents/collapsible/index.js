@@ -34,7 +34,7 @@ export default class Collapsible extends Component {
     const { state: { open }, hr, animeSettings, hrOffsetValue } = this
 
     if (open) anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
-    else anime({ targets: hr, translateX: { ...animeSettings, value: `${hrOffsetValue}` } })
+    else anime({ targets: hr, translateX: { ...animeSettings, value: `${ hrOffsetValue }` } })
   }
 
   onEnter = (el, cb) => {
@@ -94,7 +94,7 @@ export default class Collapsible extends Component {
             )
           ]),
           h('hr', { ref: hr => this.hr = hr,
-            style: { transform: `translateX(${hrOffsetValue})` }, className: styles.hr }
+            style: { transform: `translateX(${ hrOffsetValue })` }, className: styles.hr }
           )
         ]),
         h(Animate, { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },

@@ -28,7 +28,7 @@ export default class OffCanvas extends Component {
 
     if (!prevState.open) {
       html.classList.add('u-noscroll')
-      html.style.top = `${top}px`
+      html.style.top = `${ top }px`
     } else {
       html.classList.remove('u-noscroll')
       window.scroll(0, top * -1)

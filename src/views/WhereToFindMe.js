@@ -28,7 +28,7 @@ const WhereToFindMe = () => {
         h('p', [
           'But since that could take a while before you randomly bump into me, feel free to send me an email :',
           h('br'),
-          h('a', { className: email_cn, href: `mailto:${email}` }, email)
+          h('a', { className: email_cn, href: `mailto:${ email }` }, email)
         ]),
         h('span', 'Wanna take a peek at my repos?'),
         h('br'),

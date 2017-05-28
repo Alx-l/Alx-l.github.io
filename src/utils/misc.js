@@ -4,7 +4,7 @@ import { api as router } from 'abyssa'
 
 export const pxToRem = (val) => {
   const toRem = parseInt(val, 10) / 16
-  return `${toRem}rem`
+  return `${ toRem }rem`
 }
 
 
