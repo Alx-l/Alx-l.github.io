@@ -1,5 +1,4 @@
 
-
 import h from 'react-hyperscript'
 import CardReveal from 'reusableComponents/cardReveal'
 import settings from 'settings'
@@ -10,10 +9,12 @@ const { git } = settings
 
 const li = text => h('li', {}, text)
 
-
 export const BubblyBoilerplate = (
   h(CardReveal, {
-    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'bubbly-boilerplate',
+    cat: 'sideprojects',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: git + 'bubbly-boilerplate',
     title: 'Bubbly Boilerplate',
     subTitle: 'homemade starter kit',
     footerText: `there's more inside`
@@ -24,7 +25,7 @@ export const BubblyBoilerplate = (
       li('React / Fluxx'),
       li('Jade'),
       li('PostCSS (cssnext)'),
-      li('CSS Modules'),
+      li('CSS Modules')
     ]),
     h('p', { className: styles.insideFooter }, 'I made this boilerplate to help me getting started with new projects easily.')
   ])
@@ -32,7 +33,10 @@ export const BubblyBoilerplate = (
 
 export const BubblyGrid = (
   h(CardReveal, {
-    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'bubbly-grid',
+    cat: 'sideprojects',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: git + 'bubbly-grid',
     title: 'Bubbly Grid',
     subTitle: 'homemade grid system',
     footerText: h('span', [
@@ -52,10 +56,12 @@ export const BubblyGrid = (
   ])
 )
 
-
 export const Portefolio = (
   h(CardReveal, {
-    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: git + 'portfolio',
+    cat: 'sideprojects',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: git + 'portfolio',
     title: 'Me',
     subTitle: 'myself and I',
     footerText: `there's more inside`
@@ -69,10 +75,12 @@ export const Portefolio = (
   ])
 )
 
-
 export const VinylMinded = (
   h(CardReveal, {
-    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: 'http://alex-l.com/vinylminded/',
+    cat: 'sideprojects',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: 'http://alex-l.com/vinylminded/',
     title: 'Vinyl Minded',
     subTitle: 'fake e-commerce site',
     footerText: `there's more inside`
@@ -88,10 +96,12 @@ export const VinylMinded = (
   ])
 )
 
-
 export const PokemonYo = (
   h(CardReveal, {
-    cat: 'sideprojects', blinkIcon: true, iconColor: '#000', href: 'http://pokemonyoisthename.herokuapp.com/',
+    cat: 'sideprojects',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: 'http://pokemonyoisthename.herokuapp.com/',
     title: 'Pokemon Yo',
     subTitle: 'simple pokedex',
     footerText: `there's more inside`
@@ -103,7 +113,7 @@ export const PokemonYo = (
         h('a', { href: 'http://pokeapi.co/docsv2/', target: '_blank', className: 'u-linkSweep' }, 'Pokeapi V2')
       ]),
       li('ES6'),
-      li('Stylus / PostCSS'),
+      li('Stylus / PostCSS')
     ]),
     h('p', { className: styles.insideFooter }, [
       'Wanna see the ',
@@ -112,10 +122,12 @@ export const PokemonYo = (
   ])
 )
 
-
 export const NrjMobile = (
   h(CardReveal, {
-    cat: 'jobs', blinkIcon: true, iconColor: '#000', href: 'https://www.nrjmobile.fr/',
+    cat: 'jobs',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: 'https://www.nrjmobile.fr/',
     title: 'NRJ Mobile',
     subTitle: '4 months during 2015',
     footerText: `there's more inside`
@@ -128,18 +140,25 @@ export const NrjMobile = (
   ])
 )
 
-
 export const Zengularity = (
   h(CardReveal, {
-    cat: 'jobs', blinkIcon: true, iconColor: '#000', href: 'https://zengularity.com',
+    cat: 'jobs',
+    blinkIcon: true,
+    iconColor: '#000',
+    href: 'https://zengularity.com',
     title: 'Zengularity',
     subTitle: 'Since October 2016',
     footerText: `there's more inside`
   }, [
     h('p.u-underline', 'Tasks :'),
     h('ul', [
-      li(`Build UI's`),
-      li('Code email newsletters')
+      li(`Build UI's`)
+    ]),
+    h('p.u-underline', 'Tools :'),
+    h('ul', [
+      li(`Jira`),
+      li(`Taiga`),
+      li(`Bitbucket / Github`)
     ]),
     h('p.u-underline', 'Stack :'),
     h('ul', [
@@ -149,7 +168,7 @@ export const Zengularity = (
         h('a.u-linkSweep', { href: 'https://github.com/AlexGalays/fluxx', target: '_blank' }, 'Fluxx')
       ]),
       li('CSS Modules'),
-      li('Stylus / Less')
-    ]),
+      li('Less / Stylus')
+    ])
   ])
 )

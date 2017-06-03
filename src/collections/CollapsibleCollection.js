@@ -9,20 +9,24 @@ const { greyDarken } = settings
 
 const li = text => h('li', {}, text)
 
-
 export const clFrontEnd = (
   h(Collapsible, { titleIcon: FrontEnd, iconColor: greyDarken, titleIconSize: 35, title: 'Front-end', popOut: true }, [
     h('ul', [
       li('HTML5'),
-      li('Jade (I mean Pug...)'),
+      li('Jade (I mean Pug 🐶...)'),
       li('CSS3 / Flexbox'),
       li('SCSS / Less / Stylus'),
       li('PostCSS')
     ]),
     h('p', [
       'To organize my stylesheets, I try to follow the ',
-      h('span.u-highlight', 'SMACSS '), 'guidelines and the ',
-      h('span.u-highlight', 'SUIT CSS '), 'naming conventions.'
+      h('a.u-linkSweep.u-highlight', { href: 'https://smacss.com/', target: '_blank' }, 'SMACSS '), 'guidelines and the ',
+      h('a.u-linkSweep.u-highlight', { href: 'https://suitcss.github.io/', target: '_blank' }, 'SUIT CSS '), 'naming conventions.'
+    ]),
+    h('p', [
+      'On the JS side, I follow the ',
+      h('a.u-linkSweep.u-highlight', { href: 'https://standardjs.com/', target: '_blank' }, 'Standard JS '),
+      'rules.'
     ]),
     h(Collapsible, { titleIcon: Code, iconColor: greyDarken, titleIconSize: 35, title: 'JS' },
       h('ul', [
@@ -33,13 +37,13 @@ export const clFrontEnd = (
     ),
     h(Collapsible, { titleIcon: Pencil, iconColor: greyDarken, titleIconSize: 35, title: 'Design' },
       h('ul', [
+        li('Affinity Designer'),
         li('Sketch'),
-        li('Photoshop')
+        li('Figma')
       ])
     )
   ])
 )
-
 
 export const clBackEnd = (
   h(Collapsible, { titleIcon: BackEnd, iconColor: greyDarken, titleIconSize: 35, title: 'Back-end', popOut: true }, [
@@ -50,7 +54,6 @@ export const clBackEnd = (
   ])
 )
 
-
 export const clTools = (
   h(Collapsible, { titleIcon: ThumbUp, iconColor: greyDarken, titleIconSize: 30, title: 'Tools I like', popOut: true }, [
     h('ul', [
@@ -59,7 +62,7 @@ export const clTools = (
       li('Webpack'),
       li('CSS Modules'),
       li('ESLint / Stylelint'),
-      li('Homebrew')
+      li('Homebrew 🍺')
     ]),
     h('p', [
       'And if you must know, I work on a ',
@@ -68,7 +71,6 @@ export const clTools = (
     ])
   ])
 )
-
 
 export const clMusic = (
   h(Collapsible, { titleIcon: Music, iconColor: greyDarken, titleIconSize: 35, title: 'Music', popOut: true }, [
@@ -80,7 +82,7 @@ export const clMusic = (
         li('TDE'),
         li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
         li('Joey Bada$$'),
-        li('Lil Wayne'),
+        li('Young Thug'),
         li(`ASAP Mob (not all of 'em...)`),
         li(`Cam'ron, The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)`)
       ])
@@ -101,7 +103,6 @@ export const clMusic = (
   ])
 )
 
-
 export const clTVMovies = (
   h(Collapsible, { titleIcon: TV, iconColor: greyDarken, titleIconSize: 35, title: 'Netflix & ...', popOut: true }, [
     h('p', 'Another non exhaustive list :'),
@@ -113,7 +114,7 @@ export const clTVMovies = (
       li('Atlanta'),
       li('Orange is the new black'),
       li('Unbreakable Kimmy Schmidt'),
-      li('...'),
+      li('...')
     ]),
     h(Collapsible, { titleIcon: Movie, iconColor: greyDarken, titleIconSize: 35, title: 'Movies' }, [
       h('p', `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`),
@@ -121,7 +122,7 @@ export const clTVMovies = (
         li('Pitch Perfect (nerd alert!)'),
         li('American Gangster'),
         li('50/50'),
-        li(`Carlito's Way`),
+        li(`Kingsman`),
         li('End of watch'),
         li('22 Jump Street'),
         li('...')
@@ -129,7 +130,6 @@ export const clTVMovies = (
     ])
   ])
 )
-
 
 export const clPeople = (
   h(Collapsible, { titleIcon: People, iconColor: greyDarken, titleIconSize: 35, title: 'Following', popOut: true }, [
@@ -152,11 +152,10 @@ export const clPeople = (
       ]),
       h('li', [
         h('a.u-linkSweep', { href: 'https://medium.com/@_ericelliott/latest', target: '_blank' }, 'Eric Elliott')
-      ]),
+      ])
     ])
   ])
 )
-
 
 export const clMisc = (
   h(Collapsible, { titleIcon: SupaHappy, iconColor: greyDarken, titleIconSize: 35, title: 'Misc', popOut: true }, [
@@ -165,8 +164,8 @@ export const clMisc = (
       h('span.u-highlight', '5 vegetables '), 'a day (I mean, it feels good when I do...which is like once a month).'
     ]),
     h('p', [
-      'And last but not least, I like people (again, ',
-      h('span.u-highlight', 'not every single one of them, '), `my heart is not that big), I mean music, tv series, your opinion about what's happening on the other side of the world and stuff is great...`
+      'And last but not least, I like people (well,', h('span.u-highlight', ` some of 'em, `),
+      `sometimes..., my heart's not that big 😛), I mean music, tv series, your opinion about what's happening on the other side of the world and stuff is great...`
     ]),
     h('p', `But what's greater is when you get to share (and disagree with) all that with someone else, otherwise, what's the point, right?`)
   ])
