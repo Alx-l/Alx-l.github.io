@@ -3,17 +3,16 @@
 import _React from 'react'
 import _ReactDOM from 'react-dom'
 
-export default (function() {
-
+export default (function () {
 // Enable this addon even in build-less systems (JsFiddle, etc)
   const React = _React || window.React
   const ReactDOM = _ReactDOM || window.ReactDOM
 
-  function createEl(fromClass, route, params, acc, key, child) {
+  function createEl (fromClass, route, params, acc, key, child) {
     return React.createElement(fromClass, { route, params, acc, key }, child)
   }
 
-  function parentStates(stateApi) {
+  function parentStates (stateApi) {
     const result = []
     let parent = stateApi.parent
 
@@ -26,16 +25,13 @@ export default (function() {
   }
 
   // Enable this addon even in build-less systems (JsFiddle, etc)
-  if (window.Abyssa)
-    window.Abyssa.ReactState = ReactStateForContainer
+  if (window.Abyssa) { window.Abyssa.ReactState = ReactStateForContainer }
 
-
-  return function ReactStateForContainer(container) {
+  return function ReactStateForContainer (container) {
     let stateId = 0
     const componentByState = {}
 
-    return function ReactState(uri, component, children) {
-
+    return function ReactState (uri, component, children) {
       // Create the Abyssa state object
       const state = {
         data: { id: stateId++ },
@@ -46,10 +42,9 @@ export default (function() {
       componentByState[state.data.id] = component
 
       // The router will add a default state to any parent without one; Add ours first so that it's a ReactState.
-      if (children && !Object.keys(children).some(name => children[name].uri.split('?')[0] == ''))
-        children._default_ = ReactState('')
+      if (children && !Object.keys(children).some(name => children[name].uri.split('?')[0] == '')) { children._default_ = ReactState('') }
 
-      state.enter = function(params, acc, router) {
+      state.enter = function (params, acc, router) {
         const route = router.current()
 
         // Let the component react to the route change, e.g to redirect to another state
@@ -79,5 +74,4 @@ export default (function() {
       return state
     }
   }
-
 })()

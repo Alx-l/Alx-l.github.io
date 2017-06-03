@@ -5,10 +5,9 @@ import Nav from '../nav'
 import Footer from '../footer'
 import settings from 'settings'
 
-const { primaryColor } = settings
-
 import styles from './main.css'
 
+const { primaryColor } = settings
 
 const Main = (props) => {
   const { name } = props.route

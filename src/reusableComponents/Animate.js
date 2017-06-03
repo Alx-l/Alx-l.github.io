@@ -4,21 +4,20 @@ import ReactTransitionGroup from 'react-addons-transition-group'
 
 import h from 'react-hyperscript'
 
-
 class InnerComponent extends Component {
-  componentWillEnter(cb) {
+  componentWillEnter (cb) {
     const el = this.self.parentNode
     this.props.onEnter(el, cb)
   }
 
-  componentWillLeave(cb) {
+  componentWillLeave (cb) {
     const el = this.self.parentNode
     this.props.onLeave(el, cb)
   }
 
-  render() {
+  render () {
     return (
-      h('span', { ref: self => this.self = self, style: { display: 'block' } }, this.props.content)
+      h('span', { ref: self => { this.self = self }, style: { display: 'block' } }, this.props.content)
     )
   }
 
@@ -30,9 +29,8 @@ class InnerComponent extends Component {
   }
 }
 
-
 export default class Animate extends Component {
-  render() {
+  render () {
     const { trigger, children, onEnter, onLeave, customClassName, customStyle } = this.props
     return (
       h(ReactTransitionGroup, { style: { display: 'block', ...customStyle }, className: customClassName },

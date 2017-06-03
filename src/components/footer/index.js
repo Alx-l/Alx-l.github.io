@@ -20,7 +20,7 @@ const Footer = (props) => {
         h('div', { className: styles.icons }, [
           h(Icon, { svg: Heart, className: styles.heart, color: accentColor, size: 40 }),
           h(Icon, { svg: Add, customStyle: { margin: '0 0.2em' }, color: black, size: 18 }),
-          h(Icon, { svg: Laptop, color: black, size: 45 }),
+          h(Icon, { svg: Laptop, color: black, size: 45 })
         ]),
         h('div', { className: styles.text }, [
           h('div', [
@@ -29,7 +29,7 @@ const Footer = (props) => {
           ])
         ])
       ]),
-      h('div', { className: styles.overlay }, h('span', `© ${ year } Alex L the developer`))
+      h('div', { className: styles.overlay }, h('span', `© ${year} Alex L the developer`))
     ])
   )
 }

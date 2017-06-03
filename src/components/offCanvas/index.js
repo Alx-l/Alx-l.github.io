@@ -8,27 +8,26 @@ import { handleLink } from 'utils/misc'
 import styles from './offCanvas.css'
 
 export default class OffCanvas extends Component {
-
   state = {
     open: false
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate (nextProps, nextState) {
     return this.state.open !== nextState.open
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.open) this.setState({ open: true })
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate (prevProps, prevState) {
     const html = document.querySelector('html')
     const body = document.body
     const { top } = body.getBoundingClientRect()
 
     if (!prevState.open) {
       html.classList.add('u-noscroll')
-      html.style.top = `${ top }px`
+      html.style.top = `${top}px`
     } else {
       html.classList.remove('u-noscroll')
       window.scroll(0, top * -1)
@@ -41,7 +40,7 @@ export default class OffCanvas extends Component {
     const { items, route } = this.props
 
     return items.map((item, i) => {
-      const isActive = route === item.dest && true || route === 'index' && item.isIndex
+      const isActive = route === item.dest || (route === 'index' && item.isIndex)
       const className = classNames(styles.item, {
         'is-active': isActive
       })
@@ -54,7 +53,7 @@ export default class OffCanvas extends Component {
     })
   }
 
-  render() {
+  render () {
     const className = classNames(styles.root, {
       'is-open': this.props.open && this.state.open
     })

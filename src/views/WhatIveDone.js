@@ -20,7 +20,6 @@ const { grey } = settings
 const CardCollection = _(Cards).values().value()
 
 const WhatIveDone = (props) => {
-
   const renderFilterBtn = (text, dataAttr) => {
     const { filters } = props
 

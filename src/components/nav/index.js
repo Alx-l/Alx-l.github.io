@@ -10,9 +10,7 @@ import { Hamburger } from 'svg'
 
 import styles from './nav.css'
 
-
 export default class Nav extends Component {
-
   state = {
     open: false
   }
@@ -27,30 +25,30 @@ export default class Nav extends Component {
     }
   }
 
-  renderNavItems() {
+  renderNavItems () {
     const { route } = this.props
 
     return links.map((link, i) => {
       const { dest, text, isIndex } = link
-      const isActive = route === dest && true || route === 'index' && isIndex
+      const isActive = route === dest || (route === 'index' && isIndex)
 
       return (
-        h('li', { key: i , className: isActive && 'is-active' },
+        h('li', { key: i, className: isActive && 'is-active' },
           h('a', { 'data-nav': 'ignore', onClick: e => handleLink(e, dest), href: dest, className: styles.link }, text)
         )
       )
     })
   }
 
-  renderMenuIcon() {
+  renderMenuIcon () {
     return (
-      h('div', { className: styles.icon , onClick: this.handleOpen },
+      h('div', { className: styles.icon, onClick: this.handleOpen },
         h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
       )
     )
   }
 
-  render() {
+  render () {
     const { backgroundColor, heading, subHeading, route } = this.props
 
     return (

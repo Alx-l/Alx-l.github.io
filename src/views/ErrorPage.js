@@ -8,7 +8,6 @@ import settings from 'settings'
 
 const { grey } = settings
 
-
 const ErrorPage = () => {
   return (
     h('div', [

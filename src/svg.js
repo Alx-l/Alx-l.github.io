@@ -1,7 +1,6 @@
 
 import h from 'react-hyperscript'
 
-
 /* Add */
 export const Add = (color) => {
   return h('svg',
@@ -12,7 +11,6 @@ export const Add = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* BackEnd */
 export const BackEnd = (color) => {
@@ -25,7 +23,6 @@ export const BackEnd = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Blink */
 export const Blink = (color) => {
   return h('svg',
@@ -36,7 +33,6 @@ export const Blink = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Code */
 export const Code = (color) => {
@@ -49,7 +45,6 @@ export const Code = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Close */
 export const Close = (color) => {
   return h('svg',
@@ -60,7 +55,6 @@ export const Close = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Expand */
 export const Expand = (color) => {
@@ -73,7 +67,6 @@ export const Expand = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Face */
 export const Face = (color) => {
   return h('svg',
@@ -84,7 +77,6 @@ export const Face = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* FrontEnd */
 export const FrontEnd = (color) => {
@@ -97,7 +89,6 @@ export const FrontEnd = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Github */
 export const Github = (color) => {
   return h('svg',
@@ -106,7 +97,6 @@ export const Github = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Hamburger */
 export const Hamburger = (color) => {
@@ -119,7 +109,6 @@ export const Hamburger = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* HappySmiley */
 export const HappySmiley = (color) => {
   return h('svg',
@@ -130,7 +119,6 @@ export const HappySmiley = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Heart */
 export const Heart = (color) => {
@@ -143,7 +131,6 @@ export const Heart = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* History */
 export const History = (color) => {
   return h('svg',
@@ -154,7 +141,6 @@ export const History = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Laptop */
 export const Laptop = (color) => {
@@ -167,7 +153,6 @@ export const Laptop = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* More */
 export const More = (color) => {
   return h('svg',
@@ -178,7 +163,6 @@ export const More = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Movies */
 export const Movie = (color) => {
@@ -191,7 +175,6 @@ export const Movie = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Music */
 export const Music = (color) => {
   return h('svg',
@@ -202,7 +185,6 @@ export const Music = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Pencil */
 export const Pencil = (color) => {
@@ -215,7 +197,6 @@ export const Pencil = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* People */
 export const People = (color) => {
   return h('svg',
@@ -226,8 +207,6 @@ export const People = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
 
 /* PersonPin */
 export const PersonPin = (color) => {
@@ -240,7 +219,6 @@ export const PersonPin = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* SupaHappy */
 export const SupaHappy = (color) => {
   return h('svg',
@@ -251,7 +229,6 @@ export const SupaHappy = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* ThumbUp */
 export const ThumbUp = (color) => {
@@ -264,7 +241,6 @@ export const ThumbUp = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Tool */
 export const Tool = (color) => {
   return h('svg',
@@ -276,7 +252,6 @@ export const Tool = (color) => {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* TV */
 export const TV = (color) => {
   return h('svg',
@@ -287,7 +262,6 @@ export const TV = (color) => {
   )
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 /* Warning */
 export const Warning = (color) => {

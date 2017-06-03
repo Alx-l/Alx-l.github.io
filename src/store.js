@@ -9,12 +9,10 @@ const initialState = {
 }
 
 export const mainStore = GlobalStore(initialState, (on) => {
-
   on(updateFilter, (state, filter) => {
     return update(state, { filters: {
       ...state.filters,
       [filter.key]: filter.booleanValue }
     })
   })
-
 })

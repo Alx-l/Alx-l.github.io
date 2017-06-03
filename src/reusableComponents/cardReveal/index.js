@@ -9,9 +9,7 @@ import { More, Close, Blink } from 'svg'
 
 import styles from './cardReveal.css'
 
-
 export default class CardReveal extends Component {
-
   state = {
     open: false
   }
@@ -44,7 +42,7 @@ export default class CardReveal extends Component {
     })
   }
 
-  renderInside() {
+  renderInside () {
     const { open } = this.state
     const { iconColor, children } = this.props
 
@@ -58,7 +56,7 @@ export default class CardReveal extends Component {
     )
   }
 
-  render() {
+  render () {
     const { cat, href, title, subTitle, footerText, iconColor, blinkIcon } = this.props
 
     const renderBlinkIcon = blinkIcon &&

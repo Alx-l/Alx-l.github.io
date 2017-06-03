@@ -13,10 +13,8 @@ import styles from './whereToFindMe.css'
 
 const { email, grey } = settings
 
-
 const WhereToFindMe = () => {
-
-  const email_cn = classNames(styles.email, 'u-underlineLeft')
+  const emailClassName = classNames(styles.email, 'u-underlineLeft')
 
   return (
     h('div', [
@@ -28,7 +26,7 @@ const WhereToFindMe = () => {
         h('p', [
           'But since that could take a while before you randomly bump into me, feel free to send me an email :',
           h('br'),
-          h('a', { className: email_cn, href: `mailto:${ email }` }, email)
+          h('a', { className: emailClassName, href: `mailto:${email}` }, email)
         ]),
         h('span', 'Wanna take a peek at my repos?'),
         h('br'),

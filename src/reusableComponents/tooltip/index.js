@@ -7,15 +7,13 @@ import Animate from 'reusableComponents/Animate'
 
 import styles from './tooltip.css'
 
-
 export default class ToolTip extends Component {
-
   state = {
     visible: false
   }
 
   animeSettings = {
-    duration: 225,
+    duration: 225
   }
 
   handleHoverIn = () => this.setState({ visible: true })
@@ -33,7 +31,7 @@ export default class ToolTip extends Component {
   onEnter = (el, cb) => {
     anime({
       begin: () => {
-        el.style.marginLeft = `-${ el.clientWidth / 2 }px`
+        el.style.marginLeft = `-${el.clientWidth / 2}px`
       },
       targets: el,
       scale: { ...this.animeSettings, easing: [0.175, 0.885, 0.32, 1.275], value: 1 },
@@ -49,20 +47,23 @@ export default class ToolTip extends Component {
     })
   }
 
-  renderToolTips() {
+  renderToolTips () {
     const { onEnter, onLeave, state: { visible }, props } = this
 
     return (
-      h(Animate, { trigger: visible, onEnter, onLeave,
-        customClassName: styles.hiddenText, customStyle: { transform: 'scale(0)' }
+      h(Animate, { trigger: visible,
+        onEnter,
+        onLeave,
+        customClassName: styles.hiddenText,
+        customStyle: { transform: 'scale(0)' }
       }, h('span', props.hiddenText)
       )
     )
   }
 
-  render() {
+  render () {
     return (
-      h('span', { onClick: this.handleClick, onMouseEnter: this.handleHoverIn , onMouseLeave: this.handleHoverOut, onKeyDown: this.handleKeyDown, className: styles.root, tabIndex: '0' }, [
+      h('span', { onClick: this.handleClick, onMouseEnter: this.handleHoverIn, onMouseLeave: this.handleHoverOut, onKeyDown: this.handleKeyDown, className: styles.root, tabIndex: '0' }, [
         h('span', { className: styles.text }, this.props.children),
         this.renderToolTips()
       ])

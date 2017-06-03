@@ -6,9 +6,7 @@ import h from 'react-hyperscript'
 
 import styles from './cardlist.css'
 
-
 const CardList = (props) => {
-
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
 
@@ -31,6 +29,5 @@ CardList.propTypes = {
   filters: React.PropTypes.objectOf(React.PropTypes.bool),
   sortKey: React.PropTypes.string
 }
-
 
 export default CardList

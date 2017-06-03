@@ -11,7 +11,6 @@ import { Expand } from 'svg'
 import styles from './collapsible.css'
 
 export default class Collapsible extends Component {
-
   state = {
     open: false
   }
@@ -34,13 +33,13 @@ export default class Collapsible extends Component {
     const { state: { open }, hr, animeSettings, hrOffsetValue } = this
 
     if (open) anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
-    else anime({ targets: hr, translateX: { ...animeSettings, value: `${ hrOffsetValue }` } })
+    else anime({ targets: hr, translateX: { ...animeSettings, value: `${hrOffsetValue}` } })
   }
 
   onEnter = (el, cb) => {
     const height = el.scrollHeight
     anime({
-      begin: () => el.style.willChange = 'height',
+      begin: () => { el.style.willChange = 'height' },
       targets: el,
       height: { ...this.animeSettings, value: height },
       complete: () => {
@@ -48,7 +47,7 @@ export default class Collapsible extends Component {
         el.style.willChange = ''
         this.animateHr()
         return cb()
-      },
+      }
     })
   }
 
@@ -67,14 +66,14 @@ export default class Collapsible extends Component {
     })
   }
 
-  render() {
+  render () {
     const { state: { open }, props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children }, onEnter, onLeave, hrOffsetValue } = this
-    const Collapsible_cn = classNames(styles.root, {
+    const CollapsibleClassName = classNames(styles.root, {
       'popOut': popOut,
       'is-open': open,
       'is-close': !open
     })
-    const expandIcon_cn = classNames(styles.expandIcon, {
+    const expandIconClassName = classNames(styles.expandIcon, {
       'is-open': open
     })
 
@@ -83,18 +82,19 @@ export default class Collapsible extends Component {
     )
 
     return (
-      h('div', { 'aria-expanded': open, className: Collapsible_cn }, [
+      h('div', { 'aria-expanded': open, className: CollapsibleClassName }, [
         h('div', { onKeyDown: this.handleKeyDown, className: styles.title, onClick: this.handleClick, tabIndex: '0' }, [
           h('div', { className: styles.titleLeft }, [
             renderIcon, h('span', { className: 'text' }, title)
           ]),
           h('div', { className: styles.titleRight }, [
-            h('div', { className: expandIcon_cn },
+            h('div', { className: expandIconClassName },
               h(Icon, { svg: Expand, size: iconSize, color: iconColor, customStyle: { display: 'block' } })
             )
           ]),
-          h('hr', { ref: hr => this.hr = hr,
-            style: { transform: `translateX(${ hrOffsetValue })` }, className: styles.hr }
+          h('hr', { ref: (hr) => { this.hr = hr },
+            style: { transform: `translateX(${hrOffsetValue})` },
+            className: styles.hr }
           )
         ]),
         h(Animate, { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },

@@ -21,11 +21,11 @@ const Likes = () => {
       h('div', { className: styles.container }, [
         h('div', { className: styles.left }, [
           h('div', { 'data-divider': true }, clMusic),
-          h('div', { 'data-divider': true }, clTVMovies),
+          h('div', { 'data-divider': true }, clTVMovies)
         ]),
-        h('div', { className: styles.right } ,[
+        h('div', { className: styles.right }, [
           h('div', { 'data-divider': true }, clPeople),
-          h('div', {}, clMisc),
+          h('div', {}, clMisc)
         ])
       ])
     ])
