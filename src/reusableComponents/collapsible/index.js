@@ -92,7 +92,7 @@ export default class Collapsible extends Component {
               h(Icon, { svg: Expand, size: iconSize, color: iconColor, customStyle: { display: 'block' } })
             )
           ]),
-          h('hr', { ref: (hr) => { this.hr = hr },
+          h('hr', { ref: hr => { this.hr = hr },
             style: { transform: `translateX(${hrOffsetValue})` },
             className: styles.hr }
           )

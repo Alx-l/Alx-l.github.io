@@ -13,5 +13,10 @@ module.exports = {
       "experimentalObjectRestSpread": true
     },
     "sourceType": "module"
+  },
+  "rules": {
+    "no-console": 1,
+    "no-var": 2,
+    "prefer-const": 2
   }
 };
