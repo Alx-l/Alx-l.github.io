@@ -12,7 +12,8 @@
     "move-files": "cp -r ./fonts ./images ./public",
     "html-build": "jade jade/views/*.jade --out public",
     "webpack-dev": "webpack-dev-server -w --progress --colors --config build/dev/webpack.config.dev.js",
-    "webpack-prod": "webpack --config build/prod/webpack.config.prod.js"
+    "webpack-prod": "webpack --config build/prod/webpack.config.prod.js",
+    "lint": "eslint ./src --fix"
   },
   "author": "Alex L",
   "license": "ISC",
@@ -33,7 +34,12 @@
     "css-loader": "^0.27.1",
     "css-mqpacker": "^4.0.0",
     "cssnano": "^3.10.0",
-    "eslint": "^3.15.0",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "fluxx": "^0.14.14",
     "immupdate": "^1.0.1",
