@@ -17,6 +17,7 @@ module.exports = {
   "rules": {
     "no-console": 1,
     "no-var": 2,
+    "no-unused-vars": [2, { "args": "after-used" }],
     "object-curly-spacing": [2, "always"],
     "prefer-const": 2
   }
