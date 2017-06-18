@@ -11,9 +11,6 @@ const li = text => h('li', {}, text)
 export const BubblyBoilerplate = h(
   CardReveal,
   {
-
-
-
     cat: 'sideprojects',
     blinkIcon: true,
     iconColor: '#000',
