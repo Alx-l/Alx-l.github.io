@@ -85,7 +85,6 @@ export default class Collapsible extends Component {
       hrOffsetValue
 
 
-
     } = this
 
     const CollapsibleClassName = classNames(styles.root, {
