@@ -83,8 +83,6 @@ export default class Collapsible extends Component {
       onEnter,
       onLeave,
       hrOffsetValue
-
-
     } = this
 
     const CollapsibleClassName = classNames(styles.root, {
