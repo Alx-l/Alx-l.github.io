@@ -13,6 +13,7 @@
     "html-build": "jade jade/views/*.jade --out public",
     "webpack-dev": "webpack-dev-server -w --progress --colors --config build/dev/webpack.config.dev.js",
     "webpack-prod": "webpack --config build/prod/webpack.config.prod.js",
+    "prepush": "yarn cleanup-code",
     "cleanup-code": "npm-run-all pretty -s lint",
     "pretty": "prettier --no-semi --single-quote --write './src/**/*.js'",
     "lint": "eslint ./src --fix"
@@ -44,6 +45,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "fluxx": "^0.14.14",
+    "husky": "^0.13.4",
     "immupdate": "^1.0.1",
     "npm-run-all": "^3.1.1",
     "postcss": "^5.2.5",
