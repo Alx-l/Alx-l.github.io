@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import h from 'react-hyperscript'
 import anime from 'animejs'
@@ -21,7 +20,7 @@ export default class CardReveal extends Component {
 
   handleClick = () => this.setState({ open: !this.state.open })
 
-  handleKeyDown = (e) => {
+  handleKeyDown = e => {
     const keycode = e.which || e.keyCode
     if (keycode === 13) this.setState({ open: !this.state.open })
   }
@@ -42,48 +41,83 @@ export default class CardReveal extends Component {
     })
   }
 
-  renderInside () {
+  renderInside() {
     const { open } = this.state
     const { iconColor, children } = this.props
 
-    return (
-      h(Animate, { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customClassName: styles.container }, [
+    return h(
+      Animate,
+      {
+        trigger: open,
+        onEnter: this.onEnter,
+        onLeave: this.onLeave,
+        customClassName: styles.container
+      },
+      [
         h('div', [
-          h('div', { className: styles.insideIcon, onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' }, h(Icon, { svg: Close, color: iconColor, size: 24 })),
-          h('div', { className: styles.insideRoot, style: { overflow: 'hidden' } }, children)
+          h(
+            'div',
+            {
+              className: styles.insideIcon,
+              onClick: this.handleClick,
+              onKeyDown: this.handleKeyDown,
+              tabIndex: '0'
+            },
+            h(Icon, { svg: Close, color: iconColor, size: 24 })
+          ),
+          h(
+            'div',
+            { className: styles.insideRoot, style: { overflow: 'hidden' } },
+            children
+          )
         ])
-      ])
+      ]
     )
   }
 
-  render () {
-    const { cat, href, title, subTitle, footerText, iconColor, blinkIcon } = this.props
+  render() {
+    const {
+      cat,
+      href,
+      title,
+      subTitle,
+      footerText,
+      iconColor,
+      blinkIcon
+    } = this.props
 
-    const renderBlinkIcon = blinkIcon &&
+    const renderBlinkIcon =
+      blinkIcon &&
       h('div', [
-        h('a', { href, target: '_blank', style: { display: 'block' } },
+        h(
+          'a',
+          { href, target: '_blank', style: { display: 'block' } },
           h(Icon, { svg: Blink, color: iconColor, size: 24 })
         )
       ])
 
-    return (
-      h('div', { className: styles.root, 'data-cat': cat }, [
-        h('div', { className: styles.content }, [
-          h('h3', { className: styles.title }, title),
-          subTitle && h('span', { className: styles.subTitle }, subTitle)
-        ]),
-        h('div', { className: styles.footer }, [
-          h('div', { className: styles.footerText }, footerText),
-          h('div', { className: styles.iconContainer }, [
-            h('div', { onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
-              h(Icon, { svg: More, size: 24, color: iconColor })
-            ),
-            renderBlinkIcon
-          ])
-        ]),
-        this.renderInside()
-      ])
-    )
+    return h('div', { className: styles.root, 'data-cat': cat }, [
+      h('div', { className: styles.content }, [
+        h('h3', { className: styles.title }, title),
+        subTitle && h('span', { className: styles.subTitle }, subTitle)
+      ]),
+      h('div', { className: styles.footer }, [
+        h('div', { className: styles.footerText }, footerText),
+        h('div', { className: styles.iconContainer }, [
+          h(
+            'div',
+            {
+              onClick: this.handleClick,
+              onKeyDown: this.handleKeyDown,
+              tabIndex: '0'
+            },
+            h(Icon, { svg: More, size: 24, color: iconColor })
+          ),
+          renderBlinkIcon
+        ])
+      ]),
+      this.renderInside()
+    ])
   }
 
   static propTypes = {

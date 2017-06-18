@@ -1,4 +1,3 @@
-
 import { Router } from 'abyssa'
 import ReactState from './ReactState' // to use abyssa with React
 import 'space-lift/all'
@@ -16,7 +15,6 @@ import './global.css'
 const state = ReactState(document.querySelector('#app'))
 
 const router = Router({
-
   app: state('', Main, {
     index: state('', WhoAmI),
     whatido: state('whatido', WhatIDo),
@@ -24,8 +22,7 @@ const router = Router({
     wheretofindme: state('wheretofindme', WhereToFindMe),
     errorPage404: state('errorPage404', ErrorPage404)
   })
-})
-.configure({
+}).configure({
   urlSync: 'hash',
   notFound: 'app.errorPage404'
 })

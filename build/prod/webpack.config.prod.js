@@ -9,7 +9,6 @@ const output = path.resolve(__dirname, '../../public/')
 
 const resolve = require('../commons/resolve')
 
-
 module.exports = {
   entry: ['babel-polyfill', './src/app.js'],
   output: {
@@ -50,7 +49,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               config: path.resolve(__dirname, 'postcss.config.js')
-            },
+            }
           }]
         })
       }

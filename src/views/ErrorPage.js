@@ -1,4 +1,3 @@
-
 import h from 'react-hyperscript'
 
 import TextBlock from 'layouts/textBlock'
@@ -9,12 +8,10 @@ import settings from 'settings'
 const { grey } = settings
 
 const ErrorPage = () => {
-  return (
-    h('div', [
-      h(IconHeader, { icon: Warning, size: 20, color: grey, text: 'Oops' }),
-      h(TextBlock, [ h('p', {}, 'You lost homie?') ])
-    ])
-  )
+  return h('div', [
+    h(IconHeader, { icon: Warning, size: 20, color: grey, text: 'Oops' }),
+    h(TextBlock, [h('p', {}, 'You lost homie?')])
+  ])
 }
 
 export default ErrorPage

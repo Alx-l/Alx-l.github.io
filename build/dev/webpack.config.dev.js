@@ -44,7 +44,7 @@ module.exports = {
             loader: 'postcss-loader?sourceMap=inline',
             options: {
               config: path.resolve(__dirname, 'postcss.config.js')
-            },
+            }
           }]
         })
       }
@@ -52,5 +52,5 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('css/bundle.css')
-  ],
+  ]
 }

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import _ from 'space-lift'
 
@@ -6,13 +5,14 @@ import h from 'react-hyperscript'
 
 import styles from './cardlist.css'
 
-const CardList = (props) => {
+const CardList = props => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
 
     const filtersAreSet = !!Object.keys(filters).find(item => filters[item])
-    const filterByCat = item => filtersAreSet ? filters[item.props.cat] : item
-    const content = (item, i) => h('div', { className: styles.item, key: i }, item)
+    const filterByCat = item => (filtersAreSet ? filters[item.props.cat] : item)
+    const content = (item, i) =>
+      h('div', { className: styles.item, key: i }, item)
 
     return _(collectionToRender)
       .filter(filterByCat)

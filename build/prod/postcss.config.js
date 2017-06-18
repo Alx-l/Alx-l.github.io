@@ -19,6 +19,6 @@ module.exports = {
     },
     'css-mqpacker': {
       sort: true
-    },
-  },
+    }
+  }
 }

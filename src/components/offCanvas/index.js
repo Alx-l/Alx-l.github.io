@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import h from 'react-hyperscript'
 import classNames from 'classnames'
@@ -12,15 +11,15 @@ export default class OffCanvas extends Component {
     open: false
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return this.state.open !== nextState.open
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.open) this.setState({ open: true })
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     const html = document.querySelector('html')
     const body = document.body
     const { top } = body.getBoundingClientRect()
@@ -40,30 +39,39 @@ export default class OffCanvas extends Component {
     const { items, route } = this.props
 
     return items.map((item, i) => {
-      const isActive = route === item.dest || (route === 'index' && item.isIndex)
+      const isActive =
+        route === item.dest || (route === 'index' && item.isIndex)
       const className = classNames(styles.item, {
         'is-active': isActive
       })
 
-      return (
-        h('li', { onClick: this.handleClose, className, key: i },
-          h('a', { 'data-nav': 'ignore', onClick: e => handleLink(e, item.dest), tabIndex: '-1', className: styles.link, href: item.dest }, item.text)
+      return h(
+        'li',
+        { onClick: this.handleClose, className, key: i },
+        h(
+          'a',
+          {
+            'data-nav': 'ignore',
+            onClick: e => handleLink(e, item.dest),
+            tabIndex: '-1',
+            className: styles.link,
+            href: item.dest
+          },
+          item.text
         )
       )
     })
   }
 
-  render () {
+  render() {
     const className = classNames(styles.root, {
       'is-open': this.props.open && this.state.open
     })
 
-    return (
-      h('div', { className, style: { textTransform: 'uppercase' } }, [
-        h('div', { className: styles.overlay, onClick: this.handleClose }),
-        h('div', { className: styles.content }, h('ul', {}, this.renderItems()))
-      ])
-    )
+    return h('div', { className, style: { textTransform: 'uppercase' } }, [
+      h('div', { className: styles.overlay, onClick: this.handleClose }),
+      h('div', { className: styles.content }, h('ul', {}, this.renderItems()))
+    ])
   }
 
   static propTypes = {

@@ -19,5 +19,5 @@ module.exports = {
       replace: true
     },
     'css-mqpacker': true
-  },
+  }
 }

@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import h from 'react-hyperscript'
 
@@ -19,47 +18,63 @@ export default class Nav extends Component {
 
   handleClose = () => this.setState({ open: false })
 
-  handleClick = (e) => {
+  handleClick = e => {
     if (!e.target.classList.contains('OffCanvas-content')) {
       this.handleClose()
     }
   }
 
-  renderNavItems () {
+  renderNavItems() {
     const { route } = this.props
 
     return links.map((link, i) => {
       const { dest, text, isIndex } = link
       const isActive = route === dest || (route === 'index' && isIndex)
 
-      return (
-        h('li', { key: i, className: isActive && 'is-active' },
-          h('a', { 'data-nav': 'ignore', onClick: e => handleLink(e, dest), href: dest, className: styles.link }, text)
+      return h(
+        'li',
+        { key: i, className: isActive && 'is-active' },
+        h(
+          'a',
+          {
+            'data-nav': 'ignore',
+            onClick: e => handleLink(e, dest),
+            href: dest,
+            className: styles.link
+          },
+          text
         )
       )
     })
   }
 
-  renderMenuIcon () {
-    return (
-      h('div', { className: styles.icon, onClick: this.handleOpen },
-        h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
-      )
+  renderMenuIcon() {
+    return h(
+      'div',
+      { className: styles.icon, onClick: this.handleOpen },
+      h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
     )
   }
 
-  render () {
+  render() {
     const { backgroundColor, heading, subHeading, route } = this.props
 
-    return (
-      h('nav', { style: { backgroundColor }, className: styles.root }, [
-        h('div', { className: styles.avatar }, h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })),
-        h('h1', { className: styles.heading }, heading),
-        h('div', { className: styles.subHeading }, subHeading),
-        h('ul', { className: styles.list }, this.renderNavItems()), this.renderMenuIcon(),
-        h('div', { onClick: this.handleClick }, h(OffCanvas, { route, open: this.state.open, items: links }))
-      ])
-    )
+    return h('nav', { style: { backgroundColor }, className: styles.root }, [
+      h(
+        'div',
+        { className: styles.avatar },
+        h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
+      ),
+      h('h1', { className: styles.heading }, heading),
+      h('div', { className: styles.subHeading }, subHeading),
+      h('ul', { className: styles.list }, this.renderNavItems()),
+      this.renderMenuIcon(),
+      h(
+        'div',
+        { onClick: this.handleClick },
+        h(OffCanvas, { route, open: this.state.open, items: links })
+      )
+    ])
   }
 
   static propTypes = {

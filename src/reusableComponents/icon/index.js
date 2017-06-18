@@ -1,17 +1,18 @@
-
 import React from 'react'
 import h from 'react-hyperscript'
 
 import { pxToRemDims } from 'utils/misc'
 
-const Icon = (props) => {
+const Icon = props => {
   const { color, className, svg, size, customStyle } = props
 
-  return (
-    h('div', {
+  return h(
+    'div',
+    {
       className,
       style: { display: 'inline-block', ...pxToRemDims(size), ...customStyle }
-    }, svg(color))
+    },
+    svg(color)
   )
 }
 

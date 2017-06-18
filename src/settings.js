@@ -1,4 +1,3 @@
-
 const settings = {
   primaryColor: '#2196f3',
   accentColor: '#6200ea',

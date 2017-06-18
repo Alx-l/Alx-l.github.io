@@ -13,6 +13,8 @@
     "html-build": "jade jade/views/*.jade --out public",
     "webpack-dev": "webpack-dev-server -w --progress --colors --config build/dev/webpack.config.dev.js",
     "webpack-prod": "webpack --config build/prod/webpack.config.prod.js",
+    "cleanup-code": "npm-run-all pretty -s lint",
+    "pretty": "prettier --no-semi --single-quote --write './src/**/*.js'",
     "lint": "eslint ./src --fix"
   },
   "author": "Alex L",
@@ -56,6 +58,7 @@
     "postcss-mixins": "^5.4.1",
     "postcss-pxtorem": "^3.3.1",
     "postcss-reporter": "^3.0.0",
+    "prettier": "^1.4.4",
     "react": "^15.4.2",
     "react-addons-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",

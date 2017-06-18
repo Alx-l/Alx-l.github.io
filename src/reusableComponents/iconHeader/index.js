@@ -1,4 +1,3 @@
-
 import React from 'react'
 import h from 'react-hyperscript'
 
@@ -6,15 +5,15 @@ import Icon from 'reusableComponents/icon'
 
 import styles from './iconHeader.css'
 
-const IconHeader = (props) => {
+const IconHeader = props => {
   const { icon, size, bg, color, text } = props
-  return (
-    h('div', { style: { backgroundColor: bg }, className: styles.root },
-      h('h2', { className: styles.heading }, [
-        h(Icon, { svg: icon, color, size, className: styles.icon }),
-        h('span', { className: styles.text }, text)
-      ])
-    )
+  return h(
+    'div',
+    { style: { backgroundColor: bg }, className: styles.root },
+    h('h2', { className: styles.heading }, [
+      h(Icon, { svg: icon, color, size, className: styles.icon }),
+      h('span', { className: styles.text }, text)
+    ])
   )
 }
 

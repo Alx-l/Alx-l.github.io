@@ -1,16 +1,10 @@
-
 import h from 'react-hyperscript'
 
 import Skillz from './Skillz'
 import Likes from './Likes'
 
 const WhatIDo = () => {
-  return (
-    h('div', [
-      h(Skillz),
-      h(Likes)
-    ])
-  )
+  return h('div', [h(Skillz), h(Likes)])
 }
 
 export default WhatIDo

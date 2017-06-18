@@ -1,4 +1,3 @@
-
 import { GlobalStore, Action } from 'fluxx'
 import { update } from 'immupdate'
 
@@ -8,11 +7,13 @@ const initialState = {
   filters: {}
 }
 
-export const mainStore = GlobalStore(initialState, (on) => {
+export const mainStore = GlobalStore(initialState, on => {
   on(updateFilter, (state, filter) => {
-    return update(state, { filters: {
-      ...state.filters,
-      [filter.key]: filter.booleanValue }
+    return update(state, {
+      filters: {
+        ...state.filters,
+        [filter.key]: filter.booleanValue
+      }
     })
   })
 })
