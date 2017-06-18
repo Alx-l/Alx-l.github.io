@@ -13,7 +13,7 @@
     "html-build": "jade jade/views/*.jade --out public",
     "webpack-dev": "webpack-dev-server -w --progress --colors --config build/dev/webpack.config.dev.js",
     "webpack-prod": "webpack --config build/prod/webpack.config.prod.js",
-    "prepush": "yarn cleanup-code",
+    "precommit": "yarn cleanup-code",
     "cleanup-code": "npm-run-all pretty -s lint",
     "pretty": "prettier --no-semi --single-quote --write './src/**/*.js'",
     "lint": "eslint ./src --fix"
