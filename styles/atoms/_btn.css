@@ -1,6 +1,5 @@
 /* Button mixin
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @define-mixin btn $bg: var(--accent-color), $text: var(--primary-text) {
   background-color: $bg;
   color: $text;

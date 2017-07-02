@@ -1,6 +1,5 @@
 /* Custom fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @font-face {
   font-family: "Tofino";
   font-style: normal;
@@ -10,7 +9,6 @@
 
 /* Ratios
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 :root {
   --minor-second: 1.067;
   --major-second: 1.125;
@@ -33,7 +31,6 @@
 
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 :root {
   --base-font-size: 16px;
   --base-line-height: var(--golden);
@@ -43,7 +40,6 @@
 
 /* Body
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 body {
   color: var(--primary-text);
   font-family: var(--body-font-family);
@@ -56,7 +52,6 @@ body {
 
 /* Headings
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 h1,
 h2,
 h3,
@@ -71,7 +66,6 @@ h6 {
 
 /* Body text
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 p {
   margin-bottom: var(--vr);
 }

@@ -2,7 +2,6 @@
 
 /* Matching transitions classes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 :global .u-linkSweep {
   @apply --link-sweep;
 }

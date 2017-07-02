@@ -2,7 +2,6 @@
 
 /* Matching helper classes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 :global .u-boxShadow {
   @apply --box-shadow;
 }

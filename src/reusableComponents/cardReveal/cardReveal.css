@@ -63,7 +63,6 @@
 
 /* Alt version
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 .root[data-cat="jobs"] {
   & .content {
     background: color(var(--accent-color) tint(50%));
@@ -72,7 +71,6 @@
 
 /* Inside the card
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 .insideRoot {
   color: var(--primary-text);
   & ul {

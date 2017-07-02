@@ -1,6 +1,5 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 :root {
   /* colors */
   --primary-text: #333;
@@ -36,6 +35,5 @@
 
 /* Media queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @custom-media --above-mobile (min-width: 480px);
 @custom-media --above-tablet (min-width: 840px);

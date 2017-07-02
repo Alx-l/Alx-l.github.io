@@ -1,6 +1,5 @@
 /* Slide left
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @keyframes :global(slideLeft) {
   0% {
     transform: translateX(-150%);
@@ -12,7 +11,6 @@
 
 /* Slide up
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @keyframes :global(slideUp) {
   0% {
     opacity: 0;
@@ -26,7 +24,6 @@
 
 /* Beating heart
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @keyframes :global(beatingHeart) {
   50% {
     transform: scale(1.01);
@@ -38,7 +35,6 @@
 
 /* Beating heart-stronger
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @keyframes :global(beatingHeartStronger) {
   50% {
     transform: scale(1.02);
@@ -50,7 +46,6 @@
 
 /* Landing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @keyframes :global(landing) {
   0% {
     opacity: 0;
