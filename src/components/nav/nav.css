@@ -1,7 +1,6 @@
 @import "../../../styles/base/_settings.css";
 @import "../../../styles/utils/_helpers.css";
 
-
 .root {
   flex: none;
   margin-bottom: var(--spacer);
@@ -10,7 +9,6 @@
   text-align: center;
   @apply --box-shadow;
 }
-
 
 .avatar {
   overflow: hidden;
@@ -21,14 +19,12 @@
   border-radius: 50%;
 }
 
-
 .heading {
   margin: var(--spacer) 0 0;
   color: #fff;
   font-size: var(--text-xl);
   letter-spacing: 5px;
 }
-
 
 .subHeading {
   display: inline-block;
@@ -38,7 +34,6 @@
   font-family: var(--headings-font-family);
   font-style: italic;
 }
-
 
 .list {
   display: none;
@@ -71,7 +66,6 @@
   }
 }
 
-
 .link {
   display: block;
   width: 100%;
@@ -80,7 +74,6 @@
   font-size: responsive 20px 25px;
   font-weight: 300;
 }
-
 
 /* Menu Icon
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

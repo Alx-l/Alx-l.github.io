@@ -1,7 +1,6 @@
 @import "../../styles/base/_settings.css";
 @import "../../styles/utils/_custom-selectors.css";
 
-
 .email {
   margin: var(--spacer) 0;
   font-family: var(--headings-font-family);

@@ -1,7 +1,6 @@
 @import "../../../styles/base/_settings.css";
 @import "../../../styles/utils/_helpers.css";
 
-
 /* Collapsible Container
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -31,7 +30,6 @@
   }
 }
 
-
 /* left and right side of the container
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -43,20 +41,17 @@
   }
 }
 
-
 .left {
   @media (--above-tablet) {
     padding-right: var(--spacer-md);
   }
 }
 
-
 .right {
   @media (--above-tablet) {
     padding-left: var(--spacer-md);
   }
 }
-
 
 /* dividers between each 'Collapsible'
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

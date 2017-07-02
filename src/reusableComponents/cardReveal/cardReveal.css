@@ -1,6 +1,5 @@
 @import "../../../styles/base/_settings.css";
 
-
 .root {
   position: relative;
   overflow: hidden;
@@ -11,13 +10,11 @@
   font-size: var(--text-lg);
 }
 
-
 .content {
   padding: var(--spacer);
   background: var(--primary-color);
   color: #fff;
 }
-
 
 .title {
   margin-bottom: 0;
@@ -25,13 +22,11 @@
   color: #fff;
 }
 
-
 .subTitle {
   display: inline-block;
   margin-top: var(--spacer);
   font-style: italic;
 }
-
 
 .footer {
   overflow: hidden;
@@ -39,14 +34,12 @@
   border-top: 1px solid rgba(var(--grey-darken), 0.5);
 }
 
-
 .footerText {
   float: left;
   width: 90%;
   color: var(--secondary-text);
   font-size: var(--text-regular);
 }
-
 
 .iconContainer {
   box: horizontal-middle space-around wrap;
@@ -56,7 +49,6 @@
     cursor: pointer;
   }
 }
-
 
 /* hidden content */
 .container {
@@ -69,7 +61,6 @@
   border-radius: 2px;
 }
 
-
 /* Alt version
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -78,7 +69,6 @@
     background: color(var(--accent-color) tint(50%));
   }
 }
-
 
 /* Inside the card
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -92,12 +82,10 @@
   }
 }
 
-
 .insideIcon {
   float: right;
   cursor: pointer;
 }
-
 
 .insideFooter {
   margin-top: var(--spacer);

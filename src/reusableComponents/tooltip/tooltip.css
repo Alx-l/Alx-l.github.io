@@ -1,12 +1,10 @@
 @import "../../../styles/base/_settings.css";
 @import "../../../styles/utils/_helpers.css";
 
-
 .root {
   position: relative;
   cursor: pointer;
 }
-
 
 .hiddenText {
   z-index: 2;
@@ -20,7 +18,6 @@
   white-space: nowrap;
   transform-origin: center bottom 0;
 }
-
 
 .text {
   @apply --highlight;

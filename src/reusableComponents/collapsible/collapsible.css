@@ -1,6 +1,5 @@
 @import "../../../styles/base/_settings.css";
 
-
 .root {
   overflow: hidden;
   border-radius: 2px;
@@ -29,7 +28,6 @@
   }
 }
 
-
 .title {
   box: horizontal-middle center wrap;
   position: relative;
@@ -43,7 +41,6 @@
     }
   }
 }
-
 
 .titleLeft {
   flex: 1 0 80%;
@@ -60,12 +57,10 @@
   }
 }
 
-
 .titleRight {
   box: horizontal-right wrap;
   flex: 0 0 20%;
 }
-
 
 .expandIcon {
   position: relative;
@@ -86,13 +81,11 @@
   }
 }
 
-
 .hr {
   position: absolute null var(--spacer-md) -var(--spacer-sm) var(--spacer);
   border-top: none;
   border-bottom: 1px solid var(--accent-color);
 }
-
 
 .body {
   & ul {

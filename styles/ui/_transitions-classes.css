@@ -7,7 +7,6 @@
   @apply --link-sweep;
 }
 
-
 :global .u-underlineLeft {
   @apply --underline-left;
 }

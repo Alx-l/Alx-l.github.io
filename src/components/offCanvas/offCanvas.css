@@ -1,7 +1,6 @@
 @import "../../../styles/base/_settings.css";
 @import "../../../styles/utils/_custom-selectors.css";
 
-
 .root {
   &:global {
     &.is-open {
@@ -16,7 +15,6 @@
   }
 }
 
-
 .overlay {
   z-index: 10;
   position: fixed;
@@ -30,7 +28,6 @@
   transition: opacity ease-out-quint 0.45s;
 }
 
-
 .content {
   z-index: 11;
   position: fixed 0 null null 0;
@@ -42,7 +39,6 @@
   transform: translate3d(-240px, 0, 0);
   transition: transform ease-out-quint 0.45s;
 }
-
 
 .item {
   font-size: 20px;
@@ -62,7 +58,6 @@
     }
   }
 }
-
 
 .link {
   display: block;

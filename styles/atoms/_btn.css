@@ -1,4 +1,3 @@
-
 /* Button mixin
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -20,7 +19,6 @@
   }
 }
 
-
 :global .btn-filter {
   margin-right: var(--spacer);
   padding: var(--spacer-xs) var(--spacer-sm);
@@ -37,7 +35,6 @@
     border-color: transparent;
   }
 }
-
 
 :global .btn-icon {
   @mixin btn;

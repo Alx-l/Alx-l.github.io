@@ -127,7 +127,6 @@ dfn {
   font-style: italic;
 }
 
-
 /**
  * Address styling not present in IE 8/9.
  */
@@ -289,7 +288,6 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-
 
 html input[disabled] {
   cursor: default;
