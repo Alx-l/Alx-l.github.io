@@ -1,11 +1,14 @@
 {
   "plugins": [
-        "stylelint-order"
-    ],
+    "stylelint-order"
+  ],
   "rules": {
     "order/properties-order": [
       "display",
-      "flex",
+      "vertical-align",
+      "flex", "flex-direction",
+      "align-items", "align-content", "align-self",
+      "justify-content",
       "z-index",
       "content",
       "position",
@@ -14,19 +17,20 @@
       "overflow",
       "min-width", "width", "max-width",
       "min-height", "height", "max-height",
-      "margin",
-      "padding",
-      "background",
+      "margin", "margin-top", "margin-right", "margin-bottom", "margin-left",
+      "padding", "padding-top", "padding-right", "padding-bottom", "padding-left",
+      "background", "background-color",
       "color",
-      "border",
-      "border-radius",
+      "border", "border-radius", "border-top", "border-right", "border-bottom", "border-left",
       "box-shadow",
       "opacity",
-      "font",
+      "font", "font-family", "font-size", "font-style", "font-weight",
+      "font-smoothing", "osx-font-smoothing",
       "line-height",
       "text-align",
       "text-shadow",
       "letter-spacing",
+      "word-break",
       "white-space",
       "transform",
       "backface-visibility",
@@ -34,12 +38,12 @@
       "animation"
     ],
     "at-rule-empty-line-before": [ "always", {
-      except: [
-        "inside-block",
+      "except": [
+        "all-nested",
         "blockless-after-same-name-blockless",
-        "first-nested",
+        "first-nested"
       ],
-      ignore: ["after-comment"],
+      "ignore": ["after-comment"]
     } ],
     "at-rule-name-case": "lower",
     "at-rule-name-space-after": "always-single-line",
@@ -56,25 +60,25 @@
     "color-hex-length": "short",
     "color-no-invalid-hex": true,
     "comment-empty-line-before": [ "always", {
-      except: ["first-nested"],
-      ignore: ["stylelint-commands"],
+      "except": ["first-nested"],
+      "ignore": ["stylelint-commands"]
     } ],
     "comment-no-empty": true,
     "comment-whitespace-inside": "always",
     "custom-property-empty-line-before": [ "always", {
-      except: [
+      "except": [
         "after-custom-property",
-        "first-nested",
+        "first-nested"
       ],
-      ignore: [
+      "ignore": [
         "after-comment",
-        "inside-single-line-block",
-      ],
+        "inside-single-line-block"
+      ]
     } ],
     "declaration-bang-space-after": "never",
     "declaration-bang-space-before": "always",
     "declaration-block-no-duplicate-properties": [ true, {
-      ignore: ["consecutive-duplicates-with-different-values"],
+      "ignore": ["consecutive-duplicates-with-different-values"]
     } ],
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
@@ -87,14 +91,14 @@
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
     "declaration-empty-line-before": [ "always", {
-      except: [
+      "except": [
         "after-declaration",
-        "first-nested",
+        "first-nested"
       ],
-      ignore: [
+      "ignore": [
         "after-comment",
-        "inside-single-line-block",
-      ],
+        "inside-single-line-block"
+      ]
     } ],
     "font-family-no-duplicate-names": true,
     "function-calc-no-unspaced-operator": true,
@@ -131,11 +135,11 @@
      "property-no-unknown": [ true, {
       "ignoreProperties": [
         "box"
-      ],
-    }],
+      ]
+    } ],
     "rule-empty-line-before": [ "always-multi-line", {
-      except: ["first-nested"],
-      ignore: ["after-comment", "inside-block"],
+      "except": ["first-nested"],
+      "ignore": ["after-comment", "inside-block"]
     } ],
     "selector-attribute-brackets-space-inside": "never",
     "selector-attribute-operator-space-after": "never",
@@ -150,21 +154,24 @@
     "selector-pseudo-class-no-unknown": [ true, {
       "ignorePseudoClasses": [
         "global", "local"
-      ],
-    }],
+      ]
+    } ],
     "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-pseudo-element-case": "lower",
     "selector-pseudo-element-colon-notation": "single",
     "selector-pseudo-element-no-unknown": true,
     "selector-type-case": "lower",
-    "selector-type-no-unknown": true,
+    "selector-type-no-unknown": [ true, {
+      "ignoreTypes": ["/^component$/"]
+    } ],
     "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
+    "string-quotes": "double",
     "unit-case": "lower",
     "unit-no-unknown": true,
     "value-list-comma-newline-after": "always-multi-line",
     "value-list-comma-space-after": "always-single-line",
     "value-list-comma-space-before": "never",
-    "value-list-max-empty-lines": 0,
-  },
+    "value-list-max-empty-lines": 0
+  }
 }
