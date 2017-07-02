@@ -5572,6 +5572,10 @@ stylehacks@^2.3.2:
     text-table "^0.2.0"
     write-file-stdout "0.0.2"
 
+stylelint-config-standard@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-16.0.0.tgz#bb7387bff1d7dd7186a52b3ebf885b2405d691bf"
+
 stylelint-order@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-0.4.0.tgz#0856973cafc13dc5ea053b9db2cc9a31ac20de5a"
@@ -5580,7 +5584,7 @@ stylelint-order@^0.4.0:
     postcss "^5.2.16"
     stylelint "^7.9.0"
 
-stylelint@^7.12.0:
+stylelint@7.12.0:
   version "7.12.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-7.12.0.tgz#bf302c265d7c2d6fe79b154a9fd873a80f8b4aa4"
   dependencies:
