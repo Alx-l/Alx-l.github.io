@@ -6,6 +6,7 @@
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 var(--spacer);
+
   @media (--above-mobile) {
     padding: 0 var(--spacer-lg);
   }

@@ -10,12 +10,14 @@
 .background {
   @media (--above-tablet) {
     padding-right: 1.5em;
-    &:after {
+
+    &::after {
       display: block;
       content: "";
       position: absolute 0 null 0 100%;
       width: 72px;
       background: svg-load("images/arrow.svg") 10px center/contain no-repeat;
+
       &:global {
         animation: landing 1.4s ease-out-back 0.7s both;
       }

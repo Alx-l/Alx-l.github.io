@@ -12,12 +12,14 @@
   margin-bottom: 0;
   background-color: inherit;
   color: var(--accent-color);
-  &:after {
+
+  &::after {
     display: inline-block;
     content: "";
     width: 100%;
     height: 5px;
     background: var(--grey);
+
     @apply --center-y;
   }
 }
@@ -27,12 +29,14 @@
   position: relative;
   max-width: 15%;
   background-color: inherit;
-  &:after {
+
+  &::after {
     display: block;
     content: "";
     padding: 18px;
     border: 5px solid var(--grey);
     border-radius: 50%;
+
     @apply --center-xy;
   }
 }

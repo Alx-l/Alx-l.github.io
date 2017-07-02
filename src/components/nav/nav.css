@@ -7,6 +7,7 @@
   padding: var(--spacer-md) var(--spacer) 0;
   color: #fff;
   text-align: center;
+
   @apply --box-shadow;
 }
 
@@ -37,26 +38,32 @@
 
 .list {
   display: none;
+
   @media (--above-mobile) {
     box: horizontal-left wrap;
     position: relative;
     max-width: 1280px;
     margin: var(--spacer-md) auto;
     text-transform: uppercase;
+
     &:global {
       animation: slideUp 0.7s ease-in-out-quad;
     }
   }
+
   & li {
     box: horizontal-middle center wrap;
     flex: 0 1 auto;
     transition: background-color 0.3s ease-in-out;
+
     @media (--above-mobile) {
       width: 50%;
     }
+
     @media (--above-tablet) {
       width: 25%;
     }
+
     &:global {
       &:hover,
       &.is-active {
@@ -82,9 +89,11 @@
   margin: var(--spacer-md) 0;
   text-align: left;
   cursor: pointer;
+
   &:global {
     animation: slideLeft 0.35s ease-out-back;
   }
+
   @media (--above-mobile) {
     display: none;
   }

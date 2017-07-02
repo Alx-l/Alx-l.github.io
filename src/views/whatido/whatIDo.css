@@ -7,10 +7,12 @@
 .container {
   position: relative;
   margin-bottom: var(--spacer);
+
   @media (--above-tablet) {
     overflow: hidden;
     padding: var(--spacer) var(--spacer-sm);
-    &:before {
+
+    &::before {
       content: "";
       position: absolute 0 null 0 50%;
       width: 1px;
@@ -18,13 +20,15 @@
       background: var(--grey-lighten);
       transform: translateX(-50%);
     }
-    &:after {
+
+    &::after {
       content: "";
       width: 12px;
       height: 12px;
       background: #fff;
       border: 1px solid var(--grey-lighten);
       border-radius: 50%;
+
       @apply --center-xy;
     }
   }
@@ -60,14 +64,16 @@
   & [data-divider="true"] {
     position: relative;
     margin-bottom: var(--spacer-xl);
-    &:before {
+
+    &::before {
       content: "";
       position: absolute null 0 -22px 0;
       height: 1px;
       margin: 0 10em;
       background-color: var(--grey-lighten);
     }
-    &:after {
+
+    &::after {
       content: "";
       position: absolute;
       bottom: -28px;
@@ -79,10 +85,12 @@
       border-radius: 50%;
       transform: translateX(-50%);
     }
+
     @media (--above-tablet) {
       margin-bottom: 0;
-      &:before,
-      &:after {
+
+      &::before,
+      &::after {
         content: none;
       }
     }

@@ -45,6 +45,7 @@
   box: horizontal-middle space-around wrap;
   float: right;
   width: 10%;
+
   & > div {
     cursor: pointer;
   }
@@ -73,6 +74,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .insideRoot {
   color: var(--primary-text);
+
   & ul {
     margin-bottom: var(--spacer);
     padding-left: var(--spacer-md);

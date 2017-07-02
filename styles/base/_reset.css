@@ -1,7 +1,8 @@
 * {
   box-sizing: border-box;
-  &:before,
-  &:after {
+
+  &::before,
+  &::after {
     box-sizing: inherit;
   }
 }
@@ -24,9 +25,11 @@ a {
 button {
   background: #bdbdbd;
   border: none;
+
   &:focus {
     outline: none;
   }
+
   &[disabled] {
     cursor: not-allowed;
   }
@@ -61,6 +64,7 @@ select {
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #bdbdbd;
+
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--accent-color);
@@ -71,6 +75,7 @@ select {
 textarea {
   max-width: 100%;
   border-top: 1px solid #bdbdbd;
+
   &:focus {
     border-top: 1px solid var(--accent-color);
     box-shadow:

@@ -8,6 +8,7 @@
         left: 0;
         opacity: 1;
       }
+
       & :local(.content) {
         transform: translate3d(0, 0, 0);
       }
@@ -45,13 +46,16 @@
   font-weight: 300;
   cursor: pointer;
   transition: background-color ease-out-quint 0.45s;
+
   &:hover {
     background-color: var(--grey-lighten);
   }
+
   &:global {
     &.is-active {
       background-color: var(--grey);
       transition: none;
+
       & :local(.link) {
         color: #fff;
       }
@@ -63,6 +67,7 @@
   display: block;
   padding: var(--spacer-md) var(--spacer);
   transition: none;
+
   &:--link-color {
     color: var(--primary-text);
   }

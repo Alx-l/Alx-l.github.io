@@ -8,8 +8,10 @@
   flex: 0 1 auto;
   width: 100%;
   margin-bottom: var(--spacer-xl);
+
   @media (--above-tablet) {
     width: calc(50% - (var(--spacer-xl) / 2));
+
     &:nth-of-type(2n+1) {
       margin-right: var(--spacer-xl);
     }

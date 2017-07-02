@@ -6,20 +6,24 @@
   box-shadow:
     rgba(#000, 0.117647) 0 1px 6px,
     rgba(#000, 0.117647) 0 1px 4px;
+
   &:global {
     &.popOut {
       margin: 0 var(--spacer-md);
       transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
       &.is-open {
         margin: var(--spacer) 0;
         box-shadow:
           0 5px 11px 0 rgba(#000, 0.18),
           0 4px 15px 0 rgba(#000, 0.15);
       }
+
       &.is-close {
         margin: 0 var(--spacer-md);
       }
     }
+
     &:not(.popOut) {
       & ul {
         padding-bottom: 0;
@@ -33,10 +37,12 @@
   position: relative;
   padding: var(--spacer);
   cursor: pointer;
+
   &:focus,
   &:hover {
     outline: none;
-    & .expandIcon:after {
+
+    & .expandIcon::after {
       transform: scale(1);
     }
   }
@@ -44,11 +50,13 @@
 
 .titleLeft {
   flex: 1 0 80%;
+
   & :global {
     & .icon {
       vertical-align: middle;
       margin-right: var(--spacer);
     }
+
     & .text {
       vertical-align: middle;
       color: var(--grey-darken);
@@ -65,12 +73,14 @@
 .expandIcon {
   position: relative;
   padding: 3.2px;
+
   &:global {
     &.is-open {
       transform: scaleY(-1);
     }
   }
-  &:after {
+
+  &::after {
     display: block;
     content: "";
     position: absolute 0;
@@ -92,14 +102,17 @@
     padding: 0 0 var(--spacer-md) var(--spacer-md);
     list-style-type: circle;
   }
+
   & li {
     padding-bottom: var(--spacer-sm);
   }
+
   & p {
     padding-left: var(--spacer-sm);
     color: var(--secondary-text);
     font-size: var(--text-md);
-    &:first-letter {
+
+    &::first-letter {
       font-size: 1.2em;
     }
   }

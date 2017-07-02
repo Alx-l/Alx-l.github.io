@@ -4,6 +4,7 @@
   0% {
     transform: translateX(-150%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -16,6 +17,7 @@
     opacity: 0;
     transform: translateY(50%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -28,6 +30,7 @@
   50% {
     transform: scale(1.01);
   }
+
   75% {
     transform: scale(0.99);
   }
@@ -39,6 +42,7 @@
   50% {
     transform: scale(1.02);
   }
+
   75% {
     transform: scale(0.97);
   }
@@ -51,10 +55,12 @@
     opacity: 0;
     transform: translateY(-100%);
   }
+
   25% {
     opacity: 0;
     transform: translateY(-75%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);

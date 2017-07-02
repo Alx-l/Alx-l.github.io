@@ -13,6 +13,7 @@
   --link: {
     padding-bottom: 1px;
     border-bottom: 1px dashed var(--accent-color);
+
     &:visited {
       color: var(--accent-color);
     }
