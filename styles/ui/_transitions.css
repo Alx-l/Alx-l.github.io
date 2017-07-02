@@ -30,8 +30,8 @@
   /* Underline From Left (ported from Hover.css) */
   --underline-left: {
     display: inline-block;
-    position: relative;
     vertical-align: middle;
+    position: relative;
     transform: translateZ(0);
     backface-visibility: hidden;
     &:before {

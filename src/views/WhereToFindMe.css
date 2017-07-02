@@ -4,8 +4,8 @@
 
 .email {
   margin: var(--spacer) 0;
-  font-size: var(--text-xl);
   font-family: var(--headings-font-family);
+  font-size: var(--text-xl);
   &:--link-color {
     color: var(--accent-color);
   }

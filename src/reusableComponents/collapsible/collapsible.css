@@ -49,12 +49,12 @@
   flex: 1 0 80%;
   & :global {
     & .icon {
-      margin-right: var(--spacer);
       vertical-align: middle;
+      margin-right: var(--spacer);
     }
     & .text {
-      color: var(--grey-darken);
       vertical-align: middle;
+      color: var(--grey-darken);
       font-size: var(--text-lg);
     }
   }

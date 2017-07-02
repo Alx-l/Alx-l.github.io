@@ -72,8 +72,8 @@ textarea,
 select {
   padding: 8px 0;
   border: none;
-  border-bottom: 1px solid #bdbdbd;
   border-radius: 0;
+  border-bottom: 1px solid #bdbdbd;
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--accent-color);

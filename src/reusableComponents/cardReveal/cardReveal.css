@@ -104,6 +104,6 @@
   padding-top: var(--spacer);
   color: var(--secondary-text);
   border-top: 1Px solid var(--grey-lighten);
-  font-style: italic;
   font-size: var(--text-md);
+  font-style: italic;
 }

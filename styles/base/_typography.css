@@ -3,9 +3,9 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 @font-face {
-  font-weight: 400;
-  font-style: normal;
   font-family: "Tofino";
+  font-style: normal;
+  font-weight: 400;
   src: url("../fonts/Tofino-Regular.otf");
 }
 
