@@ -193,9 +193,9 @@ export const clTVMovies = h(
       li('Black Mirror'),
       li('Daredevil'),
       li('Mr. Robot'),
-      li('Atlanta'),
+      li('Narcos'),
+      li('GoT'),
       li('Orange is the new black'),
-      li('Unbreakable Kimmy Schmidt'),
       li('...')
     ]),
     h(
@@ -213,10 +213,10 @@ export const clTVMovies = h(
         ),
         h('ul', [
           li('Pitch Perfect (nerd alert!)'),
-          li('American Gangster'),
+          li('The Nice Guys'),
+          li('End of watch'),
           li('50/50'),
           li(`Kingsman`),
-          li('End of watch'),
           li('22 Jump Street'),
           li('...')
         ])
