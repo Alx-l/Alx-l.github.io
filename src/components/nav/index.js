@@ -8,6 +8,7 @@ import Icon from 'reusableComponents/icon'
 import { Hamburger } from 'svg'
 
 import styles from './nav.css'
+import offCanvasStyles from '../offCanvas/offCanvas.css'
 
 export default class Nav extends Component {
   state = {
@@ -19,7 +20,7 @@ export default class Nav extends Component {
   handleClose = () => this.setState({ open: false })
 
   handleClick = e => {
-    if (!e.target.classList.contains('OffCanvas-content')) {
+    if (!e.target.classList.contains(offCanvasStyles.content)) {
       this.handleClose()
     }
   }

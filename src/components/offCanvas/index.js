@@ -7,24 +7,12 @@ import { handleLink } from 'utils/misc'
 import styles from './offCanvas.css'
 
 export default class OffCanvas extends Component {
-  state = {
-    open: false
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.open !== nextState.open
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.open) this.setState({ open: true })
-  }
-
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const html = document.querySelector('html')
     const body = document.body
     const { top } = body.getBoundingClientRect()
 
-    if (!prevState.open) {
+    if (!prevProps.open) {
       html.classList.add('u-noscroll')
       html.style.top = `${top}px`
     } else {
@@ -32,8 +20,6 @@ export default class OffCanvas extends Component {
       window.scroll(0, top * -1)
     }
   }
-
-  handleClose = () => this.setState({ open: false })
 
   renderItems = () => {
     const { items, route } = this.props
@@ -47,7 +33,7 @@ export default class OffCanvas extends Component {
 
       return h(
         'li',
-        { onClick: this.handleClose, className, key: i },
+        { className, key: i },
         h(
           'a',
           {
@@ -65,11 +51,11 @@ export default class OffCanvas extends Component {
 
   render() {
     const className = classNames(styles.root, {
-      'is-open': this.props.open && this.state.open
+      'is-open': this.props.open
     })
 
     return h('div', { className, style: { textTransform: 'uppercase' } }, [
-      h('div', { className: styles.overlay, onClick: this.handleClose }),
+      h('div', { className: styles.overlay }),
       h('div', { className: styles.content }, h('ul', {}, this.renderItems()))
     ])
   }
