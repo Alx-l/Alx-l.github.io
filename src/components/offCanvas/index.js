@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import h from 'react-hyperscript'
 import classNames from 'classnames'
 
@@ -6,27 +6,21 @@ import { handleLink } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
-export default class OffCanvas extends Component {
-  shouldComponentUpdate(nextProps) {
-    return this.props.open !== nextProps.open
+const OffCanvas = props => {
+  const html = document.querySelector('html')
+  const body = document.body
+  const { top } = body.getBoundingClientRect()
+
+  if (props.open) {
+    html.classList.add('u-noscroll')
+    html.style.top = `${top}px`
+  } else {
+    html.classList.remove('u-noscroll')
+    window.scroll(0, top * -1)
   }
 
-  componentDidUpdate(prevProps) {
-    const html = document.querySelector('html')
-    const body = document.body
-    const { top } = body.getBoundingClientRect()
-
-    if (!prevProps.open) {
-      html.classList.add('u-noscroll')
-      html.style.top = `${top}px`
-    } else {
-      html.classList.remove('u-noscroll')
-      window.scroll(0, top * -1)
-    }
-  }
-
-  renderItems = () => {
-    const { items, route } = this.props
+  const renderItems = () => {
+    const { items, route } = props
 
     return items.map((item, i) => {
       const isActive =
@@ -53,20 +47,20 @@ export default class OffCanvas extends Component {
     })
   }
 
-  render() {
-    const className = classNames(styles.root, {
-      'is-open': this.props.open
-    })
+  const className = classNames(styles.root, {
+    'is-open': props.open
+  })
 
-    return h('div', { className, style: { textTransform: 'uppercase' } }, [
-      h('div', { className: styles.overlay }),
-      h('div', { className: styles.content }, h('ul', {}, this.renderItems()))
-    ])
-  }
-
-  static propTypes = {
-    open: React.PropTypes.bool,
-    route: React.PropTypes.string,
-    items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
-  }
+  return h('div', { className, style: { textTransform: 'uppercase' } }, [
+    h('div', { className: styles.overlay }),
+    h('div', { className: styles.content }, h('ul', {}, renderItems()))
+  ])
 }
+
+OffCanvas.propTypes = {
+  open: React.PropTypes.bool,
+  route: React.PropTypes.string,
+  items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+}
+
+export default OffCanvas
