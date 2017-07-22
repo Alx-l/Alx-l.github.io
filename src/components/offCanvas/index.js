@@ -7,6 +7,10 @@ import { handleLink } from 'utils/misc'
 import styles from './offCanvas.css'
 
 export default class OffCanvas extends Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.open !== nextProps.open
+  }
+
   componentDidUpdate(prevProps) {
     const html = document.querySelector('html')
     const body = document.body
