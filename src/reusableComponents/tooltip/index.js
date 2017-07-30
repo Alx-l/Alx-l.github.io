@@ -37,25 +37,40 @@ export default class ToolTip extends Component {
     this.RAF = window.requestAnimationFrame(this.handleRAF)
   }
 
-  computeMarginLeft = ({ hiddenElWidth, visibleTextWidth, visibleTextLeft, distanceFromRight }) => {
+  computeMarginLeft = ({
+    hiddenElWidth,
+    visibleTextWidth,
+    visibleTextLeft,
+    distanceFromRight
+  }) => {
     if (
-        (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
-        hiddenElWidth > distanceFromRight
-      ) {
+      (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
+      hiddenElWidth > distanceFromRight
+    ) {
       return '0px'
     }
     return `${-(hiddenElWidth - visibleTextWidth) / 2}px`
   }
 
-  computeTop = ({ distanceFromTop, visibleTextTop, visibleTextHeight, hiddenElHeight }) => {
+  computeTop = ({
+    distanceFromTop,
+    visibleTextTop,
+    visibleTextHeight,
+    hiddenElHeight
+  }) => {
     if (distanceFromTop > 0) {
       return `${visibleTextTop - hiddenElHeight}px`
     }
     return `${visibleTextTop + visibleTextHeight}px`
   }
 
-  computeLeft = ({ hiddenElWidth, distanceFromRight, visibleTextRight, visibleTextLeft }) => {
-    if (hiddenElWidth > distanceFromRight) return `${visibleTextRight - hiddenElWidth}px`
+  computeLeft = ({
+    hiddenElWidth,
+    distanceFromRight,
+    visibleTextRight,
+    visibleTextLeft
+  }) => {
+    if (hiddenElWidth > distanceFromRight) { return `${visibleTextRight - hiddenElWidth}px` }
     return `${visibleTextLeft}px`
   }
 
@@ -94,14 +109,31 @@ export default class ToolTip extends Component {
     const distanceFromRight =
       window.innerWidth - (visibleTextLeft + visibleTextWidth)
 
-    el.style.top = this.computeTop({ distanceFromTop, visibleTextTop, visibleTextHeight, hiddenElHeight })
-    el.style.left = this.computeLeft({ hiddenElWidth, distanceFromRight, visibleTextRight, visibleTextLeft })
-    el.style.marginLeft = this.computeMarginLeft({ hiddenElWidth, visibleTextWidth, visibleTextLeft, distanceFromRight })
-    el.style.transformOrigin = this.computeTransformOrigin({ distanceFromTop,
+    el.style.top = this.computeTop({
+      distanceFromTop,
+      visibleTextTop,
+      visibleTextHeight,
+      hiddenElHeight
+    })
+    el.style.left = this.computeLeft({
+      hiddenElWidth,
+      distanceFromRight,
+      visibleTextRight,
+      visibleTextLeft
+    })
+    el.style.marginLeft = this.computeMarginLeft({
+      hiddenElWidth,
+      visibleTextWidth,
+      visibleTextLeft,
+      distanceFromRight
+    })
+    el.style.transformOrigin = this.computeTransformOrigin({
+      distanceFromTop,
       distanceFromRight,
       hiddenElWidth,
       visibleTextLeft,
-      visibleTextWidth })
+      visibleTextWidth
+    })
 
     anime({
       begin: () => {
