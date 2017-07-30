@@ -7,16 +7,15 @@
 }
 
 .hiddenText {
-  z-index: 2;
-  position: absolute null null 110% 50%;
+  z-index: 99;
+  position: fixed;
+  max-width: 250px;
   padding: 0.4em;
   background: color(var(--grey-darken) shade(20%) a(0.9));
   color: #fff;
   border-radius: 2px;
   font-weight: 400;
   text-align: center;
-  white-space: nowrap;
-  transform-origin: center bottom 0;
 }
 
 .text {

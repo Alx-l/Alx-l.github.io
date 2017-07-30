@@ -8,8 +8,7 @@ import styles from './offCanvas.css'
 
 const OffCanvas = props => {
   const html = document.querySelector('html')
-  const body = document.body
-  const { top } = body.getBoundingClientRect()
+  const { top } = document.body.getBoundingClientRect()
 
   if (props.open) {
     html.classList.add('u-noscroll')

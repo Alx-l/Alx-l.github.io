@@ -28,10 +28,48 @@ export default class ToolTip extends Component {
   }
 
   onEnter = (el, cb) => {
+    const { scrollWidth: elWidth, scrollHeight: elHeight } = el
+    const {
+      width: visibleTextWidth,
+      top: visibleTextTop,
+      left: visibleTextLeft,
+      right: visibleTextRight,
+      height: visibleTextHeight } = this.visibleText.getBoundingClientRect()
+    const distanceFromBottom = window.innerHeight - (visibleTextTop + visibleTextHeight)
+    const distanceFromRight = window.innerWidth - (visibleTextLeft + visibleTextWidth)
+
+    const computeMarginLeft = () => {
+      if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft || elWidth > distanceFromRight) return '0px'
+      return `${-(elWidth - visibleTextWidth) / 2}px`
+    }
+
+    const computeTop = () => {
+      if (visibleTextTop > distanceFromBottom) return `${visibleTextTop - elHeight}px`
+      return `${visibleTextTop + visibleTextHeight}px`
+    }
+
+    const computeLeft = () => {
+      if (elWidth > distanceFromRight) return `${(visibleTextRight - elWidth)}px`
+      return `${visibleTextLeft}px`
+    }
+
+    const computeTransformOrigin = () => {
+      if (visibleTextTop > distanceFromBottom) {
+        if (elWidth > distanceFromRight) return 'right bottom 0'
+        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) return 'left bottom 0'
+        return 'center bottom 0'
+      } else {
+        if (elWidth > distanceFromRight) return 'right top 0'
+        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) return 'left top 0'
+        return 'center top 0'
+      }
+    }
+
+    el.style.top = computeTop()
+    el.style.left = computeLeft()
+    el.style.marginLeft = computeMarginLeft()
+    el.style.transformOrigin = computeTransformOrigin()
     anime({
-      begin: () => {
-        el.style.marginLeft = `-${el.clientWidth / 2}px`
-      },
       targets: el,
       scale: {
         ...this.animeSettings,
@@ -46,7 +84,12 @@ export default class ToolTip extends Component {
     anime({
       targets: el,
       scale: { ...this.animeSettings, easing: 'easeInOutQuad', value: 0 },
-      complete: cb
+      complete: () => {
+        el.style.top = 0
+        el.style.left = 0
+        el.style.marginLeft = 0
+        return cb()
+      }
     })
   }
 
@@ -78,7 +121,7 @@ export default class ToolTip extends Component {
         tabIndex: '0'
       },
       [
-        h('span', { className: styles.text }, this.props.children),
+        h('span', { ref: visibleText => { this.visibleText = visibleText }, className: styles.text }, this.props.children),
         this.renderToolTips()
       ]
     )
