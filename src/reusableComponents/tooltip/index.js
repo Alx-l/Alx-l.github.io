@@ -34,33 +34,39 @@ export default class ToolTip extends Component {
       top: visibleTextTop,
       left: visibleTextLeft,
       right: visibleTextRight,
-      height: visibleTextHeight } = this.visibleText.getBoundingClientRect()
-    const distanceFromBottom = window.innerHeight - (visibleTextTop + visibleTextHeight)
-    const distanceFromRight = window.innerWidth - (visibleTextLeft + visibleTextWidth)
+      height: visibleTextHeight
+    } = this.visibleText.getBoundingClientRect()
+    const distanceFromBottom =
+      window.innerHeight - (visibleTextTop + visibleTextHeight)
+    const distanceFromRight =
+      window.innerWidth - (visibleTextLeft + visibleTextWidth)
 
     const computeMarginLeft = () => {
-      if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft || elWidth > distanceFromRight) return '0px'
+      if (
+        (elWidth - visibleTextWidth) / 2 > visibleTextLeft ||
+        elWidth > distanceFromRight
+      ) { return '0px' }
       return `${-(elWidth - visibleTextWidth) / 2}px`
     }
 
     const computeTop = () => {
-      if (visibleTextTop > distanceFromBottom) return `${visibleTextTop - elHeight}px`
+      if (visibleTextTop > distanceFromBottom) { return `${visibleTextTop - elHeight}px` }
       return `${visibleTextTop + visibleTextHeight}px`
     }
 
     const computeLeft = () => {
-      if (elWidth > distanceFromRight) return `${(visibleTextRight - elWidth)}px`
+      if (elWidth > distanceFromRight) return `${visibleTextRight - elWidth}px`
       return `${visibleTextLeft}px`
     }
 
     const computeTransformOrigin = () => {
       if (visibleTextTop > distanceFromBottom) {
         if (elWidth > distanceFromRight) return 'right bottom 0'
-        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) return 'left bottom 0'
+        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) { return 'left bottom 0' }
         return 'center bottom 0'
       } else {
         if (elWidth > distanceFromRight) return 'right top 0'
-        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) return 'left top 0'
+        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) { return 'left top 0' }
         return 'center top 0'
       }
     }
@@ -121,7 +127,16 @@ export default class ToolTip extends Component {
         tabIndex: '0'
       },
       [
-        h('span', { ref: visibleText => { this.visibleText = visibleText }, className: styles.text }, this.props.children),
+        h(
+          'span',
+          {
+            ref: visibleText => {
+              this.visibleText = visibleText
+            },
+            className: styles.text
+          },
+          this.props.children
+        ),
         this.renderToolTips()
       ]
     )
