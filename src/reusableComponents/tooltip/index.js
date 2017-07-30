@@ -45,12 +45,16 @@ export default class ToolTip extends Component {
       if (
         (elWidth - visibleTextWidth) / 2 > visibleTextLeft ||
         elWidth > distanceFromRight
-      ) { return '0px' }
+      ) {
+        return '0px'
+      }
       return `${-(elWidth - visibleTextWidth) / 2}px`
     }
 
     const computeTop = () => {
-      if (visibleTextTop > distanceFromBottom) { return `${visibleTextTop - elHeight}px` }
+      if (visibleTextTop > distanceFromBottom) {
+        return `${visibleTextTop - elHeight}px`
+      }
       return `${visibleTextTop + visibleTextHeight}px`
     }
 
@@ -62,11 +66,15 @@ export default class ToolTip extends Component {
     const computeTransformOrigin = () => {
       if (visibleTextTop > distanceFromBottom) {
         if (elWidth > distanceFromRight) return 'right bottom 0'
-        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) { return 'left bottom 0' }
+        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) {
+          return 'left bottom 0'
+        }
         return 'center bottom 0'
       } else {
         if (elWidth > distanceFromRight) return 'right top 0'
-        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) { return 'left top 0' }
+        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) {
+          return 'left top 0'
+        }
         return 'center top 0'
       }
     }
