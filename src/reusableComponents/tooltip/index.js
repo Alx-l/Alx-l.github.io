@@ -70,7 +70,9 @@ export default class ToolTip extends Component {
     visibleTextRight,
     visibleTextLeft
   }) => {
-    if (hiddenElWidth > distanceFromRight) { return `${visibleTextRight - hiddenElWidth}px` }
+    if (hiddenElWidth > distanceFromRight) {
+      return `${visibleTextRight - hiddenElWidth}px`
+    }
     return `${visibleTextLeft}px`
   }
 
