@@ -31,7 +31,9 @@ export default class ToolTip extends Component {
   }
 
   handleRAF = () => {
-    if (this.lastScrollYPos !== window.scrollY) { this.setState({ visible: false }) }
+    if (this.lastScrollYPos !== window.scrollY) {
+      this.setState({ visible: false })
+    }
     this.RAF = window.requestAnimationFrame(this.handleRAF)
   }
 
