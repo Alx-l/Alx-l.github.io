@@ -15,6 +15,9 @@ export default class ToolTip extends Component {
     duration: 225
   }
 
+  RAF = 0
+  lastScrollYPos = 0
+
   handleHoverIn = () => this.setState({ visible: true })
 
   handleHoverOut = () => this.setState({ visible: false })
@@ -27,6 +30,11 @@ export default class ToolTip extends Component {
     if (keycode === 13) this.setState({ visible: !this.state.visible })
   }
 
+  handleRAF = () => {
+    if (this.lastScrollYPos !== window.scrollY) this.setState({ visible: false })
+    this.RAF = window.requestAnimationFrame(this.handleRAF)
+  }
+
   onEnter = (el, cb) => {
     const { scrollWidth: elWidth, scrollHeight: elHeight } = el
     const {
@@ -36,8 +44,7 @@ export default class ToolTip extends Component {
       right: visibleTextRight,
       height: visibleTextHeight
     } = this.visibleText.getBoundingClientRect()
-    const distanceFromBottom =
-      window.innerHeight - (visibleTextTop + visibleTextHeight)
+    const distanceFromTop = visibleTextTop - elHeight
     const distanceFromRight =
       window.innerWidth - (visibleTextLeft + visibleTextWidth)
 
@@ -52,7 +59,7 @@ export default class ToolTip extends Component {
     }
 
     const computeTop = () => {
-      if (visibleTextTop > distanceFromBottom) {
+      if (distanceFromTop > 0) {
         return `${visibleTextTop - elHeight}px`
       }
       return `${visibleTextTop + visibleTextHeight}px`
@@ -64,7 +71,7 @@ export default class ToolTip extends Component {
     }
 
     const computeTransformOrigin = () => {
-      if (visibleTextTop > distanceFromBottom) {
+      if (distanceFromTop > 0) {
         if (elWidth > distanceFromRight) return 'right bottom 0'
         if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) {
           return 'left bottom 0'
@@ -83,7 +90,12 @@ export default class ToolTip extends Component {
     el.style.left = computeLeft()
     el.style.marginLeft = computeMarginLeft()
     el.style.transformOrigin = computeTransformOrigin()
+
     anime({
+      begin: () => {
+        this.lastScrollYPos = window.scrollY
+        this.handleRAF()
+      },
       targets: el,
       scale: {
         ...this.animeSettings,
@@ -102,6 +114,7 @@ export default class ToolTip extends Component {
         el.style.top = 0
         el.style.left = 0
         el.style.marginLeft = 0
+        window.cancelAnimationFrame(this.RAF)
         return cb()
       }
     })
