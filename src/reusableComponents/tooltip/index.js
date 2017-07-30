@@ -18,9 +18,9 @@ export default class ToolTip extends Component {
   RAF = 0
   lastScrollYPos = 0
 
-  handleHoverIn = () => this.setState({ visible: true })
+  setVisible = () => this.setState({ visible: true })
 
-  handleHoverOut = () => this.setState({ visible: false })
+  unsetVisible = () => this.setState({ visible: false })
 
   // to handle touch devices
   handleClick = () => this.setState({ visible: !this.state.visible })
@@ -32,13 +32,57 @@ export default class ToolTip extends Component {
 
   handleRAF = () => {
     if (this.lastScrollYPos !== window.scrollY) {
-      this.setState({ visible: false })
+      this.unsetVisible()
     }
     this.RAF = window.requestAnimationFrame(this.handleRAF)
   }
 
+  computeMarginLeft = ({ hiddenElWidth, visibleTextWidth, visibleTextLeft, distanceFromRight }) => {
+    if (
+        (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
+        hiddenElWidth > distanceFromRight
+      ) {
+      return '0px'
+    }
+    return `${-(hiddenElWidth - visibleTextWidth) / 2}px`
+  }
+
+  computeTop = ({ distanceFromTop, visibleTextTop, visibleTextHeight, hiddenElHeight }) => {
+    if (distanceFromTop > 0) {
+      return `${visibleTextTop - hiddenElHeight}px`
+    }
+    return `${visibleTextTop + visibleTextHeight}px`
+  }
+
+  computeLeft = ({ hiddenElWidth, distanceFromRight, visibleTextRight, visibleTextLeft }) => {
+    if (hiddenElWidth > distanceFromRight) return `${visibleTextRight - hiddenElWidth}px`
+    return `${visibleTextLeft}px`
+  }
+
+  computeTransformOrigin = ({
+    distanceFromTop,
+    distanceFromRight,
+    hiddenElWidth,
+    visibleTextLeft,
+    visibleTextWidth
+  }) => {
+    if (distanceFromTop > 0) {
+      if (hiddenElWidth > distanceFromRight) return 'right bottom 0'
+      if ((hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft) {
+        return 'left bottom 0'
+      }
+      return 'center bottom 0'
+    } else {
+      if (hiddenElWidth > distanceFromRight) return 'right top 0'
+      if ((hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft) {
+        return 'left top 0'
+      }
+      return 'center top 0'
+    }
+  }
+
   onEnter = (el, cb) => {
-    const { scrollWidth: elWidth, scrollHeight: elHeight } = el
+    const { scrollWidth: hiddenElWidth, scrollHeight: hiddenElHeight } = el
     const {
       width: visibleTextWidth,
       top: visibleTextTop,
@@ -46,52 +90,18 @@ export default class ToolTip extends Component {
       right: visibleTextRight,
       height: visibleTextHeight
     } = this.visibleText.getBoundingClientRect()
-    const distanceFromTop = visibleTextTop - elHeight
+    const distanceFromTop = visibleTextTop - hiddenElHeight
     const distanceFromRight =
       window.innerWidth - (visibleTextLeft + visibleTextWidth)
 
-    const computeMarginLeft = () => {
-      if (
-        (elWidth - visibleTextWidth) / 2 > visibleTextLeft ||
-        elWidth > distanceFromRight
-      ) {
-        return '0px'
-      }
-      return `${-(elWidth - visibleTextWidth) / 2}px`
-    }
-
-    const computeTop = () => {
-      if (distanceFromTop > 0) {
-        return `${visibleTextTop - elHeight}px`
-      }
-      return `${visibleTextTop + visibleTextHeight}px`
-    }
-
-    const computeLeft = () => {
-      if (elWidth > distanceFromRight) return `${visibleTextRight - elWidth}px`
-      return `${visibleTextLeft}px`
-    }
-
-    const computeTransformOrigin = () => {
-      if (distanceFromTop > 0) {
-        if (elWidth > distanceFromRight) return 'right bottom 0'
-        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) {
-          return 'left bottom 0'
-        }
-        return 'center bottom 0'
-      } else {
-        if (elWidth > distanceFromRight) return 'right top 0'
-        if ((elWidth - visibleTextWidth) / 2 > visibleTextLeft) {
-          return 'left top 0'
-        }
-        return 'center top 0'
-      }
-    }
-
-    el.style.top = computeTop()
-    el.style.left = computeLeft()
-    el.style.marginLeft = computeMarginLeft()
-    el.style.transformOrigin = computeTransformOrigin()
+    el.style.top = this.computeTop({ distanceFromTop, visibleTextTop, visibleTextHeight, hiddenElHeight })
+    el.style.left = this.computeLeft({ hiddenElWidth, distanceFromRight, visibleTextRight, visibleTextLeft })
+    el.style.marginLeft = this.computeMarginLeft({ hiddenElWidth, visibleTextWidth, visibleTextLeft, distanceFromRight })
+    el.style.transformOrigin = this.computeTransformOrigin({ distanceFromTop,
+      distanceFromRight,
+      hiddenElWidth,
+      visibleTextLeft,
+      visibleTextWidth })
 
     anime({
       begin: () => {
@@ -143,8 +153,8 @@ export default class ToolTip extends Component {
       'span',
       {
         onClick: this.handleClick,
-        onMouseEnter: this.handleHoverIn,
-        onMouseLeave: this.handleHoverOut,
+        onMouseEnter: this.setVisible,
+        onMouseLeave: this.unsetVisible,
         onKeyDown: this.handleKeyDown,
         className: styles.root,
         tabIndex: '0'
