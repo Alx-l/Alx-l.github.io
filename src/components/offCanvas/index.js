@@ -8,14 +8,11 @@ import styles from './offCanvas.css'
 
 const OffCanvas = props => {
   const html = document.querySelector('html')
-  const { top } = document.body.getBoundingClientRect()
 
   if (props.open) {
     html.classList.add('u-noscroll')
-    html.style.top = `${top}px`
   } else {
     html.classList.remove('u-noscroll')
-    window.scroll(0, top * -1)
   }
 
   const renderItems = () => {
