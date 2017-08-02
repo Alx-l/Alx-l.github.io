@@ -22,7 +22,7 @@ export default class CardReveal extends Component {
 
   handleKeyDown = e => {
     const keycode = e.which || e.keyCode
-    if (keycode === 13) this.setState({ open: !this.state.open })
+    return keycode === 13 && this.setState({ open: !this.state.open })
   }
 
   onEnter = (el, cb) => {

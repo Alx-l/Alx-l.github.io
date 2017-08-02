@@ -9,11 +9,9 @@ import styles from './offCanvas.css'
 const OffCanvas = props => {
   const html = document.querySelector('html')
 
-  if (props.open) {
-    html.classList.add('u-noscroll')
-  } else {
-    html.classList.remove('u-noscroll')
-  }
+  props.open
+    ? html.classList.add('u-noscroll')
+    : html.classList.remove('u-noscroll')
 
   const renderItems = () => {
     const { items, route } = props

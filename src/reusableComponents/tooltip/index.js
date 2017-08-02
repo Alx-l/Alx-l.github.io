@@ -27,13 +27,11 @@ export default class ToolTip extends Component {
 
   handleKeyDown = e => {
     const keycode = e.which || e.keyCode
-    if (keycode === 13) this.setState({ visible: !this.state.visible })
+    return keycode === 13 && this.setState({ visible: !this.state.visible })
   }
 
   handleRAF = () => {
-    if (this.lastScrollYPos !== window.scrollY) {
-      this.unsetVisible()
-    }
+    this.lastScrollYPos !== window.scrollY && this.unsetVisible()
     this.RAF = window.requestAnimationFrame(this.handleRAF)
   }
 
@@ -43,13 +41,10 @@ export default class ToolTip extends Component {
     visibleTextLeft,
     distanceFromRight
   }) => {
-    if (
-      (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
+    return (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
       hiddenElWidth > distanceFromRight
-    ) {
-      return '0px'
-    }
-    return `${-(hiddenElWidth - visibleTextWidth) / 2}px`
+      ? '0px'
+      : `${-(hiddenElWidth - visibleTextWidth) / 2}px`
   }
 
   computeTop = ({
@@ -58,10 +53,9 @@ export default class ToolTip extends Component {
     visibleTextHeight,
     hiddenElHeight
   }) => {
-    if (distanceFromTop > 0) {
-      return `${visibleTextTop - hiddenElHeight}px`
-    }
-    return `${visibleTextTop + visibleTextHeight}px`
+    return distanceFromTop > 0
+      ? `${visibleTextTop - hiddenElHeight}px`
+      : `${visibleTextTop + visibleTextHeight}px`
   }
 
   computeLeft = ({
@@ -70,10 +64,9 @@ export default class ToolTip extends Component {
     visibleTextRight,
     visibleTextLeft
   }) => {
-    if (hiddenElWidth > distanceFromRight) {
-      return `${visibleTextRight - hiddenElWidth}px`
-    }
-    return `${visibleTextLeft}px`
+    return hiddenElWidth > distanceFromRight
+      ? `${visibleTextRight - hiddenElWidth}px`
+      : `${visibleTextLeft}px`
   }
 
   computeTransformOrigin = ({
@@ -84,17 +77,17 @@ export default class ToolTip extends Component {
     visibleTextWidth
   }) => {
     if (distanceFromTop > 0) {
-      if (hiddenElWidth > distanceFromRight) return 'right bottom 0'
-      if ((hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft) {
-        return 'left bottom 0'
-      }
-      return 'center bottom 0'
+      return hiddenElWidth > distanceFromRight
+        ? 'right bottom 0'
+        : (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft
+          ? 'left bottom 0'
+          : 'center bottom 0'
     } else {
-      if (hiddenElWidth > distanceFromRight) return 'right top 0'
-      if ((hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft) {
-        return 'left top 0'
-      }
-      return 'center top 0'
+      return hiddenElWidth > distanceFromRight
+        ? 'right top 0'
+        : (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft
+          ? 'left top 0'
+          : 'center top 0'
     }
   }
 

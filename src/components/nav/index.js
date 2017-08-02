@@ -19,11 +19,8 @@ export default class Nav extends Component {
 
   handleClose = () => this.setState({ open: false })
 
-  handleClick = e => {
-    if (!e.target.classList.contains(offCanvasStyles.content)) {
-      this.handleClose()
-    }
-  }
+  handleClick = e =>
+    !e.target.classList.contains(offCanvasStyles.content) && this.handleClose()
 
   renderNavItems() {
     const { route } = this.props

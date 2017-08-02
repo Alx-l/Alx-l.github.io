@@ -20,20 +20,18 @@ export default class Collapsible extends Component {
 
   handleKeyDown = e => {
     const keycode = e.which || e.keyCode
-    if (keycode === 13) this.setState({ open: !this.state.open })
+    return keycode === 13 && this.setState({ open: !this.state.open })
   }
 
   animateHr = () => {
     const { state: { open }, hr, animeSettings, hrOffsetValue } = this
 
-    if (open) {
-      anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
-    } else {
-      anime({
+    open
+      ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
+      : anime({
         targets: hr,
         translateX: { ...animeSettings, value: `${hrOffsetValue}` }
       })
-    }
   }
 
   onEnter = (el, cb) => {
