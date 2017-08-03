@@ -23,7 +23,7 @@ export default class Collapsible extends Component {
     return keycode === 13 && this.setState({ open: !this.state.open })
   }
 
-  animateHr = (isOpening) => {
+  animateHr = isOpening => {
     const { hr, animeSettings, hrOffsetValue } = this
 
     isOpening
