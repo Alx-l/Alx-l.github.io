@@ -23,10 +23,10 @@ export default class Collapsible extends Component {
     return keycode === 13 && this.setState({ open: !this.state.open })
   }
 
-  animateHr = () => {
-    const { state: { open }, hr, animeSettings, hrOffsetValue } = this
+  animateHr = (isOpening) => {
+    const { hr, animeSettings, hrOffsetValue } = this
 
-    open
+    isOpening
       ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
       : anime({
         targets: hr,
@@ -45,7 +45,7 @@ export default class Collapsible extends Component {
       complete: () => {
         el.style.height = 'auto'
         el.style.willChange = ''
-        this.animateHr()
+        this.animateHr(true)
         return cb()
       }
     })
@@ -55,7 +55,7 @@ export default class Collapsible extends Component {
     anime({
       begin: () => {
         el.style.willChange = 'height'
-        return this.animateHr()
+        return this.animateHr(false)
       },
       targets: el,
       height: { ...this.animeSettings, value: 0 },
