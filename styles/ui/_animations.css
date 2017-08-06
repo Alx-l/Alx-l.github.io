@@ -2,7 +2,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @keyframes :global(slideLeft) {
   0% {
-    transform: translateX(-150%);
+    transform: translateX(-150px);
   }
 
   100% {
