@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import h from 'react-hyperscript'
 
-import { handleLink, toggleClassOnScroll } from 'utils/misc'
+import { handleLink, handleStickyClassOnScroll } from 'utils/misc'
 
 import OffCanvas from '../offCanvas'
 import Icon from 'reusableComponents/icon'
@@ -26,14 +26,12 @@ export default class Nav extends Component {
     const {
       height: iconContainerHeight
     } = this.iconContainer.getBoundingClientRect()
-    this.listContainer.style.height = `${this.list.offsetHeight}px`
-    this.iconContainer.style.height = `${this.icon.offsetHeight}px`
 
     if (
       window.getComputedStyle(this.list, null).getPropertyValue('display') !==
       'none'
     ) {
-      toggleClassOnScroll({
+      handleStickyClassOnScroll({
         node: this.root,
         targetNode: this.list,
         threshold: listContainerHeight,
@@ -41,14 +39,14 @@ export default class Nav extends Component {
         className: 'has-boxshadow'
       })
 
-      toggleClassOnScroll({
+      handleStickyClassOnScroll({
         node: this.listContainer,
         targetNode: this.list,
         className: 'is-fixed'
       })
     }
 
-    toggleClassOnScroll({
+    handleStickyClassOnScroll({
       node: this.root,
       targetNode: this.icon,
       threshold: iconContainerHeight,
@@ -56,7 +54,7 @@ export default class Nav extends Component {
       className: 'has-boxshadow'
     })
 
-    toggleClassOnScroll({
+    handleStickyClassOnScroll({
       node: this.iconContainer,
       targetNode: this.icon,
       className: 'is-fixed'

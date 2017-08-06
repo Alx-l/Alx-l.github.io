@@ -16,7 +16,7 @@ export const handleLink = (e, dest) => {
   router.transitionTo(dest)
 }
 
-export const toggleClassOnScroll = ({
+export const handleStickyClassOnScroll = ({
   node,
   targetNode,
   threshold = 0,
@@ -24,6 +24,7 @@ export const toggleClassOnScroll = ({
   className
 }) => {
   const { top, bottom } = node.getBoundingClientRect()
+  !isBottomValue && (node.style.height = `${targetNode.offsetHeight}px`)
   return (isBottomValue ? bottom : top) <= threshold
     ? targetNode.classList.add(className)
     : targetNode.classList.remove(className)

@@ -37,13 +37,16 @@
 }
 
 .listContainer {
+  display: none;
   margin: var(--spacer-md) auto;
   background-color: var(--primary-color);
+
+  @media (--above-mobile) {
+    display: block;
+  }
 }
 
 .list {
-  display: none;
-
   &:global {
     &.is-fixed {
       z-index: 99;
@@ -58,15 +61,13 @@
     }
   }
 
-  @media (--above-mobile) {
-    box: horizontal-left wrap;
-    position: relative;
-    max-width: 1280px;
-    text-transform: uppercase;
+  box: horizontal-left wrap;
+  position: relative;
+  max-width: 1280px;
+  text-transform: uppercase;
 
-    &:global {
-      animation: slideUp 0.7s ease-in-out-quad;
-    }
+  &:global {
+    animation: slideUp 0.7s ease-in-out-quad;
   }
 
   & li {
@@ -105,6 +106,10 @@
 .iconContainer {
   margin: var(--spacer-md) 0;
   background-color: var(--primary-color);
+
+  @media (--above-mobile) {
+    display: none;
+  }
 }
 
 .icon {
@@ -128,10 +133,5 @@
       vertical-align: middle;
       animation: slideLeft 0.35s ease-out-back;
     }
-
-  }
-
-  @media (--above-mobile) {
-    display: none;
   }
 }
