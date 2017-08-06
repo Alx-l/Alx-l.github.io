@@ -20,20 +20,47 @@ export default class Nav extends Component {
   }
 
   handleRAF = () => {
-    const { height: listContainerHeight } = this.listContainer.getBoundingClientRect()
-    const { height: iconContainerHeight } = this.iconContainer.getBoundingClientRect()
+    const {
+      height: listContainerHeight
+    } = this.listContainer.getBoundingClientRect()
+    const {
+      height: iconContainerHeight
+    } = this.iconContainer.getBoundingClientRect()
     this.listContainer.style.height = `${this.list.offsetHeight}px`
     this.iconContainer.style.height = `${this.icon.offsetHeight}px`
 
-    if (window.getComputedStyle(this.list, null).getPropertyValue('display') !== 'none') {
-      toggleClassOnScroll({ node: this.root, targetNode: this.list, threshold: listContainerHeight, isBottomValue: true, className: 'has-boxshadow' })
+    if (
+      window.getComputedStyle(this.list, null).getPropertyValue('display') !==
+      'none'
+    ) {
+      toggleClassOnScroll({
+        node: this.root,
+        targetNode: this.list,
+        threshold: listContainerHeight,
+        isBottomValue: true,
+        className: 'has-boxshadow'
+      })
 
-      toggleClassOnScroll({ node: this.listContainer, targetNode: this.list, className: 'is-fixed' })
+      toggleClassOnScroll({
+        node: this.listContainer,
+        targetNode: this.list,
+        className: 'is-fixed'
+      })
     }
 
-    toggleClassOnScroll({ node: this.root, targetNode: this.icon, threshold: iconContainerHeight, isBottomValue: true, className: 'has-boxshadow' })
+    toggleClassOnScroll({
+      node: this.root,
+      targetNode: this.icon,
+      threshold: iconContainerHeight,
+      isBottomValue: true,
+      className: 'has-boxshadow'
+    })
 
-    toggleClassOnScroll({ node: this.iconContainer, targetNode: this.icon, className: 'is-fixed' })
+    toggleClassOnScroll({
+      node: this.iconContainer,
+      targetNode: this.icon,
+      className: 'is-fixed'
+    })
 
     window.requestAnimationFrame(this.handleRAF)
   }
@@ -71,9 +98,30 @@ export default class Nav extends Component {
 
   renderMenuIcon() {
     return h(
-      'div', { className: styles.iconContainer, ref: iconContainer => { this.iconContainer = iconContainer } }, [
-        h('div', { className: styles.icon, onClick: this.handleOpen, ref: icon => { this.icon = icon } },
-        h(Icon, { svg: Hamburger, size: 40, color: '#fff', customStyle: { verticalAlign: 'middle' } }))
+      'div',
+      {
+        className: styles.iconContainer,
+        ref: iconContainer => {
+          this.iconContainer = iconContainer
+        }
+      },
+      [
+        h(
+          'div',
+          {
+            className: styles.icon,
+            onClick: this.handleOpen,
+            ref: icon => {
+              this.icon = icon
+            }
+          },
+          h(Icon, {
+            svg: Hamburger,
+            size: 40,
+            color: '#fff',
+            customStyle: { verticalAlign: 'middle' }
+          })
+        )
       ]
     )
   }
@@ -81,24 +129,52 @@ export default class Nav extends Component {
   render() {
     const { backgroundColor, heading, subHeading, route } = this.props
 
-    return h('nav', { style: { backgroundColor }, className: styles.root, ref: root => { this.root = root } }, [
-      h(
-        'div',
-        { className: styles.avatar },
-        h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
-      ),
-      h('h1', { className: styles.heading }, heading),
-      h('div', { className: styles.subHeading }, subHeading),
-      h('div', { className: styles.listContainer, ref: listContainer => { this.listContainer = listContainer } }, [
-        h('ul', { className: styles.list, ref: list => { this.list = list } }, this.renderNavItems())
-      ]),
-      this.renderMenuIcon(),
-      h(
-        'div',
-        { onClick: this.handleClick },
-        h(OffCanvas, { route, open: this.state.open, items: links })
-      )
-    ])
+    return h(
+      'nav',
+      {
+        style: { backgroundColor },
+        className: styles.root,
+        ref: root => {
+          this.root = root
+        }
+      },
+      [
+        h(
+          'div',
+          { className: styles.avatar },
+          h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
+        ),
+        h('h1', { className: styles.heading }, heading),
+        h('div', { className: styles.subHeading }, subHeading),
+        h(
+          'div',
+          {
+            className: styles.listContainer,
+            ref: listContainer => {
+              this.listContainer = listContainer
+            }
+          },
+          [
+            h(
+              'ul',
+              {
+                className: styles.list,
+                ref: list => {
+                  this.list = list
+                }
+              },
+              this.renderNavItems()
+            )
+          ]
+        ),
+        this.renderMenuIcon(),
+        h(
+          'div',
+          { onClick: this.handleClick },
+          h(OffCanvas, { route, open: this.state.open, items: links })
+        )
+      ]
+    )
   }
 
   static propTypes = {
