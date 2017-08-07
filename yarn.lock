@@ -2689,10 +2689,6 @@ html-entities@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.0.tgz#41948caf85ce82fed36e4e6a0ed371a6664379e2"
 
-html-tags@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-1.1.1.tgz#869f43859f12d9bdc3892419e494a628aa1b204e"
-
 html-tags@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
@@ -2782,7 +2778,11 @@ ignore@^3.2.0, ignore@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.3.tgz#432352e57accd87ab3110e82d3fea0e47812156d"
 
-immupdate@1.0.1, immupdate@^1.0.1:
+immupdate@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/immupdate/-/immupdate-1.1.4.tgz#c6a1894101b2df67d052fae2083fc50193a52c09"
+
+immupdate@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/immupdate/-/immupdate-1.0.1.tgz#0d172cbd6659343a1919f74163c3b3077009d368"
 
@@ -3830,10 +3830,6 @@ optimist@~0.3.5:
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.3.7.tgz#c90941ad59e4273328923074d2cf2e7cbc6ec0d9"
   dependencies:
     wordwrap "~0.0.2"
-
-option.ts@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/option.ts/-/option.ts-0.1.6.tgz#d3da6c0421cd13da01424beee8e9d77a2d9e98e0"
 
 optionator@^0.8.2:
   version "0.8.2"
@@ -5371,12 +5367,11 @@ source-map@~0.1.7:
   dependencies:
     amdefine ">=0.0.4"
 
-space-lift@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/space-lift/-/space-lift-0.0.5.tgz#e22d05679922b8aec001112683362ce30c08d7f5"
+space-lift@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/space-lift/-/space-lift-0.4.1.tgz#c901322fb9399fa9de028d8208cf3532a505a5f4"
   dependencies:
-    immupdate "1.0.1"
-    option.ts "0.1.6"
+    immupdate "1.1.4"
 
 sparkles@^1.0.0:
   version "1.0.0"
@@ -5584,7 +5579,7 @@ stylelint-order@^0.4.0:
     postcss "^5.2.16"
     stylelint "^7.9.0"
 
-stylelint@7.12.0:
+stylelint@7.12.0, stylelint@^7.9.0:
   version "7.12.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-7.12.0.tgz#bf302c265d7c2d6fe79b154a9fd873a80f8b4aa4"
   dependencies:
@@ -5601,50 +5596,6 @@ stylelint@7.12.0:
     globby "^6.0.0"
     globjoin "^0.1.4"
     html-tags "^2.0.0"
-    ignore "^3.2.0"
-    imurmurhash "^0.1.4"
-    known-css-properties "^0.2.0"
-    lodash "^4.17.4"
-    log-symbols "^1.0.2"
-    mathml-tag-names "^2.0.0"
-    meow "^3.3.0"
-    micromatch "^2.3.11"
-    normalize-selector "^0.2.0"
-    pify "^2.3.0"
-    postcss "^5.0.20"
-    postcss-less "^0.14.0"
-    postcss-media-query-parser "^0.2.0"
-    postcss-reporter "^3.0.0"
-    postcss-resolve-nested-selector "^0.1.1"
-    postcss-scss "^0.4.0"
-    postcss-selector-parser "^2.1.1"
-    postcss-value-parser "^3.1.1"
-    resolve-from "^3.0.0"
-    specificity "^0.3.0"
-    string-width "^2.0.0"
-    style-search "^0.1.0"
-    stylehacks "^2.3.2"
-    sugarss "^0.2.0"
-    svg-tags "^1.0.0"
-    table "^4.0.1"
-
-stylelint@^7.9.0:
-  version "7.11.1"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-7.11.1.tgz#c816c658baf7d9e5d167d82273fead37c97ae49d"
-  dependencies:
-    autoprefixer "^6.0.0"
-    balanced-match "^0.4.0"
-    chalk "^1.1.1"
-    colorguard "^1.2.0"
-    cosmiconfig "^2.1.1"
-    debug "^2.6.0"
-    doiuse "^2.4.1"
-    execall "^1.0.0"
-    file-entry-cache "^2.0.0"
-    get-stdin "^5.0.0"
-    globby "^6.0.0"
-    globjoin "^0.1.4"
-    html-tags "^1.1.1"
     ignore "^3.2.0"
     imurmurhash "^0.1.4"
     known-css-properties "^0.2.0"

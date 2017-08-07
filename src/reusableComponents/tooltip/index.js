@@ -31,7 +31,7 @@ export default class ToolTip extends Component {
   }
 
   handleRAF = () => {
-    this.lastScrollYPos !== window.scrollY && this.unsetVisible()
+    this.lastScrollYPos !== window.pageYOffset && this.unsetVisible()
     this.RAF = window.requestAnimationFrame(this.handleRAF)
   }
 
@@ -132,7 +132,7 @@ export default class ToolTip extends Component {
 
     anime({
       begin: () => {
-        this.lastScrollYPos = window.scrollY
+        this.lastScrollYPos = window.pageYOffset
         this.handleRAF()
       },
       targets: el,

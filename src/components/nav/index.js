@@ -152,17 +152,15 @@ export default class Nav extends Component {
               this.listContainer = listContainer
             }
           },
-          [
+          [ h('div', { className: styles.list,
+            ref: list => {
+              this.list = list
+            }
+          }, [
             h(
-              'ul',
-              {
-                className: styles.list,
-                ref: list => {
-                  this.list = list
-                }
-              },
-              this.renderNavItems()
+              'ul', this.renderNavItems()
             )
+          ])
           ]
         ),
         this.renderMenuIcon(),
