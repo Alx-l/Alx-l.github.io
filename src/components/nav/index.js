@@ -160,7 +160,8 @@ export default class Nav extends Component {
                 ref: list => {
                   this.list = list
                 }
-              }, h('ul', this.renderNavItems())
+              },
+              h('ul', this.renderNavItems())
             )
           ]
         ),
