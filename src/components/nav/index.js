@@ -79,7 +79,7 @@ export default class Nav extends Component {
 
       return h(
         'li',
-        { key: i, className: isActive && 'is-active' },
+        { key: i, className: isActive ? 'is-active' : undefined },
         h(
           'a',
           {
@@ -160,8 +160,7 @@ export default class Nav extends Component {
                 ref: list => {
                   this.list = list
                 }
-              },
-              [h('ul', this.renderNavItems())]
+              }, h('ul', this.renderNavItems())
             )
           ]
         ),
