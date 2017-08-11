@@ -11,26 +11,82 @@ import styles from './nav.css'
 import offCanvasStyles from '../offCanvas/offCanvas.css'
 
 export default class Nav extends Component {
-  state = {
-    open: false
+  state = { open: false }
+
+  componentDidMount() { this.handleRAF() }
+
+  render() {
+    const { backgroundColor, heading, subHeading, route } = this.props
+
+    return h('nav',
+      {
+        style: { backgroundColor },
+        className: styles.root,
+        ref: root => { this.root = root }
+      },
+      [
+        h('div',
+          { className: styles.avatar },
+          h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
+        ),
+        h('h1', { className: styles.heading }, heading),
+        h('div', { className: styles.subHeading }, subHeading),
+        h('div',
+          {
+            className: styles.listContainer,
+            ref: listContainer => { this.listContainer = listContainer }
+          },
+          [
+            h('div',
+              { className: styles.list, ref: list => { this.list = list } },
+              h('ul', this.renderNavItems())
+            )
+          ]
+        ),
+        this.renderMenuIcon(),
+        h('div', { onClick: this.handleClick },
+          h(OffCanvas, { route, open: this.state.open, items: links })
+        )
+      ]
+    )
   }
 
-  componentDidMount() {
-    this.handleRAF()
+  renderNavItems = () => {
+    const { route } = this.props
+
+    return links.map((link, i) => {
+      const { dest, text, isIndex } = link
+      const isActive = route === dest || (route === 'index' && isIndex)
+
+      return h('li',
+        { key: i, className: isActive ? 'is-active' : undefined },
+        h('a',
+          { 'data-nav': 'ignore',
+            onClick: e => handleLink(e, dest),
+            href: dest,
+            className: styles.link
+          },
+          text
+        )
+      )
+    })
   }
+
+  renderMenuIcon = () => h('div',
+    { className: styles.iconContainer, ref: iconContainer => { this.iconContainer = iconContainer } },
+    [
+      h('div',
+        { className: styles.icon, onClick: this.handleOpen, ref: icon => { this.icon = icon } },
+        h(Icon, { svg: Hamburger, size: 40, color: '#fff', customStyle: { verticalAlign: 'middle' } })
+      )
+    ]
+  )
 
   handleRAF = () => {
-    const {
-      height: listContainerHeight
-    } = this.listContainer.getBoundingClientRect()
-    const {
-      height: iconContainerHeight
-    } = this.iconContainer.getBoundingClientRect()
+    const { height: listContainerHeight } = this.listContainer.getBoundingClientRect()
+    const { height: iconContainerHeight } = this.iconContainer.getBoundingClientRect()
 
-    if (
-      window.getComputedStyle(this.list, null).getPropertyValue('display') !==
-      'none'
-    ) {
+    if (window.getComputedStyle(this.list, null).getPropertyValue('display') !== 'none') {
       handleStickyClassOnScroll({
         node: this.root,
         targetNode: this.list,
@@ -69,111 +125,6 @@ export default class Nav extends Component {
 
   handleClick = e =>
     !e.target.classList.contains(offCanvasStyles.content) && this.handleClose()
-
-  renderNavItems() {
-    const { route } = this.props
-
-    return links.map((link, i) => {
-      const { dest, text, isIndex } = link
-      const isActive = route === dest || (route === 'index' && isIndex)
-
-      return h(
-        'li',
-        { key: i, className: isActive ? 'is-active' : undefined },
-        h(
-          'a',
-          {
-            'data-nav': 'ignore',
-            onClick: e => handleLink(e, dest),
-            href: dest,
-            className: styles.link
-          },
-          text
-        )
-      )
-    })
-  }
-
-  renderMenuIcon() {
-    return h(
-      'div',
-      {
-        className: styles.iconContainer,
-        ref: iconContainer => {
-          this.iconContainer = iconContainer
-        }
-      },
-      [
-        h(
-          'div',
-          {
-            className: styles.icon,
-            onClick: this.handleOpen,
-            ref: icon => {
-              this.icon = icon
-            }
-          },
-          h(Icon, {
-            svg: Hamburger,
-            size: 40,
-            color: '#fff',
-            customStyle: { verticalAlign: 'middle' }
-          })
-        )
-      ]
-    )
-  }
-
-  render() {
-    const { backgroundColor, heading, subHeading, route } = this.props
-
-    return h(
-      'nav',
-      {
-        style: { backgroundColor },
-        className: styles.root,
-        ref: root => {
-          this.root = root
-        }
-      },
-      [
-        h(
-          'div',
-          { className: styles.avatar },
-          h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
-        ),
-        h('h1', { className: styles.heading }, heading),
-        h('div', { className: styles.subHeading }, subHeading),
-        h(
-          'div',
-          {
-            className: styles.listContainer,
-            ref: listContainer => {
-              this.listContainer = listContainer
-            }
-          },
-          [
-            h(
-              'div',
-              {
-                className: styles.list,
-                ref: list => {
-                  this.list = list
-                }
-              },
-              h('ul', this.renderNavItems())
-            )
-          ]
-        ),
-        this.renderMenuIcon(),
-        h(
-          'div',
-          { onClick: this.handleClick },
-          h(OffCanvas, { route, open: this.state.open, items: links })
-        )
-      ]
-    )
-  }
 
   static propTypes = {
     heading: React.PropTypes.string.isRequired,

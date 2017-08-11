@@ -16,12 +16,7 @@ const WhereToFindMe = () => {
   const emailClassName = classNames(styles.email, 'u-underlineLeft')
 
   return h('div', [
-    h(IconHeader, {
-      icon: PersonPin,
-      size: 20,
-      color: grey,
-      text: 'Finding me'
-    }),
+    h(IconHeader, { icon: PersonPin, size: 20, color: grey, text: 'Finding me' }),
     h(TextBlock, { background: true }, [
       h('p', [
         'You can find me wandering in the streets of ',
@@ -34,24 +29,17 @@ const WhereToFindMe = () => {
       ]),
       h('span', 'Wanna take a peek at my repos?'),
       h('br'),
-      h(
-        'a',
+      h('a',
         {
           href: 'https://github.com/Alx-l',
           target: '_blank',
           className: 'btn-icon'
         },
-        h(Icon, {
-          svg: Github,
-          color: '#fff',
-          size: 35,
-          customStyle: { display: 'block' }
-        })
+        h(Icon, { svg: Github, color: '#fff', size: 35, customStyle: { display: 'block' } })
       ),
       h('p', [
         'My ',
-        h(
-          'a',
+        h('a',
           { href: 'https://codepen.io/AlxL', target: '_blank' },
           h('span.u-highlight.u-linkSweep', 'pens ')
         ),

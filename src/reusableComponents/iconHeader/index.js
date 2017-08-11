@@ -7,8 +7,7 @@ import styles from './iconHeader.css'
 
 const IconHeader = props => {
   const { icon, size, bg, color, text } = props
-  return h(
-    'div',
+  return h('div',
     { style: { backgroundColor: bg }, className: styles.root },
     h('h2', { className: styles.heading }, [
       h(Icon, { svg: icon, color, size, className: styles.icon }),

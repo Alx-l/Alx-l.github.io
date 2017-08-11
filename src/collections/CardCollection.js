@@ -8,8 +8,7 @@ const { git } = settings
 
 const li = text => h('li', {}, text)
 
-export const BubblyBoilerplate = h(
-  CardReveal,
+export const BubblyBoilerplate = h(CardReveal,
   {
     cat: 'sideprojects',
     blinkIcon: true,
@@ -29,15 +28,13 @@ export const BubblyBoilerplate = h(
       li('CSS Modules')
     ]),
     h(
-      'p',
-      { className: styles.insideFooter },
+      'p', { className: styles.insideFooter },
       'I made this boilerplate to help me getting started with new projects easily.'
     )
   ]
 )
 
-export const BubblyGrid = h(
-  CardReveal,
+export const BubblyGrid = h(CardReveal,
   {
     cat: 'sideprojects',
     blinkIcon: true,
@@ -47,8 +44,7 @@ export const BubblyGrid = h(
     subTitle: 'homemade grid system',
     footerText: h('span', [
       'available on ',
-      h(
-        'a.u-link.u-highlight',
+      h('a.u-link.u-highlight',
         { href: 'https://www.npmjs.com/package/bubbly-grid-stylus' },
         'npm'
       )
@@ -68,8 +64,7 @@ export const BubblyGrid = h(
   ]
 )
 
-export const Portefolio = h(
-  CardReveal,
+export const Portefolio = h(CardReveal,
   {
     cat: 'sideprojects',
     blinkIcon: true,
@@ -83,21 +78,18 @@ export const Portefolio = h(
     h('p.u-underline', 'Recipe :'),
     h('ul', [
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           {
             target: '_blank',
             href: 'https://github.com/alx-l/bubbly-boilerplate'
-          },
-          'Bubbly Boilerplate'
+          }, 'Bubbly Boilerplate'
         )
       ])
     ])
   ]
 )
 
-export const VinylMinded = h(
-  CardReveal,
+export const VinylMinded = h(CardReveal,
   {
     cat: 'sideprojects',
     blinkIcon: true,
@@ -115,16 +107,14 @@ export const VinylMinded = h(
       li('jQuery'),
       li('PHP / mySQL')
     ]),
-    h(
-      'p',
+    h('p',
       { className: styles.insideFooter },
       'This site was made to obtain my certification as a web developer from IFOCOP.'
     )
   ]
 )
 
-export const PokemonYo = h(
-  CardReveal,
+export const PokemonYo = h(CardReveal,
   {
     cat: 'sideprojects',
     blinkIcon: true,
@@ -139,14 +129,12 @@ export const PokemonYo = h(
     h('ul', [
       li('React / Fluxx'),
       h('li', [
-        h(
-          'a',
+        h('a',
           {
             href: 'http://pokeapi.co/docsv2/',
             target: '_blank',
             className: 'u-linkSweep'
-          },
-          'Pokeapi V2'
+          }, 'Pokeapi V2'
         )
       ]),
       li('ES6'),
@@ -159,8 +147,7 @@ export const PokemonYo = h(
   ]
 )
 
-export const NrjMobile = h(
-  CardReveal,
+export const NrjMobile = h(CardReveal,
   {
     cat: 'jobs',
     blinkIcon: true,
@@ -176,8 +163,7 @@ export const NrjMobile = h(
   ]
 )
 
-export const Zengularity = h(
-  CardReveal,
+export const Zengularity = h(CardReveal,
   {
     cat: 'jobs',
     blinkIcon: true,

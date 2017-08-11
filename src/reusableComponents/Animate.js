@@ -15,12 +15,9 @@ class InnerComponent extends Component {
   }
 
   render() {
-    return h(
-      'span',
+    return h('span',
       {
-        ref: self => {
-          this.self = self
-        },
+        ref: self => { this.self = self },
         style: { display: 'block' }
       },
       this.props.content
@@ -45,8 +42,7 @@ export default class Animate extends Component {
       customClassName,
       customStyle
     } = this.props
-    return h(
-      ReactTransitionGroup,
+    return h(ReactTransitionGroup,
       {
         style: { display: 'block', ...customStyle },
         className: customClassName

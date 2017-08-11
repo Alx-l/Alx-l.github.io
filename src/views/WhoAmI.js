@@ -17,8 +17,7 @@ const WhoAmI = () => {
         'a junior ',
         h('span.u-highlight', 'front-end web dev')
       ]),
-      h(
-        'p',
+      h('p',
         `I used to handle stock, and also customer complaints at an electronics store, but after a few years I just wasn't happy with this job of mine.`
       ),
       h('p', [

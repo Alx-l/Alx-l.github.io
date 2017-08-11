@@ -1,7 +1,6 @@
 import React from 'react'
-import _ from 'space-lift'
-
 import h from 'react-hyperscript'
+import _ from 'space-lift'
 
 import styles from './cardlist.css'
 

@@ -16,22 +16,67 @@ export default class Collapsible extends Component {
 
   hrOffsetValue = '-120%'
 
-  handleClick = () => this.setState({ open: !this.state.open })
+  render() {
+    const {
+      state: { open },
+      props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children },
+      onEnter, onLeave, hrOffsetValue } = this
 
-  handleKeyDown = e => {
-    const keycode = e.which || e.keyCode
-    return keycode === 13 && this.setState({ open: !this.state.open })
-  }
+    const CollapsibleClassName = classNames(styles.root, {
+      popOut: popOut,
+      'is-open': open,
+      'is-close': !open
+    })
+    const expandIconClassName = classNames(styles.expandIcon, {
+      'is-open': open
+    })
 
-  animateHr = isOpening => {
-    const { hr, animeSettings, hrOffsetValue } = this
+    const renderIcon =
+      titleIcon &&
+      h(Icon, { svg: titleIcon, color: iconColor, className: 'icon', size: titleIconSize })
 
-    isOpening
-      ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
-      : anime({
-        targets: hr,
-        translateX: { ...animeSettings, value: `${hrOffsetValue}` }
-      })
+    return h('div',
+      { 'aria-expanded': open, className: CollapsibleClassName },
+      [
+        h('div',
+          {
+            onKeyDown: this.handleKeyDown,
+            className: styles.title,
+            onClick: this.handleClick,
+            tabIndex: '0'
+          },
+          [
+            h('div', { className: styles.titleLeft }, [
+              renderIcon,
+              h('span', { className: 'text' }, title)
+            ]),
+            h('div', { className: styles.titleRight }, [
+              h('div',
+                { className: expandIconClassName },
+                h(Icon, {
+                  svg: Expand,
+                  size: iconSize,
+                  color: iconColor,
+                  customStyle: { display: 'block' }
+                })
+              )
+            ]),
+            h('hr', {
+              ref: hr => { this.hr = hr },
+              style: { transform: `translateX(${hrOffsetValue})` },
+              className: styles.hr
+            })
+          ]
+        ),
+        h(Animate,
+          { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },
+          h('div',
+            { className: styles.body, style: { padding: '16px' } },
+            children
+          )
+        )
+      ]
+    )
   }
 
   onEnter = (el, cb) => {
@@ -66,90 +111,22 @@ export default class Collapsible extends Component {
     })
   }
 
-  render() {
-    const {
-      state: { open },
-      props: {
-        popOut,
-        title,
-        titleIcon,
-        iconSize,
-        titleIconSize,
-        iconColor,
-        children
-      },
-      onEnter,
-      onLeave,
-      hrOffsetValue
-    } = this
+  animateHr = isOpening => {
+    const { hr, animeSettings, hrOffsetValue } = this
 
-    const CollapsibleClassName = classNames(styles.root, {
-      popOut: popOut,
-      'is-open': open,
-      'is-close': !open
-    })
-    const expandIconClassName = classNames(styles.expandIcon, {
-      'is-open': open
-    })
-
-    const renderIcon =
-      titleIcon &&
-      h(Icon, {
-        svg: titleIcon,
-        color: iconColor,
-        className: 'icon',
-        size: titleIconSize
+    isOpening
+      ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
+      : anime({
+        targets: hr,
+        translateX: { ...animeSettings, value: `${hrOffsetValue}` }
       })
+  }
 
-    return h(
-      'div',
-      { 'aria-expanded': open, className: CollapsibleClassName },
-      [
-        h(
-          'div',
-          {
-            onKeyDown: this.handleKeyDown,
-            className: styles.title,
-            onClick: this.handleClick,
-            tabIndex: '0'
-          },
-          [
-            h('div', { className: styles.titleLeft }, [
-              renderIcon,
-              h('span', { className: 'text' }, title)
-            ]),
-            h('div', { className: styles.titleRight }, [
-              h(
-                'div',
-                { className: expandIconClassName },
-                h(Icon, {
-                  svg: Expand,
-                  size: iconSize,
-                  color: iconColor,
-                  customStyle: { display: 'block' }
-                })
-              )
-            ]),
-            h('hr', {
-              ref: hr => {
-                this.hr = hr
-              },
-              style: { transform: `translateX(${hrOffsetValue})` },
-              className: styles.hr
-            })
-          ]
-        ),
-        h(
-          Animate,
-          { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },
-          h(
-            'div',
-            { className: styles.body, style: { padding: '16px' } },
-            children
-          )
-        )
-      ]
-    )
+  handleClick = () => this.setState({ open: !this.state.open })
+
+  handleKeyDown = e => {
+    const keycode = e.which || e.keyCode
+    return keycode === 13 && this.setState({ open: !this.state.open })
   }
 
   static propTypes = {

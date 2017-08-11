@@ -6,8 +6,7 @@ import { pxToRemDims } from 'utils/misc'
 const Icon = props => {
   const { color, className, svg, size, customStyle } = props
 
-  return h(
-    'div',
+  return h('div',
     {
       className,
       style: { display: 'inline-block', ...pxToRemDims(size), ...customStyle }

@@ -22,8 +22,7 @@ const WhatIveDone = props => {
   const renderFilterBtn = (text, dataAttr) => {
     const { filters } = props
 
-    return h(
-      'button.btn-filter',
+    return h('button.btn-filter',
       {
         onClick: () => setFilter(dataAttr, !filters[dataAttr]),
         'data-props': dataAttr,

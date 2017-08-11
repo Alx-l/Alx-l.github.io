@@ -23,11 +23,8 @@ const OffCanvas = props => {
         'is-active': isActive
       })
 
-      return h(
-        'li',
-        { className, key: i },
-        h(
-          'a',
+      return h('li', { className, key: i },
+        h('a',
           {
             'data-nav': 'ignore',
             onClick: e => handleLink(e, item.dest),
@@ -41,9 +38,7 @@ const OffCanvas = props => {
     })
   }
 
-  const className = classNames(styles.root, {
-    'is-open': props.open
-  })
+  const className = classNames(styles.root, { 'is-open': props.open })
 
   return h('div', { className, style: { textTransform: 'uppercase' } }, [
     h('div', { className: styles.overlay }),

@@ -19,8 +19,7 @@ const { greyDarken } = settings
 
 const li = text => h('li', {}, text)
 
-export const clFrontEnd = h(
-  Collapsible,
+export const clFrontEnd = h(Collapsible,
   {
     titleIcon: FrontEnd,
     iconColor: greyDarken,
@@ -38,8 +37,7 @@ export const clFrontEnd = h(
     ]),
     h('p', [
       'To organize my stylesheets, I try to follow the ',
-      h(
-        'a.u-linkSweep.u-highlight',
+      h('a.u-linkSweep.u-highlight',
         { href: 'https://smacss.com/', target: '_blank' },
         'SMACSS '
       ),
@@ -53,8 +51,7 @@ export const clFrontEnd = h(
     ]),
     h('p', [
       'On the JS side, I follow the ',
-      h(
-        'a.u-linkSweep.u-highlight',
+      h('a.u-linkSweep.u-highlight',
         { href: 'https://standardjs.com/', target: '_blank' },
         'Standard JS '
       ),
@@ -74,8 +71,7 @@ export const clFrontEnd = h(
         li('React / Flux architecture')
       ])
     ),
-    h(
-      Collapsible,
+    h(Collapsible,
       {
         titleIcon: Pencil,
         iconColor: greyDarken,
@@ -87,8 +83,7 @@ export const clFrontEnd = h(
   ]
 )
 
-export const clBackEnd = h(
-  Collapsible,
+export const clBackEnd = h(Collapsible,
   {
     titleIcon: BackEnd,
     iconColor: greyDarken,
@@ -99,8 +94,7 @@ export const clBackEnd = h(
   [h('ul', [li('Node.js / Express'), li('MongoDB')])]
 )
 
-export const clTools = h(
-  Collapsible,
+export const clTools = h(Collapsible,
   {
     titleIcon: ThumbUp,
     iconColor: greyDarken,
@@ -127,8 +121,7 @@ export const clTools = h(
   ]
 )
 
-export const clMusic = h(
-  Collapsible,
+export const clMusic = h(Collapsible,
   {
     titleIcon: Music,
     iconColor: greyDarken,
@@ -137,8 +130,7 @@ export const clMusic = h(
     popOut: true
   },
   [
-    h(
-      'p',
+    h('p',
       `Music is so many things, it can soothe you, move you, make you move, annoy you or even make you fall asleep, it's just fundamental :)`
     ),
     h(Collapsible, { iconColor: greyDarken, title: 'Rap' }, [
@@ -146,9 +138,7 @@ export const clMusic = h(
       h('ul', [
         li('Dave East'),
         li('TDE'),
-        li(
-          `Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`
-        ),
+        li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
         li('Joey Bada$$'),
         li('Young Thug'),
         li(`ASAP Mob (not all of 'em...)`),
@@ -158,8 +148,7 @@ export const clMusic = h(
       ])
     ]),
     h(Collapsible, { iconColor: greyDarken, title: 'B-Side' }, [
-      h(
-        'p',
+      h('p',
         'All right, now get ready for the dummy mix, no rules, just me, my taste and no filter :'
       ),
       h('ul', [
@@ -167,9 +156,7 @@ export const clMusic = h(
         li('Paramore'),
         li('Frank Ocean'),
         li('Mélat'),
-        li(
-          `Blink-182 (didn't even listen to them as a teen, but man they're good)`
-        ),
+        li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
         li('A-Trak'),
         li('...')
       ])
@@ -177,8 +164,7 @@ export const clMusic = h(
   ]
 )
 
-export const clTVMovies = h(
-  Collapsible,
+export const clTVMovies = h(Collapsible,
   {
     titleIcon: TV,
     iconColor: greyDarken,
@@ -198,8 +184,7 @@ export const clTVMovies = h(
       li('Orange is the new black'),
       li('...')
     ]),
-    h(
-      Collapsible,
+    h(Collapsible,
       {
         titleIcon: Movie,
         iconColor: greyDarken,
@@ -207,8 +192,7 @@ export const clTVMovies = h(
         title: 'Movies'
       },
       [
-        h(
-          'p',
+        h('p',
           `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`
         ),
         h('ul', [
@@ -225,8 +209,7 @@ export const clTVMovies = h(
   ]
 )
 
-export const clPeople = h(
-  Collapsible,
+export const clPeople = h(Collapsible,
   {
     titleIcon: People,
     iconColor: greyDarken,
@@ -238,43 +221,37 @@ export const clPeople = h(
     h('p', 'Some devs I follow, look up to, and/or simply like :'),
     h('ul', [
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           { href: 'http://bit.ly/1KcNPaY', target: '_blank' },
           'Mattias Petter Johansson'
         )
       ]),
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           { href: 'http://sidebar.io/', target: '_blank' },
           'Sacha Greif'
         )
       ]),
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           { href: 'https://una.im/', target: '_blank' },
           'Una Kravets'
         )
       ]),
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           { href: 'https://bitsofco.de/', target: '_blank' },
           'Ire Aderinokun'
         )
       ]),
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           { href: 'https://pawelgrzybek.com/', target: '_blank' },
           'Pawel Grzybek'
         )
       ]),
       h('li', [
-        h(
-          'a.u-linkSweep',
+        h('a.u-linkSweep',
           { href: 'https://medium.com/@_ericelliott/latest', target: '_blank' },
           'Eric Elliott'
         )
@@ -283,8 +260,7 @@ export const clPeople = h(
   ]
 )
 
-export const clMisc = h(
-  Collapsible,
+export const clMisc = h(Collapsible,
   {
     titleIcon: SupaHappy,
     iconColor: greyDarken,
@@ -303,8 +279,7 @@ export const clMisc = h(
       h('span.u-highlight', ` some of 'em, `),
       `sometimes..., my heart's not that big 😛), I mean music, tv series, your opinion about what's happening on the other side of the world and stuff is great...`
     ]),
-    h(
-      'p',
+    h('p',
       `But what's greater is when you get to share (and disagree with) all that with someone else, otherwise, what's the point, right?`
     )
   ]
