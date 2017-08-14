@@ -28,6 +28,7 @@
   --no-scroll: {
     position: absolute 0;
     overflow-y: hidden;
+    height: auto;
   }
 
   /* Centers an element vertically */

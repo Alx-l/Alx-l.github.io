@@ -2,16 +2,26 @@ import React from 'react'
 import h from 'react-hyperscript'
 import classNames from 'classnames'
 
-import { handleLink } from 'utils/misc'
+import { handleLink, addClass, removeClass } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
 const OffCanvas = props => {
   const html = document.querySelector('html')
+  const body = document.body
+  const { top } = body.getBoundingClientRect()
+  const makeBodyUnscrollable = () => {
+    addClass('u-noscroll', html, body)
+    html.style.top = `${top}px`
+  }
+  const makeBodyScrollable = () => {
+    removeClass('u-noscroll', html, body)
+    window.scroll(0, top * -1)
+  }
 
   props.open
-    ? html.classList.add('u-noscroll')
-    : html.classList.remove('u-noscroll')
+    ? makeBodyUnscrollable()
+    : makeBodyScrollable()
 
   const renderItems = () => {
     const { items, route } = props

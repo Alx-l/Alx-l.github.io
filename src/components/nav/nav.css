@@ -49,7 +49,7 @@
 .list {
   &:global {
     &.is-fixed {
-      z-index: 99;
+      z-index: 9;
       position: fixed 0 0 null 0;
       padding: 0 var(--spacer);
     }

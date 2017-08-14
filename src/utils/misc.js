@@ -16,6 +16,14 @@ export const handleLink = (e, dest) => {
   router.transitionTo(dest)
 }
 
+export const addClass = (className, ...nodeList) => {
+  nodeList.map(item => item.classList.add(className))
+}
+
+export const removeClass = (className, ...nodeList) => {
+  nodeList.map(item => item.classList.remove(className))
+}
+
 export const handleStickyClassOnScroll = ({
   node,
   targetNode,
