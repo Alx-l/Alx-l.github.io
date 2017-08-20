@@ -4,15 +4,13 @@
     position: relative;
     color: var(--accent-color);
     transform: translateZ(0); /* trick to smooth out the animation */
-    transition: none;
+    transition: all 0.2s ease-out-quint;
 
     @apply --link;
 
     &::before {
-      display: block;
       z-index: -1;
       content: "";
-      position: absolute 0;
       background-color: var(--accent-color);
       transform: scaleY(0);
       transform-origin: center bottom;
@@ -21,11 +19,10 @@
     &:hover {
       color: #fff;
       text-shadow: 1px 1px 0 var(--accent-color); /* to prevent the text from being invisible in certain cases on touch devices */
-      transition: all 0.2s ease-out-quint;
-
       &::before {
+        position: absolute 0;
         transform: scaleY(1);
-        transition: all 0.2s ease-out-quint;
+        transition: inherit;
       }
     }
   }
