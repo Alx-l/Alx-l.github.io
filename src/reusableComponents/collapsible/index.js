@@ -82,11 +82,10 @@ export default class Collapsible extends Component {
   onEnter = (el, cb) => {
     const height = el.scrollHeight
     anime({
-      begin: () => {
-        el.style.willChange = 'height'
-      },
+      begin: () => { el.style.willChange = 'height' },
       targets: el,
       height: { ...this.animeSettings, value: height },
+      update: () => { !this.state.open && this.killAnimation(el, cb) },
       complete: () => {
         el.style.height = 'auto'
         el.style.willChange = ''
@@ -104,6 +103,7 @@ export default class Collapsible extends Component {
       },
       targets: el,
       height: { ...this.animeSettings, value: 0 },
+      update: () => { this.state.open && this.killAnimation(el, cb) },
       complete: () => {
         el.style.willChange = ''
         return cb()
@@ -120,6 +120,11 @@ export default class Collapsible extends Component {
         targets: hr,
         translateX: { ...animeSettings, value: `${hrOffsetValue}` }
       })
+  }
+
+  killAnimation = (el, cb) => {
+    anime.remove(el)
+    cb()
   }
 
   handleClick = () => this.setState({ open: !this.state.open })
