@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import h from 'react-hyperscript'
 import classNames from 'classnames'
 import anime from 'animejs'
+import { update } from 'immupdate'
 
 import Icon from 'reusableComponents/icon'
 import Animate from 'reusableComponents/Animate'
@@ -12,7 +13,11 @@ import styles from './collapsible.css'
 export default class Collapsible extends Component {
   state = { open: false }
 
-  animeSettings = { duration: 225, easing: 'easeInOutQuad' }
+  defaultAnimeDuration = 225
+
+  animeDuration = this.defaultAnimeDuration
+
+  animeSettings = { duration: this.defaultAnimeDuration, easing: 'easeInOutQuad' }
 
   hrOffsetValue = '-120%'
 
@@ -81,11 +86,15 @@ export default class Collapsible extends Component {
 
   onEnter = (el, cb) => {
     const height = el.scrollHeight
+    this.animeDuration = this.animeSettings.duration
     anime({
       begin: () => { el.style.willChange = 'height' },
       targets: el,
       height: { ...this.animeSettings, value: height },
-      update: () => { !this.state.open && this.killAnimation(el, cb) },
+      run: (anim) => {
+        this.updateAnimeDuration(anim.currentTime)
+        !this.state.open && this.killAnimation(el, cb)
+      },
       complete: () => {
         el.style.height = 'auto'
         el.style.willChange = ''
@@ -96,6 +105,7 @@ export default class Collapsible extends Component {
   }
 
   onLeave = (el, cb) => {
+    this.animeDuration = this.animeSettings.duration
     anime({
       begin: () => {
         el.style.willChange = 'height'
@@ -103,7 +113,10 @@ export default class Collapsible extends Component {
       },
       targets: el,
       height: { ...this.animeSettings, value: 0 },
-      update: () => { this.state.open && this.killAnimation(el, cb) },
+      run: (anim) => {
+        this.updateAnimeDuration(anim.currentTime)
+        this.state.open && this.killAnimation(el, cb)
+      },
       complete: () => {
         el.style.willChange = ''
         return cb()
@@ -120,6 +133,12 @@ export default class Collapsible extends Component {
         targets: hr,
         translateX: { ...animeSettings, value: `${hrOffsetValue}` }
       })
+  }
+
+  updateAnimeDuration = (currentTime) => {
+    this.animeSettings = update(this.animeSettings, {
+      duration: this.defaultAnimeDuration - (this.animeDuration - currentTime)
+    })
   }
 
   killAnimation = (el, cb) => {
