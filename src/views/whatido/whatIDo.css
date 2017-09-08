@@ -15,7 +15,7 @@
     &::before {
       content: "";
       position: absolute 0 null 0 50%;
-      width: 1px;
+      width: 1Px;
       margin: var(--spacer) 0;
       background: var(--grey-lighten);
       transform: translateX(-50%);
@@ -68,7 +68,7 @@
     &::before {
       content: "";
       position: absolute null 0 -22px 0;
-      height: 1px;
+      height: 1Px;
       margin: 0 10em;
       background-color: var(--grey-lighten);
     }
