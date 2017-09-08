@@ -51,7 +51,7 @@ export default class CardReveal extends Component {
     const { iconColor, children } = this.props
 
     return h(Animate,
-      { trigger: open, onEnter: this.onEnter, onLeave: this.onLeave, customClassName: styles.container },
+      { trigger: open, timeout: this.animeSettings.duration, onEnter: this.onEnter, onExit: this.onExit, className: styles.container },
       [
         h('div', [
           h('div',
@@ -72,19 +72,17 @@ export default class CardReveal extends Component {
     )
   }
 
-  onEnter = (el, cb) => {
+  onEnter = (el) => {
     anime({
       targets: el,
-      translateY: { ...this.animeSettings, value: '-100%' },
-      complete: cb
+      translateY: { ...this.animeSettings, value: '-100%' }
     })
   }
 
-  onLeave = (el, cb) => {
+  onExit = (el) => {
     anime({
       targets: el,
-      translateY: { ...this.animeSettings, value: '100%' },
-      complete: cb
+      translateY: { ...this.animeSettings, value: '100%' }
     })
   }
 

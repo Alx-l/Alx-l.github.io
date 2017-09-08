@@ -40,21 +40,22 @@ export default class ToolTip extends Component {
   }
 
   renderToolTips() {
-    const { onEnter, onLeave, state: { visible }, props } = this
+    const { onEnter, onExit, state: { visible }, props } = this
 
     return h(Animate,
       {
         trigger: visible,
         onEnter,
-        onLeave,
-        customClassName: styles.hiddenText,
+        onExit,
+        timeout: this.animeSettings.duration,
+        className: styles.hiddenText,
         customStyle: { transform: 'scale(0)' }
       },
-      h('span', props.hiddenText)
+      h('div', props.hiddenText)
     )
   }
 
-  onEnter = (el, cb) => {
+  onEnter = (el) => {
     const { scrollWidth: hiddenElWidth, scrollHeight: hiddenElHeight } = el
     const {
       width: visibleTextWidth,
@@ -104,23 +105,29 @@ export default class ToolTip extends Component {
         easing: [0.175, 0.885, 0.32, 1.275],
         value: 1
       },
-      complete: cb
+      run: (anim) => {
+        !this.state.visible && this.pauseAnimation(anim)
+      }
     })
   }
 
-  onLeave = (el, cb) => {
+  onExit = (el) => {
     anime({
       targets: el,
       scale: { ...this.animeSettings, easing: 'easeInOutQuad', value: 0 },
+      run: (anim) => {
+        this.state.visible && this.pauseAnimation(anim)
+      },
       complete: () => {
         el.style.top = 0
         el.style.left = 0
         el.style.marginLeft = 0
         window.cancelAnimationFrame(this.RAF)
-        return cb()
       }
     })
   }
+
+  pauseAnimation = (anim) => anim.pause()
 
   setVisible = () => this.setState({ visible: true })
 

@@ -1,36 +1,6 @@
 import React, { Component } from 'react'
-import ReactTransitionGroup from 'react-addons-transition-group'
-
+import Transition from 'react-transition-group/Transition'
 import h from 'react-hyperscript'
-
-class InnerComponent extends Component {
-  componentWillEnter(cb) {
-    const el = this.self.parentNode
-    this.props.onEnter(el, cb)
-  }
-
-  componentWillLeave(cb) {
-    const el = this.self.parentNode
-    this.props.onLeave(el, cb)
-  }
-
-  render() {
-    return h('span',
-      {
-        ref: self => { this.self = self },
-        style: { display: 'block' }
-      },
-      this.props.content
-    )
-  }
-
-  static propTypes = {
-    onEnter: React.PropTypes.func.isRequired,
-    onLeave: React.PropTypes.func.isRequired,
-    content: React.PropTypes.element.isRequired,
-    customClassName: React.PropTypes.string
-  }
-}
 
 export default class Animate extends Component {
   render() {
@@ -38,22 +8,31 @@ export default class Animate extends Component {
       trigger,
       children,
       onEnter,
-      onLeave,
-      customClassName,
-      customStyle
+      onExit,
+      className,
+      customStyle,
+      timeout
     } = this.props
-    return h(ReactTransitionGroup,
+    return h(Transition,
       {
-        style: { display: 'block', ...customStyle },
-        className: customClassName
+        in: trigger,
+        onEnter,
+        onExit,
+        timeout,
+        mountOnEnter: true,
+        unmountOnExit: true,
+        style: { ...customStyle }
       },
-      trigger && h(InnerComponent, { onEnter, onLeave, content: children })
+      h('div', { className }, children)
     )
   }
 
   static propTypes = {
     onEnter: React.PropTypes.func.isRequired,
-    onLeave: React.PropTypes.func.isRequired,
+    onExit: React.PropTypes.func.isRequired,
+    trigger: React.PropTypes.bool.isRequired,
+    timeout: React.PropTypes.number.isRequired,
+    className: React.PropTypes.string,
     customStyle: React.PropTypes.objectOf(React.PropTypes.string)
   }
 }

@@ -25,7 +25,7 @@ export default class Collapsible extends Component {
     const {
       state: { open },
       props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children },
-      onEnter, onLeave, hrOffsetValue } = this
+      onEnter, onExit, hrOffsetValue } = this
 
     const CollapsibleClassName = classNames(styles.root, {
       popOut: popOut,
@@ -74,17 +74,14 @@ export default class Collapsible extends Component {
           ]
         ),
         h(Animate,
-          { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },
-          h('div',
-            { className: styles.body },
-            children
-          )
+          { trigger: open, onEnter, onExit, customStyle: { height: '0px' }, timeout: this.animeSettings.duration },
+          h('div', { className: styles.body }, children)
         )
       ]
     )
   }
 
-  onEnter = (el, cb) => {
+  onEnter = (el) => {
     const height = el.scrollHeight
     this.animeDuration = this.animeSettings.duration
     anime({
@@ -93,18 +90,17 @@ export default class Collapsible extends Component {
       height: { ...this.animeSettings, value: height },
       run: (anim) => {
         this.updateAnimeDuration(anim.currentTime)
-        !this.state.open && this.killAnimation(el, cb)
+        !this.state.open && this.pauseAnimation(anim)
       },
       complete: () => {
         el.style.height = 'auto'
         el.style.willChange = ''
         this.animateHr(true)
-        return cb()
       }
     })
   }
 
-  onLeave = (el, cb) => {
+  onExit = (el) => {
     this.animeDuration = this.animeSettings.duration
     anime({
       begin: () => {
@@ -115,11 +111,10 @@ export default class Collapsible extends Component {
       height: { ...this.animeSettings, value: 0 },
       run: (anim) => {
         this.updateAnimeDuration(anim.currentTime)
-        this.state.open && this.killAnimation(el, cb)
+        this.state.open && this.pauseAnimation(anim)
       },
       complete: () => {
         el.style.willChange = ''
-        return cb()
       }
     })
   }
@@ -141,10 +136,7 @@ export default class Collapsible extends Component {
     })
   }
 
-  killAnimation = (el, cb) => {
-    anime.remove(el)
-    cb()
-  }
+  pauseAnimation = (anim) => anim.pause()
 
   handleClick = () => this.setState({ open: !this.state.open })
 
