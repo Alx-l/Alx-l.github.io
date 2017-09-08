@@ -12,6 +12,7 @@
   margin-bottom: 0;
   background-color: inherit;
   color: var(--accent-color);
+  transform-style: preserve-3d;
 
   &::after {
     display: inline-block;

@@ -76,7 +76,7 @@ export default class Collapsible extends Component {
         h(Animate,
           { trigger: open, onEnter, onLeave, customStyle: { height: '0px' } },
           h('div',
-            { className: styles.body, style: { padding: '16px' } },
+            { className: styles.body },
             children
           )
         )

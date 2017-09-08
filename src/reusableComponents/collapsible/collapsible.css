@@ -98,6 +98,8 @@
 }
 
 .body {
+  padding: 16px;
+
   & ul {
     padding: 0 0 var(--spacer-md) var(--spacer-md);
     list-style-type: circle;
