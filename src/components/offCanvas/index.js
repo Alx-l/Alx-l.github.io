@@ -6,6 +6,12 @@ import { handleLink, addClass, removeClass } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
+const propTypes = {
+  open: React.PropTypes.bool,
+  route: React.PropTypes.string,
+  items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+}
+
 const OffCanvas = props => {
   const html = document.querySelector('html')
   const body = document.body
@@ -56,10 +62,6 @@ const OffCanvas = props => {
   ])
 }
 
-OffCanvas.propTypes = {
-  open: React.PropTypes.bool,
-  route: React.PropTypes.string,
-  items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
-}
+OffCanvas.propTypes = propTypes
 
 export default OffCanvas

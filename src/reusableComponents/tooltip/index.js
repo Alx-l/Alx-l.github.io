@@ -6,6 +6,10 @@ import Animate from 'reusableComponents/Animate'
 
 import styles from './tooltip.css'
 
+const propTypes = {
+  hiddenText: React.PropTypes.string
+}
+
 export default class ToolTip extends Component {
   state = { visible: false }
 
@@ -201,12 +205,9 @@ export default class ToolTip extends Component {
           : 'center top 0'
     }
   }
+}
 
-  static propTypes = {
-    hiddenText: React.PropTypes.string
-  }
-
-  static defaultProps = {
-    hiddenText: 'add some text'
-  }
+ToolTip.propTypes = propTypes
+ToolTip.defaultProps = {
+  hiddenText: 'add some text'
 }

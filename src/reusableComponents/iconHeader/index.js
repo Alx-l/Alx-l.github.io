@@ -5,6 +5,14 @@ import Icon from 'reusableComponents/icon'
 
 import styles from './iconHeader.css'
 
+const propTypes = {
+  text: React.PropTypes.string.isRequired,
+  icon: React.PropTypes.func.isRequired,
+  color: React.PropTypes.string,
+  bg: React.PropTypes.string,
+  size: React.PropTypes.number
+}
+
 const IconHeader = props => {
   const { icon, size, bg, color, text } = props
   return h('div',
@@ -16,14 +24,7 @@ const IconHeader = props => {
   )
 }
 
-IconHeader.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  icon: React.PropTypes.func.isRequired,
-  color: React.PropTypes.string,
-  bg: React.PropTypes.string,
-  size: React.PropTypes.number
-}
-
+IconHeader.propTypes = propTypes
 IconHeader.defaultProps = {
   color: '#000',
   bg: '#fff',

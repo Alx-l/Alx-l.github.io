@@ -6,6 +6,12 @@ import { isFalsy } from 'utils/misc'
 
 import styles from './cardlist.css'
 
+const propTypes = {
+  collectionToRender: React.PropTypes.arrayOf(React.PropTypes.node).isRequired,
+  filters: React.PropTypes.objectOf(React.PropTypes.bool),
+  sortBy: React.PropTypes.string
+}
+
 const CardList = props => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
@@ -25,10 +31,6 @@ const CardList = props => {
   return h('div', { className: styles.root }, renderCollection())
 }
 
-CardList.propTypes = {
-  collectionToRender: React.PropTypes.arrayOf(React.PropTypes.node).isRequired,
-  filters: React.PropTypes.objectOf(React.PropTypes.bool),
-  sortKey: React.PropTypes.string
-}
+CardList.propTypes = propTypes
 
 export default CardList

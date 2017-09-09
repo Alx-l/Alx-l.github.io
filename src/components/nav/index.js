@@ -10,6 +10,22 @@ import { Hamburger } from 'svg'
 import styles from './nav.css'
 import offCanvasStyles from '../offCanvas/offCanvas.css'
 
+const links = [
+  { text: 'who am i', dest: '/', isIndex: true },
+  { text: 'what i do', dest: 'whatido' },
+  { text: `what i've done`, dest: 'whativedone' },
+  { text: 'where to find me', dest: 'wheretofindme' }
+]
+
+const propTypes = {
+  heading: React.PropTypes.string.isRequired,
+  subHeading: React.PropTypes.string.isRequired,
+  backgroundColor: React.PropTypes.string.isRequired,
+  menuIconSize: React.PropTypes.number,
+  menuIconColor: React.PropTypes.string,
+  route: React.PropTypes.string
+}
+
 export default class Nav extends Component {
   state = { open: false }
 
@@ -125,27 +141,12 @@ export default class Nav extends Component {
 
   handleClick = e =>
     !e.target.classList.contains(offCanvasStyles.content) && this.handleClose()
-
-  static propTypes = {
-    heading: React.PropTypes.string.isRequired,
-    subHeading: React.PropTypes.string.isRequired,
-    backgroundColor: React.PropTypes.string.isRequired,
-    menuIconSize: React.PropTypes.number,
-    menuIconColor: React.PropTypes.string,
-    route: React.PropTypes.string
-  }
-
-  static defaultProps = {
-    heading: 'your name',
-    subHeading: 'your job',
-    menuIconSize: 40,
-    menuIconColor: '#fff'
-  }
 }
 
-const links = [
-  { text: 'who am i', dest: '/', isIndex: true },
-  { text: 'what i do', dest: 'whatido' },
-  { text: `what i've done`, dest: 'whativedone' },
-  { text: 'where to find me', dest: 'wheretofindme' }
-]
+Nav.propTypes = propTypes
+Nav.defaultProps = {
+  heading: 'your name',
+  subHeading: 'your job',
+  menuIconSize: 40,
+  menuIconColor: '#fff'
+}

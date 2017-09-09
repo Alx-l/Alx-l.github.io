@@ -11,6 +11,10 @@ import styles from './footer.css'
 const { accentColor, black } = settings
 const year = new Date().getFullYear()
 
+const propTypes = {
+  backgroundColor: React.PropTypes.string.isRequired
+}
+
 const Footer = props => h('footer',
   { className: styles.root, style: { background: props.backgroundColor } },
   [
@@ -41,8 +45,6 @@ const Footer = props => h('footer',
   ]
 )
 
-Footer.propTypes = {
-  backgroundColor: React.PropTypes.string.isRequired
-}
+Footer.propTypes = propTypes
 
 export default Footer

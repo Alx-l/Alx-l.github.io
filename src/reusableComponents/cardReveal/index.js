@@ -8,6 +8,16 @@ import { More, Close, Blink } from 'svg'
 
 import styles from './cardReveal.css'
 
+const propTypes = {
+  iconColor: React.PropTypes.string,
+  blinkIcon: React.PropTypes.bool,
+  href: React.PropTypes.string,
+  title: React.PropTypes.string,
+  subTitle: React.PropTypes.string,
+  footerText: React.PropTypes.node,
+  cat: React.PropTypes.string
+}
+
 export default class CardReveal extends Component {
   state = { open: false }
 
@@ -92,23 +102,14 @@ export default class CardReveal extends Component {
     const keycode = e.which || e.keyCode
     return keycode === 13 && this.setState({ open: !this.state.open })
   }
+}
 
-  static propTypes = {
-    iconColor: React.PropTypes.string,
-    blinkIcon: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    title: React.PropTypes.string,
-    subTitle: React.PropTypes.string,
-    footerText: React.PropTypes.node,
-    cat: React.PropTypes.string
-  }
-
-  static defaultProps = {
-    iconColor: '#fff',
-    blinkIcon: false,
-    title: 'title',
-    href: '',
-    footerText: '',
-    cat: ''
-  }
+CardReveal.propTypes = propTypes
+CardReveal.defaultProps = {
+  iconColor: '#fff',
+  blinkIcon: false,
+  title: 'title',
+  href: '',
+  footerText: '',
+  cat: ''
 }

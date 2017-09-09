@@ -10,6 +10,15 @@ import { Expand } from 'svg'
 
 import styles from './collapsible.css'
 
+const propTypes = {
+  title: React.PropTypes.string.isRequired,
+  popOut: React.PropTypes.bool,
+  iconSize: React.PropTypes.number,
+  iconColor: React.PropTypes.string,
+  titleIcon: React.PropTypes.func,
+  titleIconSize: React.PropTypes.number
+}
+
 export default class Collapsible extends Component {
   state = { open: false }
 
@@ -144,20 +153,12 @@ export default class Collapsible extends Component {
     const keycode = e.which || e.keyCode
     return keycode === 13 && this.setState({ open: !this.state.open })
   }
+}
 
-  static propTypes = {
-    title: React.PropTypes.string.isRequired,
-    popOut: React.PropTypes.bool,
-    iconSize: React.PropTypes.number,
-    iconColor: React.PropTypes.string,
-    titleIcon: React.PropTypes.func,
-    titleIconSize: React.PropTypes.number
-  }
-
-  static defaultProps = {
-    popOut: false,
-    iconSize: 24,
-    iconColor: '#000',
-    titleIconSize: 24
-  }
+Collapsible.propTypes = propTypes
+Collapsible.defaultProps = {
+  popOut: false,
+  iconSize: 24,
+  iconColor: '#000',
+  titleIconSize: 24
 }
