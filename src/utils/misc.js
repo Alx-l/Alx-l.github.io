@@ -10,6 +10,13 @@ export const pxToRemDims = val => ({
   height: pxToRem(val)
 })
 
+export const isFalsy = collection => {
+  const collectionIsArray = Array.isArray(collection)
+  return collectionIsArray
+    ? collection.every(item => !item)
+    : Object.keys(collection).every(item => !collection[item])
+}
+
 export const handleLink = (e, dest) => {
   // ideally, this function would not be needed...but we still live in a IE world
   e.preventDefault()
