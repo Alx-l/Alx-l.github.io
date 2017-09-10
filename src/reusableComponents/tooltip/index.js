@@ -99,10 +99,7 @@ export default class ToolTip extends Component {
     })
 
     anime({
-      begin: () => {
-        this.lastScrollYPos = window.pageYOffset
-        this.handleRAF()
-      },
+      begin: () => { this.lastScrollYPos = window.pageYOffset },
       targets: el,
       scale: {
         ...this.animeSettings,
@@ -111,7 +108,8 @@ export default class ToolTip extends Component {
       },
       run: (anim) => {
         !this.state.visible && this.pauseAnimation(anim)
-      }
+      },
+      complete: () => { this.handleRAF() }
     })
   }
 
@@ -122,12 +120,7 @@ export default class ToolTip extends Component {
       run: (anim) => {
         this.state.visible && this.pauseAnimation(anim)
       },
-      complete: () => {
-        el.style.top = 0
-        el.style.left = 0
-        el.style.marginLeft = 0
-        window.cancelAnimationFrame(this.RAF)
-      }
+      complete: () => { window.cancelAnimationFrame(this.RAF) }
     })
   }
 
