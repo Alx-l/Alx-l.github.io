@@ -19,25 +19,6 @@
   }
 }
 
-:global .btn-filter {
-  margin-right: var(--spacer);
-  padding: var(--spacer-xs) var(--spacer-sm);
-  background: transparent;
-  color: var(--grey-darken);
-  border: 1Px solid var(--accent-color);
-  border-radius: 2px;
-
-  &:focus {
-    color: var(--accent-color);
-  }
-
-  &.active {
-    background: var(--accent-color);
-    color: #fff;
-    border-color: transparent;
-  }
-}
-
 :global .btn-icon {
   @mixin btn;
 

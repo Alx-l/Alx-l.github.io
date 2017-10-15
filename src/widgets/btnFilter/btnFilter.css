@@ -1,0 +1,20 @@
+@import "../../../styles/base/_settings.css";
+
+.btnFilter {
+  margin-right: var(--spacer);
+  padding: var(--spacer-xs) var(--spacer-sm);
+  background: transparent;
+  color: var(--grey-darken);
+  border: 1Px solid var(--accent-color);
+  border-radius: 2px;
+
+  &:focus {
+    color: var(--accent-color);
+  }
+
+  &.isActive {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: transparent;
+  }
+}
