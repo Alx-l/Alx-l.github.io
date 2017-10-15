@@ -175,9 +175,9 @@ export const Zengularity = h(CardReveal,
   },
   [
     h('p.u-underline', 'Tasks :'),
-    h('ul', [li(`Build UI's`)]),
+    h('ul', [li(`Build UI's for SPAs`)]),
     h('p.u-underline', 'Tools :'),
-    h('ul', [li(`Jira`), li(`Taiga`), li(`Bitbucket / Github`)]),
+    h('ul', [li(`Bitbucket / Github`), li(`Jira`), li(`Taiga`)]),
     h('p.u-underline', 'Stack :'),
     h('ul', [
       li('TypeScript'),

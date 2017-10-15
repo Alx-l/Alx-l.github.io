@@ -78,7 +78,7 @@ export const clFrontEnd = h(Collapsible,
         titleIconSize: 35,
         title: 'Design'
       },
-      h('ul', [li('Affinity Designer'), li('Sketch'), li('Figma')])
+      h('ul', [li('Figma'), li('Sketch'), li('Affinity Designer')])
     )
   ]
 )
@@ -108,7 +108,7 @@ export const clTools = h(Collapsible,
       li('npm / yarn'),
       li('Webpack'),
       li('CSS Modules'),
-      li('ESLint / Stylelint'),
+      li('ESLint / TSLint / Stylelint'),
       li('Homebrew 🍺')
     ]),
     h('p', [
