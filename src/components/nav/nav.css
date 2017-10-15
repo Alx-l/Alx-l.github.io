@@ -47,18 +47,16 @@
 }
 
 .list {
-  &:global {
-    &.is-fixed {
-      z-index: 9;
-      position: fixed 0 0 null 0;
-      padding: 0 var(--spacer);
-    }
+  &.isFixed {
+    z-index: 9;
+    position: fixed 0 0 null 0;
+    padding: 0 var(--spacer);
+  }
 
-    &.has-boxshadow {
-      background-color: inherit;
+  &.hasBoxshadow {
+    background-color: inherit;
 
-      @apply --box-shadow;
-    }
+    @apply --box-shadow;
   }
 
   position: relative;
@@ -87,11 +85,9 @@
       width: 25%;
     }
 
-    &:global {
-      &:hover,
-      &.is-active {
-        background: color(var(--primary-color) shade(10%));
-      }
+    &:hover,
+    &.isActive {
+      background: color(var(--primary-color) shade(10%));
     }
   }
 }
@@ -121,21 +117,19 @@
   text-align: left;
   cursor: pointer;
 
-  &:global {
-    &.is-fixed {
-      z-index: 5;
-      position: fixed 0 0 null 0;
-      padding: 0 var(--spacer);
-      background-color: inherit;
-    }
+  &.isFixed {
+    z-index: 5;
+    position: fixed 0 0 null 0;
+    padding: 0 var(--spacer);
+    background-color: inherit;
+  }
 
-    &.has-boxshadow {
-      @apply --box-shadow;
-    }
+  &.hasBoxshadow {
+    @apply --box-shadow;
+  }
 
-    & > div {
-      vertical-align: middle;
-      animation: slideLeft 0.35s ease-out-back;
-    }
+  & > div {
+    vertical-align: middle;
+    animation: slideLeft 0.35s ease-out-back;
   }
 }

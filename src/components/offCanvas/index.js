@@ -36,7 +36,7 @@ const OffCanvas = props => {
       const isActive =
         route === item.dest || (route === 'index' && item.isIndex)
       const className = classNames(styles.item, {
-        'is-active': isActive
+        [styles.isActive]: isActive
       })
 
       return h('li', { className, key: i },
@@ -54,7 +54,7 @@ const OffCanvas = props => {
     })
   }
 
-  const className = classNames(styles.root, { 'is-open': props.open })
+  const className = classNames(styles.root, { [styles.isOpen]: props.open })
 
   return h('div', { className, style: { textTransform: 'uppercase' } }, [
     h('div', { className: styles.overlay }),

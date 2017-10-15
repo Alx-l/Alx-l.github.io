@@ -2,18 +2,16 @@
 @import "../../../styles/utils/_custom-selectors.css";
 
 .root {
-  &:global {
-    &.is-open {
-      & :local(.overlay) {
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 1;
-      }
+  &.isOpen {
+    & .overlay {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+    }
 
-      & :local(.content) {
-        transform: translate3d(0, 0, 0);
-      }
+    & .content {
+      transform: translate3d(0, 0, 0);
     }
   }
 }
@@ -51,14 +49,12 @@
     background-color: var(--grey-lighten);
   }
 
-  &:global {
-    &.is-active {
-      background-color: var(--grey);
-      transition: none;
+  &.isActive {
+    background-color: var(--grey);
+    transition: none;
 
-      & :local(.link) {
-        color: #fff;
-      }
+    & .link {
+      color: #fff;
     }
   }
 }

@@ -37,17 +37,16 @@ export default class Collapsible extends Component {
       onEnter, onExit, hrOffsetValue } = this
 
     const CollapsibleClassName = classNames(styles.root, {
-      popOut: popOut,
-      'is-open': open,
-      'is-close': !open
+      [styles.popOut]: popOut,
+      [styles.isOpen]: open
     })
     const expandIconClassName = classNames(styles.expandIcon, {
-      'is-open': open
+      [styles.isOpen]: open
     })
 
     const renderIcon =
       titleIcon &&
-      h(Icon, { svg: titleIcon, color: iconColor, className: 'icon', size: titleIconSize })
+      h(Icon, { svg: titleIcon, color: iconColor, className: styles.icon, size: titleIconSize })
 
     return h('div',
       { 'aria-expanded': open, className: CollapsibleClassName },
@@ -62,7 +61,7 @@ export default class Collapsible extends Component {
           [
             h('div', { className: styles.titleLeft }, [
               renderIcon,
-              h('span', { className: 'text' }, title)
+              h('span', { className: styles.text }, title)
             ]),
             h('div', { className: styles.titleRight }, [
               h('div',
@@ -94,7 +93,6 @@ export default class Collapsible extends Component {
     const height = el.scrollHeight
     this.animeDuration = this.animeSettings.duration
     anime({
-      begin: () => { el.style.willChange = 'height' },
       targets: el,
       height: { ...this.animeSettings, value: height },
       run: (anim) => {
@@ -103,7 +101,6 @@ export default class Collapsible extends Component {
       },
       complete: () => {
         el.style.height = 'auto'
-        el.style.willChange = ''
         this.animateHr(true)
       }
     })
@@ -113,7 +110,6 @@ export default class Collapsible extends Component {
     this.animeDuration = this.animeSettings.duration
     anime({
       begin: () => {
-        el.style.willChange = 'height'
         return this.animateHr(false)
       },
       targets: el,
@@ -121,9 +117,6 @@ export default class Collapsible extends Component {
       run: (anim) => {
         this.updateAnimeDuration(anim.currentTime)
         this.state.open && this.pauseAnimation(anim)
-      },
-      complete: () => {
-        el.style.willChange = ''
       }
     })
   }

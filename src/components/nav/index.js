@@ -75,7 +75,7 @@ export default class Nav extends Component {
       const isActive = route === dest || (route === 'index' && isIndex)
 
       return h('li',
-        { key: i, className: isActive ? 'is-active' : undefined },
+        { key: i, className: isActive ? styles.isActive : undefined },
         h('a',
           { 'data-nav': 'ignore',
             onClick: e => handleLink(e, dest),
@@ -93,7 +93,7 @@ export default class Nav extends Component {
     [
       h('div',
         { className: styles.icon, onClick: this.handleOpen, ref: icon => { this.icon = icon } },
-        h(Icon, { svg: Hamburger, size: 40, color: '#fff', customStyle: { verticalAlign: 'middle' } })
+        h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
       )
     ]
   )
@@ -108,13 +108,13 @@ export default class Nav extends Component {
         targetNode: this.list,
         threshold: listContainerHeight,
         isBottomValue: true,
-        className: 'has-boxshadow'
+        className: styles.hasBoxshadow
       })
 
       handleStickyClassOnScroll({
         node: this.listContainer,
         targetNode: this.list,
-        className: 'is-fixed'
+        className: styles.isFixed
       })
     }
 
@@ -123,13 +123,13 @@ export default class Nav extends Component {
       targetNode: this.icon,
       threshold: iconContainerHeight,
       isBottomValue: true,
-      className: 'has-boxshadow'
+      className: styles.hasBoxshadow
     })
 
     handleStickyClassOnScroll({
       node: this.iconContainer,
       targetNode: this.icon,
-      className: 'is-fixed'
+      className: styles.isFixed
     })
 
     window.requestAnimationFrame(this.handleRAF)
