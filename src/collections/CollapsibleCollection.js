@@ -29,9 +29,8 @@ export const clFrontEnd = h(Collapsible,
   },
   [
     h('ul', [
-      li('HTML5'),
+      li('HTML5 / CSS3'),
       li('Jade (I mean Pug 🐶...)'),
-      li('CSS3 / Flexbox'),
       li('SCSS / Less / Stylus'),
       li('PostCSS')
     ]),
@@ -66,7 +65,7 @@ export const clFrontEnd = h(Collapsible,
         title: 'JS'
       },
       h('ul', [
-        li('ES5 / ES6'),
+        li('ES6'),
         li('TypeScript'),
         li('React / Flux architecture')
       ])
