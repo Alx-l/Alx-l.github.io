@@ -178,16 +178,20 @@ export const Zengularity = h(CardReveal,
     h('ul', [li(`Build UI's for SPAs`)]),
     h('p.u-underline', 'Tools :'),
     h('ul', [li(`Bitbucket / Github`), li(`Jira`), li(`Taiga`)]),
-    h('p.u-underline', 'Stack :'),
+    h('p.u-underline', 'Stack / libs :'),
     h('ul', [
       li('TypeScript'),
-      li('React'),
       h('li', [
-        h(
-          'a.u-linkSweep',
-          { href: 'https://github.com/AlexGalays/fluxx', target: '_blank' },
-          'Fluxx'
-        )
+        'React / ',
+        h('a.u-linkSweep',
+          { href: 'https://github.com/AlexGalays/kaiju', target: '_blank' },
+          'Kaiju'
+        )]),
+      h('li', [
+        h('a.u-linkSweep',
+        { href: 'https://github.com/AlexGalays/spacelift', target: '_blank' },
+        'spacelift'
+      )
       ]),
       li('CSS Modules'),
       li('Less / Stylus')

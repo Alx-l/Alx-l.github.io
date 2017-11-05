@@ -1,14 +1,14 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import classNames from 'classnames'
 
 import styles from './btnFilter.css'
 
 const propTypes = {
-  onClick: React.PropTypes.func,
-  dataAttr: React.PropTypes.string,
-  text: React.PropTypes.string,
-  isActive: React.PropTypes.bool
+  onClick: PropTypes.func,
+  dataAttr: PropTypes.string,
+  text: PropTypes.string,
+  isActive: PropTypes.bool
 }
 
 const BtnFilter = props => {

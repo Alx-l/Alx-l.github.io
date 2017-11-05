@@ -1,14 +1,14 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
 import { pxToRemDims } from 'utils/misc'
 
 const propTypes = {
-  svg: React.PropTypes.func.isRequired,
-  size: React.PropTypes.number,
-  className: React.PropTypes.string,
-  customStyle: React.PropTypes.objectOf(React.PropTypes.string),
-  color: React.PropTypes.string
+  svg: PropTypes.func.isRequired,
+  size: PropTypes.number,
+  className: PropTypes.string,
+  customStyle: PropTypes.objectOf(PropTypes.string),
+  color: PropTypes.string
 }
 
 const Icon = props => {

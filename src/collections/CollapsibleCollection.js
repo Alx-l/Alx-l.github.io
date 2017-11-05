@@ -67,7 +67,7 @@ export const clFrontEnd = h(Collapsible,
       h('ul', [
         li('ES6'),
         li('TypeScript'),
-        li('React / Flux architecture')
+        li('Flux-like architectures')
       ])
     ),
     h(Collapsible,

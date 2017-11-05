@@ -1,29 +1,30 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
-import _ from 'space-lift'
-
-import { isFalsy } from 'utils/misc'
+import lift from 'space-lift'
 
 import styles from './cardlist.css'
 
 const propTypes = {
-  collectionToRender: React.PropTypes.arrayOf(React.PropTypes.node).isRequired,
-  filters: React.PropTypes.objectOf(React.PropTypes.bool),
-  sortBy: React.PropTypes.string
+  collectionToRender: PropTypes.arrayOf(PropTypes.node).isRequired,
+  filters: PropTypes.objectOf(PropTypes.bool),
+  sortBy: PropTypes.string
 }
 
 const CardList = props => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
+    const filtersAreSet = lift(filters)
+      .values()
+      .compact()
+      .value().length > 0
 
-    const filtersAreSet = !isFalsy(filters)
-    const filterByCat = item => (filtersAreSet ? filters[item.props.cat] : item)
-    const content = (item, i) =>
-      h('div', { className: styles.item, key: i }, item)
+    const filterByCat = card => (filtersAreSet ? filters[card.props.cat] : card)
+    const content = card =>
+      h('div', { className: styles.item }, card)
 
-    return _(collectionToRender)
+    return lift(collectionToRender)
       .filter(filterByCat)
-      .sort({ by: el => el.props[sortKey], ignoreCase: true })
+      .sort({ by: card => card.props[sortKey], ignoreCase: true })
       .map(content)
       .value()
   }

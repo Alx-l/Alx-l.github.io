@@ -1,5 +1,5 @@
 import connect from 'fluxx/lib/ReactConnector'
-import _ from 'space-lift'
+import lift from 'space-lift'
 import h from 'react-hyperscript'
 
 import { mainStore } from '../store'
@@ -16,14 +16,14 @@ import settings from 'settings'
 import styles from './whatIveDone.css'
 
 const { grey } = settings
-const CardCollection = _(Cards).values().value()
+const CardCollection = lift(Cards).values().value()
 
 const WhatIveDone = props => {
   const renderBtnFilter = (text, dataAttr) => {
     const { filters } = props
 
     return h(BtnFilter, {
-      onClick: () => setFilter(dataAttr, !filters[dataAttr]),
+      onClick: () => setFilter({ key: dataAttr, value: !filters[dataAttr] }),
       isActive: filters[dataAttr],
       dataAttr,
       text

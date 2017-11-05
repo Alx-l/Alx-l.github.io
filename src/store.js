@@ -1,5 +1,5 @@
 import { GlobalStore, Action } from 'fluxx'
-import { update } from 'immupdate'
+import lift, { update } from 'space-lift'
 
 export const updateFilter = Action('updateFilter')
 
@@ -8,12 +8,9 @@ const initialState = {
 }
 
 export const mainStore = GlobalStore(initialState, on => {
-  on(updateFilter, (state, filter) => {
+  on(updateFilter, (state, { key, value }) => {
     return update(state, {
-      filters: {
-        ...state.filters,
-        [filter.key]: filter.booleanValue
-      }
+      filters: lift(state.filters).add(key, value).value()
     })
   })
 })

@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import classNames from 'classnames'
 import anime from 'animejs'
-import { update } from 'immupdate'
+import { update } from 'space-lift'
 
 import Icon from 'reusableComponents/icon'
 import Animate from 'reusableComponents/Animate'
@@ -11,12 +12,12 @@ import { Expand } from 'svg'
 import styles from './collapsible.css'
 
 const propTypes = {
-  title: React.PropTypes.string.isRequired,
-  popOut: React.PropTypes.bool,
-  iconSize: React.PropTypes.number,
-  iconColor: React.PropTypes.string,
-  titleIcon: React.PropTypes.func,
-  titleIconSize: React.PropTypes.number
+  title: PropTypes.string.isRequired,
+  popOut: PropTypes.bool,
+  iconSize: PropTypes.number,
+  iconColor: PropTypes.string,
+  titleIcon: PropTypes.func,
+  titleIconSize: PropTypes.number
 }
 
 export default class Collapsible extends Component {

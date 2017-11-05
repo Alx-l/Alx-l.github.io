@@ -1,5 +1,4 @@
-import React from 'react'
-
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
 import { Heart, Laptop, Music, Add } from 'svg'
@@ -12,7 +11,7 @@ const { accentColor, black } = settings
 const year = new Date().getFullYear()
 
 const propTypes = {
-  backgroundColor: React.PropTypes.string.isRequired
+  backgroundColor: PropTypes.string.isRequired
 }
 
 const Footer = props => h('footer',

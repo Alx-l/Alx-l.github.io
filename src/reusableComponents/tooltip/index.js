@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
 
@@ -7,7 +8,7 @@ import Animate from 'reusableComponents/Animate'
 import styles from './tooltip.css'
 
 const propTypes = {
-  hiddenText: React.PropTypes.string
+  hiddenText: PropTypes.string
 }
 
 export default class ToolTip extends Component {

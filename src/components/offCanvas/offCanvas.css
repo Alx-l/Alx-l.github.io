@@ -2,29 +2,23 @@
 @import "../../../styles/utils/_custom-selectors.css";
 
 .root {
+  text-transform: uppercase;
+
   &.isOpen {
     & .overlay {
-      right: 0;
-      bottom: 0;
-      left: 0;
-      opacity: 1;
-    }
-
-    & .content {
-      transform: translate3d(0, 0, 0);
+      &:global {
+        animation: fadeIn ease-out-quint 0.45s forwards;
+      }
     }
   }
 }
 
 .overlay {
   z-index: 10;
-  position: fixed;
-  top: 0;
-  left: -100%;
+  position: fixed 0;
   background-color: rgba(#000, 0.54);
   opacity: 0;
   transform: translateZ(0); /* trick to smooth out the animation */
-  transition: opacity ease-out-quint 0.45s;
 }
 
 .content {
@@ -35,8 +29,7 @@
   height: 100%;
   background-color: #fff;
   box-shadow: rgba(#000, 0.16) 0 3px 10px, rgba(#000, 0.23) 0 3px 10px;
-  transform: translate3d(-240px, 0, 0);
-  transition: transform ease-out-quint 0.45s;
+  transform: translateX(-100%);
 }
 
 .item {

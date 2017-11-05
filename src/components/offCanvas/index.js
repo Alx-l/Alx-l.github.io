@@ -1,16 +1,23 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
+import anime from 'animejs'
 import classNames from 'classnames'
+
+import Animate from 'reusableComponents/Animate'
 
 import { handleLink, addClass, removeClass } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
 const propTypes = {
-  open: React.PropTypes.bool,
-  route: React.PropTypes.string,
-  items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+  open: PropTypes.bool,
+  route: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onClose: PropTypes.func
 }
+
+const animeSettings = { duration: 450, easing: 'easeOutQuint' }
+let contentRef = null
 
 const OffCanvas = props => {
   const html = document.querySelector('html')
@@ -32,14 +39,14 @@ const OffCanvas = props => {
   const renderItems = () => {
     const { items, route } = props
 
-    return items.map((item, i) => {
+    return items.map(item => {
       const isActive =
         route === item.dest || (route === 'index' && item.isIndex)
       const className = classNames(styles.item, {
         [styles.isActive]: isActive
       })
 
-      return h('li', { className, key: i },
+      return h('li', { className },
         h('a',
           {
             'data-nav': 'ignore',
@@ -54,12 +61,33 @@ const OffCanvas = props => {
     })
   }
 
+  const onClick = e =>
+    !e.target.classList.contains(styles.content) && props.onClose()
+
+  const onEnter = () => {
+    anime({
+      targets: contentRef,
+      translateX: { ...animeSettings, value: ['-100%', 0] }
+    })
+  }
+
+  const onExit = () => {
+    anime({
+      targets: contentRef,
+      translateX: { ...animeSettings, value: '-100%' }
+    })
+  }
+
   const className = classNames(styles.root, { [styles.isOpen]: props.open })
 
-  return h('div', { className, style: { textTransform: 'uppercase' } }, [
-    h('div', { className: styles.overlay }),
-    h('div', { className: styles.content }, h('ul', {}, renderItems()))
-  ])
+  return h(Animate,
+    { trigger: props.open, onEnter, onExit, timeout: animeSettings.duration },
+    h('div', { className, onClick }, [
+      h('div', { className: styles.overlay }),
+      h('div', { className: styles.content, ref: content => { contentRef = content } },
+      h('ul', {}, renderItems()))
+    ]
+  ))
 }
 
 OffCanvas.propTypes = propTypes

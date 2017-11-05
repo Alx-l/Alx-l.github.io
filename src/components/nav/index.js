@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
 import { handleLink, handleStickyClassOnScroll } from 'utils/misc'
@@ -8,7 +10,6 @@ import Icon from 'reusableComponents/icon'
 import { Hamburger } from 'svg'
 
 import styles from './nav.css'
-import offCanvasStyles from '../offCanvas/offCanvas.css'
 
 const links = [
   { text: 'who am i', dest: '/', isIndex: true },
@@ -18,21 +19,22 @@ const links = [
 ]
 
 const propTypes = {
-  heading: React.PropTypes.string.isRequired,
-  subHeading: React.PropTypes.string.isRequired,
-  backgroundColor: React.PropTypes.string.isRequired,
-  menuIconSize: React.PropTypes.number,
-  menuIconColor: React.PropTypes.string,
-  route: React.PropTypes.string
+  heading: PropTypes.string.isRequired,
+  subHeading: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+  menuIconSize: PropTypes.number,
+  menuIconColor: PropTypes.string,
+  route: PropTypes.string
 }
 
 export default class Nav extends Component {
-  state = { open: false }
+  state = { showOffCanvas: false }
 
   componentDidMount() { this.handleRAF() }
 
   render() {
     const { backgroundColor, heading, subHeading, route } = this.props
+    const { showOffCanvas } = this.state
 
     return h('nav',
       {
@@ -60,9 +62,7 @@ export default class Nav extends Component {
           ]
         ),
         this.renderMenuIcon(),
-        h('div', { onClick: this.handleClick },
-          h(OffCanvas, { route, open: this.state.open, items: links })
-        )
+        h(OffCanvas, { route, open: showOffCanvas, items: links, onClose: this.hideOffCanvas })
       ]
     )
   }
@@ -70,12 +70,12 @@ export default class Nav extends Component {
   renderNavItems = () => {
     const { route } = this.props
 
-    return links.map((link, i) => {
+    return links.map(link => {
       const { dest, text, isIndex } = link
       const isActive = route === dest || (route === 'index' && isIndex)
 
       return h('li',
-        { key: i, className: isActive ? styles.isActive : undefined },
+        { className: isActive ? styles.isActive : undefined },
         h('a',
           { 'data-nav': 'ignore',
             onClick: e => handleLink(e, dest),
@@ -92,7 +92,7 @@ export default class Nav extends Component {
     { className: styles.iconContainer, ref: iconContainer => { this.iconContainer = iconContainer } },
     [
       h('div',
-        { className: styles.icon, onClick: this.handleOpen, ref: icon => { this.icon = icon } },
+        { className: styles.icon, onClick: this.showOffCanvas, ref: icon => { this.icon = icon } },
         h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
       )
     ]
@@ -135,12 +135,9 @@ export default class Nav extends Component {
     window.requestAnimationFrame(this.handleRAF)
   }
 
-  handleOpen = () => this.setState({ open: true })
+  showOffCanvas = () => this.setState({ showOffCanvas: true })
 
-  handleClose = () => this.setState({ open: false })
-
-  handleClick = e =>
-    !e.target.classList.contains(offCanvasStyles.content) && this.handleClose()
+  hideOffCanvas = () => this.setState({ showOffCanvas: false })
 }
 
 Nav.propTypes = propTypes

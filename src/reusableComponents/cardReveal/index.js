@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
 
@@ -9,13 +10,13 @@ import { More, Close, Blink } from 'svg'
 import styles from './cardReveal.css'
 
 const propTypes = {
-  iconColor: React.PropTypes.string,
-  blinkIcon: React.PropTypes.bool,
-  href: React.PropTypes.string,
-  title: React.PropTypes.string,
-  subTitle: React.PropTypes.string,
-  footerText: React.PropTypes.node,
-  cat: React.PropTypes.string
+  iconColor: PropTypes.string,
+  blinkIcon: PropTypes.bool,
+  href: PropTypes.string,
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  footerText: PropTypes.node,
+  cat: PropTypes.string
 }
 
 export default class CardReveal extends Component {

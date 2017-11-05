@@ -1,14 +1,14 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import Transition from 'react-transition-group/Transition'
 import h from 'react-hyperscript'
 
 const propTypes = {
-  onEnter: React.PropTypes.func.isRequired,
-  onExit: React.PropTypes.func.isRequired,
-  trigger: React.PropTypes.bool.isRequired,
-  timeout: React.PropTypes.number.isRequired,
-  className: React.PropTypes.string,
-  customStyle: React.PropTypes.objectOf(React.PropTypes.string)
+  onEnter: PropTypes.func.isRequired,
+  onExit: PropTypes.func.isRequired,
+  trigger: PropTypes.bool.isRequired,
+  timeout: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  customStyle: PropTypes.objectOf(PropTypes.string)
 }
 
 const Animate = props => {

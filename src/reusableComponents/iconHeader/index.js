@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
 import Icon from 'reusableComponents/icon'
@@ -6,11 +6,11 @@ import Icon from 'reusableComponents/icon'
 import styles from './iconHeader.css'
 
 const propTypes = {
-  text: React.PropTypes.string.isRequired,
-  icon: React.PropTypes.func.isRequired,
-  color: React.PropTypes.string,
-  bg: React.PropTypes.string,
-  size: React.PropTypes.number
+  text: PropTypes.string.isRequired,
+  icon: PropTypes.func.isRequired,
+  color: PropTypes.string,
+  bg: PropTypes.string,
+  size: PropTypes.number
 }
 
 const IconHeader = props => {
