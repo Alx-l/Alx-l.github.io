@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
@@ -39,7 +40,7 @@ export default class ToolTip extends Component {
           },
           this.props.children
         ),
-        this.renderToolTips()
+        ReactDOM.createPortal(this.renderToolTips(), document.querySelector('body'))
       ]
     )
   }
