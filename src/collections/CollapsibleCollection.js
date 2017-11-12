@@ -227,14 +227,14 @@ export const clPeople = h(Collapsible,
       ]),
       h('li', [
         h('a.u-linkSweep',
-          { href: 'http://sidebar.io/', target: '_blank' },
-          'Sacha Greif'
+          { href: 'https://blog.mariusschulz.com/', target: '_blank' },
+          'Marius Schulz'
         )
       ]),
       h('li', [
         h('a.u-linkSweep',
-          { href: 'https://una.im/', target: '_blank' },
-          'Una Kravets'
+          { href: 'http://sidebar.io/', target: '_blank' },
+          'Sacha Greif'
         )
       ]),
       h('li', [
