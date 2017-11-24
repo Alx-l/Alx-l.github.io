@@ -17,12 +17,12 @@ const Likes = () => h('div', [
       `While we're at it, why not get a glance about some stuff I heart...`
     )
   ]),
-  h('div', { className: styles.container }, [
-    h('div', { className: styles.left }, [
+  h(`div.${ styles.container }`, [
+    h(`div.${ styles.left }`, [
       h('div', { 'data-divider': true }, clMusic),
       h('div', { 'data-divider': true }, clTVMovies)
     ]),
-    h('div', { className: styles.right }, [
+    h(`div.${ styles.right }`, [
       h('div', { 'data-divider': true }, clPeople),
       h('div', {}, clMisc)
     ])

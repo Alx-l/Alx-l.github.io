@@ -33,7 +33,7 @@ const WhatIveDone = props => {
   return h('div', [
     h(IconHeader, { icon: History, size: 20, color: grey, text: 'My work' }),
     h(TextBlock, [h('p', `Here is what I've done so far :`)]),
-    h('div', { className: styles.filters }, [
+    h(`div.${ styles.filters }`, [
       h('span', 'show :'),
       renderBtnFilter('side projects', 'sideprojects'),
       renderBtnFilter('jobs', 'jobs')

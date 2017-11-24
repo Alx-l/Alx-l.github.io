@@ -1,5 +1,4 @@
 import h from 'react-hyperscript'
-import classNames from 'classnames'
 
 import TextBlock from 'layouts/textBlock'
 import IconHeader from 'reusableComponents/iconHeader'
@@ -13,7 +12,7 @@ import styles from './whereToFindMe.css'
 const { email, grey } = settings
 
 const WhereToFindMe = () => {
-  const emailClassName = classNames(styles.email, 'u-underlineLeft')
+  const emailClassName = `${ styles.email }.${ 'u-underlineLeft' }`
 
   return h('div', [
     h(IconHeader, { icon: PersonPin, size: 20, color: grey, text: 'Finding me' }),
@@ -25,7 +24,7 @@ const WhereToFindMe = () => {
       h('p', [
         'But since that could take a while before you randomly bump into me, feel free to send me an email :',
         h('br'),
-        h('a', { className: emailClassName, href: `mailto:${email}` }, email)
+        h(`a.${ emailClassName }`, { href: `mailto:${ email }` }, email)
       ]),
       h('span', 'Wanna take a peek at my repos?'),
       h('br'),

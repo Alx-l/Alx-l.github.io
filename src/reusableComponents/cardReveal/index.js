@@ -39,14 +39,14 @@ export default class CardReveal extends Component {
         )
       ])
 
-    return h('div', { className: styles.root, 'data-cat': cat }, [
-      h('div', { className: styles.content }, [
-        h('h3', { className: styles.title }, title),
-        subTitle && h('span', { className: styles.subTitle }, subTitle)
+    return h(`div.${ styles.root }`, { 'data-cat': cat }, [
+      h(`div.${ styles.content }`, [
+        h(`h3.${ styles.title }`, title),
+        subTitle && h(`span.${ styles.subTitle }`, subTitle)
       ]),
-      h('div', { className: styles.footer }, [
-        h('div', { className: styles.footerText }, footerText),
-        h('div', { className: styles.iconContainer }, [
+      h(`div.${ styles.footer }`, [
+        h(`div.${ styles.footerText }`, {}, footerText),
+        h(`div.${ styles.iconContainer }`, [
           h('div', { onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
             h(Icon, { svg: More, size: 24, color: iconColor })
           ),
@@ -74,8 +74,7 @@ export default class CardReveal extends Component {
             },
             h(Icon, { svg: Close, color: iconColor, size: 24 })
           ),
-          h('div',
-            { className: styles.insideRoot, style: { overflow: 'hidden' } },
+          h(`div.${ styles.insideRoot }`, {},
             children
           )
         ])

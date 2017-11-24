@@ -15,11 +15,11 @@ const propTypes = {
 
 const IconHeader = props => {
   const { icon, size, bg, color, text } = props
-  return h('div',
-    { style: { backgroundColor: bg }, className: styles.root },
-    h('h2', { className: styles.heading }, [
+  return h(`div.${ styles.root }`,
+    { style: { backgroundColor: bg } },
+    h(`h2.${ styles.heading }`, [
       h(Icon, { svg: icon, color, size, className: styles.icon }),
-      h('span', { className: styles.text }, text)
+      h(`span.${ styles.text }`, text)
     ])
   )
 }

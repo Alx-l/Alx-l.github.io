@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
-import classNames from 'classnames'
 import anime from 'animejs'
 import { update } from 'space-lift'
 
@@ -37,36 +36,32 @@ export default class Collapsible extends Component {
       props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children },
       onEnter, onExit, hrOffsetValue } = this
 
-    const CollapsibleClassName = classNames(styles.root, {
-      [styles.popOut]: popOut,
-      [styles.isOpen]: open
-    })
-    const expandIconClassName = classNames(styles.expandIcon, {
-      [styles.isOpen]: open
-    })
+    const CollapsibleClassName = `${ styles.root }
+      .${ popOut ? styles.popOut : '' }
+      .${ open ? styles.isOpen : '' }`
+
+    const expandIconClassName = `${ styles.expandIcon }.${ open ? styles.isOpen : '' }`
 
     const renderIcon =
       titleIcon &&
       h(Icon, { svg: titleIcon, color: iconColor, className: styles.icon, size: titleIconSize })
 
-    return h('div',
-      { 'aria-expanded': open, className: CollapsibleClassName },
+    return h(`div.${ CollapsibleClassName }`,
+      { 'aria-expanded': open },
       [
-        h('div',
+        h(`div.${ styles.title }`,
           {
             onKeyDown: this.handleKeyDown,
-            className: styles.title,
             onClick: this.handleClick,
             tabIndex: '0'
           },
           [
-            h('div', { className: styles.titleLeft }, [
+            h(`div.${ styles.titleLeft }`, [
               renderIcon,
-              h('span', { className: styles.text }, title)
+              h(`span.${ styles.text }`, title)
             ]),
-            h('div', { className: styles.titleRight }, [
-              h('div',
-                { className: expandIconClassName },
+            h(`div.${ styles.titleRight }`, [
+              h(`div.${ expandIconClassName }`, {},
                 h(Icon, {
                   svg: Expand,
                   size: iconSize,
@@ -75,10 +70,9 @@ export default class Collapsible extends Component {
                 })
               )
             ]),
-            h('hr', {
+            h(`hr.${ styles.hr }`, {
               ref: hr => { this.hr = hr },
-              style: { transform: `translateX(${hrOffsetValue})` },
-              className: styles.hr
+              style: { transform: `translateX(${ hrOffsetValue })` }
             })
           ]
         ),
@@ -129,7 +123,7 @@ export default class Collapsible extends Component {
       ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
       : anime({
         targets: hr,
-        translateX: { ...animeSettings, value: `${hrOffsetValue}` }
+        translateX: { ...animeSettings, value: `${ hrOffsetValue }` }
       })
   }
 

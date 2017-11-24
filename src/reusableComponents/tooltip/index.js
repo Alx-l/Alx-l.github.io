@@ -23,20 +23,18 @@ export default class ToolTip extends Component {
   lastScrollYPos = 0
 
   render() {
-    return h('span',
+    return h(`span.${ styles.root }`,
       {
         onClick: this.handleClick,
         onMouseEnter: this.setVisible,
         onMouseLeave: this.unsetVisible,
         onKeyDown: this.handleKeyDown,
-        className: styles.root,
         tabIndex: '0'
       },
       [
-        h('span',
+        h(`span.${ styles.text }`,
           {
-            ref: visibleText => { this.visibleText = visibleText },
-            className: styles.text
+            ref: visibleText => { this.visibleText = visibleText }
           },
           this.props.children
         ),
@@ -154,7 +152,7 @@ export default class ToolTip extends Component {
     return (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
       hiddenElWidth > distanceFromRight
       ? '0px'
-      : `${-(hiddenElWidth - visibleTextWidth) / 2}px`
+      : `${ -(hiddenElWidth - visibleTextWidth) / 2 }px`
   }
 
   computeTop = ({
@@ -164,8 +162,8 @@ export default class ToolTip extends Component {
     hiddenElHeight
   }) => {
     return distanceFromTop > 0
-      ? `${visibleTextTop - hiddenElHeight}px`
-      : `${visibleTextTop + visibleTextHeight}px`
+      ? `${ visibleTextTop - hiddenElHeight }px`
+      : `${ visibleTextTop + visibleTextHeight }px`
   }
 
   computeLeft = ({
@@ -175,8 +173,8 @@ export default class ToolTip extends Component {
     visibleTextLeft
   }) => {
     return hiddenElWidth > distanceFromRight
-      ? `${visibleTextRight - hiddenElWidth}px`
-      : `${visibleTextLeft}px`
+      ? `${ visibleTextRight - hiddenElWidth }px`
+      : `${ visibleTextLeft }px`
   }
 
   computeTransformOrigin = ({

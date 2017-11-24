@@ -14,9 +14,8 @@ const propTypes = {
 const Icon = props => {
   const { color, className, svg, size, customStyle } = props
 
-  return h('div',
+  return h(`div.${ className }`,
     {
-      className,
       style: { display: 'inline-block', ...pxToRemDims(size), ...customStyle }
     },
     svg(color)

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
-import classNames from 'classnames'
 
 import styles from './btnFilter.css'
 
@@ -13,12 +12,11 @@ const propTypes = {
 
 const BtnFilter = props => {
   const { onClick, dataAttr, text, isActive } = props
-  return h('button',
+  return h(`button.${ styles.btnFilter }.${ isActive ? styles.isActive : '' }`,
     {
       onClick,
       'data-props': dataAttr,
-      tabIndex: '0',
-      className: classNames(styles.btnFilter, { [styles.isActive]: isActive })
+      tabIndex: '0'
     },
     text
   )

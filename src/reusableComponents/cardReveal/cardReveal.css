@@ -73,6 +73,7 @@
 /* Inside the card
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .insideRoot {
+  overflow: hidden;
   color: var(--primary-text);
 
   & ul {

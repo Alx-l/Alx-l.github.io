@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
-import classNames from 'classnames'
 
 import styles from './textBlock.css'
 
@@ -9,11 +8,9 @@ const propTypes = {
 }
 
 const TextBlock = props => {
-  const className = classNames(styles.root, {
-    [styles.background]: props.background
-  })
+  const className = `${ styles.root }.${ props.background ? styles.background : '' }`
 
-  return h('div', { className }, [props.children])
+  return h(`div.${ className }`, [props.children])
 }
 
 TextBlock.propTypes = propTypes

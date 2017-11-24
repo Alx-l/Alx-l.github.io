@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
-import classNames from 'classnames'
 
 import Animate from 'reusableComponents/Animate'
 
@@ -25,7 +24,7 @@ const OffCanvas = props => {
   const { top } = body.getBoundingClientRect()
   const makeBodyUnscrollable = () => {
     addClass('u-noscroll', html, body)
-    html.style.top = `${top}px`
+    html.style.top = `${ top }px`
   }
   const makeBodyScrollable = () => {
     removeClass('u-noscroll', html, body)
@@ -42,17 +41,14 @@ const OffCanvas = props => {
     return items.map(item => {
       const isActive =
         route === item.dest || (route === 'index' && item.isIndex)
-      const className = classNames(styles.item, {
-        [styles.isActive]: isActive
-      })
+      const className = `${ styles.item }.${ isActive ? styles.isActive : '' }`
 
-      return h('li', { className },
-        h('a',
+      return h(`li.${ className }`, {},
+        h(`a.${ styles.link }`,
           {
             'data-nav': 'ignore',
             onClick: e => handleLink(e, item.dest),
             tabIndex: '-1',
-            className: styles.link,
             href: item.dest
           },
           item.text
@@ -78,13 +74,13 @@ const OffCanvas = props => {
     })
   }
 
-  const className = classNames(styles.root, { [styles.isOpen]: props.open })
+  const className = `${ styles.root }.${ props.open ? styles.isOpen : '' }`
 
   return h(Animate,
     { trigger: props.open, onEnter, onExit, timeout: animeSettings.duration },
-    h('div', { className, onClick }, [
-      h('div', { className: styles.overlay }),
-      h('div', { className: styles.content, ref: content => { contentRef = content } },
+    h(`div.${ className }`, { onClick }, [
+      h(`div.${ styles.overlay }`),
+      h(`div.${ styles.content }`, { ref: content => { contentRef = content } },
       h('ul', {}, renderItems()))
     ]
   ))

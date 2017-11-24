@@ -13,12 +13,12 @@ const { grey } = settings
 const Skillz = () => h('div', [
   h(IconHeader, { icon: Tool, size: 20, color: grey, text: 'My skillz' }),
   h(TextBlock, [h('p', `Let's find out what I can do, shall we?`)]),
-  h('div', { className: styles.container }, [
-    h('div', { className: styles.left }, [
+  h(`div.${ styles.container }`, [
+    h(`div.${ styles.left }`, [
       h('div', { 'data-divider': true }, clFrontEnd),
       h('div', { 'data-divider': true }, clBackEnd)
     ]),
-    h('div', { className: styles.right }, [h('div', {}, clTools)])
+    h(`div.${ styles.right }`, [h('div', {}, clTools)])
   ])
 ])
 

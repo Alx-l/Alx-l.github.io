@@ -20,7 +20,7 @@ const CardList = props => {
 
     const filterByCat = card => (filtersAreSet ? filters[card.props.cat] : card)
     const content = card =>
-      h('div', { className: styles.item }, card)
+      h(`div.${ styles.item }`, {}, card)
 
     return lift(collectionToRender)
       .filter(filterByCat)
@@ -29,7 +29,7 @@ const CardList = props => {
       .value()
   }
 
-  return h('div', { className: styles.root }, renderCollection())
+  return h(`div.${ styles.root }`, renderCollection())
 }
 
 CardList.propTypes = propTypes

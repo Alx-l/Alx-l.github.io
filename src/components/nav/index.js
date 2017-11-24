@@ -1,5 +1,4 @@
 import { Component } from 'react'
-
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
@@ -36,27 +35,22 @@ export default class Nav extends Component {
     const { backgroundColor, heading, subHeading, route } = this.props
     const { showOffCanvas } = this.state
 
-    return h('nav',
+    return h(`nav.${ styles.root }`,
       {
         style: { backgroundColor },
-        className: styles.root,
         ref: root => { this.root = root }
       },
       [
-        h('div',
-          { className: styles.avatar },
+        h(`div.${ styles.avatar }`, {},
           h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
         ),
-        h('h1', { className: styles.heading }, heading),
-        h('div', { className: styles.subHeading }, subHeading),
-        h('div',
-          {
-            className: styles.listContainer,
-            ref: listContainer => { this.listContainer = listContainer }
-          },
+        h(`h1.${ styles.heading }`, heading),
+        h(`div.${ styles.subHeading }`, subHeading),
+        h(`div.${ styles.listContainer }`,
+          { ref: listContainer => { this.listContainer = listContainer } },
           [
-            h('div',
-              { className: styles.list, ref: list => { this.list = list } },
+            h(`div.${ styles.list }`,
+              { ref: list => { this.list = list } },
               h('ul', this.renderNavItems())
             )
           ]
@@ -74,13 +68,11 @@ export default class Nav extends Component {
       const { dest, text, isIndex } = link
       const isActive = route === dest || (route === 'index' && isIndex)
 
-      return h('li',
-        { className: isActive ? styles.isActive : undefined },
-        h('a',
+      return h(`li.${ isActive ? styles.isActive : '' }`, {},
+        h(`a.${ styles.link }`,
           { 'data-nav': 'ignore',
             onClick: e => handleLink(e, dest),
-            href: dest,
-            className: styles.link
+            href: dest
           },
           text
         )
@@ -88,11 +80,11 @@ export default class Nav extends Component {
     })
   }
 
-  renderMenuIcon = () => h('div',
-    { className: styles.iconContainer, ref: iconContainer => { this.iconContainer = iconContainer } },
+  renderMenuIcon = () => h(`div.${ styles.iconContainer }`,
+    { ref: iconContainer => { this.iconContainer = iconContainer } },
     [
-      h('div',
-        { className: styles.icon, onClick: this.showOffCanvas, ref: icon => { this.icon = icon } },
+      h(`div.${ styles.icon }`,
+        { onClick: this.showOffCanvas, ref: icon => { this.icon = icon } },
         h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
       )
     ]

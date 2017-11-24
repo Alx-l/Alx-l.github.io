@@ -17,7 +17,7 @@ const Main = props => {
       subHeading: 'front-end dev',
       backgroundColor: primaryColor
     }),
-    h('div', { className: styles.root }, props.children),
+    h(`div.${ styles.root }`, {}, props.children),
     h(Footer, { backgroundColor: primaryColor })
   ])
 }
