@@ -135,7 +135,7 @@ export const clMusic = h(Collapsible,
     h(Collapsible, { iconColor: greyDarken, title: 'Rap' }, [
       h('p', 'Of course this is not an exhaustive list :'),
       h('ul', [
-        li('Dave East'),
+        li('Evidence'),
         li('TDE'),
         li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
         li('Joey Bada$$'),
@@ -152,7 +152,7 @@ export const clMusic = h(Collapsible,
       ),
       h('ul', [
         li('Jhené Aiko'),
-        li('Paramore'),
+        li('Yuna'),
         li('Frank Ocean'),
         li('Mélat'),
         li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
