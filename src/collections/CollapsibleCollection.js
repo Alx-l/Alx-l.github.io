@@ -1,6 +1,6 @@
 import h from 'react-hyperscript'
 
-import Collapsible from 'reusableComponents/collapsible'
+import { Collapsible } from 'reusableComponents/collapsible'
 import {
   BackEnd,
   Code,
@@ -13,7 +13,7 @@ import {
   ThumbUp,
   TV
 } from 'svg'
-import settings from 'settings'
+import { settings } from 'settings'
 
 const { greyDarken } = settings
 

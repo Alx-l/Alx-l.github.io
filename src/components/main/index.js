@@ -1,14 +1,14 @@
 import h from 'react-hyperscript'
 
-import Nav from '../nav'
-import Footer from '../footer'
-import settings from 'settings'
+import { Nav } from '../nav'
+import { Footer } from '../footer'
+import { settings } from 'settings'
 
 import styles from './main.css'
 
 const { primaryColor } = settings
 
-const Main = props => {
+export const Main = props => {
   const { name } = props.route
   return h('.root', [
     h(Nav, {
@@ -21,5 +21,3 @@ const Main = props => {
     h(Footer, { backgroundColor: primaryColor })
   ])
 }
-
-export default Main

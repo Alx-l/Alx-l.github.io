@@ -1,13 +1,13 @@
 import h from 'react-hyperscript'
 
-import TextBlock from 'layouts/textBlock'
-import IconHeader from 'reusableComponents/iconHeader'
+import { TextBlock } from 'layouts/textBlock'
+import { IconHeader } from 'reusableComponents/iconHeader'
 import { Face } from 'svg'
-import settings from 'settings'
+import { settings } from 'settings'
 
 const { grey } = settings
 
-const WhoAmI = () => {
+export const WhoAmI = () => {
   return h('.WhoAmI', [
     h(IconHeader, { icon: Face, size: 20, color: grey, text: 'Hello World' }),
     h(TextBlock, { background: true }, [
@@ -37,5 +37,3 @@ const WhoAmI = () => {
     ])
   ])
 }
-
-export default WhoAmI

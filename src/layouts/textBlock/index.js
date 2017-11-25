@@ -7,12 +7,10 @@ const propTypes = {
   background: PropTypes.bool
 }
 
-const TextBlock = props => {
+export const TextBlock = props => {
   const className = `${ styles.root }.${ props.background ? styles.background : '' }`
 
   return h(`div.${ className }`, [props.children])
 }
 
 TextBlock.propTypes = propTypes
-
-export default TextBlock

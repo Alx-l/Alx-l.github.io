@@ -1,16 +1,16 @@
 import h from 'react-hyperscript'
 
-import TextBlock from 'layouts/textBlock'
-import IconHeader from 'reusableComponents/iconHeader'
+import { TextBlock } from 'layouts/textBlock'
+import { IconHeader } from 'reusableComponents/iconHeader'
 import { Heart } from 'svg'
 import { clMusic, clTVMovies, clMisc, clPeople } from 'collections/CollapsibleCollection'
-import settings from 'settings'
+import { settings } from 'settings'
 
 import styles from './whatIDo.css'
 
 const { grey } = settings
 
-const Likes = () => h('div', [
+export const Likes = () => h('div', [
   h(IconHeader, { icon: Heart, size: 20, color: grey, text: 'My Likes' }),
   h(TextBlock, [
     h('p',
@@ -28,5 +28,3 @@ const Likes = () => h('div', [
     ])
   ])
 ])
-
-export default Likes

@@ -11,7 +11,7 @@ const propTypes = {
   customStyle: PropTypes.objectOf(PropTypes.string)
 }
 
-const Animate = props => {
+export const Animate = props => {
   const {
     trigger,
     onEnter,
@@ -37,5 +37,3 @@ const Animate = props => {
 }
 
 Animate.propTypes = propTypes
-
-export default Animate

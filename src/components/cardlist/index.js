@@ -10,7 +10,7 @@ const propTypes = {
   sortBy: PropTypes.string
 }
 
-const CardList = props => {
+export const CardList = props => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
     const filtersAreSet = lift(filters)
@@ -33,5 +33,3 @@ const CardList = props => {
 }
 
 CardList.propTypes = propTypes
-
-export default CardList

@@ -5,20 +5,20 @@ import h from 'react-hyperscript'
 import { mainStore } from '../store'
 import { setFilter } from '../data'
 
-import TextBlock from 'layouts/textBlock'
-import BtnFilter from 'widgets/btnFilter'
-import IconHeader from 'reusableComponents/iconHeader'
+import { TextBlock } from 'layouts/textBlock'
+import { BtnFilter } from 'widgets/btnFilter'
+import { IconHeader } from 'reusableComponents/iconHeader'
 import { History } from 'svg'
-import CardList from '../components/cardlist'
+import { CardList } from '../components/cardlist'
 import * as Cards from '../collections/CardCollection'
-import settings from 'settings'
+import { settings } from 'settings'
 
 import styles from './whatIveDone.css'
 
 const { grey } = settings
 const CardCollection = lift(Cards).values().value()
 
-const WhatIveDone = props => {
+const render = props => {
   const renderBtnFilter = (text, dataAttr) => {
     const { filters } = props
 
@@ -46,4 +46,4 @@ const WhatIveDone = props => {
   ])
 }
 
-export default connect(WhatIveDone, mainStore, state => state)
+export const WhatIveDone = connect(render, mainStore, state => state)

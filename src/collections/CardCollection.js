@@ -1,6 +1,6 @@
 import h from 'react-hyperscript'
-import CardReveal from 'reusableComponents/cardReveal'
-import settings from 'settings'
+import { CardReveal } from 'reusableComponents/cardReveal'
+import { settings } from 'settings'
 
 import styles from 'reusableComponents/cardReveal/cardReveal.css'
 

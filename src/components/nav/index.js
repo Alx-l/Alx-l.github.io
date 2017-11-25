@@ -4,8 +4,8 @@ import h from 'react-hyperscript'
 
 import { handleLink, handleStickyClassOnScroll } from 'utils/misc'
 
-import OffCanvas from '../offCanvas'
-import Icon from 'reusableComponents/icon'
+import { OffCanvas } from '../offCanvas'
+import { Icon } from 'reusableComponents/icon'
 import { Hamburger } from 'svg'
 
 import styles from './nav.css'
@@ -26,7 +26,7 @@ const propTypes = {
   route: PropTypes.string
 }
 
-export default class Nav extends Component {
+export class Nav extends Component {
   state = { showOffCanvas: false }
 
   componentDidMount() { this.handleRAF() }

@@ -10,7 +10,7 @@ const propTypes = {
   isActive: PropTypes.bool
 }
 
-const BtnFilter = props => {
+export const BtnFilter = props => {
   const { onClick, dataAttr, text, isActive } = props
   return h(`button.${ styles.btnFilter }.${ isActive ? styles.isActive : '' }`,
     {
@@ -23,5 +23,3 @@ const BtnFilter = props => {
 }
 
 BtnFilter.propTypes = propTypes
-
-export default BtnFilter

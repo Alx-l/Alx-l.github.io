@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
 
-import Icon from 'reusableComponents/icon'
-import Animate from 'reusableComponents/Animate'
+import { Icon } from 'reusableComponents/icon'
+import { Animate } from 'reusableComponents/Animate'
 import { More, Close, Blink } from 'svg'
 
 import styles from './cardReveal.css'
@@ -19,7 +19,7 @@ const propTypes = {
   cat: PropTypes.string
 }
 
-export default class CardReveal extends Component {
+export class CardReveal extends Component {
   state = { open: false }
 
   animeSettings = {

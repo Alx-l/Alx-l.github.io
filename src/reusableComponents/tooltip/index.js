@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
 
-import Animate from 'reusableComponents/Animate'
+import { Animate } from 'reusableComponents/Animate'
 
 import styles from './tooltip.css'
 
@@ -12,7 +12,7 @@ const propTypes = {
   hiddenText: PropTypes.string
 }
 
-export default class ToolTip extends Component {
+export class ToolTip extends Component {
   state = { visible: false }
 
   animeSettings = {

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import anime from 'animejs'
 
-import Animate from 'reusableComponents/Animate'
+import { Animate } from 'reusableComponents/Animate'
 
 import { handleLink, addClass, removeClass } from 'utils/misc'
 
@@ -18,7 +18,7 @@ const propTypes = {
 const animeSettings = { duration: 450, easing: 'easeOutQuint' }
 let contentRef = null
 
-const OffCanvas = props => {
+export const OffCanvas = props => {
   const html = document.querySelector('html')
   const body = document.body
   const { top } = body.getBoundingClientRect()
@@ -87,5 +87,3 @@ const OffCanvas = props => {
 }
 
 OffCanvas.propTypes = propTypes
-
-export default OffCanvas

@@ -4,8 +4,8 @@ import h from 'react-hyperscript'
 import anime from 'animejs'
 import { update } from 'space-lift'
 
-import Icon from 'reusableComponents/icon'
-import Animate from 'reusableComponents/Animate'
+import { Icon } from 'reusableComponents/icon'
+import { Animate } from 'reusableComponents/Animate'
 import { Expand } from 'svg'
 
 import styles from './collapsible.css'
@@ -19,7 +19,7 @@ const propTypes = {
   titleIconSize: PropTypes.number
 }
 
-export default class Collapsible extends Component {
+export class Collapsible extends Component {
   state = { open: false }
 
   defaultAnimeDuration = 225

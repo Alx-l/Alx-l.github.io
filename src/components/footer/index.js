@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
 import { Heart, Laptop, Music, Add } from 'svg'
-import Icon from 'reusableComponents/icon'
-import settings from 'settings'
+import { Icon } from 'reusableComponents/icon'
+import { settings } from 'settings'
 
 import styles from './footer.css'
 
@@ -14,7 +14,7 @@ const propTypes = {
   backgroundColor: PropTypes.string.isRequired
 }
 
-const Footer = props => h(`footer.${ styles.root }`,
+export const Footer = props => h(`footer.${ styles.root }`,
   { style: { background: props.backgroundColor } },
   [
     h(`div.${ styles.body }`, [
@@ -45,5 +45,3 @@ const Footer = props => h(`footer.${ styles.root }`,
 )
 
 Footer.propTypes = propTypes
-
-export default Footer

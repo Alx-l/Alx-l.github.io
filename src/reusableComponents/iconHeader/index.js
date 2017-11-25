@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
-import Icon from 'reusableComponents/icon'
+import { Icon } from 'reusableComponents/icon'
 
 import styles from './iconHeader.css'
 
@@ -13,7 +13,7 @@ const propTypes = {
   size: PropTypes.number
 }
 
-const IconHeader = props => {
+export const IconHeader = props => {
   const { icon, size, bg, color, text } = props
   return h(`div.${ styles.root }`,
     { style: { backgroundColor: bg } },
@@ -30,5 +30,3 @@ IconHeader.defaultProps = {
   bg: '#fff',
   size: 35
 }
-
-export default IconHeader

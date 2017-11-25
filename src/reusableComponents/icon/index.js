@@ -11,7 +11,7 @@ const propTypes = {
   color: PropTypes.string
 }
 
-const Icon = props => {
+export const Icon = props => {
   const { color, className, svg, size, customStyle } = props
 
   return h(`div.${ className }`,
@@ -26,5 +26,3 @@ Icon.propTypes = propTypes
 Icon.defaultProps = {
   color: '#000'
 }
-
-export default Icon

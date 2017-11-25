@@ -2,13 +2,13 @@ import { Router } from 'abyssa'
 import ReactState from './ReactState' // to use abyssa with React
 import 'space-lift/es/all'
 
-import Main from './components/main'
+import { Main } from './components/main'
 
-import WhoAmI from 'views/WhoAmI'
-import WhatIDo from 'views/whatIDo'
-import WhatIveDone from 'views/WhatIveDone'
-import WhereToFindMe from 'views/WhereToFindMe'
-import ErrorPage404 from 'views/ErrorPage'
+import { WhoAmI } from 'views/WhoAmI'
+import { WhatIDo } from 'views/whatIDo'
+import { WhatIveDone } from 'views/WhatIveDone'
+import { WhereToFindMe } from 'views/WhereToFindMe'
+import { ErrorPage404 } from 'views/ErrorPage'
 
 import './global.css'
 

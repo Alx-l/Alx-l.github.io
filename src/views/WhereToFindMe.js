@@ -1,17 +1,17 @@
 import h from 'react-hyperscript'
 
-import TextBlock from 'layouts/textBlock'
-import IconHeader from 'reusableComponents/iconHeader'
-import ToolTip from 'reusableComponents/tooltip'
-import Icon from 'reusableComponents/icon'
+import { TextBlock } from 'layouts/textBlock'
+import { IconHeader } from 'reusableComponents/iconHeader'
+import { ToolTip } from 'reusableComponents/tooltip'
+import { Icon } from 'reusableComponents/icon'
 import { PersonPin, Github } from 'svg'
-import settings from 'settings'
+import { settings } from 'settings'
 
 import styles from './whereToFindMe.css'
 
 const { email, grey } = settings
 
-const WhereToFindMe = () => {
+export const WhereToFindMe = () => {
   const emailClassName = `${ styles.email }.${ 'u-underlineLeft' }`
 
   return h('div', [
@@ -47,5 +47,3 @@ const WhereToFindMe = () => {
     ])
   ])
 }
-
-export default WhereToFindMe
