@@ -7,6 +7,7 @@ import { update } from 'space-lift'
 import { Icon } from 'reusableComponents/icon'
 import { Animate } from 'reusableComponents/Animate'
 import { Expand } from 'svg'
+import { className } from 'utils//misc'
 
 import styles from './collapsible.css'
 
@@ -36,11 +37,11 @@ export class Collapsible extends Component {
       props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children },
       onEnter, onExit, hrOffsetValue } = this
 
-    const CollapsibleClassName = `${ styles.root }
-      .${ popOut ? styles.popOut : '' }
-      .${ open ? styles.isOpen : '' }`
+    const CollapsibleClassName = className(`${ styles.root }
+      .${ popOut && styles.popOut }
+      .${ open && styles.isOpen }`)
 
-    const expandIconClassName = `${ styles.expandIcon }.${ open ? styles.isOpen : '' }`
+    const expandIconClassName = className(`${ styles.expandIcon }.${ open && styles.isOpen }`)
 
     const renderIcon =
       titleIcon &&

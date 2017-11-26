@@ -4,7 +4,7 @@ import anime from 'animejs'
 
 import { Animate } from 'reusableComponents/Animate'
 
-import { handleLink, addClass, removeClass } from 'utils/misc'
+import { handleLink, addClass, removeClass, className } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
@@ -74,11 +74,11 @@ export const OffCanvas = props => {
     })
   }
 
-  const className = `${ styles.root }.${ props.open ? styles.isOpen : '' }`
+  const rootClassName = className(`${ styles.root }.${ props.open && styles.isOpen }`)
 
   return h(Animate,
     { trigger: props.open, onEnter, onExit, timeout: animeSettings.duration },
-    h(`div.${ className }`, { onClick }, [
+    h(`div.${ rootClassName }`, { onClick }, [
       h(`div.${ styles.overlay }`),
       h(`div.${ styles.content }`, { ref: content => { contentRef = content } },
       h('ul', {}, renderItems()))

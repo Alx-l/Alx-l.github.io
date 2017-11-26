@@ -2,7 +2,7 @@ import { api as router } from 'abyssa'
 
 export const pxToRem = val => {
   const toRem = parseInt(val, 10) / 16
-  return `${toRem}rem`
+  return `${ toRem }rem`
 }
 
 export const pxToRemDims = val => ({
@@ -24,10 +24,12 @@ export const removeClass = (className, ...nodeList) => {
   nodeList.forEach(item => item.classList.remove(className))
 }
 
+export const className = classNameString => classNameString.replace(/\.?\b(false)|(undefined)/g, '')
+
 export const handleStickyClassOnScroll =
 ({ node, targetNode, threshold = 0, isBottomValue, className }) => {
   const { top, bottom } = node.getBoundingClientRect()
-  !isBottomValue && (node.style.height = `${targetNode.offsetHeight}px`)
+  !isBottomValue && (node.style.height = `${ targetNode.offsetHeight }px`)
   return (isBottomValue ? bottom : top) <= threshold
     ? targetNode.classList.add(className)
     : targetNode.classList.remove(className)

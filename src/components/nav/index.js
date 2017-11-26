@@ -2,7 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
-import { handleLink, handleStickyClassOnScroll } from 'utils/misc'
+import { handleLink, handleStickyClassOnScroll, className } from 'utils/misc'
 
 import { OffCanvas } from '../offCanvas'
 import { Icon } from 'reusableComponents/icon'
@@ -68,7 +68,7 @@ export class Nav extends Component {
       const { dest, text, isIndex } = link
       const isActive = route === dest || (route === 'index' && isIndex)
 
-      return h(`li.${ isActive ? styles.isActive : '' }`, {},
+      return h(`li.${ className(`${ isActive && styles.isActive }`) }`, {},
         h(`a.${ styles.link }`,
           { 'data-nav': 'ignore',
             onClick: e => handleLink(e, dest),
