@@ -6,7 +6,7 @@ import styles from './cardlist.css'
 
 const propTypes = {
   collectionToRender: PropTypes.arrayOf(PropTypes.node).isRequired,
-  filters: PropTypes.objectOf(PropTypes.bool),
+  filters: PropTypes.arrayOf(PropTypes.string),
   sortBy: PropTypes.string
 }
 
@@ -14,11 +14,13 @@ export const CardList = props => {
   const renderCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
     const filtersAreSet = lift(filters)
-      .values()
-      .compact()
       .value().length > 0
 
-    const filterByCat = card => (filtersAreSet ? filters[card.props.cat] : card)
+    const isFilterSet = filterKey => lift(filters)
+      .find(f => f === filterKey)
+      .isDefined()
+
+    const filterByCat = card => (filtersAreSet ? isFilterSet(card.props.cat) : true)
     const content = card =>
       h(`div.${ styles.item }`, {}, card)
 

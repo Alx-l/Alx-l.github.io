@@ -7,7 +7,7 @@ import { update } from 'space-lift'
 import { Icon } from 'reusableComponents/icon'
 import { Animate } from 'reusableComponents/Animate'
 import { Expand } from 'svg'
-import { className } from 'utils//misc'
+import { className } from 'utils/misc'
 
 import styles from './collapsible.css'
 

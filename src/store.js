@@ -4,13 +4,19 @@ import lift, { update } from 'space-lift'
 export const updateFilter = Action('updateFilter')
 
 const initialState = {
-  filters: {}
+  filters: []
 }
 
 export const mainStore = GlobalStore(initialState, on => {
-  on(updateFilter, (state, { key, value }) => {
+  on(updateFilter, (state, key) => {
+    const keyIndex = lift(state.filters)
+      .findIndex(k => k === key)
+      .getOrElse(-1)
+
     return update(state, {
-      filters: lift(state.filters).add(key, value).value()
+      filters: keyIndex > -1
+        ? lift(state.filters).removeAt(keyIndex).value()
+        : lift(state.filters).append(key).value()
     })
   })
 })

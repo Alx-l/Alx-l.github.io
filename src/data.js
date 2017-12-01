@@ -1,5 +1,5 @@
 import { updateFilter } from './store'
 
-export function setFilter({ key, value }) {
-  updateFilter({ key, value })
+export function setFilter(key) {
+  updateFilter(key)
 }

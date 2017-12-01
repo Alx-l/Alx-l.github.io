@@ -21,10 +21,13 @@ const CardCollection = lift(Cards).values().value()
 const render = props => {
   const renderBtnFilter = (text, dataAttr) => {
     const { filters } = props
+    const isActive = lift(filters)
+      .find(f => f === dataAttr)
+      .isDefined()
 
     return h(BtnFilter, {
-      onClick: () => setFilter({ key: dataAttr, value: !filters[dataAttr] }),
-      isActive: filters[dataAttr],
+      onClick: () => setFilter(dataAttr),
+      isActive,
       dataAttr,
       text
     })
