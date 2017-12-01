@@ -5,6 +5,7 @@ import h from 'react-hyperscript'
 import anime from 'animejs'
 
 import { Animate } from 'reusableComponents/Animate'
+import { debounce } from 'utils/misc'
 
 import styles from './tooltip.css'
 
@@ -18,9 +19,6 @@ export class ToolTip extends Component {
   animeSettings = {
     duration: 225
   }
-
-  RAF = 0
-  lastScrollYPos = 0
 
   render() {
     return h(`span.${ styles.root }`,
@@ -109,7 +107,7 @@ export class ToolTip extends Component {
       run: (anim) => {
         !this.state.visible && this.pauseAnimation(anim)
       },
-      complete: () => { this.handleRAF() }
+      complete: () => this.handleScroll()
     })
   }
 
@@ -120,7 +118,7 @@ export class ToolTip extends Component {
       run: (anim) => {
         this.state.visible && this.pauseAnimation(anim)
       },
-      complete: () => { window.cancelAnimationFrame(this.RAF) }
+      complete: () => window.removeEventListener('scroll', this.debouncedUnsetVisible)
     })
   }
 
@@ -130,6 +128,8 @@ export class ToolTip extends Component {
 
   unsetVisible = () => this.setState({ visible: false })
 
+  debouncedUnsetVisible = debounce(() => this.unsetVisible(), 250)
+
   // to handle touch devices
   handleClick = () => this.setState({ visible: !this.state.visible })
 
@@ -138,9 +138,8 @@ export class ToolTip extends Component {
     return keycode === 13 && this.setState({ visible: !this.state.visible })
   }
 
-  handleRAF = () => {
-    this.lastScrollYPos !== window.pageYOffset && this.unsetVisible()
-    this.RAF = window.requestAnimationFrame(this.handleRAF)
+  handleScroll = () => {
+    window.addEventListener('scroll', this.debouncedUnsetVisible)
   }
 
   computeMarginLeft = ({
