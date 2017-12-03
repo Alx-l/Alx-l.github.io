@@ -1,5 +1,3 @@
-/* Slide left
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @keyframes :global(slideLeft) {
   0% {
     transform: translateX(-150px);
@@ -10,8 +8,6 @@
   }
 }
 
-/* Slide up
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @keyframes :global(slideUp) {
   0% {
     opacity: 0;
@@ -24,8 +20,6 @@
   }
 }
 
-/* Beating heart
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @keyframes :global(beatingHeart) {
   50% {
     transform: scale(1.01);
@@ -36,8 +30,6 @@
   }
 }
 
-/* Beating heart-stronger
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @keyframes :global(beatingHeartStronger) {
   50% {
     transform: scale(1.02);
@@ -48,8 +40,6 @@
   }
 }
 
-/* Landing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @keyframes :global(landing) {
   0% {
     opacity: 0;
@@ -67,9 +57,6 @@
   }
 }
 
-/* Fadein
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 @keyframes :global(fadeIn) {
   0% {
     opacity: 0;
@@ -77,5 +64,37 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes :global(slideOutTop) {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+}
+
+@keyframes :global(slideInTop) {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

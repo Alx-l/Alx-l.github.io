@@ -2,6 +2,8 @@ import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import lift from 'space-lift'
 
+import { GroupAnimate } from 'reusableComponents//GroupAnimate'
+
 import styles from './cardlist.css'
 
 const propTypes = {
@@ -11,7 +13,7 @@ const propTypes = {
 }
 
 export const CardList = props => {
-  const renderCollection = () => {
+  const getCardCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
     const filtersAreSet = lift(filters)
       .value().length > 0
@@ -21,17 +23,24 @@ export const CardList = props => {
       .isDefined()
 
     const filterByCat = card => (filtersAreSet ? isFilterSet(card.props.cat) : true)
-    const content = card =>
-      h(`div.${ styles.item }`, {}, card)
 
     return lift(collectionToRender)
       .filter(filterByCat)
       .sort({ by: card => card.props[sortKey], ignoreCase: true })
-      .map(content)
       .value()
   }
 
-  return h(`div.${ styles.root }`, renderCollection())
+  return h(GroupAnimate, {
+    list: getCardCollection(),
+    renderItem: _card => h(`div.${ styles.item }`, {}, _card),
+    computeKey: _card => _card.props.title,
+    timeout: 250,
+    classNames: {
+      root: styles.root,
+      onEnter: styles.onEnter,
+      onExit: styles.onExit
+    }
+  })
 }
 
 CardList.propTypes = propTypes
