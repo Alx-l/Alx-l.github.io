@@ -8,7 +8,7 @@ import { settings } from 'settings'
 const { grey } = settings
 
 export const WhoAmI = () => {
-  return h('.WhoAmI', [
+  return h('div', [
     h(IconHeader, { icon: Face, size: 20, color: grey, text: 'Hello World' }),
     h(TextBlock, { background: true }, [
       h('p', [

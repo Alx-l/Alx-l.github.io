@@ -128,7 +128,7 @@ export class ToolTip extends Component {
 
   unsetVisible = () => this.setState({ visible: false })
 
-  debouncedUnsetVisible = debounce(() => this.unsetVisible(), 250)
+  debouncedUnsetVisible = debounce(() => this.unsetVisible(), 250, true)
 
   // to handle touch devices
   handleClick = () => this.setState({ visible: !this.state.visible })
