@@ -17,15 +17,3 @@
     }
   }
 }
-
-.onEnter {
-  &:global {
-    animation: slideInTop 0.25s ease-in-out-sine forwards;
-  }
-}
-
-.onExit {
-  &:global {
-    animation: slideOutTop 0.25s ease-in-out-sine forwards;
-  }
-}
