@@ -1,5 +1,7 @@
 import h from 'react-hyperscript'
+
 import { CardReveal } from 'reusableComponents/cardReveal'
+import { link } from 'utils/misc'
 import { settings } from 'settings'
 
 import styles from 'reusableComponents/cardReveal/cardReveal.css'
@@ -55,11 +57,7 @@ export const BubblyGrid = h(CardReveal,
     h('ul', [li('Stylus'), li('SCSS')]),
     h('p', { className: styles.insideFooter }, [
       'This grid system is built with calc() and is inspired by ',
-      h(
-        'a.u-highlight.u-linkSweep',
-        { href: 'https://github.com/peterramsing/lost', target: '_blank' },
-        'LostGrid'
-      )
+      link('https://github.com/peterramsing/lost', 'LostGrid', 'u-highlight.u-linkSweep')
     ])
   ]
 )
@@ -78,12 +76,7 @@ export const Portefolio = h(CardReveal,
     h('p.u-underline', 'Recipe :'),
     h('ul', [
       h('li', [
-        h('a.u-linkSweep',
-          {
-            target: '_blank',
-            href: 'https://github.com/alx-l/bubbly-boilerplate'
-          }, 'Bubbly Boilerplate'
-        )
+        link('https://github.com/alx-l/bubbly-boilerplate', 'Bubbly Boilerplate', 'u-linkSweep')
       ])
     ])
   ]
@@ -129,20 +122,14 @@ export const PokemonYo = h(CardReveal,
     h('ul', [
       li('React / Fluxx'),
       h('li', [
-        h('a',
-          {
-            href: 'http://pokeapi.co/docsv2/',
-            target: '_blank',
-            className: 'u-linkSweep'
-          }, 'Pokeapi V2'
-        )
+        link('http://pokeapi.co/docsv2/', 'Pokeapi V2', 'u-linkSweep')
       ]),
       li('ES6'),
       li('Stylus / PostCSS')
     ]),
     h('p', { className: styles.insideFooter }, [
       'Wanna see the ',
-      h('a.u-linkSweep', { href: git + 'pokemonyo', target: '_blank' }, 'repo?')
+      link(`${ git }pokemonyo`, 'repo?', 'u-linkSweep')
     ])
   ]
 )
@@ -183,15 +170,10 @@ export const Zengularity = h(CardReveal,
       li('TypeScript'),
       h('li', [
         'React / ',
-        h('a.u-linkSweep',
-          { href: 'https://github.com/AlexGalays/kaiju', target: '_blank' },
-          'Kaiju'
-        )]),
+        link('https://github.com/AlexGalays/kaiju', 'Kaiju', 'u-linkSweep')
+      ]),
       h('li', [
-        h('a.u-linkSweep',
-        { href: 'https://github.com/AlexGalays/spacelift', target: '_blank' },
-        'spacelift'
-      )
+        link('https://github.com/AlexGalays/spacelift', 'spacelift', 'u-linkSweep')
       ]),
       li('CSS Modules'),
       li('Less / Stylus')

@@ -5,6 +5,7 @@ import { IconHeader } from 'reusableComponents/iconHeader'
 import { ToolTip } from 'reusableComponents/tooltip'
 import { Icon } from 'reusableComponents/icon'
 import { PersonPin, Github } from 'svg'
+import { link } from 'utils/misc'
 import { settings } from 'settings'
 
 import styles from './whereToFindMe.css'
@@ -28,20 +29,13 @@ export const WhereToFindMe = () => {
       ]),
       h('span', 'Wanna take a peek at my repos?'),
       h('br'),
-      h('a',
-        {
-          href: 'https://github.com/Alx-l',
-          target: '_blank',
-          className: 'btn-icon'
-        },
-        h(Icon, { svg: Github, color: '#fff', size: 35, customStyle: { display: 'block' } })
+      link('https://github.com/Alx-l',
+        h(Icon, { svg: Github, color: '#fff', size: 35, customStyle: { display: 'block' } }),
+        'btn-icon'
       ),
       h('p', [
         'My ',
-        h('a',
-          { href: 'https://codepen.io/AlxL', target: '_blank' },
-          h('span.u-highlight.u-linkSweep', 'pens ')
-        ),
+        link('https://codepen.io/AlxL', 'pens ', 'u-highlight.u-linkSweep'),
         'maybe?'
       ])
     ])

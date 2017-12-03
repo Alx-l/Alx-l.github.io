@@ -6,6 +6,7 @@ import anime from 'animejs'
 import { Icon } from 'reusableComponents/icon'
 import { Animate } from 'reusableComponents/Animate'
 import { More, Close, Blink } from 'svg'
+import { link } from 'utils/misc'
 
 import styles from './cardReveal.css'
 
@@ -33,10 +34,7 @@ export class CardReveal extends Component {
     const renderBlinkIcon =
       blinkIcon &&
       h('div', [
-        h('a',
-          { href, target: '_blank', style: { display: 'block' } },
-          h(Icon, { svg: Blink, color: iconColor, size: 24 })
-        )
+        link(href, h(Icon, { svg: Blink, color: iconColor, size: 24 }), 'u-block')
       ])
 
     return h(`div.${ styles.root }`, { 'data-cat': cat }, [

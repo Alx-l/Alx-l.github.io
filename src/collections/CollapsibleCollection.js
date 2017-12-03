@@ -13,6 +13,7 @@ import {
   ThumbUp,
   TV
 } from 'svg'
+import { link } from 'utils//misc'
 import { settings } from 'settings'
 
 const { greyDarken } = settings
@@ -36,24 +37,14 @@ export const clFrontEnd = h(Collapsible,
     ]),
     h('p', [
       'To organize my stylesheets, I try to follow the ',
-      h('a.u-linkSweep.u-highlight',
-        { href: 'https://smacss.com/', target: '_blank' },
-        'SMACSS '
-      ),
+      link('https://smacss.com/', 'SMACSS ', 'u-linkSweep.u-highlight'),
       'guidelines and the ',
-      h(
-        'a.u-linkSweep.u-highlight',
-        { href: 'https://suitcss.github.io/', target: '_blank' },
-        'SUIT CSS '
-      ),
+      link('https://suitcss.github.io/', 'SUIT CSS ', 'u-linkSweep.u-highlight'),
       'naming conventions.'
     ]),
     h('p', [
       'On the JS side, I follow the ',
-      h('a.u-linkSweep.u-highlight',
-        { href: 'https://standardjs.com/', target: '_blank' },
-        'Standard JS '
-      ),
+      link('https://standardjs.com/', 'Standard JS ', 'u-linkSweep.u-highlight'),
       'rules.'
     ]),
     h(
@@ -220,40 +211,22 @@ export const clPeople = h(Collapsible,
     h('p', 'Some devs I follow, look up to, and/or simply like :'),
     h('ul', [
       h('li', [
-        h('a.u-linkSweep',
-          { href: 'http://bit.ly/1KcNPaY', target: '_blank' },
-          'Mattias Petter Johansson'
-        )
+        link('http://bit.ly/1KcNPaY', 'Mattias Petter Johansson', 'u-linkSweep')
       ]),
       h('li', [
-        h('a.u-linkSweep',
-          { href: 'https://blog.mariusschulz.com/', target: '_blank' },
-          'Marius Schulz'
-        )
+        link('https://blog.mariusschulz.com/', 'Marius Schulz', 'u-linkSweep')
       ]),
       h('li', [
-        h('a.u-linkSweep',
-          { href: 'http://sidebar.io/', target: '_blank' },
-          'Sacha Greif'
-        )
+        link('http://sidebar.io/', 'Sacha Greif', 'u-linkSweep')
       ]),
       h('li', [
-        h('a.u-linkSweep',
-          { href: 'https://bitsofco.de/', target: '_blank' },
-          'Ire Aderinokun'
-        )
+        link('https://bitsofco.de/', 'Ire Aderinokun', 'u-linkSweep')
       ]),
       h('li', [
-        h('a.u-linkSweep',
-          { href: 'https://pawelgrzybek.com/', target: '_blank' },
-          'Pawel Grzybek'
-        )
+        link('https://pawelgrzybek.com/', 'Pawel Grzybek', 'u-linkSweep')
       ]),
       h('li', [
-        h('a.u-linkSweep',
-          { href: 'https://medium.com/@_ericelliott/latest', target: '_blank' },
-          'Eric Elliott'
-        )
+        link('https://medium.com/@_ericelliott/latest', 'Eric Elliott', 'u-linkSweep')
       ])
     ])
   ]

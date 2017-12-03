@@ -1,3 +1,4 @@
+import h from 'react-hyperscript'
 import { api as router } from 'abyssa'
 
 export const pxToRem = val => {
@@ -9,6 +10,10 @@ export const pxToRemDims = val => ({
   width: pxToRem(val),
   height: pxToRem(val)
 })
+
+export const link = (url, content, className) => {
+  return h(`a.${ className }`, { href: url, target: '_blank', rel: 'noreferrer' }, content)
+}
 
 export const handleLink = (e, dest) => {
   // ideally, this function would not be needed...but we still live in a IE world

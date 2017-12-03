@@ -2,6 +2,10 @@
 
 /* Matching helper classes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+:global .u-block {
+  @apply --block;
+}
+
 :global .u-boxShadow {
   @apply --box-shadow;
 }
