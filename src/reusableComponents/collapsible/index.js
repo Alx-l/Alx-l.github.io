@@ -67,7 +67,7 @@ export class Collapsible extends Component {
                   svg: Expand,
                   size: iconSize,
                   color: iconColor,
-                  customStyle: { display: 'block' }
+                  className: 'u-block'
                 })
               )
             ]),

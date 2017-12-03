@@ -3,6 +3,8 @@ import h from 'react-hyperscript'
 
 import { pxToRemDims } from 'utils/misc'
 
+import * as styles from './icon.css'
+
 const propTypes = {
   svg: PropTypes.func.isRequired,
   size: PropTypes.number,
@@ -12,11 +14,11 @@ const propTypes = {
 }
 
 export const Icon = props => {
-  const { color, className, svg, size, customStyle } = props
+  const { color, className = '', svg, size, customStyle } = props
 
-  return h(`div.${ className }`,
+  return h(`div.${ styles.root }.${ className }`,
     {
-      style: { display: 'inline-block', ...pxToRemDims(size), ...customStyle }
+      style: { ...pxToRemDims(size), ...customStyle }
     },
     svg(color)
   )

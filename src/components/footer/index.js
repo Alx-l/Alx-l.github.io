@@ -32,8 +32,7 @@ export const Footer = props => h(`footer.${ styles.root }`,
           h(Icon, { svg: Music,
             size: 35,
             className: styles.music,
-            color: black,
-            customStyle: { display: 'inline-block' }
+            color: black
           })
         ])
       ])

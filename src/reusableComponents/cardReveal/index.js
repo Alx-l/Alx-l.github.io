@@ -34,7 +34,7 @@ export class CardReveal extends Component {
     const renderBlinkIcon =
       blinkIcon &&
       h('div', [
-        link(href, h(Icon, { svg: Blink, color: iconColor, size: 24 }), 'u-block')
+        link(href, h(Icon, { svg: Blink, color: iconColor, size: 24, className: 'u-block' }), 'u-block')
       ])
 
     return h(`div.${ styles.root }`, { 'data-cat': cat }, [

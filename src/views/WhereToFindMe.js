@@ -30,7 +30,7 @@ export const WhereToFindMe = () => {
       h('span', 'Wanna take a peek at my repos?'),
       h('br'),
       link('https://github.com/Alx-l',
-        h(Icon, { svg: Github, color: '#fff', size: 35, customStyle: { display: 'block' } }),
+        h(Icon, { svg: Github, color: '#fff', size: 35, className: 'u-block' }),
         'btn-icon'
       ),
       h('p', [
