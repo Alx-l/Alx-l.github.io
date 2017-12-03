@@ -1,15 +1,36 @@
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 import lift from 'space-lift'
+import anime from 'animejs'
 
 import { GroupAnimate } from 'reusableComponents//GroupAnimate'
 
 import styles from './cardlist.css'
 
+const animeSettings = { duration: 250, easing: 'easeInOutQuad' }
+
 const propTypes = {
   collectionToRender: PropTypes.arrayOf(PropTypes.node).isRequired,
   filters: PropTypes.arrayOf(PropTypes.string),
   sortBy: PropTypes.string
+}
+
+const onEnter = (el, index) => {
+  anime({
+    targets: el,
+    delay: index * 50,
+    translateY: { ...animeSettings, value: ['-20%', '0'] },
+    opacity: { ...animeSettings, value: [0, 1] }
+  })
+}
+
+const onExit = (el, index) => {
+  anime({
+    targets: el,
+    delay: index * 50,
+    translateY: { ...animeSettings, value: '-20%' },
+    opacity: { ...animeSettings, value: 0 }
+  })
 }
 
 export const CardList = props => {
@@ -32,13 +53,13 @@ export const CardList = props => {
 
   return h(GroupAnimate, {
     list: getCardCollection(),
+    onEnter,
+    onExit,
     renderItem: _card => h(`div.${ styles.item }`, {}, _card),
     computeKey: _card => _card.props.title,
-    timeout: 250,
+    timeout: animeSettings.duration,
     classNames: {
-      root: styles.root,
-      onEnter: styles.onEnter,
-      onExit: styles.onExit
+      root: styles.root
     }
   })
 }
