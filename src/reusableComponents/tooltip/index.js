@@ -5,12 +5,13 @@ import h from 'react-hyperscript'
 import anime from 'animejs'
 
 import { Animate } from 'reusableComponents/Animate'
-import { debounce } from 'utils/misc'
+import { debounce, className } from 'utils/misc'
 
 import styles from './tooltip.css'
 
 const propTypes = {
-  hiddenText: PropTypes.string
+  hiddenText: PropTypes.string,
+  isText: PropTypes.bool
 }
 
 export class ToolTip extends Component {
@@ -30,7 +31,7 @@ export class ToolTip extends Component {
         tabIndex: '0'
       },
       [
-        h(`span.${ styles.text }`,
+        h(`span.${ className(`${ this.props.isText && styles.text }`) }`,
           {
             ref: visibleText => { this.visibleText = visibleText }
           },
@@ -201,5 +202,6 @@ export class ToolTip extends Component {
 
 ToolTip.propTypes = propTypes
 ToolTip.defaultProps = {
-  hiddenText: 'add some text'
+  hiddenText: 'add some text',
+  isText: true
 }

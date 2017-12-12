@@ -5,14 +5,17 @@ import anime from 'animejs'
 
 import { Icon } from 'reusableComponents/icon'
 import { Animate } from 'reusableComponents/Animate'
-import { More, Close, Blink } from 'svg'
+import { ToolTip } from 'reusableComponents/tooltip'
+import { More, Close, Blink, BlinkOff } from 'svg'
 import { link } from 'utils/misc'
+
+import { settings } from '../../settings'
 
 import styles from './cardReveal.css'
 
 const propTypes = {
   iconColor: PropTypes.string,
-  blinkIcon: PropTypes.bool,
+  blinkIconIsDisabled: PropTypes.bool,
   href: PropTypes.string,
   title: PropTypes.string,
   subTitle: PropTypes.string,
@@ -29,13 +32,16 @@ export class CardReveal extends Component {
   }
 
   render() {
-    const { cat, href, title, subTitle, footerText, iconColor, blinkIcon } = this.props
+    const { cat, href, title, subTitle, footerText, iconColor, blinkIconIsDisabled } = this.props
 
-    const renderBlinkIcon =
-      blinkIcon &&
-      h('div', [
-        link(href, h(Icon, { svg: Blink, color: iconColor, size: 24, className: 'u-block' }), 'u-block')
-      ])
+    const renderBlinkIcon = blinkIconIsDisabled
+      ? h(ToolTip, { hiddenText: '404 😪', isText: false }, h(Icon, {
+        svg: BlinkOff,
+        color: settings.greyDarken,
+        size: 24,
+        className: 'u-block'
+      }))
+      : h('div', [ link(href, h(Icon, { svg: Blink, color: iconColor, size: 24, className: 'u-block' }), 'u-block') ])
 
     return h(`div.${ styles.root }`, { 'data-cat': cat }, [
       h(`div.${ styles.content }`, [
@@ -105,7 +111,7 @@ export class CardReveal extends Component {
 CardReveal.propTypes = propTypes
 CardReveal.defaultProps = {
   iconColor: '#fff',
-  blinkIcon: false,
+  blinkIconIsDisabled: false,
   title: 'title',
   href: '',
   footerText: '',
