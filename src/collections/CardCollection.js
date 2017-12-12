@@ -82,7 +82,6 @@ export const Portefolio = h(CardReveal,
 export const VinylMinded = h(CardReveal,
   {
     cat: 'sideprojects',
-    blinkIconIsDisabled: true,
     iconColor: '#000',
     title: 'Vinyl Minded',
     subTitle: 'fake e-commerce site',

@@ -45,8 +45,10 @@
   box: horizontal-middle space-around wrap;
   float: right;
   width: 10%;
+  margin-bottom: -15px;
 
-  & > div {
+  & > * {
+    margin-bottom: 15px;
     cursor: pointer;
   }
 }
