@@ -99,7 +99,8 @@ export const clTools = h(Collapsible,
       li('Webpack'),
       li('CSS Modules'),
       li('ESLint / TSLint / Stylelint'),
-      li('Homebrew 🍺')
+      li('Homebrew 🍺'),
+      li(`Git (GitKraken doesn't hurt ;)`)
     ]),
     h('p', [
       'And if you must know, I work on a ',

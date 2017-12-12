@@ -13,8 +13,8 @@ export const WhoAmI = () => {
     h(TextBlock, { background: true }, [
       h('p', [
         'Let me introduce myself, I am ',
-        h('span.u-highlight', 'Alex '),
-        'a junior ',
+        h('span.u-highlight', 'Alex'),
+        ', a ',
         h('span.u-highlight', 'front-end web dev')
       ]),
       h('p',
