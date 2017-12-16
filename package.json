@@ -10,7 +10,7 @@
     "build": "yarn webpack-prod",
     "deploy": "npm-run-all html-build webpack-prod pre-deploy git-deploy post-deploy",
     "pre-deploy": "mkdir temp && cp -r ./public/. ./temp/",
-    "git-deploy": "git add temp/ && git commit -m \"new deployement\" && git push ghp `git subtree split --prefix temp`:master --force",
+    "git-deploy": "git add temp/ && git commit -m \"new deployment\" && git push ghp `git subtree split --prefix temp`:master --force",
     "post-deploy": "rm -rf temp && git reset --hard HEAD~1",
     "move-files": "cp -r ./fonts ./images ./public",
     "html-build": "jade jade/views/*.jade --out public",
