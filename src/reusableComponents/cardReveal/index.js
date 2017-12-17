@@ -34,7 +34,7 @@ export class CardReveal extends Component {
     const { cat, href, title, subTitle, footerText, iconColor } = this.props
 
     const renderLinkIcon = !href
-      ? h(ToolTip, { hiddenText: '404 😪', isText: false }, h(Icon, {
+      ? h(ToolTip, { hiddenText: '404 😪' }, h(Icon, {
         svg: LinkOff,
         color: settings.greyDarken,
         size: 24,

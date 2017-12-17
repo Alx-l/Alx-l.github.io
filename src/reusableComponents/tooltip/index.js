@@ -11,7 +11,7 @@ import styles from './tooltip.css'
 
 const propTypes = {
   hiddenText: PropTypes.string,
-  isText: PropTypes.bool
+  className: PropTypes.string
 }
 
 export class ToolTip extends Component {
@@ -31,7 +31,7 @@ export class ToolTip extends Component {
         tabIndex: '0'
       },
       [
-        h(`span.${ className(`${ this.props.isText && styles.text }`) }`,
+        h(`span.${ className(`${ this.props.className }`) }`,
           {
             ref: visibleText => { this.visibleText = visibleText }
           },
@@ -143,47 +143,41 @@ export class ToolTip extends Component {
     window.addEventListener('scroll', this.debouncedUnsetVisible)
   }
 
-  computeMarginLeft = ({
-    hiddenElWidth,
-    visibleTextWidth,
-    visibleTextLeft,
-    distanceFromRight
-  }) => {
+  computeMarginLeft = (args) => {
+    const {
+      hiddenElWidth, visibleTextWidth,
+      visibleTextLeft, distanceFromRight
+    } = args
     return (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
       hiddenElWidth > distanceFromRight
       ? '0px'
       : `${ -(hiddenElWidth - visibleTextWidth) / 2 }px`
   }
 
-  computeTop = ({
-    distanceFromTop,
-    visibleTextTop,
-    visibleTextHeight,
-    hiddenElHeight
-  }) => {
+  computeTop = (args) => {
+    const {
+      distanceFromTop, visibleTextTop,
+      visibleTextHeight, hiddenElHeight
+    } = args
     return distanceFromTop > 0
       ? `${ visibleTextTop - hiddenElHeight }px`
       : `${ visibleTextTop + visibleTextHeight }px`
   }
 
-  computeLeft = ({
-    hiddenElWidth,
-    distanceFromRight,
-    visibleTextRight,
-    visibleTextLeft
-  }) => {
+  computeLeft = (args) => {
+    const {
+      hiddenElWidth, distanceFromRight,
+      visibleTextRight, visibleTextLeft
+    } = args
     return hiddenElWidth > distanceFromRight
       ? `${ visibleTextRight - hiddenElWidth }px`
       : `${ visibleTextLeft }px`
   }
 
-  computeTransformOrigin = ({
-    distanceFromTop,
-    distanceFromRight,
-    hiddenElWidth,
-    visibleTextLeft,
-    visibleTextWidth
-  }) => {
+  computeTransformOrigin = (args) => {
+    const { distanceFromTop, distanceFromRight,
+      hiddenElWidth, visibleTextLeft, visibleTextWidth
+    } = args
     if (distanceFromTop > 0) {
       return hiddenElWidth > distanceFromRight
         ? 'right bottom 0'
@@ -202,6 +196,5 @@ export class ToolTip extends Component {
 
 ToolTip.propTypes = propTypes
 ToolTip.defaultProps = {
-  hiddenText: 'add some text',
-  isText: true
+  hiddenText: 'add some text'
 }

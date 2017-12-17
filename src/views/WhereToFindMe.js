@@ -20,7 +20,7 @@ export const WhereToFindMe = () => {
     h(TextBlock, { background: true }, [
       h('p', [
         'You can find me wandering in the streets of ',
-        h(ToolTip, { hiddenText: 'FR, not TX :)' }, 'Paris.')
+        h(ToolTip, { hiddenText: 'FR, not TX :)', className: 'u-highlight.u-link' }, 'Paris.')
       ]),
       h('p', [
         'But since that could take a while before you randomly bump into me, feel free to send me an email :',
