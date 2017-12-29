@@ -10,6 +10,37 @@ const { git } = settings
 
 const li = text => h('li', {}, text)
 
+export const PoiStarterKit = h(CardReveal,
+  {
+    cat: 'sideprojects',
+    iconColor: '#000',
+    href: git + 'poi-starter-kit',
+    title: 'Poi Starter Kit',
+    subTitle: 'homemade starter kit',
+    footerText: `there's more inside`
+  },
+  [
+    h('p.u-underline', 'Recipe :'),
+    h('ul', [
+      li([
+        link('https://poi.js.org', 'Poi', 'u-linkSweep')
+      ]),
+      li([
+        link('https://webpack.js.org/concepts/hot-module-replacement', 'Hot Module Replacement', 'u-linkSweep')
+      ]),
+      li('TypeScript'),
+      li('React / Fluxx'),
+      li('React Router v4'),
+      li('CSS Modules'),
+      li('SCSS / PostCSS')
+    ]),
+    h(
+      'p', { className: styles.insideFooter },
+      'I made this boilerplate to help me getting started with new projects easily.'
+    )
+  ]
+)
+
 export const BubblyBoilerplate = h(CardReveal,
   {
     cat: 'sideprojects',
