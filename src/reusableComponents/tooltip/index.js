@@ -140,7 +140,7 @@ export class ToolTip extends Component {
   }
 
   handleScroll = () => {
-    window.addEventListener('scroll', this.debouncedUnsetVisible)
+    window.addEventListener('scroll', this.debouncedUnsetVisible, { passive: true })
   }
 
   computeMarginLeft = (args) => {
