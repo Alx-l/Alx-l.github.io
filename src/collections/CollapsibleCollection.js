@@ -221,13 +221,13 @@ export const clPeople = h(Collapsible,
         link('http://sidebar.io/', 'Sacha Greif', 'u-linkSweep')
       ]),
       h('li', [
-        link('https://bitsofco.de/', 'Ire Aderinokun', 'u-linkSweep')
+        link('https://una.im/', 'Una Kravets', 'u-linkSweep')
+      ]),
+      h('li', [
+        link('https://philipwalton.com/', 'Philip Walton', 'u-linkSweep')
       ]),
       h('li', [
         link('https://pawelgrzybek.com/', 'Pawel Grzybek', 'u-linkSweep')
-      ]),
-      h('li', [
-        link('https://medium.com/@_ericelliott/latest', 'Eric Elliott', 'u-linkSweep')
       ])
     ])
   ]
