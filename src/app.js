@@ -8,7 +8,7 @@ import { WhoAmI } from 'views/WhoAmI'
 import { WhatIDo } from 'views/whatIDo'
 import { WhatIveDone } from 'views/WhatIveDone'
 import { WhereToFindMe } from 'views/WhereToFindMe'
-import { ErrorPage404 } from 'views/ErrorPage'
+import { ErrorPage } from 'views/ErrorPage'
 
 import './global.css'
 
@@ -20,11 +20,11 @@ const router = Router({
     whatido: state('whatido', WhatIDo),
     whativedone: state('whativedone', WhatIveDone),
     wheretofindme: state('wheretofindme', WhereToFindMe),
-    errorPage404: state('errorPage404', ErrorPage404)
+    notFound: state('notFound', ErrorPage)
   })
 }).configure({
   urlSync: 'hash',
-  notFound: 'app.errorPage404'
+  notFound: 'app.notFound'
 })
 
 router.init()
