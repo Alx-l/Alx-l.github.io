@@ -4,7 +4,7 @@ import anime from 'animejs'
 
 import { Animate } from 'reusableComponents/Animate'
 
-import { handleLink, addClass, removeClass, className } from 'utils/misc'
+import { href, addClass, removeClass, className } from 'utils/misc'
 
 import styles from './offCanvas.css'
 
@@ -47,9 +47,8 @@ export const OffCanvas = props => {
         h(`a.${ styles.link }`,
           {
             'data-nav': 'ignore',
-            onClick: e => handleLink(e, item.dest),
             tabIndex: '-1',
-            href: item.dest
+            href: href(item.dest)
           },
           item.text
         )

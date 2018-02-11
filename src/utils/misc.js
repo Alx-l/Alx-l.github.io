@@ -15,10 +15,8 @@ export const link = (url, content, className) => {
   return h(`a.${ className }`, { href: url, target: '_blank', rel: 'noreferrer' }, content)
 }
 
-export const handleLink = (e, dest) => {
-  // ideally, this function would not be needed...but we still live in a IE world
-  e.preventDefault()
-  router.transitionTo(dest)
+export const href = (dest) => {
+  return router.link(`app.${ dest === '/' ? 'index' : dest }`)
 }
 
 export const addClass = (className, ...nodeList) => {
