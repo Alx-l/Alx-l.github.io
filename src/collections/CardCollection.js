@@ -30,7 +30,7 @@ export const PoiStarterKit = h(CardReveal,
       ]),
       li('TypeScript'),
       li('React / Fluxx'),
-      li('React Router v4'),
+      li('Abyssa'),
       li('CSS Modules'),
       li('SCSS / PostCSS')
     ]),
