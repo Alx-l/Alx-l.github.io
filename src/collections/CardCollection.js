@@ -29,8 +29,13 @@ export const PoiStarterKit = h(CardReveal,
         link('https://webpack.js.org/concepts/hot-module-replacement', 'Hot Module Replacement', 'u-linkSweep')
       ]),
       li('TypeScript'),
-      li('React / Fluxx'),
-      li('Abyssa'),
+      li('React / Flux architecture'),
+      li([
+        link('https://github.com/AlexGalays/abyssa-js', 'Abyssa', 'u-linkSweep')
+      ]),
+      li([
+        link('https://github.com/jamiebuilds/unstated', 'Unstated', 'u-linkSweep')
+      ]),
       li('CSS Modules'),
       li('SCSS / PostCSS')
     ]),
