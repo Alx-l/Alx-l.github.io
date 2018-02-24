@@ -1447,6 +1447,10 @@ create-hmac@^1.1.0, create-hmac@^1.1.2:
     create-hash "^1.1.0"
     inherits "^2.0.1"
 
+create-react-context@^0.1.5:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.1.6.tgz#0f425931d907741127acc6e31acb4f9015dd9fdc"
+
 cross-spawn@^4.0.0:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-4.0.2.tgz#7b9247621c23adfdd3856004a823cbe397424d41"
@@ -2350,10 +2354,6 @@ flat-cache@^1.2.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
-
-fluxx@^0.14.14:
-  version "0.14.14"
-  resolved "https://registry.yarnpkg.com/fluxx/-/fluxx-0.14.14.tgz#01c1a9b80be084d8e35d68df3c9f849b99134f2c"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -5872,6 +5872,12 @@ units-css@^0.4.0:
 unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
+
+unstated@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/unstated/-/unstated-1.0.3.tgz#fd1719686051acd1c0bda1a6e2fa6162a50ff604"
+  dependencies:
+    create-react-context "^0.1.5"
 
 url-parse@1.0.x:
   version "1.0.5"

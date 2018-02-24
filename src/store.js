@@ -1,22 +1,22 @@
-import { GlobalStore, Action } from 'fluxx'
-import lift, { update } from 'space-lift'
+import { Container } from 'unstated'
+import lift from 'space-lift'
 
-export const updateFilter = Action('updateFilter')
+export class FilterStore extends Container {
+  state = {
+    filters: []
+  }
 
-const initialState = {
-  filters: []
-}
-
-export const mainStore = GlobalStore(initialState, on => {
-  on(updateFilter, (state, key) => {
-    const keyIndex = lift(state.filters)
+  updateFilters(key) {
+    const keyIndex = lift(this.state.filters)
       .findIndex(k => k === key)
       .getOrElse(-1)
 
-    return update(state, {
+    this.setState({
       filters: keyIndex > -1
-        ? lift(state.filters).removeAt(keyIndex).value()
-        : lift(state.filters).append(key).value()
+        ? lift(this.state.filters).removeAt(keyIndex).value()
+        : lift(this.state.filters).append(key).value()
     })
-  })
-})
+  }
+}
+
+export const filterStore = new FilterStore()
