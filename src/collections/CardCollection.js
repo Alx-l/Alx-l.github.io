@@ -81,7 +81,7 @@ export const BubblyGrid = h(CardReveal,
     footerText: h('span', [
       'available on ',
       h('a.u-link.u-highlight',
-        { href: 'https://www.npmjs.com/package/bubbly-grid-stylus' },
+        { href: 'https://www.npmjs.com/package/bubbly-grid-sass' },
         'npm'
       )
     ])
