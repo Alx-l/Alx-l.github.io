@@ -78,7 +78,7 @@ export class Collapsible extends Component {
           ]
         ),
         h(Animate,
-          { trigger: open, onEnter, onExit, customStyle: { height: '0px' }, timeout: this.animeSettings.duration },
+          { trigger: open, onEnter, onExit, timeout: this.animeSettings.duration },
           h('div', { className: styles.body }, children)
         )
       ]
@@ -88,6 +88,8 @@ export class Collapsible extends Component {
   onEnter = (el) => {
     const height = el.scrollHeight
     this.animeDuration = this.animeSettings.duration
+    el.style.height = '0px'
+
     anime({
       targets: el,
       height: { ...this.animeSettings, value: height },

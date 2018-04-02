@@ -27,9 +27,28 @@ const propTypes = {
 }
 
 export class Nav extends Component {
-  state = { showOffCanvas: false }
+  constructor() {
+    super()
+    this.state = { showOffCanvas: false }
+    this.lastScrollY = 0
+    this.ticking = false
+  }
 
-  componentDidMount() { this.handleRAF() }
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll, false)
+  }
+
+  onScroll = () => {
+    this.lastScrollY = window.scrollY
+    this.requestTick()
+  }
+
+  requestTick = () => {
+    if (!this.ticking) {
+      requestAnimationFrame(this.handleRAF)
+      this.ticking = true
+    }
+  }
 
   render() {
     const { backgroundColor, heading, subHeading, route } = this.props
@@ -92,7 +111,7 @@ export class Nav extends Component {
     const { height: listContainerHeight } = this.listContainer.getBoundingClientRect()
     const { height: iconContainerHeight } = this.iconContainer.getBoundingClientRect()
 
-    if (window.getComputedStyle(this.list, null).getPropertyValue('display') !== 'none') {
+    if (window.getComputedStyle(this.listContainer, null).getPropertyValue('display') !== 'none') {
       handleStickyClassOnScroll({
         node: this.root,
         targetNode: this.list,
@@ -106,23 +125,23 @@ export class Nav extends Component {
         targetNode: this.list,
         className: styles.isFixed
       })
+    } else {
+      handleStickyClassOnScroll({
+        node: this.root,
+        targetNode: this.icon,
+        threshold: iconContainerHeight,
+        isBottomValue: true,
+        className: styles.hasBoxshadow
+      })
+
+      handleStickyClassOnScroll({
+        node: this.iconContainer,
+        targetNode: this.icon,
+        className: styles.isFixed
+      })
     }
 
-    handleStickyClassOnScroll({
-      node: this.root,
-      targetNode: this.icon,
-      threshold: iconContainerHeight,
-      isBottomValue: true,
-      className: styles.hasBoxshadow
-    })
-
-    handleStickyClassOnScroll({
-      node: this.iconContainer,
-      targetNode: this.icon,
-      className: styles.isFixed
-    })
-
-    window.requestAnimationFrame(this.handleRAF)
+    this.ticking = false
   }
 
   showOffCanvas = () => this.setState({ showOffCanvas: true })
