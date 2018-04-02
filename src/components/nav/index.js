@@ -2,7 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
-import { href, handleStickyClassOnScroll, className } from 'utils/misc'
+import { href, handleStickyClassOnScroll, className, debounce } from 'utils/misc'
 
 import { OffCanvas } from '../offCanvas'
 import { Icon } from 'reusableComponents/icon'
@@ -36,12 +36,17 @@ export class Nav extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false)
+    window.addEventListener('resize', this.onResize)
   }
 
   onScroll = () => {
     this.lastScrollY = window.scrollY
     this.requestTick()
   }
+
+  onResize = debounce(() => {
+    this.requestTick()
+  }, 200)
 
   requestTick = () => {
     if (!this.ticking) {
@@ -112,6 +117,7 @@ export class Nav extends Component {
     const { height: iconContainerHeight } = this.iconContainer.getBoundingClientRect()
 
     if (window.getComputedStyle(this.listContainer, null).getPropertyValue('display') !== 'none') {
+      // above phone breakpoint
       handleStickyClassOnScroll({
         node: this.root,
         targetNode: this.list,
@@ -126,6 +132,7 @@ export class Nav extends Component {
         className: styles.isFixed
       })
     } else {
+      // below phone breakpoint
       handleStickyClassOnScroll({
         node: this.root,
         targetNode: this.icon,
