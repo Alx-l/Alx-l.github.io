@@ -37,9 +37,9 @@ export const clFrontEnd = h(Collapsible,
     ]),
     h('p', [
       'To organize my stylesheets, I try to follow the ',
-      link('https://smacss.com/', 'SMACSS ', 'u-linkSweep.u-highlight'),
+      link('https://sass-guidelin.es/#architecture', 'Sass guidelines ', 'u-linkSweep.u-highlight'),
       'guidelines and the ',
-      link('https://suitcss.github.io/', 'SUIT CSS ', 'u-linkSweep.u-highlight'),
+      link('https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md', 'SUIT CSS ', 'u-linkSweep.u-highlight'),
       'naming conventions.'
     ]),
     h('p', [
@@ -56,8 +56,8 @@ export const clFrontEnd = h(Collapsible,
         title: 'JS'
       },
       h('ul', [
-        li('ES6'),
         li('TypeScript'),
+        li('ES6 & beyond'),
         li('Flux-like architectures')
       ])
     ),
@@ -68,7 +68,7 @@ export const clFrontEnd = h(Collapsible,
         titleIconSize: 35,
         title: 'Design'
       },
-      h('ul', [li('Figma'), li('Sketch'), li('Affinity Designer')])
+      h('ul', [li('Figma'), li('Sketch')])
     )
   ]
 )
@@ -127,11 +127,11 @@ export const clMusic = h(Collapsible,
     h(Collapsible, { iconColor: greyDarken, title: 'Rap' }, [
       h('p', 'Of course this is not an exhaustive list :'),
       h('ul', [
-        li('Evidence'),
-        li('TDE'),
-        li(`Chance the Rapper (he's like Kanye West before Kanye became a Kardashian)`),
+        li('Kendrick Lamar'),
+        li(`ScHoolboy Q`),
         li('Joey Bada$$'),
         li('Young Thug'),
+        li('Drake'),
         li(`ASAP Mob (not all of 'em...)`),
         li(
           `Cam'ron, The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)`
@@ -146,7 +146,7 @@ export const clMusic = h(Collapsible,
         li('Jhené Aiko'),
         li('Yuna'),
         li('Frank Ocean'),
-        li('Mélat'),
+        li('SZA'),
         li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
         li('A-Trak'),
         li('...')
@@ -187,10 +187,10 @@ export const clTVMovies = h(Collapsible,
           `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`
         ),
         h('ul', [
-          li('Pitch Perfect (nerd alert!)'),
+          li('The Fighter'),
           li('The Nice Guys'),
           li('End of watch'),
-          li('50/50'),
+          li('Logan'),
           li(`Kingsman`),
           li('22 Jump Street'),
           li('...')
