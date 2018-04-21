@@ -81,14 +81,14 @@ export const BubblyGrid = h(CardReveal,
     footerText: h('span', [
       'available on ',
       h('a.u-link.u-highlight',
-        { href: 'https://www.npmjs.com/package/bubbly-grid-sass' },
+        { href: 'https://www.npmjs.com/package/postcss-bubbly-grid' },
         'npm'
       )
     ])
   },
   [
     h('p.u-underline', 'Recipe :'),
-    h('ul', [li('Stylus'), li('SCSS')]),
+    h('ul', [li('PostCSS')]),
     h('p', { className: styles.insideFooter }, [
       'This grid system is built with calc() and is inspired by ',
       link('https://github.com/peterramsing/lost', 'LostGrid', 'u-highlight.u-linkSweep')
