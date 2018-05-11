@@ -109,3 +109,7 @@
     }
   }
 }
+
+.onEnter {
+  transform: translateZ(0); /* trick to smooth out the animation */
+}

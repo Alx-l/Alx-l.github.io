@@ -86,6 +86,7 @@ export class Collapsible extends Component {
   }
 
   onEnter = (el) => {
+    el.classList.add(styles.onEnter)
     const height = el.scrollHeight
     this.animeDuration = this.animeSettings.duration
     el.style.height = '0px'
