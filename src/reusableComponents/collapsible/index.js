@@ -74,13 +74,15 @@ export class Collapsible extends Component {
     )
   }
 
-  handleHrAnimation = () => {
-    switchClasses(this.hr, [styles.slideIn], [styles.slideOut])
+  handleHrAnimation = (isOpen) => {
+    if (isOpen) {
+      switchClasses(this.hr, [styles.slideIn], [styles.slideOut])
+    }
   }
 
   onEnter = (el) => {
     switchClasses(el, [styles.isMounting, styles.onEnter], [styles.onLeave])
-    el.addEventListener('animationend', this.handleHrAnimation, { once: true })
+    el.addEventListener('animationend', () => this.handleHrAnimation(this.state.open), { once: true })
   }
 
   onExit = (el) => {
