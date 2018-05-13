@@ -27,6 +27,11 @@ export const removeClass = (className, ...nodeList) => {
   nodeList.forEach(item => item.classList.remove(className))
 }
 
+export const switchClasses = (elm, classesToAdd, classesToRemove) => {
+  elm.classList.add(...classesToAdd)
+  elm.classList.remove(...classesToRemove)
+}
+
 export const className = classNameString => classNameString.replace(/\.?\b(false)|(undefined)/g, '')
 
 export const handleStickyClassOnScroll =

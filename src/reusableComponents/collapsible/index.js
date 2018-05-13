@@ -1,13 +1,11 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
-import anime from 'animejs'
-import { update } from 'space-lift'
 
 import { Icon } from 'reusableComponents/icon'
 import { Animate } from 'reusableComponents/Animate'
 import { Expand } from 'svg'
-import { className } from 'utils/misc'
+import { className, switchClasses } from 'utils/misc'
 
 import styles from './collapsible.css'
 
@@ -23,19 +21,11 @@ const propTypes = {
 export class Collapsible extends Component {
   state = { open: false }
 
-  defaultAnimeDuration = 225
-
-  animeDuration = this.defaultAnimeDuration
-
-  animeSettings = { duration: this.defaultAnimeDuration, easing: 'easeInOutQuad' }
-
-  hrOffsetValue = '-120%'
-
   render() {
     const {
       state: { open },
       props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children },
-      onEnter, onExit, hrOffsetValue } = this
+      onEnter, onExit } = this
 
     const CollapsibleClassName = className(`${ styles.root }
       .${ popOut && styles.popOut }
@@ -72,72 +62,31 @@ export class Collapsible extends Component {
               )
             ]),
             h(`hr.${ styles.hr }`, {
-              ref: hr => { this.hr = hr },
-              style: { transform: `translateX(${ hrOffsetValue })` }
+              ref: hr => { this.hr = hr }
             })
           ]
         ),
         h(Animate,
-          { trigger: open, onEnter, onExit, timeout: this.animeSettings.duration },
+          { trigger: open, onEnter, onExit, timeout: 225 },
           h('div', { className: styles.body }, children)
         )
       ]
     )
   }
 
-  onEnter = (el) => {
-    el.classList.add(styles.onEnter)
-    const height = el.scrollHeight
-    this.animeDuration = this.animeSettings.duration
-    el.style.height = '0px'
+  handleHrAnimation = () => {
+    switchClasses(this.hr, [styles.slideIn], [styles.slideOut])
+  }
 
-    anime({
-      targets: el,
-      height: { ...this.animeSettings, value: height },
-      run: (anim) => {
-        this.updateAnimeDuration(anim.currentTime)
-        !this.state.open && this.pauseAnimation(anim)
-      },
-      complete: () => {
-        el.style.height = 'auto'
-        this.animateHr(true)
-      }
-    })
+  onEnter = (el) => {
+    switchClasses(el, [styles.isMounting, styles.onEnter], [styles.onLeave])
+    el.addEventListener('animationend', this.handleHrAnimation, { once: true })
   }
 
   onExit = (el) => {
-    this.animeDuration = this.animeSettings.duration
-    anime({
-      begin: () => {
-        return this.animateHr(false)
-      },
-      targets: el,
-      height: { ...this.animeSettings, value: 0 },
-      run: (anim) => {
-        this.updateAnimeDuration(anim.currentTime)
-        this.state.open && this.pauseAnimation(anim)
-      }
-    })
+    switchClasses(el, [styles.onLeave], [styles.onEnter])
+    switchClasses(this.hr, [styles.slideOut], [styles.slideIn])
   }
-
-  animateHr = isOpening => {
-    const { hr, animeSettings, hrOffsetValue } = this
-
-    isOpening
-      ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
-      : anime({
-        targets: hr,
-        translateX: { ...animeSettings, value: `${ hrOffsetValue }` }
-      })
-  }
-
-  updateAnimeDuration = (currentTime) => {
-    this.animeSettings = update(this.animeSettings, {
-      duration: this.defaultAnimeDuration - (this.animeDuration - currentTime)
-    })
-  }
-
-  pauseAnimation = (anim) => anim.pause()
 
   handleClick = () => this.setState({ open: !this.state.open })
 

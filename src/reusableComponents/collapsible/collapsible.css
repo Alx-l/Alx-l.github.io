@@ -6,6 +6,7 @@
   box-shadow:
     rgba(#000, 0.117647) 0 1px 6px,
     rgba(#000, 0.117647) 0 1px 4px;
+  transform: translateZ(0); /* trick to smooth out the transitions */
 
   &.popOut {
     margin: 0 var(--spacer-md);
@@ -85,6 +86,15 @@
   position: absolute null var(--spacer-md) -var(--spacer-sm) var(--spacer);
   border-top: none;
   border-bottom: 1px solid var(--accent-color);
+  transform: translateX(-120%);
+
+  &.slideIn {
+    animation: slideIn 225ms ease-in-quart forwards;
+  }
+
+  &.slideOut {
+    animation: slideOut 225ms ease-in-quart forwards;
+  }
 }
 
 .body {
@@ -110,6 +120,67 @@
   }
 }
 
+.isMounting {
+  overflow-y: hidden;
+  max-height: 0;
+}
+
+/**
+ *
+ * 1. Animation duration must not exceed the timeout value set inside the view
+ */
+
 .onEnter {
-  transform: translateZ(0); /* trick to smooth out the animation */
+  animation: expandMaxHeight 225ms ease-in-quart forwards; /* 1 */
+}
+
+.onLeave {
+  animation: collapseMaxHeight 225ms ease-out-quart; /* 1 */
+}
+
+/* Keyframes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@keyframes expandMaxHeight {
+  0% {
+    max-height: 0;
+  }
+
+  99% {
+    max-height: 100vh;
+  }
+
+  100% {
+    max-height: none;
+  }
+}
+
+@keyframes collapseMaxHeight {
+  0% {
+    max-height: 100vh;
+  }
+
+  100% {
+    max-height: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-120%);
+  }
 }
