@@ -4,7 +4,7 @@ import { TextBlock } from 'layouts/textBlock'
 import { IconHeader } from 'reusableComponents/iconHeader'
 import { ToolTip } from 'reusableComponents/tooltip'
 import { Icon } from 'reusableComponents/icon'
-import { PersonPin, Github } from 'svg'
+import { PersonPin, Github, Codepen, Lightning } from 'svg'
 import { link } from 'utils/misc'
 import { settings } from 'settings'
 
@@ -27,16 +27,20 @@ export const WhereToFindMe = () => {
         h('br'),
         h(`a.${ emailClassName }`, { href: `mailto:${ email }` }, email)
       ]),
-      h('span', 'Wanna take a peek at my repos?'),
-      h('br'),
-      link('https://github.com/Alx-l',
-        h(Icon, { svg: Github, color: '#fff', size: 35, className: 'u-block' }),
-        'btn-icon'
-      ),
-      h('p', [
-        'My ',
-        link('https://codepen.io/AlxL', 'pens ', 'u-highlight.u-linkSweep'),
-        'maybe?'
+      h('span', 'Wanna take a peek?'),
+      h(`div.${ styles.buttons }`, [
+        link('https://github.com/Alx-l',
+          h(Icon, { svg: Github, color: '#fff', size: 35, className: 'u-block' }),
+          'btn-icon'
+        ),
+        link('https://codepen.io/AlxL',
+          h(Icon, { svg: Codepen, color: '#fff', size: 35, className: 'u-block' }),
+          'btn-icon'
+        ),
+        link('https://stackblitz.com/@Alx-l',
+          h(Icon, { svg: Lightning, color: '#fff', size: 35, className: `u-block.${ styles.lightning }` }),
+          'btn-icon'
+        )
       ])
     ])
   ])

@@ -10,3 +10,20 @@
     color: var(--accent-color);
   }
 }
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > a {
+    margin-bottom: 0;
+
+    &:not(:last-of-type) {
+      margin-right: var(--spacer);
+    }
+  }
+}
+
+.lightning {
+  transform: rotate(20deg);
+}
