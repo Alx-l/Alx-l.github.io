@@ -129,12 +129,12 @@ export const clMusic = h(Collapsible,
       h('ul', [
         li('Kendrick Lamar'),
         li(`ScHoolboy Q`),
-        li('Joey Bada$$'),
+        li('Evidence'),
         li('Young Thug'),
         li('Drake'),
         li(`ASAP Mob (not all of 'em...)`),
         li(
-          `Cam'ron, The Wu-Tang Clan, The Notorious B.I.G, Kurupt...(never forget what time it is ;)`
+          `Outkast, Cam'ron, The Notorious B.I.G, The Wu-Tang Clan...(don't forget what time it is ;)`
         )
       ])
     ]),
@@ -169,10 +169,10 @@ export const clTVMovies = h(Collapsible,
       li('Stranger Things'),
       li('Black Mirror'),
       li('Daredevil'),
-      li('Mr. Robot'),
-      li('Narcos'),
+      li('Atlanta'),
+      li('Dark'),
       li('GoT'),
-      li('Orange is the new black'),
+      li('Narcos'),
       li('...')
     ]),
     h(Collapsible,
@@ -187,9 +187,9 @@ export const clTVMovies = h(Collapsible,
           `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`
         ),
         h('ul', [
-          li('The Fighter'),
           li('The Nice Guys'),
           li('End of watch'),
+          li('Drive'),
           li('Logan'),
           li(`Kingsman`),
           li('22 Jump Street'),
@@ -212,22 +212,22 @@ export const clPeople = h(Collapsible,
     h('p', 'Some devs I follow, look up to, and/or simply like :'),
     h('ul', [
       h('li', [
-        link('http://bit.ly/1KcNPaY', 'Mattias Petter Johansson', 'u-linkSweep')
+        link('https://twitter.com/mpjme', 'Mattias Petter Johansson', 'u-linkSweep')
       ]),
       h('li', [
-        link('https://blog.mariusschulz.com/', 'Marius Schulz', 'u-linkSweep')
+        link('https://twitter.com/mariusschulz', 'Marius Schulz', 'u-linkSweep')
       ]),
       h('li', [
-        link('http://sidebar.io/', 'Sacha Greif', 'u-linkSweep')
+        link('https://twitter.com/sachagreif', 'Sacha Greif', 'u-linkSweep')
       ]),
       h('li', [
-        link('https://una.im/', 'Una Kravets', 'u-linkSweep')
+        link('https://twitter.com/una', 'Una Kravets', 'u-linkSweep')
       ]),
       h('li', [
-        link('https://philipwalton.com/', 'Philip Walton', 'u-linkSweep')
+        link('https://twitter.com/philwalton', 'Philip Walton', 'u-linkSweep')
       ]),
       h('li', [
-        link('https://pawelgrzybek.com/', 'Pawel Grzybek', 'u-linkSweep')
+        link('https://twitter.com/pawelgrzybek', 'Pawel Grzybek', 'u-linkSweep')
       ])
     ])
   ]
