@@ -80,10 +80,7 @@ export const BubblyGrid = h(CardReveal,
     subTitle: 'homemade grid system',
     footerText: h('span', [
       'available on ',
-      h('a.u-link.u-highlight',
-        { href: 'https://www.npmjs.com/package/postcss-bubbly-grid' },
-        'npm'
-      )
+      link('https://www.npmjs.com/package/postcss-bubbly-grid', 'npm', 'u-linkSweep.u-highlight')
     ])
   },
   [
