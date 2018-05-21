@@ -2,7 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
-import { href, handleStickyClassOnScroll, className, debounce } from 'utils/misc'
+import { href, handleStickyClassOnScroll, className, throttle } from 'utils/misc'
 
 import { OffCanvas } from '../offCanvas'
 import { Icon } from 'reusableComponents/icon'
@@ -44,9 +44,9 @@ export class Nav extends Component {
     this.requestTick()
   }
 
-  onResize = debounce(() => {
+  onResize = throttle(() => {
     this.requestTick()
-  }, 200)
+  }, 400)
 
   requestTick = () => {
     if (!this.ticking) {
