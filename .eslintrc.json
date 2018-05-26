@@ -21,6 +21,6 @@
     "prefer-const": 2,
     "space-before-function-paren": [2, "never"],
     "space-infix-ops": 2,
-    "template-curly-spacing": [2, "always"]
+    "template-curly-spacing": [2, "never"]
   }
 }
