@@ -111,10 +111,10 @@ export const clTools = h(
   [
     h('ul', [
       li('iTerm2'),
-      li('npm / yarn'),
+      li('yarn'),
       li('Webpack'),
       li('CSS Modules'),
-      li('Linters'),
+      li('Prettier'),
       li('Homebrew 🍺'),
       li(`Git (GitKraken doesn't hurt ;)`)
     ]),
