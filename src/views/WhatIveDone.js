@@ -15,7 +15,9 @@ import { settings } from 'settings'
 import styles from './whatIveDone.css'
 
 const { grey } = settings
-const CardCollection = lift(Cards).values().value()
+const CardCollection = lift(Cards)
+  .values()
+  .value()
 
 const Content = props =>
   h(Subscribe, {
@@ -36,9 +38,14 @@ const Content = props =>
       }
 
       return h('div', [
-        h(IconHeader, { icon: History, size: 20, color: grey, text: 'My work' }),
+        h(IconHeader, {
+          icon: History,
+          size: 20,
+          color: grey,
+          text: 'My work'
+        }),
         h(TextBlock, [h('p', `Here is what I've done so far :`)]),
-        h(`div.${ styles.filters }`, [
+        h(`div.${styles.filters}`, [
           h('span', 'show :'),
           renderBtnFilter('side projects', 'sideprojects'),
           renderBtnFilter('jobs', 'jobs')

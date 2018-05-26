@@ -10,9 +10,11 @@ const propTypes = {
 }
 
 export const TextBlock = props => {
-  const rootClassName = className(`${ styles.root }.${ props.background && styles.background }`)
+  const rootClassName = className(
+    `${styles.root}.${props.background && styles.background}`
+  )
 
-  return h(`div.${ rootClassName }`, [props.children])
+  return h(`div.${rootClassName}`, [props.children])
 }
 
 TextBlock.propTypes = propTypes

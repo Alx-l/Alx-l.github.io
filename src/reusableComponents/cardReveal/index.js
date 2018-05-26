@@ -34,24 +34,50 @@ export class CardReveal extends Component {
     const { cat, href, title, subTitle, footerText, iconColor } = this.props
 
     const renderLinkIcon = !href
-      ? h(ToolTip, { hiddenText: '404 😪' }, h(Icon, {
-        svg: LinkOff,
-        color: settings.greyDarken,
-        size: 24,
-        className: 'u-block'
-      }))
-      : h('div', [ link(href, h(Icon, { svg: Link, color: iconColor, size: 24, className: 'u-block' }), 'u-block') ])
+      ? h(
+          ToolTip,
+          { hiddenText: '404 😪' },
+          h(Icon, {
+            svg: LinkOff,
+            color: settings.greyDarken,
+            size: 24,
+            className: 'u-block'
+          })
+        )
+      : h('div', [
+          link(
+            href,
+            h(Icon, {
+              svg: Link,
+              color: iconColor,
+              size: 24,
+              className: 'u-block'
+            }),
+            'u-block'
+          )
+        ])
 
-    return h(`div.${ styles.root }`, { 'data-cat': cat }, [
-      h(`div.${ styles.content }`, [
-        h(`h3.${ styles.title }`, title),
-        subTitle && h(`span.${ styles.subTitle }`, subTitle)
+    return h(`div.${styles.root}`, { 'data-cat': cat }, [
+      h(`div.${styles.content}`, [
+        h(`h3.${styles.title}`, title),
+        subTitle && h(`span.${styles.subTitle}`, subTitle)
       ]),
-      h(`div.${ styles.footer }`, [
-        h(`div.${ styles.footerText }`, {}, footerText),
-        h(`div.${ styles.iconContainer }`, [
-          h('div', { onClick: this.handleClick, onKeyDown: this.handleKeyDown, tabIndex: '0' },
-            h(Icon, { svg: More, size: 24, color: iconColor, className: 'u-block' })
+      h(`div.${styles.footer}`, [
+        h(`div.${styles.footerText}`, {}, footerText),
+        h(`div.${styles.iconContainer}`, [
+          h(
+            'div',
+            {
+              onClick: this.handleClick,
+              onKeyDown: this.handleKeyDown,
+              tabIndex: '0'
+            },
+            h(Icon, {
+              svg: More,
+              size: 24,
+              color: iconColor,
+              className: 'u-block'
+            })
           ),
           renderLinkIcon
         ])
@@ -64,11 +90,19 @@ export class CardReveal extends Component {
     const { open } = this.state
     const { iconColor, children } = this.props
 
-    return h(Animate,
-      { trigger: open, timeout: this.animeSettings.duration, onEnter: this.onEnter, onExit: this.onExit, className: styles.container },
+    return h(
+      Animate,
+      {
+        trigger: open,
+        timeout: this.animeSettings.duration,
+        onEnter: this.onEnter,
+        onExit: this.onExit,
+        className: styles.container
+      },
       [
         h('div', [
-          h('div',
+          h(
+            'div',
             {
               className: styles.insideIcon,
               onClick: this.handleClick,
@@ -77,22 +111,20 @@ export class CardReveal extends Component {
             },
             h(Icon, { svg: Close, color: iconColor, size: 24 })
           ),
-          h(`div.${ styles.insideRoot }`, {},
-            children
-          )
+          h(`div.${styles.insideRoot}`, {}, children)
         ])
       ]
     )
   }
 
-  onEnter = (el) => {
+  onEnter = el => {
     anime({
       targets: el,
       translateY: { ...this.animeSettings, value: '-100%' }
     })
   }
 
-  onExit = (el) => {
+  onExit = el => {
     anime({
       targets: el,
       translateY: { ...this.animeSettings, value: '100%' }

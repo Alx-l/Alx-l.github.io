@@ -15,11 +15,12 @@ const propTypes = {
 
 export const IconHeader = props => {
   const { icon, size, bg, color, text } = props
-  return h(`div.${ styles.root }`,
+  return h(
+    `div.${styles.root}`,
     { style: { backgroundColor: bg } },
-    h(`h2.${ styles.heading }`, [
+    h(`h2.${styles.heading}`, [
       h(Icon, { svg: icon, color, size, className: styles.icon }),
-      h(`span.${ styles.text }`, text)
+      h(`span.${styles.text}`, text)
     ])
   )
 }

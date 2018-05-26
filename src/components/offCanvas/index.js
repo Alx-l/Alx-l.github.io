@@ -24,16 +24,14 @@ export const OffCanvas = props => {
   const { top } = body.getBoundingClientRect()
   const makeBodyUnscrollable = () => {
     addClass('u-noscroll', html, body)
-    html.style.top = `${ top }px`
+    html.style.top = `${top}px`
   }
   const makeBodyScrollable = () => {
     removeClass('u-noscroll', html, body)
     window.scroll(0, top * -1)
   }
 
-  props.open
-    ? makeBodyUnscrollable()
-    : makeBodyScrollable()
+  props.open ? makeBodyUnscrollable() : makeBodyScrollable()
 
   const renderItems = () => {
     const { items, route } = props
@@ -41,10 +39,13 @@ export const OffCanvas = props => {
     return items.map(item => {
       const isActive =
         route === item.dest || (route === 'index' && item.isIndex)
-      const className = `${ styles.item }.${ isActive ? styles.isActive : '' }`
+      const className = `${styles.item}.${isActive ? styles.isActive : ''}`
 
-      return h(`li.${ className }`, {},
-        h(`a.${ styles.link }`,
+      return h(
+        `li.${className}`,
+        {},
+        h(
+          `a.${styles.link}`,
           {
             'data-nav': 'ignore',
             tabIndex: '-1',
@@ -73,16 +74,26 @@ export const OffCanvas = props => {
     })
   }
 
-  const rootClassName = className(`${ styles.root }.${ props.open && styles.isOpen }`)
+  const rootClassName = className(
+    `${styles.root}.${props.open && styles.isOpen}`
+  )
 
-  return h(Animate,
+  return h(
+    Animate,
     { trigger: props.open, onEnter, onExit, timeout: animeSettings.duration },
-    h(`div.${ rootClassName }`, { onClick }, [
-      h(`div.${ styles.overlay }`),
-      h(`div.${ styles.content }`, { ref: content => { contentRef = content } },
-      h('ul', {}, renderItems()))
-    ]
-  ))
+    h(`div.${rootClassName}`, { onClick }, [
+      h(`div.${styles.overlay}`),
+      h(
+        `div.${styles.content}`,
+        {
+          ref: content => {
+            contentRef = content
+          }
+        },
+        h('ul', {}, renderItems())
+      )
+    ])
+  )
 }
 
 OffCanvas.propTypes = propTypes

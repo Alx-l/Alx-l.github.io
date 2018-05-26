@@ -12,9 +12,14 @@ export class FilterStore extends Container {
       .getOrElse(-1)
 
     this.setState({
-      filters: keyIndex > -1
-        ? lift(this.state.filters).removeAt(keyIndex).value()
-        : lift(this.state.filters).append(key).value()
+      filters:
+        keyIndex > -1
+          ? lift(this.state.filters)
+              .removeAt(keyIndex)
+              .value()
+          : lift(this.state.filters)
+              .append(key)
+              .value()
     })
   }
 }

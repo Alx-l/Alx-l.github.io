@@ -24,68 +24,92 @@ export class Collapsible extends Component {
   render() {
     const {
       state: { open },
-      props: { popOut, title, titleIcon, iconSize, titleIconSize, iconColor, children },
-      onEnter, onExit } = this
+      props: {
+        popOut,
+        title,
+        titleIcon,
+        iconSize,
+        titleIconSize,
+        iconColor,
+        children
+      },
+      onEnter,
+      onExit
+    } = this
 
-    const CollapsibleClassName = className(`${ styles.root }
-      .${ popOut && styles.popOut }
-      .${ open && styles.isOpen }`)
+    const CollapsibleClassName = className(`${styles.root}
+      .${popOut && styles.popOut}
+      .${open && styles.isOpen}`)
 
-    const expandIconClassName = className(`${ styles.expandIcon }.${ open && styles.isOpen }`)
+    const expandIconClassName = className(
+      `${styles.expandIcon}.${open && styles.isOpen}`
+    )
 
     const renderIcon =
       titleIcon &&
-      h(Icon, { svg: titleIcon, color: iconColor, className: styles.icon, size: titleIconSize })
+      h(Icon, {
+        svg: titleIcon,
+        color: iconColor,
+        className: styles.icon,
+        size: titleIconSize
+      })
 
-    return h(`div.${ CollapsibleClassName }`,
-      { 'aria-expanded': open },
-      [
-        h(`div.${ styles.title }`,
-          {
-            onKeyDown: this.handleKeyDown,
-            onClick: this.handleClick,
-            tabIndex: '0'
-          },
-          [
-            h(`div.${ styles.titleLeft }`, [
-              renderIcon,
-              h(`span.${ styles.text }`, title)
-            ]),
-            h(`div.${ styles.titleRight }`, [
-              h(`div.${ expandIconClassName }`, {},
-                h(Icon, {
-                  svg: Expand,
-                  size: iconSize,
-                  color: iconColor,
-                  className: 'u-block'
-                })
-              )
-            ]),
-            h(`hr.${ styles.hr }`, {
-              ref: hr => { this.hr = hr }
-            })
-          ]
-        ),
-        h(Animate,
-          { trigger: open, onEnter, onExit, timeout: 225 },
-          h('div', { className: styles.body }, children)
-        )
-      ]
-    )
+    return h(`div.${CollapsibleClassName}`, { 'aria-expanded': open }, [
+      h(
+        `div.${styles.title}`,
+        {
+          onKeyDown: this.handleKeyDown,
+          onClick: this.handleClick,
+          tabIndex: '0'
+        },
+        [
+          h(`div.${styles.titleLeft}`, [
+            renderIcon,
+            h(`span.${styles.text}`, title)
+          ]),
+          h(`div.${styles.titleRight}`, [
+            h(
+              `div.${expandIconClassName}`,
+              {},
+              h(Icon, {
+                svg: Expand,
+                size: iconSize,
+                color: iconColor,
+                className: 'u-block'
+              })
+            )
+          ]),
+          h(`hr.${styles.hr}`, {
+            ref: hr => {
+              this.hr = hr
+            }
+          })
+        ]
+      ),
+      h(
+        Animate,
+        { trigger: open, onEnter, onExit, timeout: 225 },
+        h('div', { className: styles.body }, children)
+      )
+    ])
   }
 
-  handleHrAnimation = (isOpen) => {
+  handleHrAnimation = isOpen => {
     if (isOpen) {
       switchClasses(this.hr, [styles.slideIn], [styles.slideOut])
     }
   }
 
-  onEnter = (el) => {
+  onEnter = el => {
     switchClasses(el, [styles.isMounting, styles.onEnter], [styles.onLeave])
-    el.addEventListener('animationend', () => this.handleHrAnimation(this.state.open), { once: true })
+    el.addEventListener(
+      'animationend',
+      () => this.handleHrAnimation(this.state.open),
+      { once: true }
+    )
   }
 
-  onExit = (el) => {
+  onExit = el => {
     switchClasses(el, [styles.onLeave], [styles.onEnter])
     switchClasses(this.hr, [styles.slideOut], [styles.slideIn])
   }

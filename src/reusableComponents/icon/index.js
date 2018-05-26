@@ -16,7 +16,8 @@ const propTypes = {
 export const Icon = props => {
   const { color, className = '', svg, size, customStyle } = props
 
-  return h(`div.${ styles.root }.${ className }`,
+  return h(
+    `div.${styles.root}.${className}`,
     {
       style: { ...pxToRemDims(size), ...customStyle }
     },

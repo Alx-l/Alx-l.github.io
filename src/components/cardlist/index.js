@@ -36,14 +36,15 @@ const onExit = (el, index) => {
 export const CardList = props => {
   const getCardCollection = () => {
     const { collectionToRender, filters, sortBy: sortKey } = props
-    const filtersAreSet = lift(filters)
-      .value().length > 0
+    const filtersAreSet = lift(filters).value().length > 0
 
-    const isFilterSet = filterKey => lift(filters)
-      .find(f => f === filterKey)
-      .isDefined()
+    const isFilterSet = filterKey =>
+      lift(filters)
+        .find(f => f === filterKey)
+        .isDefined()
 
-    const filterByCat = card => (filtersAreSet ? isFilterSet(card.props.cat) : true)
+    const filterByCat = card =>
+      filtersAreSet ? isFilterSet(card.props.cat) : true
 
     return lift(collectionToRender)
       .filter(filterByCat)
@@ -55,7 +56,7 @@ export const CardList = props => {
     list: getCardCollection(),
     onEnter,
     onExit,
-    renderItem: _card => h(`div.${ styles.item }`, {}, _card),
+    renderItem: _card => h(`div.${styles.item}`, {}, _card),
     computeKey: _card => _card.props.title,
     timeout: animeSettings.duration,
     classNames: {

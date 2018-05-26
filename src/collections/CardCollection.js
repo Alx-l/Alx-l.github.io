@@ -10,7 +10,8 @@ const { git } = settings
 
 const li = text => h('li', {}, text)
 
-export const PoiStarterKit = h(CardReveal,
+export const PoiStarterKit = h(
+  CardReveal,
   {
     cat: 'sideprojects',
     iconColor: '#000',
@@ -22,11 +23,13 @@ export const PoiStarterKit = h(CardReveal,
   [
     h('p.u-underline', 'Recipe :'),
     h('ul', [
+      li([link('https://poi.js.org', 'Poi', 'u-linkSweep')]),
       li([
-        link('https://poi.js.org', 'Poi', 'u-linkSweep')
-      ]),
-      li([
-        link('https://webpack.js.org/concepts/hot-module-replacement', 'Hot Module Replacement', 'u-linkSweep')
+        link(
+          'https://webpack.js.org/concepts/hot-module-replacement',
+          'Hot Module Replacement',
+          'u-linkSweep'
+        )
       ]),
       li('TypeScript'),
       li('React / Flux architecture'),
@@ -34,19 +37,25 @@ export const PoiStarterKit = h(CardReveal,
         link('https://github.com/AlexGalays/abyssa-js', 'Abyssa', 'u-linkSweep')
       ]),
       li([
-        link('https://github.com/jamiebuilds/unstated', 'Unstated', 'u-linkSweep')
+        link(
+          'https://github.com/jamiebuilds/unstated',
+          'Unstated',
+          'u-linkSweep'
+        )
       ]),
       li('CSS Modules'),
       li('SCSS / PostCSS')
     ]),
     h(
-      'p', { className: styles.insideFooter },
+      'p',
+      { className: styles.insideFooter },
       'I made this boilerplate to help me getting started with new projects easily.'
     )
   ]
 )
 
-export const BubblyBoilerplate = h(CardReveal,
+export const BubblyBoilerplate = h(
+  CardReveal,
   {
     cat: 'sideprojects',
     iconColor: '#000',
@@ -65,13 +74,15 @@ export const BubblyBoilerplate = h(CardReveal,
       li('CSS Modules')
     ]),
     h(
-      'p', { className: styles.insideFooter },
+      'p',
+      { className: styles.insideFooter },
       'I made this boilerplate to help me getting started with new projects easily.'
     )
   ]
 )
 
-export const BubblyGrid = h(CardReveal,
+export const BubblyGrid = h(
+  CardReveal,
   {
     cat: 'sideprojects',
     iconColor: '#000',
@@ -80,7 +91,11 @@ export const BubblyGrid = h(CardReveal,
     subTitle: 'homemade grid system',
     footerText: h('span', [
       'available on ',
-      link('https://www.npmjs.com/package/postcss-bubbly-grid', 'npm', 'u-linkSweep.u-highlight')
+      link(
+        'https://www.npmjs.com/package/postcss-bubbly-grid',
+        'npm',
+        'u-linkSweep.u-highlight'
+      )
     ])
   },
   [
@@ -88,12 +103,17 @@ export const BubblyGrid = h(CardReveal,
     h('ul', [li('PostCSS')]),
     h('p', { className: styles.insideFooter }, [
       'This grid system is built with calc() and is inspired by ',
-      link('https://github.com/peterramsing/lost', 'LostGrid', 'u-highlight.u-linkSweep')
+      link(
+        'https://github.com/peterramsing/lost',
+        'LostGrid',
+        'u-highlight.u-linkSweep'
+      )
     ])
   ]
 )
 
-export const Portefolio = h(CardReveal,
+export const Portefolio = h(
+  CardReveal,
   {
     cat: 'sideprojects',
     iconColor: '#000',
@@ -106,13 +126,18 @@ export const Portefolio = h(CardReveal,
     h('p.u-underline', 'Recipe :'),
     h('ul', [
       h('li', [
-        link('https://github.com/alx-l/bubbly-boilerplate', 'Bubbly Boilerplate', 'u-linkSweep')
+        link(
+          'https://github.com/alx-l/bubbly-boilerplate',
+          'Bubbly Boilerplate',
+          'u-linkSweep'
+        )
       ])
     ])
   ]
 )
 
-export const VinylMinded = h(CardReveal,
+export const VinylMinded = h(
+  CardReveal,
   {
     cat: 'sideprojects',
     iconColor: '#000',
@@ -128,14 +153,16 @@ export const VinylMinded = h(CardReveal,
       li('jQuery'),
       li('PHP / mySQL')
     ]),
-    h('p',
+    h(
+      'p',
       { className: styles.insideFooter },
       'This site was made to obtain my certification as a web developer from IFOCOP.'
     )
   ]
 )
 
-export const PokemonYo = h(CardReveal,
+export const PokemonYo = h(
+  CardReveal,
   {
     cat: 'sideprojects',
     iconColor: '#000',
@@ -148,20 +175,19 @@ export const PokemonYo = h(CardReveal,
     h('p.u-underline', 'Recipe :'),
     h('ul', [
       li('React / Fluxx'),
-      h('li', [
-        link('http://pokeapi.co/docsv2/', 'Pokeapi V2', 'u-linkSweep')
-      ]),
+      h('li', [link('http://pokeapi.co/docsv2/', 'Pokeapi V2', 'u-linkSweep')]),
       li('ES6'),
       li('Stylus / PostCSS')
     ]),
     h('p', { className: styles.insideFooter }, [
       'Wanna see the ',
-      link(`${ git }pokemonyo`, 'repo?', 'u-linkSweep')
+      link(`${git}pokemonyo`, 'repo?', 'u-linkSweep')
     ])
   ]
 )
 
-export const NrjMobile = h(CardReveal,
+export const NrjMobile = h(
+  CardReveal,
   {
     cat: 'jobs',
     iconColor: '#000',
@@ -176,7 +202,8 @@ export const NrjMobile = h(CardReveal,
   ]
 )
 
-export const Zengularity = h(CardReveal,
+export const Zengularity = h(
+  CardReveal,
   {
     cat: 'jobs',
     iconColor: '#000',
@@ -198,7 +225,11 @@ export const Zengularity = h(CardReveal,
         link('https://github.com/AlexGalays/kaiju', 'Kaiju', 'u-linkSweep')
       ]),
       h('li', [
-        link('https://github.com/AlexGalays/spacelift', 'spacelift', 'u-linkSweep')
+        link(
+          'https://github.com/AlexGalays/spacelift',
+          'spacelift',
+          'u-linkSweep'
+        )
       ]),
       li('CSS Modules'),
       li('Less / Stylus')

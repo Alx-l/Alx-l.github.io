@@ -3,7 +3,7 @@ import { api as router } from 'abyssa'
 
 export const pxToRem = val => {
   const toRem = parseInt(val, 10) / 16
-  return `${ toRem }rem`
+  return `${toRem}rem`
 }
 
 export const pxToRemDims = val => ({
@@ -12,11 +12,15 @@ export const pxToRemDims = val => ({
 })
 
 export const link = (url, content, className) => {
-  return h(`a.${ className }`, { href: url, target: '_blank', rel: 'noreferrer' }, content)
+  return h(
+    `a.${className}`,
+    { href: url, target: '_blank', rel: 'noreferrer' },
+    content
+  )
 }
 
-export const href = (dest) => {
-  return router.link(`app.${ dest === '/' ? 'index' : dest }`)
+export const href = dest => {
+  return router.link(`app.${dest === '/' ? 'index' : dest}`)
 }
 
 export const addClass = (className, ...nodeList) => {
@@ -32,12 +36,18 @@ export const switchClasses = (elm, classesToAdd, classesToRemove) => {
   elm.classList.remove(...classesToRemove)
 }
 
-export const className = classNameString => classNameString.replace(/\.?\b(false)|(undefined)/g, '')
+export const className = classNameString =>
+  classNameString.replace(/\.?\b(false)|(undefined)/g, '')
 
-export const handleStickyClassOnScroll =
-({ node, targetNode, threshold = 0, isBottomValue, className }) => {
+export const handleStickyClassOnScroll = ({
+  node,
+  targetNode,
+  threshold = 0,
+  isBottomValue,
+  className
+}) => {
   const { top, bottom } = node.getBoundingClientRect()
-  !isBottomValue && (node.style.height = `${ targetNode.offsetHeight }px`)
+  !isBottomValue && (node.style.height = `${targetNode.offsetHeight}px`)
   return (isBottomValue ? bottom : top) <= threshold
     ? targetNode.classList.add(className)
     : targetNode.classList.remove(className)

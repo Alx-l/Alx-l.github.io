@@ -20,7 +20,8 @@ const { greyDarken } = settings
 
 const li = text => h('li', {}, text)
 
-export const clFrontEnd = h(Collapsible,
+export const clFrontEnd = h(
+  Collapsible,
   {
     titleIcon: FrontEnd,
     iconColor: greyDarken,
@@ -37,14 +38,26 @@ export const clFrontEnd = h(Collapsible,
     ]),
     h('p', [
       'To organize my stylesheets, I try to follow the ',
-      link('https://sass-guidelin.es/#architecture', 'Sass guidelines', 'u-linkSweep.u-highlight'),
+      link(
+        'https://sass-guidelin.es/#architecture',
+        'Sass guidelines',
+        'u-linkSweep.u-highlight'
+      ),
       ' folder architecture and the ',
-      link('https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md', 'SUIT CSS ', 'u-linkSweep.u-highlight'),
+      link(
+        'https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md',
+        'SUIT CSS ',
+        'u-linkSweep.u-highlight'
+      ),
       'naming conventions.'
     ]),
     h('p', [
       'On the JS side, I follow the ',
-      link('https://standardjs.com/', 'Standard JS ', 'u-linkSweep.u-highlight'),
+      link(
+        'https://standardjs.com/',
+        'Standard JS ',
+        'u-linkSweep.u-highlight'
+      ),
       'rules.'
     ]),
     h(
@@ -61,7 +74,8 @@ export const clFrontEnd = h(Collapsible,
         li('Flux-like architectures')
       ])
     ),
-    h(Collapsible,
+    h(
+      Collapsible,
       {
         titleIcon: Pencil,
         iconColor: greyDarken,
@@ -73,7 +87,8 @@ export const clFrontEnd = h(Collapsible,
   ]
 )
 
-export const clBackEnd = h(Collapsible,
+export const clBackEnd = h(
+  Collapsible,
   {
     titleIcon: BackEnd,
     iconColor: greyDarken,
@@ -84,7 +99,8 @@ export const clBackEnd = h(Collapsible,
   [h('ul', [li('Node.js / Express'), li('MongoDB')])]
 )
 
-export const clTools = h(Collapsible,
+export const clTools = h(
+  Collapsible,
   {
     titleIcon: ThumbUp,
     iconColor: greyDarken,
@@ -112,7 +128,8 @@ export const clTools = h(Collapsible,
   ]
 )
 
-export const clMusic = h(Collapsible,
+export const clMusic = h(
+  Collapsible,
   {
     titleIcon: Music,
     iconColor: greyDarken,
@@ -121,7 +138,8 @@ export const clMusic = h(Collapsible,
     popOut: true
   },
   [
-    h('p',
+    h(
+      'p',
       `Music is so many things, it can soothe you, move you, make you move, annoy you or even make you fall asleep, it's just fundamental :)`
     ),
     h(Collapsible, { iconColor: greyDarken, title: 'Rap' }, [
@@ -139,7 +157,8 @@ export const clMusic = h(Collapsible,
       ])
     ]),
     h(Collapsible, { iconColor: greyDarken, title: 'B-Side' }, [
-      h('p',
+      h(
+        'p',
         'All right, now get ready for the dummy mix, no rules, just me, my taste and no filter :'
       ),
       h('ul', [
@@ -147,7 +166,9 @@ export const clMusic = h(Collapsible,
         li('Yuna'),
         li('Frank Ocean'),
         li('SZA'),
-        li(`Blink-182 (didn't even listen to them as a teen, but man they're good)`),
+        li(
+          `Blink-182 (didn't even listen to them as a teen, but man they're good)`
+        ),
         li('A-Trak'),
         li('...')
       ])
@@ -155,7 +176,8 @@ export const clMusic = h(Collapsible,
   ]
 )
 
-export const clTVMovies = h(Collapsible,
+export const clTVMovies = h(
+  Collapsible,
   {
     titleIcon: TV,
     iconColor: greyDarken,
@@ -175,7 +197,8 @@ export const clTVMovies = h(Collapsible,
       li('Narcos'),
       li('...')
     ]),
-    h(Collapsible,
+    h(
+      Collapsible,
       {
         titleIcon: Movie,
         iconColor: greyDarken,
@@ -183,7 +206,8 @@ export const clTVMovies = h(Collapsible,
         title: 'Movies'
       },
       [
-        h('p',
+        h(
+          'p',
           `Maybe not my favorites of all time, but the ones that pop into my head as I'm writing this.`
         ),
         h('ul', [
@@ -200,7 +224,8 @@ export const clTVMovies = h(Collapsible,
   ]
 )
 
-export const clPeople = h(Collapsible,
+export const clPeople = h(
+  Collapsible,
   {
     titleIcon: People,
     iconColor: greyDarken,
@@ -212,7 +237,11 @@ export const clPeople = h(Collapsible,
     h('p', 'Some devs I follow, look up to, and/or simply like :'),
     h('ul', [
       h('li', [
-        link('https://twitter.com/mpjme', 'Mattias Petter Johansson', 'u-linkSweep')
+        link(
+          'https://twitter.com/mpjme',
+          'Mattias Petter Johansson',
+          'u-linkSweep'
+        )
       ]),
       h('li', [
         link('https://twitter.com/mariusschulz', 'Marius Schulz', 'u-linkSweep')
@@ -220,9 +249,7 @@ export const clPeople = h(Collapsible,
       h('li', [
         link('https://twitter.com/sachagreif', 'Sacha Greif', 'u-linkSweep')
       ]),
-      h('li', [
-        link('https://twitter.com/una', 'Una Kravets', 'u-linkSweep')
-      ]),
+      h('li', [link('https://twitter.com/una', 'Una Kravets', 'u-linkSweep')]),
       h('li', [
         link('https://twitter.com/philwalton', 'Philip Walton', 'u-linkSweep')
       ]),
@@ -233,7 +260,8 @@ export const clPeople = h(Collapsible,
   ]
 )
 
-export const clMisc = h(Collapsible,
+export const clMisc = h(
+  Collapsible,
   {
     titleIcon: SupaHappy,
     iconColor: greyDarken,
@@ -252,7 +280,8 @@ export const clMisc = h(Collapsible,
       h('span.u-highlight', ` some of 'em, `),
       `sometimes..., my heart's not that big 😛), I mean music, tv series, your opinion about what's happening on the other side of the world and stuff is great...`
     ]),
-    h('p',
+    h(
+      'p',
       `But what's greater is when you get to share (and disagree with) all that with someone else, otherwise, what's the point, right?`
     )
   ]

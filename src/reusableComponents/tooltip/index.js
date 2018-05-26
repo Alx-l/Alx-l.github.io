@@ -22,7 +22,8 @@ export class ToolTip extends Component {
   }
 
   render() {
-    return h(`span.${ styles.root }`,
+    return h(
+      `span.${styles.root}`,
       {
         onClick: this.handleClick,
         onMouseEnter: this.setVisible,
@@ -31,21 +32,33 @@ export class ToolTip extends Component {
         tabIndex: '0'
       },
       [
-        h(`span.${ className(`${ this.props.className }`) }`,
+        h(
+          `span.${className(`${this.props.className}`)}`,
           {
-            ref: visibleText => { this.visibleText = visibleText }
+            ref: visibleText => {
+              this.visibleText = visibleText
+            }
           },
           this.props.children
         ),
-        ReactDOM.createPortal(this.renderToolTips(), document.querySelector('body'))
+        ReactDOM.createPortal(
+          this.renderToolTips(),
+          document.querySelector('body')
+        )
       ]
     )
   }
 
   renderToolTips() {
-    const { onEnter, onExit, state: { visible }, props } = this
+    const {
+      onEnter,
+      onExit,
+      state: { visible },
+      props
+    } = this
 
-    return h(Animate,
+    return h(
+      Animate,
       {
         trigger: visible,
         onEnter,
@@ -58,7 +71,7 @@ export class ToolTip extends Component {
     )
   }
 
-  onEnter = (el) => {
+  onEnter = el => {
     const { scrollWidth: hiddenElWidth, scrollHeight: hiddenElHeight } = el
     const {
       width: visibleTextWidth,
@@ -98,32 +111,35 @@ export class ToolTip extends Component {
     })
 
     anime({
-      begin: () => { this.lastScrollYPos = window.pageYOffset },
+      begin: () => {
+        this.lastScrollYPos = window.pageYOffset
+      },
       targets: el,
       scale: {
         ...this.animeSettings,
         easing: [0.175, 0.885, 0.32, 1.275],
         value: 1
       },
-      run: (anim) => {
+      run: anim => {
         !this.state.visible && this.pauseAnimation(anim)
       },
       complete: () => this.handleScroll()
     })
   }
 
-  onExit = (el) => {
+  onExit = el => {
     anime({
       targets: el,
       scale: { ...this.animeSettings, easing: 'easeInOutQuad', value: 0 },
-      run: (anim) => {
+      run: anim => {
         this.state.visible && this.pauseAnimation(anim)
       },
-      complete: () => window.removeEventListener('scroll', this.debouncedUnsetVisible)
+      complete: () =>
+        window.removeEventListener('scroll', this.debouncedUnsetVisible)
     })
   }
 
-  pauseAnimation = (anim) => anim.pause()
+  pauseAnimation = anim => anim.pause()
 
   setVisible = () => this.setState({ visible: true })
 
@@ -140,43 +156,55 @@ export class ToolTip extends Component {
   }
 
   handleScroll = () => {
-    window.addEventListener('scroll', this.debouncedUnsetVisible, { passive: true })
+    window.addEventListener('scroll', this.debouncedUnsetVisible, {
+      passive: true
+    })
   }
 
-  computeMarginLeft = (args) => {
+  computeMarginLeft = args => {
     const {
-      hiddenElWidth, visibleTextWidth,
-      visibleTextLeft, distanceFromRight
+      hiddenElWidth,
+      visibleTextWidth,
+      visibleTextLeft,
+      distanceFromRight
     } = args
     return (hiddenElWidth - visibleTextWidth) / 2 > visibleTextLeft ||
       hiddenElWidth > distanceFromRight
       ? '0px'
-      : `${ -(hiddenElWidth - visibleTextWidth) / 2 }px`
+      : `${-(hiddenElWidth - visibleTextWidth) / 2}px`
   }
 
-  computeTop = (args) => {
+  computeTop = args => {
     const {
-      distanceFromTop, visibleTextTop,
-      visibleTextHeight, hiddenElHeight
+      distanceFromTop,
+      visibleTextTop,
+      visibleTextHeight,
+      hiddenElHeight
     } = args
     return distanceFromTop > 0
-      ? `${ visibleTextTop - hiddenElHeight }px`
-      : `${ visibleTextTop + visibleTextHeight }px`
+      ? `${visibleTextTop - hiddenElHeight}px`
+      : `${visibleTextTop + visibleTextHeight}px`
   }
 
-  computeLeft = (args) => {
+  computeLeft = args => {
     const {
-      hiddenElWidth, distanceFromRight,
-      visibleTextRight, visibleTextLeft
+      hiddenElWidth,
+      distanceFromRight,
+      visibleTextRight,
+      visibleTextLeft
     } = args
     return hiddenElWidth > distanceFromRight
-      ? `${ visibleTextRight - hiddenElWidth }px`
-      : `${ visibleTextLeft }px`
+      ? `${visibleTextRight - hiddenElWidth}px`
+      : `${visibleTextLeft}px`
   }
 
-  computeTransformOrigin = (args) => {
-    const { distanceFromTop, distanceFromRight,
-      hiddenElWidth, visibleTextLeft, visibleTextWidth
+  computeTransformOrigin = args => {
+    const {
+      distanceFromTop,
+      distanceFromRight,
+      hiddenElWidth,
+      visibleTextLeft,
+      visibleTextWidth
     } = args
     if (distanceFromTop > 0) {
       return hiddenElWidth > distanceFromRight

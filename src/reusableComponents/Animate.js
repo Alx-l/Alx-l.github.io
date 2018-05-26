@@ -22,7 +22,8 @@ export const Animate = props => {
     customStyle
   } = props
 
-  return h(Transition,
+  return h(
+    Transition,
     {
       in: trigger,
       onEnter,

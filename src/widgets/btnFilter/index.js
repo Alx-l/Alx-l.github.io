@@ -14,7 +14,8 @@ const propTypes = {
 
 export const BtnFilter = props => {
   const { onClick, dataAttr, text, isActive } = props
-  return h(`button.${ className(`${ styles.btnFilter }.${ isActive && styles.isActive }`) }`,
+  return h(
+    `button.${className(`${styles.btnFilter}.${isActive && styles.isActive}`)}`,
     {
       onClick,
       'data-props': dataAttr,

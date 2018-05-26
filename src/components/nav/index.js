@@ -2,7 +2,12 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
 
-import { href, handleStickyClassOnScroll, className, throttle } from 'utils/misc'
+import {
+  href,
+  handleStickyClassOnScroll,
+  className,
+  throttle
+} from 'utils/misc'
 
 import { OffCanvas } from '../offCanvas'
 import { Icon } from 'reusableComponents/icon'
@@ -59,28 +64,48 @@ export class Nav extends Component {
     const { backgroundColor, heading, subHeading, route } = this.props
     const { showOffCanvas } = this.state
 
-    return h(`nav.${ styles.root }`,
+    return h(
+      `nav.${styles.root}`,
       {
         style: { backgroundColor },
-        ref: root => { this.root = root }
+        ref: root => {
+          this.root = root
+        }
       },
       [
-        h(`div.${ styles.avatar }`, {},
+        h(
+          `div.${styles.avatar}`,
+          {},
           h('img', { src: 'images/avatarpic.jpg', alt: 'avatar pic' })
         ),
-        h(`h1.${ styles.heading }`, heading),
-        h(`div.${ styles.subHeading }`, subHeading),
-        h(`div.${ styles.listContainer }`,
-          { ref: listContainer => { this.listContainer = listContainer } },
+        h(`h1.${styles.heading}`, heading),
+        h(`div.${styles.subHeading}`, subHeading),
+        h(
+          `div.${styles.listContainer}`,
+          {
+            ref: listContainer => {
+              this.listContainer = listContainer
+            }
+          },
           [
-            h(`div.${ styles.list }`,
-              { ref: list => { this.list = list } },
+            h(
+              `div.${styles.list}`,
+              {
+                ref: list => {
+                  this.list = list
+                }
+              },
               h('ul', this.renderNavItems())
             )
           ]
         ),
         this.renderMenuIcon(),
-        h(OffCanvas, { route, open: showOffCanvas, items: links, onClose: this.hideOffCanvas })
+        h(OffCanvas, {
+          route,
+          open: showOffCanvas,
+          items: links,
+          onClose: this.hideOffCanvas
+        })
       ]
     )
   }
@@ -91,9 +116,13 @@ export class Nav extends Component {
     return links.map(link => {
       const { dest, text, isIndex } = link
       const isActive = route === dest || (route === 'index' && isIndex)
-      return h(`li.${ className(`${ isActive && styles.isActive }`) }`, {},
-        h(`a.${ styles.link }`,
-          { 'data-nav': 'ignore',
+      return h(
+        `li.${className(`${isActive && styles.isActive}`)}`,
+        {},
+        h(
+          `a.${styles.link}`,
+          {
+            'data-nav': 'ignore',
             href: href(dest)
           },
           text
@@ -102,21 +131,41 @@ export class Nav extends Component {
     })
   }
 
-  renderMenuIcon = () => h(`div.${ styles.iconContainer }`,
-    { ref: iconContainer => { this.iconContainer = iconContainer } },
-    [
-      h(`div.${ styles.icon }`,
-        { onClick: this.showOffCanvas, ref: icon => { this.icon = icon } },
-        h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
-      )
-    ]
-  )
+  renderMenuIcon = () =>
+    h(
+      `div.${styles.iconContainer}`,
+      {
+        ref: iconContainer => {
+          this.iconContainer = iconContainer
+        }
+      },
+      [
+        h(
+          `div.${styles.icon}`,
+          {
+            onClick: this.showOffCanvas,
+            ref: icon => {
+              this.icon = icon
+            }
+          },
+          h(Icon, { svg: Hamburger, size: 40, color: '#fff' })
+        )
+      ]
+    )
 
   handleRAF = () => {
-    const { height: listContainerHeight } = this.listContainer.getBoundingClientRect()
-    const { height: iconContainerHeight } = this.iconContainer.getBoundingClientRect()
+    const {
+      height: listContainerHeight
+    } = this.listContainer.getBoundingClientRect()
+    const {
+      height: iconContainerHeight
+    } = this.iconContainer.getBoundingClientRect()
 
-    if (window.getComputedStyle(this.listContainer, null).getPropertyValue('display') !== 'none') {
+    if (
+      window
+        .getComputedStyle(this.listContainer, null)
+        .getPropertyValue('display') !== 'none'
+    ) {
       // above phone breakpoint
       handleStickyClassOnScroll({
         node: this.root,
