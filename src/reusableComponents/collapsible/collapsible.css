@@ -121,13 +121,19 @@
 }
 
 .isMounting {
-  max-height: 0;
+  /**
+    * IE/EDGE HACK
+    *
+    * 1. Make sure the content is displayed
+    */
+  max-height: none; /* 1 */
   overflow-y: hidden;
 }
 
 /**
- *
- * 1. Animation duration must not exceed the timeout value set inside the view
+  * Warning
+  *
+  * 1. Animation duration must not exceed the timeout value set inside the view
  */
 
 .onEnter {
@@ -135,7 +141,7 @@
 }
 
 .onLeave {
-  animation: collapseMaxHeight 225ms ease-out-quart; /* 1 */
+  animation: collapseMaxHeight 225ms ease-out-quart forwards; /* 1 */
 }
 
 /* Keyframes
