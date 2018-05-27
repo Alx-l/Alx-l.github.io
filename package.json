@@ -67,7 +67,7 @@
     "rucksack-css": "^0.9.1",
     "space-lift": "0.6.2",
     "style-loader": "0.13.2",
-    "stylelint": "7.12.0",
+    "stylelint": "9.2.1",
     "stylelint-config-standard": "18.2.0",
     "stylelint-config-concentric-order": "3.3.1",
     "unstated": "^1.0.3",
