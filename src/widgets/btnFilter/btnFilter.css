@@ -2,19 +2,19 @@
 
 .btnFilter {
   margin-right: var(--spacer);
-  padding: var(--spacer-xs) var(--spacer-sm);
-  background: transparent;
-  color: var(--grey-darken);
   border: 1Px solid var(--accent-color);
   border-radius: 2px;
+  background: transparent;
+  padding: var(--spacer-xs) var(--spacer-sm);
+  color: var(--grey-darken);
 
   &:focus {
     color: var(--accent-color);
   }
 
   &.isActive {
+    border-color: transparent;
     background: var(--accent-color);
     color: #fff;
-    border-color: transparent;
   }
 }

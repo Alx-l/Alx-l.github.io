@@ -5,33 +5,33 @@
   flex: none;
   margin-bottom: var(--spacer);
   padding: var(--spacer-md) var(--spacer) 0;
-  color: #fff;
   text-align: center;
+  color: #fff;
 
   @apply --box-shadow;
 }
 
 .avatar {
-  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #fff;
   width: 160px;
   height: 160px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 50%;
+  overflow: hidden;
 }
 
 .heading {
   margin: var(--spacer) 0 0;
+  letter-spacing: 5px;
   color: #fff;
   font-size: var(--text-xl);
-  letter-spacing: 5px;
 }
 
 .subHeading {
   display: inline-block;
-  padding: var(--spacer-xs) var(--spacer-sm);
-  background: var(--accent-color);
   border-radius: 2px;
+  background: var(--accent-color);
+  padding: var(--spacer-xs) var(--spacer-sm);
   font-family: var(--headings-font-family);
   font-style: italic;
 }
@@ -47,9 +47,12 @@
 }
 
 .list {
+  position: relative;
+  text-transform: uppercase;
+
   &.isFixed {
-    z-index: 9;
     position: fixed 0 0 null 0;
+    z-index: 9;
     padding: 0 var(--spacer);
   }
 
@@ -59,23 +62,25 @@
     @apply --box-shadow;
   }
 
-  position: relative;
-  text-transform: uppercase;
-
   &:global {
     animation: slideUp 0.7s ease-in-out-quad;
   }
 
   & ul {
-    box: horizontal-left wrap;
-    max-width: 1280px;
     margin: 0 auto;
+    max-width: 1280px;
+    box: horizontal-left wrap;
   }
 
   & li {
     box: horizontal-middle center wrap;
     flex: 0 1 auto;
     transition: background-color 0.3s ease-in-out;
+
+    &:hover,
+    &.isActive {
+      background: color(var(--primary-color) shade(10%));
+    }
 
     @media (--above-mobile) {
       width: 50%;
@@ -84,18 +89,13 @@
     @media (--above-tablet) {
       width: 25%;
     }
-
-    &:hover,
-    &.isActive {
-      background: color(var(--primary-color) shade(10%));
-    }
   }
 }
 
 .link {
   display: block;
-  width: 100%;
   padding: var(--spacer-md) var(--spacer-md);
+  width: 100%;
   color: #fff;
   font-size: responsive 20px 25px;
   font-weight: 300;
@@ -114,14 +114,14 @@
 
 .icon {
   position: relative;
-  text-align: left;
   cursor: pointer;
+  text-align: left;
 
   &.isFixed {
-    z-index: 5;
     position: fixed 0 0 null 0;
-    padding: 0 var(--spacer);
+    z-index: 5;
     background-color: inherit;
+    padding: 0 var(--spacer);
   }
 
   &.hasBoxshadow {
@@ -129,7 +129,7 @@
   }
 
   & > div {
-    vertical-align: middle;
     animation: slideLeft 0.35s ease-out-back;
+    vertical-align: middle;
   }
 }

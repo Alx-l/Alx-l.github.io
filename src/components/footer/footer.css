@@ -3,14 +3,14 @@
 .root {
   flex: none;
   margin-top: var(--spacer-lg);
-  color: #fff;
   text-align: center;
+  color: #fff;
 }
 
 .body {
   padding: var(--spacer-lg) 0;
-  font-size: var(--text-md);
   letter-spacing: 2px;
+  font-size: var(--text-md);
 
   &:hover {
     & .heart {
@@ -31,8 +31,8 @@
 }
 
 .overlay {
-  padding: var(--spacer-sm) var(--spacer-lg);
   background: color(var(--primary-color) shade(20%));
+  padding: var(--spacer-sm) var(--spacer-lg);
 }
 
 /* Icons

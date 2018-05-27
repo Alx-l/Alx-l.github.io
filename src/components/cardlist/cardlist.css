@@ -6,8 +6,8 @@
 
 .item {
   flex: 0 1 auto;
-  width: 100%;
   margin-bottom: var(--spacer-xl);
+  width: 100%;
 
   @media (--above-tablet) {
     width: calc(50% - (var(--spacer-xl) / 2));

@@ -2,8 +2,8 @@
 
 .root {
   position: relative;
-  max-width: 700px;
   margin: var(--spacer-sm) 0 0 var(--spacer-sm);
+  max-width: 700px;
   font-size: var(--text-lg);
 }
 
@@ -13,10 +13,10 @@
 
     &::after {
       display: block;
-      content: "";
       position: absolute 0 null 0 100%;
-      width: 72px;
       background: svg-load("images/arrow.svg") 10px center/contain no-repeat;
+      width: 72px;
+      content: "";
 
       &:global {
         animation: landing 1.4s ease-out-back 0.7s both;
