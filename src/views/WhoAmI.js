@@ -15,7 +15,7 @@ export const WhoAmI = () => {
         'Let me introduce myself, I am ',
         h('span.u-highlight', 'Alex'),
         ', a ',
-        h('span.u-highlight', 'front-end web dev')
+        h('span.u-highlight', 'front-end web dev.')
       ]),
       h('p', [
         'I wanted to do something that allowed me to let my ',

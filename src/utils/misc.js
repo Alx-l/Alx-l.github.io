@@ -11,10 +11,10 @@ export const pxToRemDims = val => ({
   height: pxToRem(val)
 })
 
-export const link = (url, content, className) => {
+export const link = (url, content, className, title) => {
   return h(
     `a.${className}`,
-    { href: url, target: '_blank', rel: 'noreferrer' },
+    { href: url, target: '_blank', rel: 'noreferrer', title },
     content
   )
 }

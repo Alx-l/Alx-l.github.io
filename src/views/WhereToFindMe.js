@@ -46,7 +46,8 @@ export const WhereToFindMe = () => {
             size: 35,
             className: 'u-block'
           }),
-          'btn-icon'
+          'btn-icon',
+          'github'
         ),
         link(
           'https://codepen.io/AlxL',
@@ -56,7 +57,8 @@ export const WhereToFindMe = () => {
             size: 35,
             className: 'u-block'
           }),
-          'btn-icon'
+          'btn-icon',
+          'codepen'
         ),
         link(
           'https://stackblitz.com/@Alx-l',
@@ -66,7 +68,8 @@ export const WhereToFindMe = () => {
             size: 35,
             className: `u-block.${styles.lightning}`
           }),
-          'btn-icon'
+          'btn-icon',
+          'stackblitz'
         )
       ])
     ])
