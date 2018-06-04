@@ -40,7 +40,7 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll, false)
+    window.addEventListener('scroll', this.onScroll, { passive: true })
     window.addEventListener('resize', this.onResize)
   }
 

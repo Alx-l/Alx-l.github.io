@@ -135,7 +135,9 @@ export class ToolTip extends Component {
         this.state.visible && this.pauseAnimation(anim)
       },
       complete: () =>
-        window.removeEventListener('scroll', this.debouncedUnsetVisible)
+        window.removeEventListener('scroll', this.debouncedUnsetVisible, {
+          passive: true
+        })
     })
   }
 
