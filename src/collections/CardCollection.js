@@ -43,8 +43,9 @@ export const PoiStarterKit = h(
           'u-linkSweep'
         )
       ]),
-      li('CSS Modules'),
-      li('SCSS / PostCSS')
+      li([
+        link('https://github.com/typestyle/typestyle', 'TypeStyle', 'u-linkSweep')
+      ])
     ]),
     h(
       'p',

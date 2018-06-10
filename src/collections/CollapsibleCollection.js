@@ -112,8 +112,20 @@ export const clTools = h(
     h('ul', [
       li('iTerm2'),
       li('yarn'),
-      li('Webpack'),
-      li('CSS Modules'),
+      li([
+        link(
+          'https://poi.js.org/',
+          'Poi',
+          'u-linkSweep'
+        )
+      ]),
+      li([
+        link(
+          'https://github.com/typestyle/typestyle',
+          'TypeStyle',
+          'u-linkSweep'
+        )
+      ]),
       li('Prettier'),
       li('Homebrew 🍺'),
       li(`Git (GitKraken doesn't hurt ;)`)
