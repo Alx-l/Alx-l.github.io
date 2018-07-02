@@ -1,5 +1,4 @@
-const version = 2
-const staticCacheName = `V${version}-staticFiles`
+const staticCacheName = `V${Date.now()}-staticFiles`
 
 addEventListener('install', evt => {
   skipWaiting()

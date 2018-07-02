@@ -5,6 +5,25 @@
   "description": "I'm nice and stuff",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/"
 }
 
