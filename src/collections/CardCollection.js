@@ -225,6 +225,7 @@ export const Zengularity = h(
         'React / ',
         link('https://github.com/AlexGalays/kaiju', 'Kaiju', 'u-linkSweep')
       ]),
+      li('Flux-like architectures'),
       h('li', [
         link(
           'https://github.com/AlexGalays/spacelift',

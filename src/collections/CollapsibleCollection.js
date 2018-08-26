@@ -111,7 +111,7 @@ export const clTools = h(
   [
     h('ul', [
       li('iTerm2'),
-      li('yarn'),
+      li('npm'),
       li([
         link(
           'https://poi.js.org/',
@@ -158,9 +158,9 @@ export const clMusic = h(
       h('p', 'Of course this is not an exhaustive list :'),
       h('ul', [
         li('Kendrick Lamar'),
-        li(`ScHoolboy Q`),
-        li('Evidence'),
         li('Young Thug'),
+        li('Evidence'),
+        li(`Big Sean`),
         li('Drake'),
         li(`ASAP Mob (not all of 'em...)`),
         li(
