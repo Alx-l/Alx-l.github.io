@@ -3,8 +3,9 @@ import h from 'react-hyperscript'
 import { Collapsible } from 'reusableComponents/collapsible'
 import {
   BackEnd,
-  Code,
+  CSS,
   FrontEnd,
+  JS,
   Movie,
   Music,
   Pencil,
@@ -13,7 +14,7 @@ import {
   ThumbUp,
   TV
 } from 'svg'
-import { link } from 'utils//misc'
+import { link } from 'utils/misc'
 import { settings } from 'settings'
 
 const { greyDarken } = settings
@@ -33,37 +34,46 @@ export const clFrontEnd = h(
     h('ul', [
       li('HTML5 / CSS3'),
       li('Jade (I mean Pug 🐶...)'),
+      li([
+        'CSS in JS ',
+        link(
+          'https://github.com/typestyle/typestyle',
+          '(TypeStyle)',
+          'u-linkSweep'
+        )
+      ]),
       li('SCSS / Less / Stylus'),
       li('PostCSS')
-    ]),
-    h('p', [
-      'To organize my stylesheets, I try to follow the ',
-      link(
-        'https://sass-guidelin.es/#architecture',
-        'Sass guidelines',
-        'u-linkSweep.u-highlight'
-      ),
-      ' folder architecture and the ',
-      link(
-        'https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md',
-        'SUIT CSS ',
-        'u-linkSweep.u-highlight'
-      ),
-      'naming conventions.'
-    ]),
-    h('p', [
-      'On the JS side, I follow the ',
-      link(
-        'https://standardjs.com/',
-        'Standard JS ',
-        'u-linkSweep.u-highlight'
-      ),
-      'rules.'
     ]),
     h(
       Collapsible,
       {
-        titleIcon: Code,
+        titleIcon: CSS,
+        iconColor: greyDarken,
+        titleIconSize: 35,
+        title: 'CSS'
+      },
+      h('ul', [
+        li([
+          link(
+            'https://sass-guidelin.es/#the-7-1-pattern',
+            '7-1 pattern folder architecture',
+            'u-linkSweep'
+          )
+        ]),
+        li([
+          link(
+            'https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md',
+            'SUIT CSS Naming convention',
+            'u-linkSweep'
+          )
+        ])
+      ])
+    ),
+    h(
+      Collapsible,
+      {
+        titleIcon: JS,
         iconColor: greyDarken,
         titleIconSize: 35,
         title: 'JS'
@@ -71,7 +81,8 @@ export const clFrontEnd = h(
       h('ul', [
         li('TypeScript'),
         li('ES6 & beyond'),
-        li('Flux-like architectures')
+        li('Flux-like architectures'),
+        li('Functionnal programming (still dabbling though)')
       ])
     ),
     h(
@@ -116,13 +127,6 @@ export const clTools = h(
         link(
           'https://poi.js.org/',
           'Poi',
-          'u-linkSweep'
-        )
-      ]),
-      li([
-        link(
-          'https://github.com/typestyle/typestyle',
-          'TypeStyle',
           'u-linkSweep'
         )
       ]),
