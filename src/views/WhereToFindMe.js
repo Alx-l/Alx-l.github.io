@@ -4,7 +4,7 @@ import { TextBlock } from 'layouts/textBlock'
 import { IconHeader } from 'reusableComponents/iconHeader'
 import { ToolTip } from 'reusableComponents/tooltip'
 import { Icon } from 'reusableComponents/icon'
-import { PersonPin, Github, Codepen, Lightning } from 'svg'
+import { PersonPin, Github, Codepen, Cube } from 'svg'
 import { link } from 'utils/misc'
 import { settings } from 'settings'
 
@@ -50,6 +50,17 @@ export const WhereToFindMe = () => {
           'github'
         ),
         link(
+          'https://codesandbox.io/u/Alx-l/sandboxes',
+          h(Icon, {
+            svg: Cube,
+            color: '#fff',
+            size: 35,
+            className: 'u-block'
+          }),
+          'btn-icon',
+          'codesandbox'
+        ),
+        link(
           'https://codepen.io/AlxL',
           h(Icon, {
             svg: Codepen,
@@ -59,17 +70,6 @@ export const WhereToFindMe = () => {
           }),
           'btn-icon',
           'codepen'
-        ),
-        link(
-          'https://stackblitz.com/@Alx-l',
-          h(Icon, {
-            svg: Lightning,
-            color: '#fff',
-            size: 35,
-            className: `u-block.${styles.lightning}`
-          }),
-          'btn-icon',
-          'stackblitz'
         )
       ])
     ])
