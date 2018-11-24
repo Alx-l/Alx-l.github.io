@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import h from 'react-hyperscript'
+import anime from 'animejs'
 
 import { Icon } from 'reusableComponents/icon'
 import { Animate } from 'reusableComponents/Animate'
@@ -17,6 +18,9 @@ const propTypes = {
   titleIcon: PropTypes.func,
   titleIconSize: PropTypes.number
 }
+
+const animeSettings = { duration: 225, easing: 'easeOutQuart' }
+const hrOffsetValue = '-120%'
 
 export class Collapsible extends Component {
   state = { open: false }
@@ -82,37 +86,53 @@ export class Collapsible extends Component {
           h(`hr.${styles.hr}`, {
             ref: hr => {
               this.hr = hr
-            }
+            },
+            style: { transform: `translateX(${ hrOffsetValue })` }
           })
         ]
       ),
       h(
         Animate,
-        { trigger: open, onEnter, onExit, timeout: 225 },
+        { trigger: open, onEnter, onExit, timeout: animeSettings.duration, className: styles.onEnter },
         h('div', { className: styles.body }, children)
       )
     ])
   }
 
-  handleHrAnimation = isOpen => {
-    if (isOpen) {
-      switchClasses(this.hr, [styles.slideIn], [styles.slideOut])
-    }
+  animateHr = isOpening => {
+    const { hr } = this
+
+    isOpening
+      ? anime({ targets: hr, translateX: { ...animeSettings, value: '0%' } })
+      : anime({
+        targets: hr,
+        translateX: { ...animeSettings, value: `${ hrOffsetValue }` }
+      })
   }
 
   onEnter = el => {
-    switchClasses(el, [styles.isMounting, styles.onEnter], [styles.onLeave])
-    el.addEventListener(
-      'animationend',
-      () => this.handleHrAnimation(this.state.open),
-      { once: true }
-    )
+    anime({
+      targets: el,
+      scaleY: { ...animeSettings, value: [0, 1] },
+      opacity: { ...animeSettings, value: [0, 1] },
+      run: (anim) =>
+        !this.state.open && this.pauseAnimation(anim),
+      complete: () => this.animateHr(true)
+    })
   }
 
   onExit = el => {
-    switchClasses(el, [styles.onLeave], [styles.onEnter])
-    switchClasses(this.hr, [styles.slideOut], [styles.slideIn])
+    anime({
+      begin: () => this.animateHr(false),
+      run: (anim) =>
+        this.state.open && this.pauseAnimation(anim),
+      targets: el,
+      scaleY: { ...animeSettings, value: [1, 0] },
+      opacity: { ...animeSettings, value: [1, 0] }
+    })
   }
+
+  pauseAnimation = (anim) => anim.pause()
 
   handleClick = () => this.setState({ open: !this.state.open })
 
