@@ -215,7 +215,7 @@ export const Zengularity = h(
   },
   [
     h('p.u-underline', 'Tasks :'),
-    h('ul', [li(`Build UI's for SPAs`)]),
+    h('ul', [li(`Build UI's for single page apps`)]),
     h('p.u-underline', 'Tools :'),
     h('ul', [li(`Bitbucket / Github`), li(`Jira`), li(`Taiga`)]),
     h('p.u-underline', 'Stack / libs :'),

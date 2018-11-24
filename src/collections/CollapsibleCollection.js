@@ -35,7 +35,7 @@ export const clFrontEnd = h(
       li('HTML5 / CSS3'),
       li('Jade (I mean Pug 🐶...)'),
       li([
-        'CSS in JS ',
+        'JSS ',
         link(
           'https://github.com/typestyle/typestyle',
           '(TypeStyle)',
@@ -82,7 +82,7 @@ export const clFrontEnd = h(
         li('TypeScript'),
         li('ES6 & beyond'),
         li('Flux-like architectures'),
-        li('Functionnal programming (still dabbling though)')
+        li('Functional programming (still dabbling though)')
       ])
     ),
     h(
@@ -132,7 +132,7 @@ export const clTools = h(
       ]),
       li('Prettier'),
       li('Homebrew 🍺'),
-      li(`Git (GitKraken doesn't hurt ;)`)
+      li(`Git (Sublime Merge doesn't hurt ;)`)
     ]),
     h('p', [
       'And if you must know, I work on a ',
@@ -164,11 +164,11 @@ export const clMusic = h(
         li('Kendrick Lamar'),
         li('Young Thug'),
         li('Evidence'),
-        li(`Big Sean`),
+        li(`Sean Price`),
         li('Drake'),
         li(`ASAP Mob (not all of 'em...)`),
         li(
-          `Outkast, Cam'ron, The Notorious B.I.G, The Wu-Tang Clan...(don't forget what time it is ;)`
+          `Cam'ron, The Notorious B.I.G The Wu-Tang Clan...(don't forget what time it is ;)`
         )
       ])
     ]),
@@ -179,11 +179,11 @@ export const clMusic = h(
       ),
       h('ul', [
         li('Jhené Aiko'),
-        li('Yuna'),
+        li('TroyBoi'),
         li('Frank Ocean'),
         li('SZA'),
         li(
-          `Blink-182 (didn't even listen to them as a teen, but man they're good)`
+          `Blink-182`
         ),
         li('A-Trak'),
         li('...')
@@ -208,7 +208,7 @@ export const clTVMovies = h(
       li('Black Mirror'),
       li('Daredevil'),
       li('Atlanta'),
-      li('Dark'),
+      li('The Man in the High Castle'),
       li('GoT'),
       li('Narcos'),
       li('...')
