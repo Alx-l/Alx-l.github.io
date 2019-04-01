@@ -2,6 +2,7 @@ import h from 'react-hyperscript'
 
 import { TextBlock } from 'layouts/textBlock'
 import { IconHeader } from 'reusableComponents/iconHeader'
+import { ToolTip } from 'reusableComponents/tooltip'
 import { Face } from 'svg'
 import { settings } from 'settings'
 
@@ -29,7 +30,11 @@ export const WhoAmI = () => {
       ]),
       h('p', [
         'So, hello world, and welcome to my world ',
-        h('span.u-highlight', 'O_O')
+        h(
+          ToolTip,
+          { hiddenText: '🌎_🌎', className: 'u-highlight.u-link' },
+          'O_O.'
+        )
       ])
     ])
   ])

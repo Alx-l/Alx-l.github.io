@@ -37,8 +37,8 @@ export const clFrontEnd = h(
       li([
         'JSS ',
         link(
-          'https://github.com/typestyle/typestyle',
-          '(TypeStyle)',
+          'https://emotion.sh/docs/introduction',
+          '(Emotion)',
           'u-linkSweep'
         )
       ]),
@@ -131,6 +131,8 @@ export const clTools = h(
         )
       ]),
       li('Prettier'),
+      li('ESLint'),
+      li('Postman'),
       li('Homebrew 🍺'),
       li(`Git (Sublime Merge doesn't hurt ;)`)
     ]),
@@ -162,11 +164,11 @@ export const clMusic = h(
       h('p', 'Of course this is not an exhaustive list :'),
       h('ul', [
         li('Kendrick Lamar'),
-        li('Young Thug'),
+        li('ASAP Rocky'),
+        li(`ASAP Ferg`),
         li('Evidence'),
         li(`Sean Price`),
         li('Drake'),
-        li(`ASAP Mob (not all of 'em...)`),
         li(
           `Cam'ron, The Notorious B.I.G The Wu-Tang Clan...(don't forget what time it is ;)`
         )

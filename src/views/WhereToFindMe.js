@@ -2,7 +2,6 @@ import h from 'react-hyperscript'
 
 import { TextBlock } from 'layouts/textBlock'
 import { IconHeader } from 'reusableComponents/iconHeader'
-import { ToolTip } from 'reusableComponents/tooltip'
 import { Icon } from 'reusableComponents/icon'
 import { PersonPin, Github, Codepen, Cube } from 'svg'
 import { link } from 'utils/misc'
@@ -23,14 +22,7 @@ export const WhereToFindMe = () => {
       text: 'Finding me'
     }),
     h(TextBlock, { background: true }, [
-      h('p', [
-        'You can find me wandering in the streets of ',
-        h(
-          ToolTip,
-          { hiddenText: 'FR, not TX :)', className: 'u-highlight.u-link' },
-          'Paris.'
-        )
-      ]),
+      h('p', ['You can find me wandering in the streets of  Paris.']),
       h('p', [
         'But since that could take a while before you randomly bump into me, feel free to send me an email :',
         h('br'),

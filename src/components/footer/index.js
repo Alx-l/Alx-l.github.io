@@ -49,7 +49,7 @@ export const Footer = props =>
         ])
       ])
     ]),
-    h(`div.${styles.overlay}`, {}, h('span', `© ${year} Alex L the developer`))
+    h(`div.${styles.overlay}`, {}, h('span', `© ${year} Alex L`))
   ])
 
 Footer.propTypes = propTypes

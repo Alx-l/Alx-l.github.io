@@ -15,7 +15,7 @@ export const PoiStarterKit = h(
   {
     cat: 'sideprojects',
     iconColor: '#000',
-    href: git + 'poi-starter-kit',
+    href: git + 'poi-starter-kit-tsx',
     title: 'Poi Starter Kit',
     subTitle: 'homemade starter kit',
     footerText: `there's more inside`
@@ -34,7 +34,7 @@ export const PoiStarterKit = h(
       li('TypeScript'),
       li('React / Flux architecture'),
       li([
-        link('https://github.com/AlexGalays/abyssa-js', 'Abyssa', 'u-linkSweep')
+        link('https://reach.tech/router', 'Reach Router', 'u-linkSweep')
       ]),
       li([
         link(
@@ -44,7 +44,7 @@ export const PoiStarterKit = h(
         )
       ]),
       li([
-        link('https://github.com/typestyle/typestyle', 'TypeStyle', 'u-linkSweep')
+        link('https://emotion.sh/docs/introduction', 'Emotion', 'u-linkSweep')
       ])
     ]),
     h(
